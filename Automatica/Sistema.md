@@ -38,3 +38,7 @@ Un sistema dinamico ha un'uscita che dipende dallo stato del sistema. Per determ
 $$
 g(y,y^{(1)},...,y^{(n)},u,u^{(1)},...,u^{(m)})=0
 $$
+## Sistemi di controllo
+
+Il sistema di controllo è l'insieme delle strategie e tecnologie necessarie affinché il sistema controllato svolga i suoi compiti con intervento umano ridotto o nullo.
+

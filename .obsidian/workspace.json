@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "70201339442db3c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "c56b255c6e30e5d2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0b8429080be8483",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Automatica/Sistema.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f2b0e10891e8951f",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f5da868f15f6213",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7d61f343b86d615f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b29f089f8ec332ae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ef776ad6ce9ca6dd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "16f253ffe016d6dc",
+    "type": "split",
+    "children": [
+      {
+        "id": "275f20127fb5ef43",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc11a328561ec858",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Automatica/Sistema.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3657573a33eac370",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Automatica/Sistema.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5fbd13a990caef9f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "95d6ed97f6d2264f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Automatica/Sistema.md"
+              }
+            }
+          },
+          {
+            "id": "afcd812c7d546fd6",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Apri selezione rapida": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-kanban:Crea nuova bacheca": false
+    }
+  },
+  "active": "afcd812c7d546fd6",
+  "lastOpenFiles": [
+    "Automatica/Sistema.md",
+    "Automatica/Introduzione.md",
+    "Senza nome",
+    "Excalidraw/Drawing 2024-09-21 01.10.47.excalidraw.md",
+    "Excalidraw",
+    "Requisiti iniziali/Equazioni differenziali.md",
+    "Requisiti iniziali",
+    "Sommario.md",
+    "Automatica",
+    "Sistemi e Controllo"
+  ]
+}
