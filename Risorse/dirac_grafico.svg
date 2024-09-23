@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1300"
+   height="975"
+   viewBox="0 0 1300 975"
+   id="svg1623"
+   version="1.1"
+   sodipodi:docname="Dirac_distribution_PDF.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview28"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.69"
+     inkscape:cx="650.72464"
+     inkscape:cy="487.68116"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1623" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <desc
+     id="desc1">Originally Produced by GNUPLOT 4.0 patchlevel 0</desc>
+  <defs
+     id="defs1627">
+    <path
+       id="atip"
+       stroke-width="1.0"
+       stroke-linejoin="round"
+       fill="currentColor"
+       d="M 0,-1 l12,30 a21,21 0,0,0 -24,0 l12,-30 z" />
+  </defs>
+  <rect
+     style="fill:#ffffff;stroke-width:5.66929;stroke-linecap:round;stroke-linejoin:round"
+     id="rect28"
+     width="1300"
+     height="975"
+     x="0"
+     y="0" />
+  <g
+     style="fill:none;stroke:black;stroke-width:3"
+     id="g28">
+    <path
+       d="M125,867 h27 M1223,867 h-27 "
+       id="path1" />
+    <path
+       d="M125,838 h13 M1223,838 h-13 M125,809 h13 M1223,809 h-13 M125,779 h13    M1223,779 h-13 M125,750 h27 M1223,750 h-27 "
+       id="path2" />
+    <path
+       d="M125,721 h13 M1223,721 h-13 M125,692 h13 M1223,692 h-13 M125,663 h13    M1223,663 h-13 M125,634 h27 M1223,634 h-27 "
+       id="path3" />
+    <path
+       d="M125,604 h13 M1223,604 h-13 M125,575 h13 M1223,575 h-13 M125,546 h13    M1223,546 h-13 M125,517 h27 M1223,517 h-27 "
+       id="path4" />
+    <path
+       d="M125,488 h13 M1223,488 h-13 M125,459 h13 M1223,459 h-13 M125,429 h13    M1223,429 h-13 M125,400 h27 M1223,400 h-27 "
+       id="path5" />
+    <path
+       d="M125,371 h13 M1223,371 h-13 M125,342 h13 M1223,342 h-13 M125,313 h13    M1223,313 h-13 M125,283 h27 M1223,283 h-27 "
+       id="path6" />
+    <path
+       d="M125,254 h13 M1223,254 h-13 M125,225 h13 M1223,225 h-13 M125,196 h13    M1223,196 h-13 M125,167 h27 M1223,167 h-27 "
+       id="path7" />
+    <path
+       d="M125,138 h13 M1223,138 h-13 M125,108 h13 M1223,108 h-13 M125,79  h13    M1223,79  h-13 M125,50  h27 M1223,50  h-27 "
+       id="path8" />
+    <path
+       d="M125,867 V840 M125,50 V77 "
+       id="path9" />
+    <path
+       d="M152,867 V854 M152,50 V63 M180,867 V854 M180,50 V63 M207,867 V854     M207,50 V63 M235,867 V854 M235,50 V63 M262,867 V854 M262,50 V63     M290,867 V854 M290,50 V63 M317,867 V854 M317,50 V63 M345,867 V854    M345,50 V63 M372,867 V854 M372,50 V63 M400,867 V840 M400,50 V77 "
+       id="path10" />
+    <path
+       d="M427,867 V854 M427,50 V63 M454,867 V854 M454,50 V63 M482,867 V854     M482,50 V63 M509,867 V854 M509,50 V63 M537,867 V854 M537,50 V63     M564,867 V854 M564,50 V63 M592,867 V854 M592,50 V63 M619,867 V854    M619,50 V63 M647,867 V854 M647,50 V63 M674,867 V840 M674,50 V77 "
+       id="path11" />
+    <path
+       d="M701,867 V854 M701,50 V63 M729,867 V854 M729,50 V63 M756,867 V854     M756,50 V63 M784,867 V854 M784,50 V63 M811,867 V854 M811,50 V63     M839,867 V854 M839,50 V63 M866,867 V854 M866,50 V63 M894,867 V854    M894,50 V63 M921,867 V854 M921,50 V63 M949,867 V840 M949,50 V77 "
+       id="path12" />
+    <path
+       d="M976,867 V854 M976,50 V63 M1003,867 V854 M1003,50 V63 M1031,867 V854    M1031,50 V63 M1058,867 V854 M1058,50 V63 M1086,867 V854 M1086,50 V63    M1113,867 V854 M1113,50 V63 M1141,867 V854 M1141,50 V63 M1168,867 V854    M1168,50 V63 M1196,867 V854 M1196,50 V63 M1223,867 V840 M1223,50 V77 "
+       id="path13" />
+    <g
+       style="stroke:none;fill:black;font-family:Times;font-size:36.00"
+       id="g26">
+      <g
+         transform="translate(100,0)"
+         text-anchor="end"
+         id="g20">
+        <text
+           y="880"
+           id="text13">-0.2</text>
+        <text
+           y="763"
+           id="text14">0.0</text>
+        <text
+           y="647"
+           id="text15">0.2</text>
+        <text
+           y="530"
+           id="text16">0.4</text>
+        <text
+           y="413"
+           id="text17">0.6</text>
+        <text
+           y="296"
+           id="text18">0.8</text>
+        <text
+           y="180"
+           id="text19">1.0</text>
+        <text
+           y="63"
+           id="text20">1.2</text>
+      </g>
+      <g
+         transform="translate(0,934)"
+         text-anchor="middle"
+         id="g25">
+        <text
+           x="125"
+           id="text21">-2</text>
+        <text
+           x="400"
+           id="text22">-1</text>
+        <text
+           x="674"
+           id="text23">0</text>
+        <text
+           x="949"
+           id="text24">1</text>
+        <text
+           x="1223"
+           id="text25">2</text>
+      </g>
+    </g>
+    <g
+       color="#0000ff"
+       stroke="currentColor"
+       id="g27">
+      <path
+         d="M125,750 L1223,750 M674,750 L674,167"
+         id="path26" />
+      <use
+         xlink:href="#atip"
+         x="674"
+         y="167"
+         id="use26" />
+      <circle
+         fill="#fff"
+         stroke-width="1.0"
+         cx="674"
+         cy="750"
+         r="13.5"
+         id="circle26" />
+    </g>
+    <path
+       stroke="black"
+       d="M125,867 L1223,867 L1223,50 L125,50 L125,867 "
+       id="path27" />
+  </g>
+</svg>

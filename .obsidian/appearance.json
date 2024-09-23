@@ -1,6 +1,9 @@
 {
   "cssTheme": "Things",
   "enabledCssSnippets": [
-    "mermaid"
+    "mermaid",
+    "hr",
+    "monospace_editor",
+    "image-flags"
   ]
 }
