@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9afeb417dc98165c",
+        "id": "0eef660a7e58c848",
         "type": "tabs",
         "children": [
           {
-            "id": "a4ac9b3ab2955965",
+            "id": "88d4d7007cda48ae",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Richiami di Matematica/Delta di Dirac.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Richiami di Matematica/Delta di Dirac.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Richiami di Matematica/Delta di Dirac.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Richiami di Matematica/Delta di Dirac.md"
-              }
+              "state": {}
             }
           },
           {
@@ -158,23 +149,28 @@
       "obsidian-kanban:Crea nuova bacheca": false
     }
   },
-  "active": "a4ac9b3ab2955965",
+  "active": "88d4d7007cda48ae",
   "lastOpenFiles": [
-    "Richiami di Matematica/Equazioni differenziali.md",
-    "Richiami di Matematica/Seno Cardinale.md",
+    "Telecomunicazioni/Segnale.md",
+    "Automatica/Sistema.md",
+    "Richiami di Matematica/Funzione Periodica.md",
+    "Risorse/periodo_seno.png",
     "Richiami di Matematica/Delta di Dirac.md",
+    "Sommario.md",
+    "Senza nome",
+    "Elettrotecnica",
+    "Richiami di Matematica/Seno Cardinale.md",
+    "Richiami di Matematica/Equazioni differenziali.md",
     "Risorse/seno-cardinale-zeri.png",
     "Risorse/dirac_ritardata.png",
     "Risorse/distribuzioni-unitarie.png",
     "Risorse/grafico_sinc.svg",
     "Risorse/dirac_grafico.svg",
-    "Sommario.md",
     "Telecomunicazioni",
     "Automatica/Sistemi di controllo.md",
     "Risorse/circuit.svg",
     "Risorse/circuit.svg",
     "Risorse/massa_molla_smorzatore.svg",
-    "Automatica/Sistema.md",
     "Automatica/Introduzione.md",
     "Automatica/Isteresi.md",
     "Risorse/controllo_serbatoio_esempio.png",

@@ -4,12 +4,14 @@ tags:
   - matematica
 ---
 La funzione Delta di Dirac (anche detto impulso unitario o matematico), è una funzione che vale 1 nell'origine e 0 altrove.
-$$\delta (t) = \Biggl\{\begin{matrix}
+$$
+\delta (t) = \Biggl\{\begin{matrix}
 \begin{align}
 1 \ & \rightarrow\ t = 0 \\
 0 \ & \rightarrow\ altrove
 \end{align}
-\end{matrix}$$
+\end{matrix}
+$$
 
 >[!info] Grafico 
 >![[dirac_grafico.svg]]
@@ -19,14 +21,16 @@ $$\delta (t) = \Biggl\{\begin{matrix}
 La Delta di Dirac può essere definita come una distribuzione.
 
 > [!summary] Distribuzione uniforme e normale
-> $$\begin{align}
+> $$
+> \begin{align}
 > \text{distribuzione normale} \quad\longrightarrow &\quad y_a(x) = \frac{1}{|a|\sqrt\pi}\ e^{\small-\dfrac{x}{a}^2} \\ \\
 > \text{distribuzione uniforme} \quad\longrightarrow &\quad y_a(x) = \Biggl\{
 > \begin{matrix}
 > \small\dfrac{1}{2a} & \rightarrow & -a < x < a \\
 > 0 & \rightarrow & altrove
 > \end{matrix}
-> \end{align}$$
+> \end{align}
+> $$
 > ![[distribuzioni-unitarie.png|center]]
 $$\text{Grafico delle distribuzioni per } a=0.5$$
 
@@ -59,7 +63,6 @@ Facendo la [[Convoluzione]] tra la Delta di Dirac tempo-ritardata $\delta(t-T)$ 
 $$\int_{-\infty}^{\infty}f(t)\cdot\delta(t-T)\ dt = f(T)$$
 ### Prodotto per uno scalare
 $$\int_{-\infty}^{\infty}a\ \delta(t)\cdot\phi(t)\ dt = a\int_{-\infty}^{\infty}\delta(t)\phi(t)dt$$
-
 ### Cambio di scala
 $$\delta(at) = \frac{1}{|a|}\delta(t)\quad \text{per}\ a \neq 0$$
 ### Convoluzione
