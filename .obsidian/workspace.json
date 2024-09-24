@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Finestra.md",
+                "file": "Teoria dei Segnali/Funzione Gradino.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Finestra.md",
+                "file": "Teoria dei Segnali/Funzione Gradino.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Finestra.md",
+                "file": "Teoria dei Segnali/Funzione Gradino.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Finestra.md"
+                "file": "Teoria dei Segnali/Funzione Gradino.md"
               }
             }
           },
@@ -160,8 +160,8 @@
   },
   "active": "88d4d7007cda48ae",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Funzione Gradino.md",
     "Teoria dei Segnali/Funzione Finestra.md",
+    "Teoria dei Segnali/Funzione Gradino.md",
     "Teoria dei Segnali/Delta di Dirac.md",
     "Richiami di Matematica/Numeri Complessi.md",
     "Richiami di Matematica/Seno Cardinale.md",

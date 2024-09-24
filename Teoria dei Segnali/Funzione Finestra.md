@@ -12,6 +12,12 @@ $$rect(t) = \Biggl\{ \begin{matrix}\begin{align}
 0 & \quad \longrightarrow \quad altrove
 \end{align}\end{matrix}$$
 Quando un altro segnale viene moltiplicato per questa finestra, il suo valore viene annullato in tutto il dominio tranne che nell'intervallo della finestra.
+
+> [!SUMMARY] Composizione di gradini
+> Si può create una finestra rettangolare dalla somma di due [[Funzione Gradino|funzioni gradino]].
+> 
+> $$rect(t) = u\left(-\frac{1}{2}\right)-u\left(\frac{1}{2}\right)$$
+
 ### Cambio di scala
 $$
 rect\left(\frac{t}{T}\right) = \Biggl\{ \begin{matrix}\begin{align}
@@ -19,7 +25,9 @@ rect\left(\frac{t}{T}\right) = \Biggl\{ \begin{matrix}\begin{align}
 0 & \quad \longrightarrow \quad altrove
 \end{align}\end{matrix}
 $$
+
 ## Finestra triangolare
+
 $$tri(t)=\Biggl\{\begin{matrix}\begin{align}
 1-|t|  & \longrightarrow -1<t<1 \\
 0 \quad & \longrightarrow altrove
