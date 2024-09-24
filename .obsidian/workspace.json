@@ -11,8 +11,13 @@
             "id": "88d4d7007cda48ae",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Teoria dei Segnali/Funzione Finestra.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Teoria dei Segnali/Funzione Finestra.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Teoria dei Segnali/Funzione Finestra.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Teoria dei Segnali/Funzione Finestra.md"
+              }
             }
           },
           {
@@ -151,34 +160,38 @@
   },
   "active": "88d4d7007cda48ae",
   "lastOpenFiles": [
-    "Telecomunicazioni/Segnale.md",
-    "Automatica/Sistema.md",
+    "Teoria dei Segnali/Funzione Gradino.md",
+    "Teoria dei Segnali/Funzione Finestra.md",
+    "Teoria dei Segnali/Delta di Dirac.md",
+    "Richiami di Matematica/Numeri Complessi.md",
+    "Richiami di Matematica/Seno Cardinale.md",
     "Richiami di Matematica/Funzione Periodica.md",
+    "Teoria dei Segnali/Segnale.md",
+    "Richiami di Matematica/Funzione Esponenziale.md",
+    "Risorse/formula_eulero.svg",
+    "Richiami di Matematica/Equazioni differenziali.md",
+    "Teoria del Controllo/Sistema.md",
     "Risorse/periodo_seno.png",
-    "Richiami di Matematica/Delta di Dirac.md",
     "Sommario.md",
     "Senza nome",
-    "Elettrotecnica",
-    "Richiami di Matematica/Seno Cardinale.md",
-    "Richiami di Matematica/Equazioni differenziali.md",
+    "Teoria dei Circuiti",
     "Risorse/seno-cardinale-zeri.png",
     "Risorse/dirac_ritardata.png",
     "Risorse/distribuzioni-unitarie.png",
     "Risorse/grafico_sinc.svg",
     "Risorse/dirac_grafico.svg",
-    "Telecomunicazioni",
-    "Automatica/Sistemi di controllo.md",
+    "Teoria dei Segnali",
+    "Teoria del Controllo/Sistemi di controllo.md",
     "Risorse/circuit.svg",
     "Risorse/circuit.svg",
     "Risorse/massa_molla_smorzatore.svg",
-    "Automatica/Introduzione.md",
-    "Automatica/Isteresi.md",
-    "Risorse/controllo_serbatoio_esempio.png",
+    "Teoria del Controllo/Introduzione.md",
+    "Teoria del Controllo/Isteresi.md",
     "Risorse",
     "Excalidraw/Drawing 2024-09-21 01.10.47.excalidraw.md",
     "Excalidraw",
     "Richiami di Matematica",
-    "Automatica",
+    "Teoria del Controllo",
     "Sistemi e Controllo"
   ]
 }

@@ -1,7 +1,6 @@
 ---
 tags:
-  - funzione
-  - matematica
+  - segnale
 ---
 La funzione Delta di Dirac (anche detto impulso unitario o matematico), è una funzione che vale 1 nell'origine e 0 altrove.
 $$

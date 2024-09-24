@@ -1,6 +1,6 @@
 ---
 tags:
-  - fda
+  - matematica
 ---
 La dinamica di un [[Sistema]] descrive le sue mutazioni nel tempo. Per ottenere una situazione di equilibrio, tutte le derivate devono essere uguali a 0.
 
