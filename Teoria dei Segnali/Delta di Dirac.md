@@ -30,7 +30,7 @@ La Delta di Dirac può essere definita come una distribuzione.
 > \end{matrix}
 > \end{align}
 > $$
-> ![[distribuzioni-unitarie.png|center]]
+> ![[distribuzioni_unitarie.png|center]]
 $$\text{Grafico delle distribuzioni per } a=0.5$$
 
 Da qui si può vedere come, ponendo $a \rightarrow 0$, l'andamento può essere approssimato come una funzione che vale $+\infty$ nell'origine e 0 altrimenti.
@@ -45,6 +45,13 @@ $$
 A questa approssimazione si aggiunge un'altra proprietà da rispettare, ovvero che il suo integrale valga sempre 1, come le distribuzioni di partenza. 
 $$\int_{-\infty}^{\infty}{\delta(t)\ dx} = 1$$
 Da qui di ottiene la definizione della funzione Delta di Dirac, che non è una funzione nel senso tradizionale del termine.
+
+### Relazione con la funzione gradino
+
+La funzione  Delta di Dirac è la derivata della [[Segnale Gradino|funzione gradino]]. Ponendo una costante $a \in \mathbb{R}$ e una funzione a valori reali $y(t)$, si ottiene questo integrale.
+$$
+\int y(t)\ \delta(t-a)\ dt\ =\ y(a)\ u(t-a) + C
+$$
 ## Proprietà
 ### Traslazione
 $$

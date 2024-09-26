@@ -53,7 +53,7 @@ Se si ottengono autovalori complessi e coniugati dal polinomio caratteristico, a
 > Da qui si può risolvere l'equazione e ottenere i due autovalori $\lambda_1$ e $\lambda_2$
 
 > [!example]- Esempio - Curcuito RC
-> ![[Risorse/circuit.svg|500]]
+> ![[circuito_rc.svg|500]]
 > Analizzando la struttura del circuito si possono ricavare i comportamenti delle uscite.
 > $$
 > \begin{equation}

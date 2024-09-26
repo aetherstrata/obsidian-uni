@@ -17,4 +17,4 @@ $$\lim_{x\to0} \frac{\sin(x)}{x} = 1$$
 > [!warning] Zeri del seno cardinale
 > La versione normalizzata del seno cardinale, dato che inserisce $\pi$ nella funzione, avrà tutti gli zeri in corrispondenza di numeri interi.
 > 
-> ![[seno-cardinale-zeri.png]]
+> ![[seno_cardinale_zeri.png]]

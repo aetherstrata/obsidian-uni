@@ -8,15 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "88d4d7007cda48ae",
+            "id": "d30d529aba664bc7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Gradino.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "Risorse/finestra_rettangolo_scala.png"
               }
             }
           }
@@ -70,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 331.5
   },
   "right": {
     "id": "16f253ffe016d6dc",
@@ -86,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Gradino.md",
+                "file": "Risorse/finestra_rettangolo_scala.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Gradino.md",
+                "file": "Risorse/finestra_rettangolo_scala.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoria dei Segnali/Funzione Gradino.md"
+                "file": "Risorse/finestra_rettangolo_scala.png"
               }
             }
           },
@@ -158,33 +155,38 @@
       "obsidian-kanban:Crea nuova bacheca": false
     }
   },
-  "active": "88d4d7007cda48ae",
+  "active": "d30d529aba664bc7",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Funzione Finestra.md",
-    "Teoria dei Segnali/Funzione Gradino.md",
-    "Teoria dei Segnali/Delta di Dirac.md",
-    "Richiami di Matematica/Numeri Complessi.md",
-    "Richiami di Matematica/Seno Cardinale.md",
-    "Richiami di Matematica/Funzione Periodica.md",
+    "Risorse/coseno_scala.png",
     "Teoria dei Segnali/Segnale.md",
-    "Richiami di Matematica/Funzione Esponenziale.md",
-    "Risorse/formula_eulero.svg",
-    "Richiami di Matematica/Equazioni differenziali.md",
+    "Richiami di Matematica/Funzione Periodica.md",
+    "Richiami di Matematica/Numeri Complessi.md",
+    "Teoria dei Segnali/Segnale Rampa.md",
+    "Teoria dei Segnali/Segnale Gradino.md",
+    "Teoria dei Segnali/Funzione Finestra.md",
+    "Teoria dei Segnali/Segnale di Gauss.md",
+    "Risorse/finestra_rettangolo_scala.png",
+    "Teoria del Controllo/Sistemi di controllo.md",
     "Teoria del Controllo/Sistema.md",
-    "Risorse/periodo_seno.png",
+    "Risorse/finestra_ritardata.png",
+    "Teoria dei Segnali/Delta di Dirac.md",
+    "Richiami di Matematica/Funzione Segno.md",
+    "Risorse/segnale_gradino.png",
+    "Teoria dei Segnali/Segnale Esponenziale.md",
+    "Risorse/moltiplicazione_finestra.png",
+    "Risorse/ribaltamento_esponenziale.png",
+    "Risorse/funzione_segno.png",
+    "Richiami di Matematica/Seno Cardinale.md",
+    "Risorse/segnale_gauss_4.png",
+    "Risorse/segnale_gauss_1.png",
+    "Risorse/segnale_esponenziale.png",
+    "Richiami di Matematica/Funzione Esponenziale.md",
+    "Teoria dei Segnali/Trasformata di Fourier.md",
+    "Richiami di Matematica/Equazioni differenziali.md",
     "Sommario.md",
     "Senza nome",
     "Teoria dei Circuiti",
-    "Risorse/seno-cardinale-zeri.png",
-    "Risorse/dirac_ritardata.png",
-    "Risorse/distribuzioni-unitarie.png",
-    "Risorse/grafico_sinc.svg",
-    "Risorse/dirac_grafico.svg",
     "Teoria dei Segnali",
-    "Teoria del Controllo/Sistemi di controllo.md",
-    "Risorse/circuit.svg",
-    "Risorse/circuit.svg",
-    "Risorse/massa_molla_smorzatore.svg",
     "Teoria del Controllo/Introduzione.md",
     "Teoria del Controllo/Isteresi.md",
     "Risorse",
