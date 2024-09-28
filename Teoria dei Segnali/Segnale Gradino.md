@@ -21,3 +21,12 @@ $$\frac{d}{dt}\ \delta_{-1}(t) = \delta(t)$$
 
  Il suo integrale è una [[Segnale Rampa|rampa]].
 $$\int_{-\infty}^{\infty}\delta_{-1}(t)\ dt = \delta_{-2}(t)$$
+## Gradino tempo-discreto
+
+La variante tempo-discreta del segnale gradino è definita come una funzione su numeri interi che vale $1$ per tutti i numeri interi maggiori o uguali a $0$, altrimenti vale $0$.
+$$u\left[n\right] = \left\{\begin{matrix*}
+1 & \longrightarrow & n \geq 0 \\
+0 & \longrightarrow & n < 0
+\end{matrix*}\right.$$
+>[!info] Grafico
+>![[gradino_discreto.png]]

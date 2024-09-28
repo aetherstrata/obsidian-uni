@@ -1,6 +1,7 @@
 ---
 tags:
   - segnale
+  - funzione
 ---
 Il segnale esponenziale è una funzione esponenziale con esponente negativo.
 $$\begin{align}
@@ -22,3 +23,11 @@ Il segnale esponenziale è un segnale a durata praticamente limitata, in quanto 
 >[!info] Grafico
 >![[segnale_esponenziale.png]]
 
+## Esponenziale tempo-discreto
+
+La variante tempo-discreta del segnale gradino è definita come una funzione su numeri interi che vale $a^n$ per tutti i numeri interi maggiori o uguali a $0$, altrimenti vale $0$. 
+$$x[n]=a^n\cdot u[n]$$
+$u[n]$ è il [[Segnale Gradino#Gradino tempo-discreto|segnale gradino tempo-discreto]].
+
+>[!info] Grafico per $\large a = 0.6$
+>![[esponenziale_discreto.png]]

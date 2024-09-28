@@ -40,6 +40,7 @@ $$\large\lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\
 >- Se un segnale ha energia finita, la sua potenza è nulla
 >- Se un segnale ha potenza finita, la sua energia è infinita
 ## Operazioni sui segnali
+
 ### Somma
 I segnali vengono sommati tra loro per tutto il dominio.
 $$z(t) = x(t) + y(t)$$
@@ -87,19 +88,20 @@ $$z(t) = x(\alpha t)$$
 >![[coseno_scala.png]]
 
 ## Energia e potenza
-### Energia di un segnale
+### Segnali analogici
+#### Energia di un segnale
 $$\large E_x = \lim\limits_{\Delta T \to\infty} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt = \int_{-\infty}^{\infty}|x(t)|^2\ dt$$
 > [!summary] Considerazioni
 > - Può valere al minimo $0$ in quanto l'integrando è sempre positivo
 > - Può valere $0$ solo quando il segnale è nullo
 > - Non esistono nella realtà segnali a energia infinita
-### Potenza di un segnale
+#### Potenza di un segnale
 $$\large P_x = \lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt$$
 >[!info] Potenza di un segnale [[Funzione Periodica|periodico]]
 >Sia $T$ il periodo del segnale, allora il limite potrà essere riscritto come
 >$$\large P_x = \lim\limits_{n \to\infty}\frac{1}{n T} \int_{-nT/2}^{nT/2} |x(t)|^2\ dt = \lim\limits_{n \to\infty}\frac{1}{n T}\ n\int_{-T_0/2}^{T/2} |x(t)|^2\ dt = $$
 >$$= \frac{1}{T}\ \int_{-T/2}^{T/2} |x(t)|^2\ dt$$
-### Esempi
+#### Esempi
 
 >[!example] Una [[Segnale di Gauss|gaussiana]]
 >Si definisce $t'=\sqrt{2a}t$ e si calcola l'integrale di Gauss.
@@ -135,3 +137,12 @@ $$\large P_x = \lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta 
 >Usando la formula di duplicazione si ottengono questi due integrali. Visto che l'intervallo di integrazione è simmetrico, l'integrale del coseno si annulla e rimane solo quello di $1/2$.
 >$$= f_0A^2\int_{-1/2f_0}^{1/2f_0} \frac{cos(4\pi f_0 t)+1}{2}\ dt = f_0 \frac{1}{2} \frac{1}{f_0}A^2 = \frac{A^2}{2} $$
 >Il risultato è un valore finito, quindi la funzione coseno è un segnale di potenza.
+### Segnali discreti
+
+#### Energia di un segnale
+
+$$\sum_{n=-\infty}^{\infty}\Big|x[n]\Big|^2$$
+#### Potenza di un segnale
+$$\lim\limits_{N\to\infty} \frac{1}{2N+1}\sum_{n=-N}^{N}\Big|x[n]\Big|^2$$
+>[!info] Potenza di un segnale [[Funzione Periodica|periodico]]
+>$$\frac{1}{T}\sum_{n=0}^{T-1}\Big|x[n]\Big|^2$$

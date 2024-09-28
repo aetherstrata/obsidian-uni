@@ -4,12 +4,10 @@ tags:
 ---
 La funzione Delta di Dirac (anche detto impulso unitario o matematico), è una funzione che vale 1 nell'origine e 0 altrove.
 $$
-\delta (t) = \Biggl\{\begin{matrix}
-\begin{align}
-1 \ & \rightarrow\ t = 0 \\
-0 \ & \rightarrow\ altrove
-\end{align}
-\end{matrix}
+\delta (t) = \left\{\begin{matrix*}
+1 & \rightarrow & t = 0 \\
+0 & \rightarrow & altrove
+\end{matrix*}\right.
 $$
 
 >[!info] Grafico 
@@ -66,12 +64,27 @@ $$
 ![[dirac_ritardata.png]]
 
 Facendo la [[Convoluzione]] tra la Delta di Dirac tempo-ritardata $\delta(t-T)$ e una funzione $f(t)$ si avrà la funzione valutata al tempo T.
-$$\int_{-\infty}^{\infty}f(t)\cdot\delta(t-T)\ dt = f(T)$$
+$$\large\int_{-\infty}^{\infty}f(t)\cdot\delta(t-T)\ dt = f(T)$$
 ### Prodotto per uno scalare
-$$\int_{-\infty}^{\infty}a\ \delta(t)\cdot\phi(t)\ dt = a\int_{-\infty}^{\infty}\delta(t)\phi(t)dt$$
+$$\large\int_{-\infty}^{\infty}a\ \delta(t)\cdot\phi(t)\ dt = a\int_{-\infty}^{\infty}\delta(t)\phi(t)dt$$
 ### Cambio di scala
-$$\delta(at) = \frac{1}{|a|}\delta(t)\quad \text{per}\ a \neq 0$$
+$$\large\delta(at) = \frac{1}{|a|}\delta(t)\quad \text{per}\ a \neq 0$$
 ### Convoluzione
-$$\nu(t)*\delta(t-\tau) = \nu(t-\tau)$$
+$$\large\nu(t)*\delta(t-\tau) = \nu(t-\tau)$$
 ### Campionamento
-$$\int_{-\infty}^{\infty}\nu(t)\cdot\delta(t-\tau)\ dt=\nu(\tau)$$
+$$\large\int_{-\infty}^{\infty}\nu(t)\cdot\delta(t-\tau)\ dt=\nu(\tau)$$
+## Delta di Kroneker
+
+La Delta di Kroneker è la versione discreta della Delta di Dirac, infatti questa funzione è definita solo per i numeri interi.
+
+$$
+\delta[n] = \left\{\begin{matrix*}
+1 & \rightarrow & n = 0 \\
+0 & \rightarrow & altrove
+\end{matrix*}\right.
+$$
+>[!info] Grafico
+>![[kroneker_grafico.png]]
+
+La Delta di Kroneker mantiene le stesse proprietà della Delta di Dirac, infatti anche la sua area è uguale a 1.
+$$\sum_{n=-\infty}^{\infty} \delta[n] = 1$$

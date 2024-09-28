@@ -1,6 +1,7 @@
 ---
 tags:
   - segnale
+  - funzione
 ---
 Il segnale di Gauss è un segnale simmetrico con ampiezza unitaria simile ad una distribuzione normale.
 $$\large x(t) = e^{-\alpha t^2}$$

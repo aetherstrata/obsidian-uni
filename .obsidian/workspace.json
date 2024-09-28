@@ -4,16 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0eef660a7e58c848",
+        "id": "75195c848ca347f9",
         "type": "tabs",
         "children": [
           {
-            "id": "d30d529aba664bc7",
+            "id": "a5fb616aec462891",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "diff-view",
               "state": {
-                "file": "Risorse/finestra_rettangolo_scala.png"
+                "file": "Teoria dei Segnali/Segnale di Gauss.md",
+                "staged": false
               }
             }
           }
@@ -83,7 +84,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Risorse/finestra_rettangolo_scala.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +100,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Risorse/finestra_rettangolo_scala.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -122,9 +121,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Risorse/finestra_rettangolo_scala.png"
-              }
+              "state": {}
             }
           },
           {
@@ -140,48 +137,49 @@
       }
     ],
     "direction": "horizontal",
-    "width": 335.5
+    "width": 364.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
+      "switcher:Apri selezione rapida": false,
       "canvas:Crea nuova lavagna": false,
-      "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
+      "obsidian-kanban:Crea nuova bacheca": false,
       "command-palette:Apri riquadro comandi": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
-      "obsidian-kanban:Crea nuova bacheca": false
+      "daily-notes:Apri nota del giorno": false
     }
   },
-  "active": "d30d529aba664bc7",
+  "active": "a5fb616aec462891",
   "lastOpenFiles": [
-    "Risorse/coseno_scala.png",
+    "Teoria dei Segnali/Delta di Dirac.md",
     "Teoria dei Segnali/Segnale.md",
-    "Richiami di Matematica/Funzione Periodica.md",
-    "Richiami di Matematica/Numeri Complessi.md",
-    "Teoria dei Segnali/Segnale Rampa.md",
+    "Teoria del Controllo/Sistema.md",
+    "Risorse/kroneker_grafico.png",
+    "Teoria dei Segnali/Segnale Esponenziale.md",
+    "Risorse/esponenziale_discreto.png",
     "Teoria dei Segnali/Segnale Gradino.md",
+    "Risorse/gradino_discreto.png",
+    "2024-09-28.md",
+    "Richiami di Matematica/Numeri Complessi.md",
     "Teoria dei Segnali/Funzione Finestra.md",
     "Teoria dei Segnali/Segnale di Gauss.md",
+    "Teoria dei Segnali/Segnale Rampa.md",
+    "Teoria dei Segnali/Trasformata di Fourier.md",
     "Risorse/finestra_rettangolo_scala.png",
+    "Risorse/coseno_scala.png",
+    "Richiami di Matematica/Funzione Periodica.md",
     "Teoria del Controllo/Sistemi di controllo.md",
-    "Teoria del Controllo/Sistema.md",
     "Risorse/finestra_ritardata.png",
-    "Teoria dei Segnali/Delta di Dirac.md",
     "Richiami di Matematica/Funzione Segno.md",
     "Risorse/segnale_gradino.png",
-    "Teoria dei Segnali/Segnale Esponenziale.md",
     "Risorse/moltiplicazione_finestra.png",
     "Risorse/ribaltamento_esponenziale.png",
     "Risorse/funzione_segno.png",
     "Richiami di Matematica/Seno Cardinale.md",
-    "Risorse/segnale_gauss_4.png",
-    "Risorse/segnale_gauss_1.png",
-    "Risorse/segnale_esponenziale.png",
     "Richiami di Matematica/Funzione Esponenziale.md",
-    "Teoria dei Segnali/Trasformata di Fourier.md",
     "Richiami di Matematica/Equazioni differenziali.md",
     "Sommario.md",
     "Senza nome",
