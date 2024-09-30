@@ -4,21 +4,63 @@
     "type": "split",
     "children": [
       {
-        "id": "75195c848ca347f9",
+        "id": "de575b9cfb115a7e",
         "type": "tabs",
         "children": [
           {
-            "id": "a5fb616aec462891",
+            "id": "035bf25bb65e3737",
             "type": "leaf",
             "state": {
-              "type": "diff-view",
+              "type": "markdown",
               "state": {
-                "file": "Teoria dei Segnali/Segnale di Gauss.md",
-                "staged": false
+                "file": "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3a44591644177b40",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "474c26a5e769d1d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teoria dei Segnali/Segnali/Segnale Gradino.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c016b11ad5ff7b2d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Richiami di Matematica/Seno Cardinale.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -84,6 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Richiami di Matematica/Seno Cardinale.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,6 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Richiami di Matematica/Seno Cardinale.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -121,7 +165,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Richiami di Matematica/Seno Cardinale.md"
+              }
             }
           },
           {
@@ -152,28 +198,31 @@
       "daily-notes:Apri nota del giorno": false
     }
   },
-  "active": "a5fb616aec462891",
+  "active": "c016b11ad5ff7b2d",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Delta di Dirac.md",
+    "Teoria dei Segnali/Segnali/Funzione Finestra.md",
     "Teoria dei Segnali/Segnale.md",
+    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
+    "Teoria dei Segnali/Energia e potenza.md",
+    "Teoria dei Segnali/Segnali/Segnale Rampa.md",
+    "Teoria dei Segnali/Segnali/Segnale Gradino.md",
+    "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
+    "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
+    "Teoria dei Segnali/Segnali",
+    "Sommario.md",
+    "Richiami di Matematica/Funzione Segno.md",
     "Teoria del Controllo/Sistema.md",
     "Risorse/kroneker_grafico.png",
-    "Teoria dei Segnali/Segnale Esponenziale.md",
     "Risorse/esponenziale_discreto.png",
-    "Teoria dei Segnali/Segnale Gradino.md",
     "Risorse/gradino_discreto.png",
     "2024-09-28.md",
     "Richiami di Matematica/Numeri Complessi.md",
-    "Teoria dei Segnali/Funzione Finestra.md",
-    "Teoria dei Segnali/Segnale di Gauss.md",
-    "Teoria dei Segnali/Segnale Rampa.md",
     "Teoria dei Segnali/Trasformata di Fourier.md",
     "Risorse/finestra_rettangolo_scala.png",
     "Risorse/coseno_scala.png",
     "Richiami di Matematica/Funzione Periodica.md",
     "Teoria del Controllo/Sistemi di controllo.md",
     "Risorse/finestra_ritardata.png",
-    "Richiami di Matematica/Funzione Segno.md",
     "Risorse/segnale_gradino.png",
     "Risorse/moltiplicazione_finestra.png",
     "Risorse/ribaltamento_esponenziale.png",
@@ -181,7 +230,6 @@
     "Richiami di Matematica/Seno Cardinale.md",
     "Richiami di Matematica/Funzione Esponenziale.md",
     "Richiami di Matematica/Equazioni differenziali.md",
-    "Sommario.md",
     "Senza nome",
     "Teoria dei Circuiti",
     "Teoria dei Segnali",
