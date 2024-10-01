@@ -23,7 +23,7 @@ Un segnale digitale può essere rappresentato da una funzione “tempo discreta�
 - dotata di un codominio costituito da un insieme discreto di valori
 ### Durata dei segnali
 #### Durata rigorosamente limitata
-I segnali a durata rigorosamente limitata si annullano identicamente al di fuori di un certo intervallo temporale. Esempi di questi segnali sono la [[Funzione Finestra#Finestra rettangolare|finestra rettangolare]] e la [[Funzione Finestra#Finestra triangolare|finestra triangolare]].
+I segnali a durata rigorosamente limitata si annullano identicamente al di fuori di un certo intervallo temporale. Esempi di questi segnali sono la [[Segnale Finestra#Finestra rettangolare|finestra rettangolare]] e la [[Segnale Finestra#Finestra triangolare|finestra triangolare]].
 #### Durata illimitata
 I segnali a durata illimitata assumono valori non trascurabili su tutto l'asse temporale. Esempi di questi segnali sono il [[Segnale Gradino|segnale gradino]] e la [[Funzione Segno|funzione segno]] 
 #### Durata praticamente limitata
