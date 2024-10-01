@@ -48,13 +48,13 @@ $$tri(t)=\left\{\begin{matrix*}
 > ![[finestra_triangolo.png|center]]
 ### Traslazione
 $$\operatorname{tri}(t-t_0)=\left\{\begin{matrix*}
-1-|t| & \longrightarrow & -1<t-t_0<1 & = & t_0-1<t<t_0+1 \\
+1-|t - t_0| & \longrightarrow & -1<t-t_0<1 & = & t_0-1<t<t_0+1 \\
 0  & \longrightarrow & altrove
 \end{matrix*}\right.$$
 ### Cambio di scala
 $$
 \operatorname{tri}\left(\frac{t}{T}\right)=\left\{\begin{matrix*}
-1-|t| & \longrightarrow & -1<\small\dfrac{t}{T}\normalsize<1 & = & -T<t<T \\
+1-\left|\dfrac{t}{T}\right| & \longrightarrow & -1<\small\dfrac{t}{T}\normalsize<1 & = & -T<t<T \\
 0  & \longrightarrow & altrove
 \end{matrix*}\right.
 $$

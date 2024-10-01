@@ -115,8 +115,10 @@ T+t & \longrightarrow & -T \le t \le 0\\
 T-t & \longrightarrow & 0 \le t \le T\\
 0 & \longrightarrow & t > T
 \end{matrix*}\right.$$
-Questo segnale è uguale a una [[Segnale Finestra|finestra triangolare]] di base doppia.
-$$T\cdot\operatorname{tri}\left(\frac{t}{2T}\right)= T\ \cdot\left\{\begin{matrix*}
-1-|t| & \longrightarrow & -T<t<T\\
+Questo segnale è uguale a una [[Segnale Finestra|finestra triangolare]] di base doppia e altezza uguale al periodo dei rettangoli.
+$$z(t)\ =\ \left\{\begin{matrix*}
+T-\left|t\right| & \longrightarrow & -T<t<T\\
 0 & \longrightarrow & altrove
 \end{matrix*}\right.$$
+>[!info] Segnale convoluto
+![[convoluzione-tri-5.png]]
