@@ -47,7 +47,7 @@ $$tri(t)=\left\{\begin{matrix*}
 > [!info] Grafico
 > ![[finestra_triangolo.png|center]]
 ### Traslazione
-$$\operatorname{tri}(t-t_0)=\left(\frac{t}{T}\right)=\left\{\begin{matrix*}
+$$\operatorname{tri}(t-t_0)=\left\{\begin{matrix*}
 1-|t| & \longrightarrow & -1<t-t_0<1 & = & t_0-1<t<t_0+1 \\
 0  & \longrightarrow & altrove
 \end{matrix*}\right.$$

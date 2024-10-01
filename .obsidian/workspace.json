@@ -4,19 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "de575b9cfb115a7e",
+        "id": "62268d6f1dcd45a0",
         "type": "tabs",
         "children": [
           {
-            "id": "c016b11ad5ff7b2d",
+            "id": "3403b9e59e466134",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "Risorse/convoluzione-tri-3.png"
               }
             }
           }
@@ -86,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
+                "file": "Risorse/convoluzione-tri-3.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
+                "file": "Risorse/convoluzione-tri-3.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md"
+                "file": "Risorse/convoluzione-tri-3.png"
               }
             }
           },
@@ -158,23 +155,23 @@
       "daily-notes:Apri nota del giorno": false
     }
   },
-  "active": "c016b11ad5ff7b2d",
+  "active": "3403b9e59e466134",
   "lastOpenFiles": [
-    "Risorse/1727795433.png",
-    "Risorse/1727794117.png",
+    "Risorse/convoluzione-tri-2.png",
+    "Risorse/convoluzione-tri-1.png",
+    "Risorse/convoluzione-tri-4.png",
     "Teoria dei Segnali/Convoluzione.md",
-    "Risorse/1727789936.png",
-    "Risorse/1727789107.png",
-    "Risorse/1727789107 1.png",
-    "Risorse/segnale_gradino.png",
-    "Risorse/segnale_gauss_4.png",
-    "Risorse/segnale_gauss_1.png",
-    "Risorse/segnale_esponenziale.png",
-    "Risorse/ribaltamento_esponenziale.png",
-    "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
-    "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
     "Teoria dei Segnali/Segnali/Segnale Finestra.md",
+    "Risorse/convoluzione-tri-3.png",
+    "Risorse/convoluzione-rect-3.png",
+    "Risorse/convoluzione-rect-2.png",
+    "Risorse/convoluzione-rect-1.png",
+    "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
+    "Risorse/ribaltamento_esponenziale.png",
+    "Risorse/segnale_esponenziale.png",
+    "Risorse/segnale_gauss_4.png",
     "Teoria dei Segnali/Segnali/Delta di Dirac.md",
+    "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
     "Richiami di Matematica/Seno Cardinale.md",
     "Teoria dei Segnali/Segnale.md",
     "Teoria dei Segnali/Energia e potenza.md",

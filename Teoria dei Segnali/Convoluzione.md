@@ -1,6 +1,6 @@
 La **convoluzione** è un'operazione tra due [[Segnale|segnali]].
 $$\large z(t) = x(t) * y(t) = \int_{-\infty}^{\infty} x(\tau) \cdot y(t-\tau)\ d\tau$$
-La variabile di uscita è $t$.
+La variabile di uscita è $\large t$ e il risultato sarà un segnale senza punti di discontinuità.
 ## Proprietà
 ### Commutativa
 $$z(t)\ =\ x(t) * y(t)\ =\ y(t) * x(t)$$
@@ -16,18 +16,16 @@ $$\large z(t) = \int_{-\infty}^{\infty} e^{-\alpha\tau}u(\tau) \cdot u(t-\tau)\ 
 >[!info] Grafici dei segnali dentro l'integrale
 >Per poter graficare queste funzioni è stato scelto arbitrariamente il parametro $\alpha = 0.5$ e $t=-2$. 
 >
->![[1727789107.png]]
+>![[convoluzione-es-1.png]]
 >$$\large x(\tau)\ =\ e^{-0.5\tau}u(\tau)$$
 >---
->![[1727789936.png]]
+>![[convoluzione-es-2.png]]
 >$$\large y(-2-\tau)=u(-2-\tau)$$
 
 Si può notare che per $t<0$ i segnali non interagiscono (almeno uno di loro è nullo nell'intervallo). 
-$$\begin{gather}
-z(t) = 0 & \text{per} & t<0
-\end{gather}$$
+$$\begin{gather}z(t) = 0 & \text{per} & t<0\end{gather}$$
 >[!info] Grafico per $\large t=2$
->![[1727795433.png]]
+>![[convoluzione-es-3.png]]
 
 Invece per $t>0$, usando le proprietà del segnale gradino, l'integrale diventa definito in un intervallo limitato e si eliminano i gradini.
 $$\large \int_{0}^{t}e^{-\alpha\tau}\cdot 1\ d\tau = \left.\frac{e^{-\alpha\tau}}{-\alpha}\right|_{0}^{t}=\frac{1-e^{-\alpha t}}{\alpha}$$
@@ -35,4 +33,90 @@ Quindi si può definire il segnale convoluto a tratti.
 $$z(t) = \left\{\begin{matrix*}
 0 & \longrightarrow & t < 0\\
 \dfrac{1-e^{-\alpha t}}{\alpha} & \longrightarrow & t \ge 0\\
+\end{matrix*}\right.$$
+### Convoluzione tra due [[Segnale Esponenziale|esponenziali unilateri]]
+
+Dati due segnali $\large x(t) = e^{-\alpha t}u(t)$ e $\large y(t) = e^{-\alpha t}u(t)$, la loro convoluzione vale
+$$\large z(t) = \int_{-\infty}^{\infty} e^{-\alpha\tau}u(\tau) \cdot e^{-\alpha(t-\tau)}u(t-\tau)\ d\tau$$
+Come per l'esempio sopra, i due segnali non interagiscono per $t<0$.
+$$\begin{gather}z(t) = 0 & \text{per} & t<0\end{gather}$$
+
+>[!info] Grafico per $t=4$
+>![[convoluzione-es-4.png]]
+
+Anche qui l'integrale si può semplificare per valori di $t>0$ grazie alle proprietà dei gradini.
+$$\large \int_{0}^{t}e^{-\alpha\tau}\cdot e^{-\alpha t}\cdot e^{\alpha\tau}\ d\tau =  \int_{0}^{t}e^{-\alpha t}\ d\tau = e^{-\alpha t}\int_{0}^{t}d\tau = te^{-\alpha t}$$
+Il risultato è un nuovo segnale definito a tratti.
+$$z(t) = \left\{\begin{matrix*}
+0 & \longrightarrow & t < 0\\
+te^{-\alpha t} & \longrightarrow & t \ge 0\\
+\end{matrix*}\right.$$
+### Convoluzione tra un [[Segnale Esponenziale|esponenziale unilatero]] e un [[Segnale Finestra#Finestra rettangolare|rettangolo]]
+
+Dati due segnali $\large x(t) = e^{-\alpha t}\cdot u(t)$ e $\large y(t) = \operatorname{rect}(\frac{t-T/2}{T})$, la loro convoluzione vale
+$$\large z(t) = \int_{-\infty}^{\infty} e^{-\alpha\tau}u(\tau) \cdot \operatorname{rect}\left(\frac{t-\tau-T/2}{T}\right)\ d\tau$$Mentre negli esempi prima entrambi i segnali avevano durata infinita, la finestra rettangolare ha una durata delimitata.
+
+>[!summary] Finestre di integrazione
+>Per $\large t<0$ i segnali non interagiscono quindi il segnale convoluto vale sempre 0.
+>
+>![[convoluzione-rect-1.png]]
+>$$\begin{gather}z(t) = 0 & \text{per} & t<0\end{gather}$$
+>---
+>Per $\large 0<t<T$ si calcola l'integrale da 0 a $t$.
+>
+>![[convoluzione-rect-2.png]]
+>$$\large z(t) = \int_{0}^{t} e^{-\alpha\tau}\ d\tau = \frac{1-e^{-\alpha t}}{\alpha}$$
+>---
+>Per $t > T$ bisogna tener conto che la finestra rettangolare ha un limite inferiore a differenza del segnale gradino.
+>
+>![[convoluzione-rect-3.png]]
+>$$\large z(t) = \int_{t-T}^{t} e^{-\alpha\tau}\ d\tau = \left.\frac{e^{-\alpha\tau}}{-\alpha}\right|_{t-T}^{t} = \frac{e^{-\alpha t}\cdot (e^{\alpha T}-1)}{\alpha}$$
+
+Unendo i vari casi, si ottiene questo segnale definito a tratti.
+$$\large z(t)=\left\{\begin{matrix*}
+0 & \longrightarrow & t < 0 \\
+\dfrac{1-e^{-\alpha t}}{\alpha} & \longrightarrow & 0 \le t < T \\
+\dfrac{e^{-\alpha t}\cdot (e^{\alpha T}-1)}{\alpha} & \longrightarrow & t \ge T
+\end{matrix*}\right.$$
+### Convoluzione tra due [[Segnale Finestra#Finestra rettangolare|rettangoli]] di uguale scala
+
+Dati due segnali $x(t)$ e $y(t)$, entrambi uguali a $\large\operatorname{rect}\left(\normalsize\dfrac{t}{T}\right)$, la loro convoluzione vale
+$$\large z(t) = \int_{-\infty}^{\infty} \operatorname{rect}\left(\frac{\tau}{T}\right)\cdot\operatorname{rect}\left(\frac{t-\tau}{T}\right) \ d\tau$$
+>[!summary] Finestre di integrazione
+>Ricordando che la finestra rettangolare ha ampiezza $T$, è non nulla solo nell'area attorno all'origine.
+>$$-\frac{T}{2}\le\tau\le\frac{T}{2}$$ 
+>Per valori di $t<-T$ almeno uno dei segnali è nullo e, di conseguenza, anche il segnale risultante.
+>
+>![[convoluzione-tri-1.png]]
+>
+Questo vale anche per valori di $t>T$.
+> 
+![[convoluzione-tri-4.png]]
+>$$z(t) = \left\{\begin{matrix*}
+>0 & \longrightarrow & t < -T\\
+>\vdots \\
+>0 & \longrightarrow & t > T
+>\end{matrix*}\right.$$
+>---
+>Per $-T<t<0$ la finestra sta traslando dentro la finestra fissa nell'origine e l'area aumenta.
+>
+![[convoluzione-tri-2.png]]
+>$$\int_{-T/2}^{t+T/2}\ d\tau = \tau\ \Bigg|_{-T/2}^{t+T/2}=t+T$$
+>---
+>Per $0<t<T$ la finestra sta traslando fuori la finestra fissa nell'origine e l'area diminuisce.
+>
+![[convoluzione-tri-3.png]]
+>$$\int_{t-T/2}^{T/2}\ d\tau = \tau\ \Bigg|_{t-T/2}^{T/2}=-t+T$$
+
+Unendo tutti i casi di $t$ si ottiene il segnale convoluto.
+$$z(t)=\left\{\begin{matrix*}
+0 & \longrightarrow & t < -T\\
+T+t & \longrightarrow & -T \le t \le 0\\
+T-t & \longrightarrow & 0 \le t \le T\\
+0 & \longrightarrow & t > T
+\end{matrix*}\right.$$
+Questo segnale è uguale a una [[Segnale Finestra|finestra triangolare]] di base doppia.
+$$T\cdot\operatorname{tri}\left(\frac{t}{2T}\right)= T\ \cdot\left\{\begin{matrix*}
+1-|t| & \longrightarrow & -T<t<T\\
+0 & \longrightarrow & altrove
 \end{matrix*}\right.$$
