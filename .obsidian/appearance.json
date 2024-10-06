@@ -4,6 +4,7 @@
     "mermaid",
     "hr",
     "monospace_editor",
-    "image-flags"
+    "image-flags",
+    "math"
   ]
 }

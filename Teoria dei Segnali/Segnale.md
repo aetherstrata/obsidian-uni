@@ -31,10 +31,10 @@ I segnali a durata praticamente limitata decadono asintoticamente a zero, per cu
 ### Energia dei segnali
 #### Segnali di energia
 Un segnale è un segnale di energia quando il suo [[Energia e potenza#Energia di un segnale analogico|integrale di energia]] è diverso da $0$ e $\infty$.
-$$\large \int_{-\infty}^{\infty}|x(t)|^2\ dt\ \neq\ \{0,\infty\}$$
+$$\int_{-\infty}^{\infty}|x(t)|^2\ dt\ \neq\ \{0,\infty\}$$
 #### Segnali di potenza
 Un segnale è un segnale di potenza quando il suo [[Energia e potenza#Potenza di un segnale analogico|integrale di potenza]] è diverso da $0$ e $\infty$.
-$$\large\lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt \neq \{0,\infty\}$$
+$$\lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt \neq \{0,\infty\}$$
 
 >[!info] Le categorie di segnali di energia e potenza sono disgiunte
 >- Se un segnale ha energia finita, la sua potenza è nulla
@@ -50,7 +50,9 @@ $$z(t)=x(t)\cdot y(t)$$
 
 >[!summary] Impatto sulla finestra di integrazione
 >Se per alcune regioni del suo dominio un segnale vale $0$, quando viene moltiplicato per altre funzioni può restringere la finestra di integrazione del segnale.
-> $$\text{Segnale moltiplicato per un gradino :}\quad \large\int_{-\infty}^{\infty} x(t)u(t)\ dt=  \int_{0}^{\infty} x(t)\ dt$$
+> $$\begin{gather}
+> \small\text{Segnale moltiplicato per un gradino :} & \int_{-\infty}^{\infty} x(t)u(t)\ dt\ =\ \int_{0}^{\infty} x(t)\ dt
+> \end{gather}$$
 
 >[!example] Esempio - Moltiplicazione tra un rettangolo e un triangolo
 >Dati i segnali $x(t)=\operatorname{rect}(t)$ e $y(t)=\operatorname{tri}(t)$, il risultato della loro moltiplicazione è:

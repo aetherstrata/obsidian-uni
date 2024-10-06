@@ -4,16 +4,16 @@ tags:
   - funzione
 ---
 Il segnale esponenziale è una funzione esponenziale con esponente negativo.
-$$\begin{align}
-\text{versione unilatera}& \quad x(t) =\ \Biggl\{\begin{matrix*}
+$$\begin{gather}
+\text{versione unilatera}& \quad x(t) =\ \left\{\begin{matrix*}
 e^{-\alpha t} & \longrightarrow & t \geq 0\\
 0 & \longrightarrow & t<0 \\
-\end{matrix*} \\ \\
-\text{versione bilatera}& \quad x(t) =\ \Biggl\{\begin{matrix*}
+\end{matrix*}\right. \\ \\
+\text{versione bilatera}& \quad x(t) =\ \left\{\begin{matrix*}
 e^{-\alpha t} & \longrightarrow & t \geq 0\\
 e^{\alpha t} & \longrightarrow & t<0 \\
-\end{matrix*}
-\end{align}$$
+\end{matrix*}\right.
+\end{gather}$$
 >[!summary] Definizione dell'esponenziale unilatero
 > Il segnale esponenziale unilatero può anche essere definito come la moltiplicazione tra una funzione esponenziale e un [[Segnale Gradino|gradino]].
 > $$x(t) = e^{-\alpha t} \cdot u(t)$$
@@ -29,5 +29,5 @@ La variante tempo-discreta del segnale gradino è definita come una funzione su 
 $$x[n]=a^n\cdot u[n]$$
 $u[n]$ è il [[Segnale Gradino#Gradino tempo-discreto|segnale gradino tempo-discreto]].
 
->[!info] Grafico per $\large a = 0.6$
+>[!info] Grafico per $\ a = 0.6$
 >![[esponenziale_discreto.png]]

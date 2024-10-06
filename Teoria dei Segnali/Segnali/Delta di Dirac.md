@@ -64,15 +64,15 @@ $$
 ![[dirac_ritardata.png]]
 
 Facendo la [[Convoluzione]] tra la Delta di Dirac tempo-ritardata $\delta(t-T)$ e una funzione $f(t)$ si avrà la funzione valutata al tempo T.
-$$\large\int_{-\infty}^{\infty}f(t)\cdot\delta(t-T)\ dt = f(T)$$
+$$\\int_{-\infty}^{\infty}f(t)\cdot\delta(t-T)\ dt = f(T)$$
 ### Prodotto per uno scalare
-$$\large\int_{-\infty}^{\infty}a\ \delta(t)\cdot\phi(t)\ dt = a\int_{-\infty}^{\infty}\delta(t)\phi(t)dt$$
+$$\\int_{-\infty}^{\infty}a\ \delta(t)\cdot\phi(t)\ dt = a\int_{-\infty}^{\infty}\delta(t)\phi(t)dt$$
 ### Cambio di scala
-$$\large\delta(at) = \frac{1}{|a|}\delta(t)\quad \text{per}\ a \neq 0$$
+$$\\delta(at) = \frac{1}{|a|}\delta(t)\quad \text{per}\ a \neq 0$$
 ### Convoluzione
-$$\large\nu(t)*\delta(t-\tau) = \nu(t-\tau)$$
+$$\\nu(t)*\delta(t-\tau) = \nu(t-\tau)$$
 ### Campionamento
-$$\large\int_{-\infty}^{\infty}\nu(t)\cdot\delta(t-\tau)\ dt=\nu(\tau)$$
+$$\\int_{-\infty}^{\infty}\nu(t)\cdot\delta(t-\tau)\ dt=\nu(\tau)$$
 ## Delta di Kroneker
 
 La Delta di Kroneker è la versione discreta della Delta di Dirac, infatti questa funzione è definita solo per i numeri interi.
