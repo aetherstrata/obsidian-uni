@@ -1,3 +1,9 @@
+---
+tags:
+  - operatore
+  - matematica
+---
+
 La **convoluzione** è un'operazione tra due [[Segnale|segnali]].
 $$z(t) = x(t) * y(t) = \int_{-\infty}^{\infty} x(\tau) \cdot y(t-\tau)\ d\tau$$
 La variabile di uscita è $\ t$ e il risultato sarà un segnale senza punti di discontinuità.
@@ -196,3 +202,14 @@ Il risultato sarà un altro segnale gaussiano.
 >Per fare la convoluzione tra due gaussiane espresse in forma normalizzata allora il risultato sarà un'altra gaussiana che avrà la somma delle varianze dei segnali di partenza.
 >$$x(t) = \frac{1}{\sqrt{2\pi}\sigma_1}e^{\huge-\frac{t^2}{2\sigma_1^2}} \qquad \ y(t) = \frac{1}{\sqrt{2\pi}\sigma_2}e^{\huge-\frac{t^2}{2\sigma_2^2}}$$
 >$$z(t) = x(t) * y(t) = \frac{1}{\sqrt{2\pi}\sqrt{\sigma_1^2+\sigma_2^2}}\ e^{\huge- \frac{t^2}{2(\sigma_1^2+\sigma_2^2)}}$$
+
+### Autoconvoluzione di due [[Segnale Finestra|rettangoli]]
+
+Dato un segnale simmetrico, composto da due finestre rettangolari 
+$$x(t) = \operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)$$
+la sua autoconvoluzione $z(t) = x(t) * x(t)$ può essere calcolata conoscendo le proprietà delle convoluzioni tra finestre rettangolari, in alternativa al calcolo dell´integrale.
+$$\begin{gather}
+z(t) = \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] * \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] = \\
+= T\operatorname{tri}\left(\frac{t+t_0}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right)  + T\operatorname{tri}\left(\frac{t-t_0}{T}\right) = \\
+= T\left[\operatorname{tri}\left(\frac{t+t_0}{T}\right) + 2\cdot\operatorname{tri}\left(\frac{t}{T}\right) + \operatorname{tri}\left(\frac{t-t_0}{T}\right) \right]
+\end{gather}$$

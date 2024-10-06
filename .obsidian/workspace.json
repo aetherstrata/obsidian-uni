@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
+                "file": "Teoria dei Segnali/Convoluzione discreta.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
+                "file": "Teoria dei Segnali/Convoluzione discreta.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md",
+                "file": "Teoria dei Segnali/Convoluzione discreta.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoria dei Segnali/Convoluzione.md"
+                "file": "Teoria dei Segnali/Convoluzione discreta.md"
               }
             }
           },
@@ -160,28 +160,30 @@
   },
   "active": "3403b9e59e466134",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Energia e potenza.md",
+    "Risorse/convoluzione-discreta-es-6.png",
+    "Risorse/convoluzione-discreta-es-5.png",
+    "Risorse/convoluzione-discreta-es-3.png",
+    "Risorse/convoluzione-discreta-es-4.png",
+    "Risorse/convoluzione-es-4.png",
+    "Risorse/convoluzione-discreta-es-2.png",
+    "Risorse/convoluzione-discreta-es-1.png",
+    "Teoria dei Segnali/Convoluzione discreta.md",
     "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
+    "Teoria dei Segnali/Convoluzione.md",
+    "Risorse/coseno_scala.png",
+    "Risorse/convoluzione-es-3.png",
+    "Risorse/convoluzione-es-2.png",
+    "Risorse/convoluzione-es-1.png",
+    "Teoria dei Segnali/Segnali/Segnale Gradino.md",
+    "Teoria dei Segnali/Segnali/Segnale Finestra.md",
+    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
+    "Teoria dei Segnali/Energia e potenza.md",
     "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
     "Teoria dei Segnali/Segnale.md",
     "Richiami di Matematica/Numeri Complessi.md",
-    "Teoria dei Segnali/Convoluzione.md",
     "Richiami di Matematica/sedPDvjqL",
-    "Risorse/convoluzione-trapezio-6.png",
-    "Risorse/convoluzione-trapezio-5.png",
-    "Risorse/convoluzione-trapezio-4.png",
-    "Risorse/convoluzione-trapezio-3.png",
-    "Risorse/convoluzione-trapezio-2.png",
-    "Risorse/convoluzione-trapezio-1.png",
-    "Teoria dei Segnali/Segnali/Segnale Finestra.md",
-    "Risorse/convoluzione-tri-5.png",
-    "Risorse/convoluzione-tri-3.png",
-    "Risorse/convoluzione-tri-2.png",
-    "Risorse/convoluzione-tri-1.png",
-    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
     "Richiami di Matematica/Seno Cardinale.md",
     "Teoria dei Segnali/Segnali/Segnale Rampa.md",
-    "Teoria dei Segnali/Segnali/Segnale Gradino.md",
     "Teoria dei Segnali/Segnali",
     "Sommario.md",
     "Richiami di Matematica/Funzione Segno.md",
