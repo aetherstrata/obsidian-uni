@@ -3,8 +3,10 @@ tags:
   - operatore
   - matematica
 ---
-L'operazione di correlazione indica il grado di similarità di due segnali.
+L'operazione di correlazione indica il grado di similitudine di due [[Segnale|segnali]], ovvero un’indicazione di quanto due segnali siano tra loro simili.
 $$z(t) = x(t) \otimes y(t) = \int_{-\infty}^{\infty}x(t+\tau)\cdot y^*(\tau)\ d\tau = R_{xy}(t)$$
+Se i due segnali sono diversi si parla di **cross-correlazione**, quando invece i due segnali sono uguali si parla di **auto-correlazione**. 
+
 >[!fail] La correlazione non gode della proprietà commutativa
 >Se si calcola la correlazione $R_{yx}(t)$ si otterrà il seguente integrale.
 >$$R_{yx}(t)=\int_{-\infty}^{\infty}y(t+\tau)\cdot x^*(\tau)\ d\tau$$
@@ -19,7 +21,6 @@ $$z(t) = x(t) \otimes y(t) = \int_{-\infty}^{\infty}x(t+\tau)\cdot y^*(\tau)\ d\
 > \end{flalign*}$$
 > La correlazione $R_{yx}$ è il complesso coniugato della correlazione $R_{xy}$ ribaltata.
 > $$R_{xy}(t) = R^*_{yx}(-t)$$
-
 ## Relazione con la convoluzione
 
 L'operazione di correlazione può essere riscritta come una [[Convoluzione|convoluzione]].

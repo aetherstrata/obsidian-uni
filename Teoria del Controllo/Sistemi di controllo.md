@@ -1,6 +1,7 @@
 ---
 tags:
-  - fda
+  - sistema
+  - ´
 ---
 Il sistema di controllo è l'insieme delle strategie e tecnologie necessarie affinché il [[Sistema|sistema controllato]] svolga i suoi compiti con intervento umano ridotto o nullo.
 ### Obiettivi della sintesi

@@ -1,3 +1,8 @@
+---
+tags:
+  - proprietà
+  - segnale
+---
 Tutti i processi fisici sono mediati attraverso **trasferimenti di energia**. Un sistema fisico reale risponde all'energia fornita da un'eccitazione o sollecitazione applicata ad esso. I segnali rappresentano, appunto, tali eccitazioni o sollecitazioni ed hanno, pertanto, un **contenuto energetico**.
 
 Il contenuto energetico di un segnale dipende dalla sua natura fisica. Ma per poter trattare un segnale in maniera generica ed astratta si definiscono le quantità di **Potenza ed Energia di un segnale**. Tali quantità sono differenti dalla Potenza ed Energia fisiche ma sono ad esse **proporzionali**.

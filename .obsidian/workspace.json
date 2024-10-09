@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Segnali/Correlazione.md",
+                "file": "Teoria dei Segnali/Filtro.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoria dei Segnali/Correlazione.md",
+                "file": "Teoria dei Segnali/Filtro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoria dei Segnali/Correlazione.md",
+                "file": "Teoria dei Segnali/Filtro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoria dei Segnali/Correlazione.md"
+                "file": "Teoria dei Segnali/Filtro.md"
               }
             }
           },
@@ -160,8 +160,21 @@
   },
   "active": "3403b9e59e466134",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Risposta impulsiva.md",
+    "Teoria del Controllo/Invarianza temporale.md",
+    "Teoria del Controllo/Linearità.md",
+    "Teoria dei Segnali/Risposta Impulsiva.md",
+    "Teoria dei Segnali/Filtro.md",
+    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
+    "Risorse/funzione-trasferimento-diagramma.svg",
+    "Risorse/funzione_segno.png",
+    "Risorse/Diagramma senza titolo.drawio.svg",
+    "Risorse/Diagramma senza titolo.drawio.png",
+    "Teoria del Controllo/Sistemi di controllo.md",
+    "Teoria del Controllo/Sistema.md",
+    "Teoria del Controllo/Isteresi.md",
+    "Teoria del Controllo/Introduzione.md",
     "Teoria dei Segnali/Correlazione.md",
+    "Teoria dei Segnali/Energia e potenza.md",
     "Teoria dei Segnali/Convoluzione discreta.md",
     "Teoria dei Segnali/Convoluzione.md",
     "Risorse/convoluzione-discreta-es-6.png",
@@ -170,15 +183,9 @@
     "Risorse/convoluzione-discreta-es-4.png",
     "Risorse/convoluzione-es-4.png",
     "Risorse/convoluzione-discreta-es-2.png",
-    "Risorse/convoluzione-discreta-es-1.png",
     "Teoria dei Segnali/Segnali/Segnale Esponenziale.md",
-    "Risorse/coseno_scala.png",
-    "Risorse/convoluzione-es-3.png",
-    "Risorse/convoluzione-es-2.png",
     "Teoria dei Segnali/Segnali/Segnale Gradino.md",
     "Teoria dei Segnali/Segnali/Segnale Finestra.md",
-    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
-    "Teoria dei Segnali/Energia e potenza.md",
     "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
     "Teoria dei Segnali/Segnale.md",
     "Richiami di Matematica/Numeri Complessi.md",
@@ -188,20 +195,13 @@
     "Teoria dei Segnali/Segnali",
     "Sommario.md",
     "Richiami di Matematica/Funzione Segno.md",
-    "Teoria del Controllo/Sistema.md",
     "2024-09-28.md",
     "Teoria dei Segnali/Trasformata di Fourier.md",
     "Richiami di Matematica/Funzione Periodica.md",
-    "Teoria del Controllo/Sistemi di controllo.md",
-    "Richiami di Matematica/Funzione Esponenziale.md",
-    "Richiami di Matematica/Equazioni differenziali.md",
     "Senza nome",
     "Teoria dei Circuiti",
     "Teoria dei Segnali",
-    "Teoria del Controllo/Introduzione.md",
-    "Teoria del Controllo/Isteresi.md",
     "Risorse",
-    "Excalidraw/Drawing 2024-09-21 01.10.47.excalidraw.md",
     "Excalidraw",
     "Richiami di Matematica",
     "Teoria del Controllo",

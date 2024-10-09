@@ -1,6 +1,6 @@
 ---
 tags:
-  - fda
+  - sistema
 ---
 Un sistema può essere definito come un unità funzionale, costituita da più sottosistemi in relazione, che contribuiscono allo svolgimento di un fine comune.
 
