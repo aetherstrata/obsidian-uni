@@ -30,3 +30,11 @@ Cambiando la variabile di integrazione questo diventa uguale a quello per la cor
 $$-\tau=\tau'\quad\longrightarrow\quad\int_{-\infty}^{\infty}x(t+\tau')\cdot y^*(\tau')d\tau'$$
 >[!important] Correlazione per segnali reali pari
 >Se entrambi i segnali sono reali pari, allora la loro correlazione sarà uguale alla loro convoluzione.
+## Autocorrelazione
+
+L'operazione di auto-correlazione avviene quando un segnale $x(t)$ è correlato con se stesso.
+$$R_{xx}(t) = \int_{-\infty}^{\infty}x(t-\tau)\ x^*(\tau)\ d\tau$$
+### Autocorrelazione come energia del segnale
+
+Se si calcola il valore dell'auto-convoluzione in $t=0$, l'integrale sarà uguale a quello per l'[[Energia e potenza#Energia di un segnale analogico|energia]] del segnale.
+$$R_{xx}(0) = \int_{-\infty}^{\infty}x(\tau)\ x^*(\tau)\ d\tau = \int_{-\infty}^{\infty} \left|x(\tau)\right|^2\ d\tau = E_x$$
