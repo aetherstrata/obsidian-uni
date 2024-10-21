@@ -1,5 +1,6 @@
 ---
 tags:
-  - matematica
   - trasformata
+  - analisi
+  - segnale
 ---

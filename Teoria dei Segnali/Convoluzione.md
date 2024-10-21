@@ -182,12 +182,12 @@ Si può notare come, ponendo $T_1$ e $T_2$ uguali, la parte centrale scompare e 
 ### Convoluzione tra due [[Segnale di Gauss|gaussiane]]
 
 Dati due segnali gaussiani $\ x(t) = e^{-\alpha_1 t^2}$ e $\ y(t) = e^{-\alpha_2 t^2}$ , la loro convoluzione vale
-$$\begin{gather}
-z(t) = \int_{-\infty}^{\infty} e^{-\alpha_1\tau^2}\cdot e^{-\alpha_2(t-\tau)^2}\ d\tau = e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1+\alpha_2)\tau^2}\cdot e^{-2\alpha_2 t\tau}\ d\tau = \\ 
-= e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1 + \alpha_2)\left[\large\tau^2\ -\ 2\ \frac{\alpha_2 t \tau}{\alpha_1+\alpha_2}\ +\ \frac{\alpha_2^2t^2}{(\alpha_1+\alpha_2)^2}\ -\ \frac{\alpha_2^2t^2}{(\alpha_1+\alpha_2)^2}\right]}\ d\tau = \\
-= e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1 + \alpha_2)\left[\large\left(\tau\ +\ \frac{\alpha_2t}{\alpha_1+\alpha_2}\right)^2\\ -\ \large\frac{\alpha_2^2t^2}{(\alpha_1+\alpha_ 2)^2}\right]}\ d\tau = \\
-= e^{-\alpha_2t^2}\cdot e^{\large\frac{\alpha_2^2t^2}{\alpha_1+\alpha_2}} \int_{-\infty}^{\infty} e^{-(\alpha_1+\alpha_2)\left(\tau\ +\ \large\frac{\alpha_2t}{\alpha_1+\alpha_2}\right)^2}\ d\tau =
-\end{gather}$$
+$$\begin{align}
+z(t) &= \int_{-\infty}^{\infty} e^{-\alpha_1\tau^2}\cdot e^{-\alpha_2(t-\tau)^2}\ d\tau = e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1+\alpha_2)\tau^2}\cdot e^{-2\alpha_2 t\tau}\ d\tau = \\ 
+&= e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1 + \alpha_2)\left[\large\tau^2\ -\ 2\ \frac{\alpha_2 t \tau}{\alpha_1+\alpha_2}\ +\ \frac{\alpha_2^2t^2}{(\alpha_1+\alpha_2)^2}\ -\ \frac{\alpha_2^2t^2}{(\alpha_1+\alpha_2)^2}\right]}\ d\tau = \\
+&= e^{-\alpha_2 t^2} \int_{-\infty}^{\infty} e^{-(\alpha_1 + \alpha_2)\left[\large\left(\tau\ +\ \frac{\alpha_2t}{\alpha_1+\alpha_2}\right)^2\\ -\ \large\frac{\alpha_2^2t^2}{(\alpha_1+\alpha_ 2)^2}\right]}\ d\tau = \\
+&= e^{-\alpha_2t^2}\cdot e^{\large\frac{\alpha_2^2t^2}{\alpha_1+\alpha_2}} \int_{-\infty}^{\infty} e^{-(\alpha_1+\alpha_2)\left(\tau\ +\ \large\frac{\alpha_2t}{\alpha_1+\alpha_2}\right)^2}\ d\tau =
+\end{align}$$
 >[!important] Cambio di variabile
 A questo punto si fa un cambio di variabile $\tau'$ sull'esponente di $e$ per ottiene un integrale di Gauss.
 $$\tau' = \sqrt{\alpha_1+\alpha_2}\left(\tau + \frac{\alpha_2t}{\alpha_1+\alpha_2}\right)$$
@@ -203,13 +203,57 @@ Il risultato sarà un altro segnale gaussiano.
 >$$x(t) = \frac{1}{\sqrt{2\pi}\sigma_1}e^{\huge-\frac{t^2}{2\sigma_1^2}} \qquad \ y(t) = \frac{1}{\sqrt{2\pi}\sigma_2}e^{\huge-\frac{t^2}{2\sigma_2^2}}$$
 >$$z(t) = x(t) * y(t) = \frac{1}{\sqrt{2\pi}\sqrt{\sigma_1^2+\sigma_2^2}}\ e^{\huge- \frac{t^2}{2(\sigma_1^2+\sigma_2^2)}}$$
 
+### Convoluzione tra coseno quadrato e un [[Segnale Finestra#Finestra rettangolare|rettangolo]]
+
+Dato un segnale coseno quadrato e una finestra rettangolare, la loro convoluzione vale
+$$z(t) = \cos^2\left(\frac{2\pi t}{T}\right) * \operatorname{rect}\left(\frac{2t}{T}\right)=\int_{-\infty}^{\infty}\cos^2\left(\frac{2\pi\tau}{T}\right)\operatorname{rect}\left(\frac{2\left(t-\tau\right)}{T}\right)d\tau$$
+Visto che uno dei termini della convoluzione è una funzione finestra, si può ridurre la finestra di integrazione.
+$$z(t) = \int_{t-T/4}^{t+T/4}\cos^2\left(\frac{2\pi\tau}{T}\right)d\tau$$
+Applicando la formula di duplicazione del coseno, dal quadrato del coseno si ottiene un coseno a frequenza doppia.
+$$z(t) = \frac{1}{2}\int_{t-T/4}^{t+T/4}1+\cos\left(\frac{4\pi\tau}{T}\right)d\tau =  \frac{1}{2}\frac{T}{2} + \frac{1}{2}\int_{t-T/4}^{t+T/4}\cos\left(\frac{4\pi\tau}{T}\right)d\tau$$
+Il coseno ha periodo $\dfrac{T}{4}$ mentre l'integrale ha una finestra di $\dfrac{T}{2}$ . Quindi, dato che il coseno è una funzione pari, il suo integrale sarà nullo.
+$$z(t) = \frac{1}{2}\frac{T}{2}=\frac{T}{4}$$
+### Convoluzione tra una [[Segnale Rampa|rampa]] finestrata e un [[Segnale Finestra|rettangolo]]
+
+Dati i segnali $x(t)=\dfrac{1}{T}\operatorname{rect}\left(\dfrac{t}{T}\right)\left(t+\dfrac{T}{2}\right)$ e $y(t) = \operatorname{rect}\left(\dfrac{t}{T}\right)$, la loro convoluzione vale
+$$z(t) = \frac{1}{T}\int_{-\infty}^{\infty}\operatorname{rect}\left(\frac{\tau}{T}\right)\left(\tau+\frac{T}{2}\right)\operatorname{rect}\left(\frac{t-\tau}{T}\right)d\tau$$
+>[!summary] Finestre di integrazione
+>Per valori di $t$ fuori dall'intervallo $-T<t<T$ almeno uno dei due segnali è nullo, quindi lo sarà anche il risultato.
+>$$z(t)=\left\{\begin{matrix*}[c,r,l]
+>0 & \text{per} & t<-T \\
+>\vdots\\
+>0 & \text{per} & t>T
+>\end{matrix*}\right.$$
+>---
+>Per valori di $t$ compresi tra $-T$ e $0$ il rettangolo si sta inserendo nella rampa.
+>$$\begin{align}
+>&\ \frac{1}{T}\int^{t+T/2}_{-T/2}\left(\tau+\frac{T}{2}\right)d\tau = \\
+>=&\ \frac{1}{T}\left.\left(\frac{\tau^2}{2}+\frac{T}{2}\tau\right)\right|^{t+T/2}_{-T/2} = \\
+>=&\ \frac{1}{T}\left[\frac{\left(t+\frac{T}{2}\right)^2}{2}+\frac{T\left(t+\frac{T}{2}\right)}{2}-\frac{T^2}{8}+\frac{T^2}{4}\right] =\\
+>=&\ \frac{(t+T)^2}{2T}
+>\end{align}$$ 
+>---
+>Per valori di $t$ compresi tra $0$ e $T$ il rettangolo sta uscendo nella rampa.
+>$$\begin{align}
+>&\ \frac{1}{T}\int_{t-T/2}^{T/2}\left(\tau+\frac{T}{2}\right)d\tau = \\
+>=&\ \frac{1}{T}\left.\left(\frac{\tau^2}{2}+\frac{T}{2}\tau\right)\right|_{t-T/2}^{T/2} = \\
+>=&\ \frac{t^2-T^2}{2T}
+>\end{align}$$
+
+Il segnale convoluto vale
+$$z(t) = \left\{\begin{matrix*}[c,r,l]
+0 & \text{per} & t<-T \\
+\dfrac{(t+T)^2}{2T} & \text{per} & -T<t<0\\
+\dfrac{t^2-T^2}{2T} & \text{per} & 0<t<T\\
+0 & \text{per} & t>T
+\end{matrix*}\right.$$
 ### Autoconvoluzione di due [[Segnale Finestra|rettangoli]]
 
 Dato un segnale simmetrico, composto da due finestre rettangolari 
 $$x(t) = \operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)$$
 la sua autoconvoluzione $z(t) = x(t) * x(t)$ può essere calcolata conoscendo le proprietà delle convoluzioni tra finestre rettangolari, in alternativa al calcolo dell´integrale.
-$$\begin{gather}
-z(t) = \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] * \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] = \\
-= T\operatorname{tri}\left(\frac{t+t_0}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right)  + T\operatorname{tri}\left(\frac{t-t_0}{T}\right) = \\
-= T\left[\operatorname{tri}\left(\frac{t+t_0}{T}\right) + 2\cdot\operatorname{tri}\left(\frac{t}{T}\right) + \operatorname{tri}\left(\frac{t-t_0}{T}\right) \right]
-\end{gather}$$
+$$\begin{align}
+z(t) &= \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] * \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{rect}\left(\frac{t+t_0}{T}\right)\right] = \\
+&= T\operatorname{tri}\left(\frac{t+t_0}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right) + T\operatorname{tri}\left(\frac{t}{T}\right)  + T\operatorname{tri}\left(\frac{t-t_0}{T}\right) = \\
+&= T\left[\operatorname{tri}\left(\frac{t+t_0}{T}\right) + 2\cdot\operatorname{tri}\left(\frac{t}{T}\right) + \operatorname{tri}\left(\frac{t-t_0}{T}\right) \right]
+\end{align}$$
