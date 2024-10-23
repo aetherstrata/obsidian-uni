@@ -172,7 +172,6 @@
       "obsidian-kanban:Crea nuova bacheca": false,
       "command-palette:Apri riquadro comandi": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "daily-notes:Apri nota del giorno": false
     }
   },

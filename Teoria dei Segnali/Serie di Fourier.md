@@ -50,6 +50,46 @@ Quindi, lo spazio vettoriale $V$ è uno spazio euclideo di **dimensione infinita
 ### Coefficienti di Fourier
 Facendo il prodotto scalare della funzione per un suo versore, si può estrarre il suo coefficiente per l'armonica scelta.
 $$c_n=\left<x(t), e^{\Large\frac{i2\pi nt}{T}}\right> = \frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{\Large-\frac{i2\pi nt}{T}}dt$$
+## Condizioni di Dirichlet
+Un segnale periodico $x(t)$, di periodo $T$, può essere sviluppato in serie se soddisfa le condizioni al contorno di Dirichlet:
+
+- deve essere assolutamente integrabile, ovvero che il seguente integrale deve convergere
+$$\displaystyle\int_{T/2}^{-T/2}|x(t)|dt < \infty$$
+- presenta un numero finito di discontinuità di prima specie, ovvero continuo a tratti
+- contiene un numero finito di massimi e minimi, ovvero è derivabile ovunque tranne, al più, un numero finito di punti
+## Proprietà
+### Traslazione nel tempo
+$$\begin{gather}
+\begin{aligned}
+x(t)=&\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}} \\
+x(t-t_0)=&\sum_{n=-\infty}^{\infty}d_n\cdot e^{\Large\frac{i2\pi nt}{T}} \\
+x(t-t_0)=& \sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi n(t-t_0)}{T}} = \sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}e^{\Large-\frac{i2\pi nt_0}{T}} \end{aligned} \\ \\
+d_n = c_n \cdot e^{\Large-\frac{i2\pi nt_0}{T}}
+\end{gather}$$
+#### Dimostrazione
+Si calcolano i coefficienti di Fourier usando la formula generale.
+$$
+\begin{align}
+d_n=\frac{1}{T}\int_{-T/2}^{T/2}x(t-t_0)\cdot e^{\Large-\frac{i2\pi nt}{T}}dt
+\end{align}$$
+>[!summary] Cambio di variabile
+$$t -t_0 = t' \quad\longrightarrow\quad d_n = \frac{1}{T}\int_{-T/2 - t_0}^{T/2-t_0}x(t')\cdot e^{\Large-\frac{i2\pi nt'}{T}}e^{\Large-\frac{i2\pi nt_0}{T}}dt$$
+
+A questo punto si porta l'esponenziale in $t_0$ fuori dall'integrale.
+$$d_n= e^{\Large-\frac{i2\pi nt_0}{T}}\boxed{\frac{1}{T}\int_{-T/2 - t_0}^{T/2-t_0}x(t')\cdot e^{\Large-\frac{i2\pi nt'}{T}}dt}$$
+Il termine integrale è uguale a quello calcolato per il segnale non traslato.
+$$d_n = c_n \cdot e^{\Large-\frac{i2\pi nt_0}{T}}$$
+Quindi è dimostrato che i coefficienti di Fourier di un segnale periodico traslato nel tempo sono uguali a quelli del segnale originale ma moltiplicati per un'armonica.
+### Traslazione in frequenza
+$$\begin{gather}\begin{aligned}
+x(t)&=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}\\
+y(t)&= \sum_{n=-\infty}^{\infty}d_n\cdot e^{\Large\frac{i2\pi nt}{T}}=x(t)\cdot e^{\Large\frac{i2\pi kt}{T}}\\\\ \hline
+\end{aligned} \\ \\
+y(t)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}} e^{\Large\frac{i2\pi kt}{T}}=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi (n+k)t}{T}}\xRightarrow{n+k = n'}\sum_{n'=-\infty}^{\infty}c_{n'-k}\cdot e^{\Large\frac{i2\pi n't}{T}}
+\end{gather}$$
+
+I coefficienti di Fourier del segnale traslato in frequenza $y(t)$ sono uguali a quelli del segnale originale $x(t)$ calcolati in $n-k$.
+$$d_n=c_{n-k}$$
 ## Esempi
 ### Segnale coseno
 Dato il segnale $x(t) = A\cos\left(\dfrac{2\pi t}{T}\right)$, si possono ricavare i suoi coefficienti di Fourier senza calcolare l'integrale usando la [[Numeri Complessi#Formula di Eulero|formula di Eulero]].
