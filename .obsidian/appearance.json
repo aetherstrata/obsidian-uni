@@ -2,9 +2,9 @@
   "cssTheme": "Things",
   "enabledCssSnippets": [
     "mermaid",
-    "hr",
     "monospace_editor",
     "image-flags",
-    "math"
+    "math",
+    "hr"
   ]
 }

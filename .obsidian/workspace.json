@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a3e708e86a208c6b",
+        "id": "67c068451cbfc764",
         "type": "tabs",
         "children": [
           {
-            "id": "3da5f7ffe5ae4914",
+            "id": "febf14121aaf9d85",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -175,15 +175,15 @@
       "daily-notes:Apri nota del giorno": false
     }
   },
-  "active": "3da5f7ffe5ae4914",
+  "active": "febf14121aaf9d85",
   "lastOpenFiles": [
+    "Teoria dei Segnali/Serie di Fourier.md",
+    "Teoria dei Segnali/Correlazione.md",
     "Richiami di Matematica/Seno Cardinale.md",
     "Richiami di Matematica/Numeri Complessi.md",
-    "Teoria dei Segnali/Serie di Fourier.md",
     "Teoria dei Segnali/Trasformata di Fourier.md",
     "Teoria dei Segnali/Convoluzione.md",
     "Teoria dei Segnali/Segnali/Segnale Finestra.md",
-    "Teoria dei Segnali/Correlazione.md",
     "Teoria del Controllo/Proprietà di un Sistema/Linearità.md",
     "Teoria dei Segnali/Energia e potenza.md",
     "Teoria del Controllo/Proprietà di un Sistema/Causalità.md",

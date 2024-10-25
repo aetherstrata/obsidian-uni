@@ -76,7 +76,7 @@ d_n=\frac{1}{T}\int_{-T/2}^{T/2}x(t-t_0)\cdot e^{\Large-\frac{i2\pi nt}{T}}dt
 $$t -t_0 = t' \quad\longrightarrow\quad d_n = \frac{1}{T}\int_{-T/2 - t_0}^{T/2-t_0}x(t')\cdot e^{\Large-\frac{i2\pi nt'}{T}}e^{\Large-\frac{i2\pi nt_0}{T}}dt$$
 
 A questo punto si porta l'esponenziale in $t_0$ fuori dall'integrale.
-$$d_n= e^{\Large-\frac{i2\pi nt_0}{T}}\boxed{\frac{1}{T}\int_{-T/2 - t_0}^{T/2-t_0}x(t')\cdot e^{\Large-\frac{i2\pi nt'}{T}}dt}$$
+$$d_n= e^{\Large-\frac{i2\pi nt_0}{T}}\underbrace{\frac{1}{T}\int_{-T/2 - t_0}^{T/2-t_0}x(t')\cdot e^{\Large-\frac{i2\pi nt'}{T}}dt}_{\Large c_n \vphantom{\big|}}$$
 Il termine integrale è uguale a quello calcolato per il segnale non traslato.
 $$d_n = c_n \cdot e^{\Large-\frac{i2\pi nt_0}{T}}$$
 Quindi è dimostrato che i coefficienti di Fourier di un segnale periodico traslato nel tempo sono uguali a quelli del segnale originale ma moltiplicati per un'armonica.
@@ -90,6 +90,37 @@ y(t)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}} e^{\Large\fr
 
 I coefficienti di Fourier del segnale traslato in frequenza $y(t)$ sono uguali a quelli del segnale originale $x(t)$ calcolati in $n-k$.
 $$d_n=c_{n-k}$$
+### Modulazione
+$$\begin{gather}\begin{aligned}
+x(t)&=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}\\
+y(t)= \cos\left(\frac{2\pi t}{T}\right)x(t)&=\frac{x(t)}{2}\left[e^{\Large\frac{i2\pi t}{T}}+e^{\Large-\frac{i2\pi t}{T}}\right] \\\\ \hline
+\end{aligned} \\\\ \begin{aligned}
+y(t) &= \frac{1}{2}\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}\left[e^{\Large\frac{i2\pi t}{T}}+e^{\Large-\frac{i2\pi t}{T}}\right] =\\
+&= \frac{1}{2}\sum_{n'=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi (n+1)t}{T}}+\frac{1}{2}\sum_{n''=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi (n-1)t}{T}} =\\
+&= \frac{1}{2}\sum_{n'=-\infty}^{\infty}c_{n'-1}\cdot e^{\Large\frac{i2\pi n't}{T}} + \frac{1}{2}\sum_{n'=-\infty}^{\infty}c_{n''+1}\cdot e^{\Large\frac{i2\pi n''t}{T}}
+\\\\ \hline \end{aligned} \\\\
+d_n = \frac{1}{2}c_{n-1}+\frac{1}{2}c_{n+1}
+\end{gather}$$
+ I coefficienti del segnale modulato sono uguali a quelli del segnale modulante doppiati e dimezzati, uno traslato di un unità verso destra, e l'altro verso sinistra.
+### Derivazione
+$$\begin{gather}\begin{aligned}
+x(t)&=\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}\\
+y(t)=\frac{d}{dt}x(t)&=\frac{d}{dt}\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}} = \sum_{n=-\infty}^{\infty}c_n\frac{i2\pi n}{T}\cdot e^{\Large\frac{i2\pi nt}{T}} 
+\\ \\ \hline \end{aligned} \\ \\
+d_n = c_n\frac{i2\pi n}{T}
+\end{gather}$$
+Dato un segnale, si conoscono anche i coefficienti di Fourier della sua derivata prima, che si ottengono moltiplicando per $\dfrac{i2\pi n}{T}$.
+## Teorema di Parseval
+
+Il Teorema di Parseval permette di calcolare velocemente la potenza di un segnale rappresentato come serie di Fourier.
+
+>[!info] Integrale di potenza
+>$$P_x=\frac{1}{T}\int_{-T/2}^{T/2}x(t)x^*(t)dt = \frac{1}{T}\int_{-T/2}^{T/2}\underbrace{\sum_{n=-\infty}^{\infty}c_n\cdot e^{\Large\frac{i2\pi nt}{T}}}_{\Large x(t)}\underbrace{\sum_{m=-\infty}^{\infty}c^*_m\cdot e^{\Large-\frac{i2\pi mt}{T}}}_{\Large x^*(t)}dt$$
+
+Invertendo l'ordine tra integrale e sommatorie, rimane solo il prodotto tra due armoniche dentro l'integrale.
+$$P_x = \sum_{n=-\infty}^{\infty}\sum_{m=-\infty}^{\infty}c_n\cdot c^*_m\ \underbrace{\frac{1}{T}\int_{-T/2}^{T/2}e^{\Large\frac{i2\pi (n-m)t}{T}}dt}_{\Large\delta(n-m)}$$
+Questo è uguale al prodotto scalare tra due [[#Basi|basi]] e il suo risultato è $\delta(n-m)$. Quindi si possono scartare tutti i termini tranne quelli in cui $n=m$.
+$$P_x = \sum_{n=-\infty}^{\infty}c_n\cdot c^*_n = \sum_{n=-\infty}^{\infty}|c_n|^2$$
 ## Esempi
 ### Segnale coseno
 Dato il segnale $x(t) = A\cos\left(\dfrac{2\pi t}{T}\right)$, si possono ricavare i suoi coefficienti di Fourier senza calcolare l'integrale usando la [[Numeri Complessi#Formula di Eulero|formula di Eulero]].
