@@ -154,3 +154,121 @@ Di conseguenza, il peso dei coefficienti diminuisce all'aumentare del valore ass
 >---
 >In generale, nei casi in cui $T$ sia un multiplo di $\tau$ e il rapporto tra loro valga $m$, i coefficienti di Fourier ottenuti da valori di $n$ divisibili per $m$ saranno nulli.
 >$$c_n = \frac{\tau}{T}\operatorname{sinc}\left(\frac{n\tau}{T}\right) = \frac{1}{m}\operatorname{sinc}\left(\frac{n}{m}\right)$$
+
+### Somma di seno e coseno con diversi periodi
+#### Esercizio 1
+Dato il seguente segnale, calcolare la sua rappresentazione in serie di Fourier.
+$$x(t) = 2\cos\left(\frac{2\pi t}{T}+\frac{\pi}{4}\right)+6\sin\left(\frac{2\pi t}{3T}{}\right)$$
+>[!info] Periodo del segnale
+Dato che il coseno ha periodo $T$ e il seno ha periodo $3T$, allora il periodo del segnale $x(t)$ sarà uguale a $3T$.
+$$T'=3T$$
+
+Per agevolare i calcoli, si trasformano le funzioni trigonometriche in esponenziali.
+$$\begin{align}
+x(t)&=e^{\Large i\left(\frac{2\pi t}{T}+\frac{\pi}{4}\right)}+e^{\Large-i\left(\frac{2\pi t}{T}+\frac{\pi}{4}\right)}+\frac{3}{i}e^{\Large i\frac{2\pi t}{3T}}-\frac{3}{i}e^{\Large-i\frac{2\pi t}{3T}}\\
+&=\sum_{n=-\infty}^{+\infty}c_ne^{\Large-\frac{i2\pi nt}{3T}}
+\end{align}$$
+Si può notare come tutti i termini di questa espressione siano già espressi in funzione di un'armonica.
+$$x(t)=e^{\Large\frac{i\pi}{4}}\boxed{e^{\Large i\frac{6\pi t}{3T}}}+
+e^{\Large-\frac{i\pi}{4}}\boxed{e^{\Large-i\frac{6\pi t}{3T}}}+
+\frac{3}{i}\boxed{e^{\Large i\frac{2\pi t}{3T}}}-\frac{3}{i}\boxed{e^{\Large-i\frac{2\pi t}{3T}}}$$
+Di conseguenza si possono ricavare direttamente i coefficienti di Fourier.
+$$\begin{align}
+c_1&=-3i &;&& c_{-1}&=3i \\
+c_3&=e^{\Large\frac{i\pi}{4}} &;&& c_{-3}&=e^{\Large-\frac{i\pi}{4}}
+\end{align}$$
+#### Esercizio 2
+Dato il seguente segnale, calcolare la sua rappresentazione in serie di Fourier.
+$$x(t) = \sin\left(2\pi t\right)+\cos\left(4\pi t+\phi\right)$$
+>[!info] Periodo del segnale
+Dato che il coseno ha periodo $1/2$ e il seno ha periodo $1$, allora il periodo del segnale $x(t)$ sarà uguale a $1$.
+$$T=1$$
+
+Per agevolare i calcoli, si trasformano le funzioni trigonometriche in esponenziali.
+$$x(t)=\frac{e^{\large i2\pi t}-e^{\large-i2\pi t}}{2i}+\frac{e^{\large i(4\pi t+\phi)}+e^{\large -i(4\pi t+\phi)}}{2}$$
+Si può notare come tutti i termini di questa espressione siano già espressi in funzione di un'armonica.
+$$x(t)=\frac{1}{2i}\boxed{e^{\large i2\pi t}}-\frac{1}{2i}\boxed{e^{\large-i2\pi t}}+\frac{e^{\large i\phi}}{2}\boxed{e^{\large i4\pi t}}+\frac{e^{\large-i\phi}}{2}\boxed{e^{\large -i4\pi t}}$$
+Di conseguenza si possono ricavare direttamente i coefficienti di Fourier.
+$$\begin{align}
+c_1&=-\frac{i}{2} &;&& c_{-1}&=\frac{i}{2} \\
+c_2&=\frac{e^{\large i\phi}}{2} &;&& c_{-2}&=\frac{e^{\large -i\phi}}{2}
+\end{align}$$
+### Seno quadrato
+Dato il seguente segnale, calcolare la sua rappresentazione in serie di Fourier.
+$$x(t)=\sin^2\left(\frac{2\pi t}{T}+\phi\right)$$
+Si applica la [[Formule Trigonometriche#Identità fondamentale della Trigonometria|relazione fondamentale della Trigonometria]] e la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione]].
+$$\begin{gather}
+\cos(2\alpha)=\cos^2(\alpha)-\sin^2(\alpha)=1-2\sin^2(\alpha) \\
+\Downarrow \\
+x(t)=\frac{1}{2}-\frac{1}{2}\cos\left(\frac{4\pi t}{T}+2\phi\right)
+\end{gather}$$
+Per agevolare i calcoli, si trasforma il coseno con la [[Numeri Complessi#Formula di Eulero|formula di Eulero]].
+$$x(t)=\frac{1}{2}-\frac{1}{4}e^{\large i\left(\frac{4\pi t}{T}+2\phi\right)}-\frac{1}{4}e^{\large-i\left(\frac{4\pi t}{T}+2\phi\right)}$$
+Si può notare come tutti i termini di questa espressione siano già espressi in funzione di un'armonica.
+$$x(t)=\frac{1}{2}-\frac{e^{\large i2\phi}}{4}\boxed{e^{\large i\frac{4\pi t}{T}}} - \frac{e^{\large -i2\phi}}{4}\boxed{e^{\large -i\frac{4\pi t}{T}}}$$
+Di conseguenza si possono ricavare direttamente i coefficienti di Fourier.
+$$\begin{gather}
+c_{-1}=-\frac{e^{\large -i2\phi}}{4}&;&c_0=\frac{1}{2}&;&c_1=-\frac{e^{\large i2\phi}}{4}\end{gather}$$
+### Onda a dente di sega
+#### Esercizio 1
+Dato un segnale $x(t)$ di periodo $T$ che vale $t$ all'interno del periodo, calcolare la sua rappresentazione in serie di Fourier.
+
+>[!info] Grafico del segnale
+>![[sawtooth-origine.png]]
+>$$\text{Gli assi sono in scala di }T$$
+
+In questo caso l'unico modo per procedere è con il calcolo dell'integrale.
+$$c_n = \frac{1}{T}\int_{-T/2}^{T/2}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt$$
+>[!summary] Calcolo dell'integrale per parti
+>$$\begin{align}
+>c_n&=\frac{1}{T}\left|\frac{t\cdot e^{\large-i\frac{2\pi nt}{T}}}{-i\frac{2\pi n}{T}}\right|_{-T/2}^{T/2} -\frac{1}{T}\int_{-T/2}^{T/2}\frac{e^{\large-i\frac{2\pi nt}{T}}}{-i\frac{2\pi n}{T}}dt=\\
+>&=\frac{T}{2}\frac{e^{\large i\pi n}+e^{\large -i\pi n}}{-i2\pi n}+\frac{1}{i2\pi n}\left|\frac{e^{\large -i\frac{2\pi nt}{T}}}{-i\frac{2\pi n}{T}}\right|_{-T/2}^{T/2} =\\
+>&=\frac{Ti}{2\pi n}\cos(\pi n)-\frac{T}{4\pi^2n^2}\left(e^{\large i\pi n}-e^{\large -i\pi n}\right) =\\
+>&=\frac{Ti}{2\pi n}\underbrace{\cos(\pi n)}_{\large(-1)^n}-\frac{2Ti}{4\pi^2n^2}\underbrace{\sin(\pi n)}_{\large0} =\\
+>&=\frac{Ti}{2\pi n}(-1)^n\\ \\ \hline \\
+>c_0&= \frac{1}{T}\int_{-T/2}^{T/2}t\ dt = 0
+>\end{align}$$
+
+>[!summary] Calcolo dell'integrale per scomposizione dell'esponenziale
+>TODO
+#### Esercizio 2
+Dato un segnale $x(t)$ di periodo $T$ che vale $t$ all'interno del periodo, calcolare la sua rappresentazione in serie di Fourier.
+
+>[!info] Grafico del segnale
+>![[sawtooth-traslato.png]]
+>$$\text{Gli assi sono in scala di }T$$
+
+Si può calcolare la serie di Fourier di questo segnale riscrivendolo in funzione del segnale dell'esercizio sopra e applicando le proprietà della serie.
+$$y(t)=x\underbrace{\left(t-\frac{T}{2}\right)}_{\mathclap{\text{traslazione nel tempo}}}+\frac{T}{2}$$
+Si applica la proprietà della traslazione nel tempo.
+$$
+d_n= c_n \cdot e^{\Large-\frac{i2\pi nt_0}{T}}=c_n \cdot e^{\Large-\frac{i2\pi nT}{2T}}=c_n \cdot e^{\Large-i\pi n}$$
+Sostituendo a $c_n$ i reali coefficienti si ottiene il risultato.
+$$\begin{align}
+d_n &= \frac{Ti}{2\pi n}(-1)^ne^{\Large-i\pi n}= \frac{Ti}{2\pi n}\underbrace{(-1)^n(-1)^n}_{\large 1} = \frac{Ti}{2\pi n} \\
+d_0 &= c_0 + \frac{T}{2} = \frac{T}{2}
+\end{align}$$
+### Onda triangolare
+Dato un treno triangolare di periodo $T$ e base $\dfrac{\tau}{2}$, calcolare la sua rappresentazione in serie di Fourier.
+$$c_n=\frac{1}{T}\int_{-T/2}^{T/2}\left(1-\left|\frac{2t}{\tau}\right|\right)e^{\large-i\frac{2\pi nt}{T}}dt$$
+La funzione ha valore solo tra $-\dfrac{\tau}{2}$ e $\dfrac{\tau}{2}$.
+$$\begin{align}
+c_n&=\frac{1}{T}\int_{-\tau/2}^{\tau/2}\left(1-\left|\frac{2t}{\tau}\right|\right)e^{\large-i\frac{2\pi nt}{T}}dt =\\
+&= \frac{1}{T}\int_{-\tau/2}^{\tau/2}e^{\large-i\frac{2\pi nt}{T}}dt - \frac{1}{T}\int_{-\tau/2}^{\tau/2}\left|\frac{2t}{\tau}\right|e^{\large-i\frac{2\pi nt}{T}}dt\\
+\end{align}$$
+Il secondo integrale viene scomposto nei due casi del valore assoluto $\left|\dfrac{2t}{\tau}\right|$.
+$$\begin{align}
+c_n &= \frac{1}{T}\int_{-\tau/2}^{\tau/2}e^{\large-i\frac{2\pi nt}{T}}dt + \frac{2}{T\tau}\int_{-\tau/2}^{0}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt \\
+&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large i\frac{2\pi nt}{T}}dt - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt
+\end{align}$$
+Unendo gli integrali si può trasformare gli esponenziali in un coseno.
+$$\begin{align}
+c_n&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{4}{T\tau}\int_{0}^{\tau/2}t\cdot\cos\left(\frac{2\pi nt}{T}\right)dt =\\
+&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{4}{T\tau}\left|\frac{t\cdot \sin\left(\frac{2\pi nt}{T}\right)}{\frac{2\pi nt}{T}}\right|_{0}^{\tau/2} + \frac{4}{T\tau}\int_{0}^{\tau/2}\frac{\sin\left(\frac{2\pi nt}{T}\right)}{\frac{2\pi n}{T}}dt =\\
+&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{4}{T\tau}\frac{\frac{\tau}{2}\sin\left(\frac{\pi n\tau}{T}\right)}{\frac{\pi n\tau}{T}} - \frac{2}{\pi n\tau}\left|\frac{\cos\left(\frac{2\pi nt}{T}\right)}{\frac{2\pi n}{T}}\right|_{0}^{\tau/2} = \\
+&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{\tau}{T}  \frac{\sin\left(\frac{\pi n\tau}{T}\right)}{\frac{\pi n\tau}{T}} + \frac{T}{\pi^2 n^2\tau}\left[\cos\left(\frac{\pi n\tau}{T}\right)-1\right]
+\end{align}$$
+I primi due termini si annullano a vicenda.
+$$c_n= \frac{T}{\pi^2 n^2\tau}\left[\cos\left(\frac{\pi n\tau}{T}\right)-1\right]$$
+Applicando la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione]] del coseno, si ottiene una funzione con un singolo termine.
+$$c_n = \frac{2T}{\pi^2 n^2\tau}\sin^2\left(\frac{\pi n\tau}{2T}\right)=\frac{\tau}{2T}\operatorname{sinc}^2\left(\frac{n\tau}{2T}\right)$$

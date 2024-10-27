@@ -209,7 +209,7 @@ Dato un segnale coseno quadrato e una finestra rettangolare, la loro convoluzion
 $$z(t) = \cos^2\left(\frac{2\pi t}{T}\right) * \operatorname{rect}\left(\frac{2t}{T}\right)=\int_{-\infty}^{\infty}\cos^2\left(\frac{2\pi\tau}{T}\right)\operatorname{rect}\left(\frac{2\left(t-\tau\right)}{T}\right)d\tau$$
 Visto che uno dei termini della convoluzione è una funzione finestra, si può ridurre la finestra di integrazione.
 $$z(t) = \int_{t-T/4}^{t+T/4}\cos^2\left(\frac{2\pi\tau}{T}\right)d\tau$$
-Applicando la formula di duplicazione del coseno, dal quadrato del coseno si ottiene un coseno a frequenza doppia.
+Applicando la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione del coseno]], dal quadrato del coseno si ottiene un coseno a frequenza doppia.
 $$z(t) = \frac{1}{2}\int_{t-T/4}^{t+T/4}1+\cos\left(\frac{4\pi\tau}{T}\right)d\tau =  \frac{1}{2}\frac{T}{2} + \frac{1}{2}\int_{t-T/4}^{t+T/4}\cos\left(\frac{4\pi\tau}{T}\right)d\tau$$
 Il coseno ha periodo $\dfrac{T}{4}$ mentre l'integrale ha una finestra di $\dfrac{T}{2}$ . Quindi, dato che il coseno è una funzione pari, il suo integrale sarà nullo.
 $$z(t) = \frac{1}{2}\frac{T}{2}=\frac{T}{4}$$

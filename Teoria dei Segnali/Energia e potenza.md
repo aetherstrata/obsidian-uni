@@ -63,7 +63,7 @@ $$\lim\limits_{N\to\infty} \frac{1}{2N+1}\sum_{n=-N}^{N}\Big|x[n]\Big|^2$$
 >[!example] Coseno
 >La funzione coseno è una funzione periodica quindi si può usare la forma alternativa dell'integrale di potenza, sapendo che il periodo vale $\frac{1}{f_0}$.
 >$$P_x = \frac{1}{T}\ \int_{-T/2}^{T/2} |A\ cos(2\pi f_0t)|^2\ dt = f_0A^2\int_{-1/2f_0}^{1/2f_0} cos^2(2\pi f_0 t)\ dt =$$
->Usando la formula di duplicazione si ottengono questi due integrali. Visto che l'intervallo di integrazione è simmetrico, l'integrale del coseno si annulla e rimane solo quello di $1/2$.
+>Usando la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione]] si ottengono questi due integrali. Visto che l'intervallo di integrazione è simmetrico, l'integrale del coseno si annulla e rimane solo quello di $1/2$.
 >$$= f_0A^2\int_{-1/2f_0}^{1/2f_0} \frac{cos(4\pi f_0 t)+1}{2}\ dt = f_0 \frac{1}{2} \frac{1}{f_0}A^2 = \frac{A^2}{2} $$
 >Il risultato è un valore finito, quindi la funzione coseno è un segnale di potenza.
 
@@ -110,9 +110,9 @@ $$\lim\limits_{N\to\infty} \frac{1}{2N+1}\sum_{n=-N}^{N}\Big|x[n]\Big|^2$$
 >&=\int_{0}^{1}\left[\cos\left(\frac{\pi t}{4}\right)+\sin\left(\frac{\pi t}{4}\right)\right]^2dt = \\
 >&= \int_{0}^{1}\left[\cos^2\left(\frac{\pi t}{4}\right)+2\cos\left(\frac{\pi t}{4}\right)\sin\left(\frac{\pi t}{4}\right)+\sin^2\left(\frac{\pi t}{4}\right)\right]\ dt
 >\end{align}$$
->Si applica la relazione fondamentale della trigonometria.
+>Si applica la [[Formule Trigonometriche#Identità fondamentale della Trigonometria|relazione fondamentale della trigonometria]].
 >$$E_x = \int_{0}^{1}\left[1 + 2\cos\left(\frac{\pi t}{4}\right)\sin\left(\frac{\pi t}{4}\right)\right]\ dt$$
->Si applica la formula di duplicazione del seno $2\cos(t)\sin(t)=\sin(2t)$.
+>Si applica la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione]] del seno.
 >$$E_x= 1 + \int_{0}^{1}\sin\left(\frac{\pi t}{2}\right)\ dt = 1 - \frac{2}{\pi}\cos\left.\left(\frac{\pi t}{2}\right)\right|_{0}^{1} = 1 + \frac{2}{\pi}$$
 >Il risultato è un valore finito, quindi è un segnale di energia.
 
@@ -124,9 +124,9 @@ $$\lim\limits_{N\to\infty} \frac{1}{2N+1}\sum_{n=-N}^{N}\Big|x[n]\Big|^2$$
 >P_x&=\frac{1}{2\tau}\int_{0}^{2\tau}\left|2\cos\left(\frac{\pi t}{\tau}\right)+i\sin\left(\frac{\pi t}{\tau}\right)\right|^2dt=\\
 >&=\frac{1}{2\tau}\int_{0}^{2\tau}4\cos^2\left(\frac{\pi t}{\tau}\right)+\sin^2\left(\frac{\pi t}{\tau}\right)\ dt
 >\end{align}$$
->Si applica la relazione fondamentale della trigonometria.
+>Si applica la [[Formule Trigonometriche#Identità fondamentale della Trigonometria|relazione fondamentale della trigonometria]].
 >$$P_x = \frac{1}{2\tau}\int_{0}^{2\tau} \left[1 + 3\cos^2\left(\frac{\pi t}{\tau}\right)\right]dt$$
->Si applica la formula di duplicazione del coseno $\cos^2(t)=\frac{1}{2}+\frac{1}{2}\cos(2t)$.
+>Si applica la [[Formule Trigonometriche#Formule di duplicazione|formula di duplicazione]] del coseno.
 >$$P_x=\frac{1}{2\tau}\int_{0}^{2\tau} 1 + 3\left[\frac{1}{2}+ \frac{1}{2}\cos\left(\frac{2\pi t}{\tau}\right)\right]dt$$
 >Ora l'integrale può essere separato in una parte costante e una parte funzione del coseno.
 >$$P_x=\frac{1}{2\tau}\int_{0}^{2\tau} \frac{5}{2}\ dt + \frac{1}{2\tau}\int_{0}^{2\tau} \frac{3}{2}\cos\left(\frac{2\pi t}{\tau}\right)\ dt$$
