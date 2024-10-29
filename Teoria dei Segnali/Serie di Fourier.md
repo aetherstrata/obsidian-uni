@@ -29,22 +29,21 @@ $$\left\{\begin{matrix}
 1 &e^{\Large\frac{i2\pi t}{T}} &e^{\Large\frac{i4\pi t}{T}} &e^{\Large\frac{i6\pi t}{T}}  &e^{\Large\frac{i8\pi t}{T}}  &e^{\Large\frac{i10\pi t}{T}} &\dots &e^{\Large\frac{i2\pi nt}{T}} \\
 \hat{v}_1& \hat{v}_2&\hat{v}_3&\hat{v}_4& \hat{v}_5& \hat{v}_6&\dots& \hat{v}_n
 \end{matrix}\right\}$$
->[!summary] Dimostrazione
->Questo si può dimostrare facendo il prodotto scalare tra due basi.
->$$\begin{align}
->\left<e^{\Large\frac{i2\pi nt}{T}},e^{\Large\frac{i2\pi mt}{T}}\right> &= \frac{1}{T}\int_{-T/2}^{T/2}e^{\Large\frac{i2\pi nt}{T}}e^{\Large-\frac{i2\pi mt}{T}}dt =\\
->&= \frac{1}{T}\int_{-T/2}^{T/2}e^{i2\pi\Large\frac{(n-m)t}{T}}dt =\\
->&= \frac{1}{T}\left.\frac{T}{i2\pi(n-m)}e^{i2\pi\Large\frac{(n-m)t}{T}}\right|_{-T/2}^{T/2} =\\
->&= \frac{1}{\pi(n-m)}\frac{e^{i\pi(n-m)}-e^{-i\pi(n-m)}}{2i} =\\
->&= \frac{\sin[\pi(n-m)]}{\pi(n-m)} =\\
->&= \operatorname{sinc}(n-m)
->\end{align}$$
->Il risultato è un [[Seno Cardinale]]. Sapendo che $n$ e $m$ sono numeri interi, si può dedurre che il risultato sarà uguale a $1$ se $n=m$, altrimenti sarà uguale a $0$.
->$$\left<e^{\Large\frac{i2\pi nt}{T}},e^{\Large\frac{i2\pi mt}{T}}\right> = \left\{\begin{matrix}
->1&\text{per}&n=m\\
->0&\text{per}&n\ne m
->\end{matrix}\right.\quad\longrightarrow\quad\delta(n-m)$$
->È dimostrato che la base è ortonormale e l'operazione ha lo stesso comportamento di una [[Delta di Dirac]].
+Questo si può dimostrare facendo il prodotto scalare tra due basi.
+$$\begin{align}
+\left<e^{\Large\frac{i2\pi nt}{T}},e^{\Large\frac{i2\pi mt}{T}}\right> &= \frac{1}{T}\int_{-T/2}^{T/2}e^{\Large\frac{i2\pi nt}{T}}e^{\Large-\frac{i2\pi mt}{T}}dt =\\
+&= \frac{1}{T}\int_{-T/2}^{T/2}e^{i2\pi\Large\frac{(n-m)t}{T}}dt =\\
+&= \frac{1}{T}\left.\frac{T}{i2\pi(n-m)}e^{i2\pi\Large\frac{(n-m)t}{T}}\right|_{-T/2}^{T/2} =\\
+&= \frac{1}{\pi(n-m)}\frac{e^{i\pi(n-m)}-e^{-i\pi(n-m)}}{2i} =\\
+&= \frac{\sin[\pi(n-m)]}{\pi(n-m)} =\\
+&= \operatorname{sinc}(n-m)
+\end{align}$$
+Il risultato è un [[Seno Cardinale]]. Sapendo che $n$ e $m$ sono numeri interi, si può dedurre che il risultato sarà uguale a $1$ se $n=m$, altrimenti sarà uguale a $0$.
+$$\left<e^{\Large\frac{i2\pi nt}{T}},e^{\Large\frac{i2\pi mt}{T}}\right> = \left\{\begin{matrix}
+1&\text{per}&n=m\\
+0&\text{per}&n\ne m
+\end{matrix}\right.\quad\longrightarrow\quad\delta(n-m)$$
+È dimostrato che la base è ortonormale e l'operazione ha lo stesso comportamento di una [[Delta di Dirac]].
 
 Quindi, lo spazio vettoriale $V$ è uno spazio euclideo di **dimensione infinita numerabile**.
 ### Coefficienti di Fourier
@@ -261,7 +260,7 @@ $$\begin{align}
 c_n &= \frac{1}{T}\int_{-\tau/2}^{\tau/2}e^{\large-i\frac{2\pi nt}{T}}dt + \frac{2}{T\tau}\int_{-\tau/2}^{0}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt \\
 &= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large i\frac{2\pi nt}{T}}dt - \frac{2}{T\tau}\int_{0}^{\tau/2}t\cdot e^{\large-i\frac{2\pi nt}{T}}dt
 \end{align}$$
-Unendo gli integrali si può trasformare gli esponenziali in un coseno.
+Unendo gli integrali si possono trasformare gli esponenziali in un coseno.
 $$\begin{align}
 c_n&= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{4}{T\tau}\int_{0}^{\tau/2}t\cdot\cos\left(\frac{2\pi nt}{T}\right)dt =\\
 &= \frac{\tau}{T}\ \operatorname{sinc}\left(\frac{n\tau}{T}\right) - \frac{4}{T\tau}\left|\frac{t\cdot \sin\left(\frac{2\pi nt}{T}\right)}{\frac{2\pi nt}{T}}\right|_{0}^{\tau/2} + \frac{4}{T\tau}\int_{0}^{\tau/2}\frac{\sin\left(\frac{2\pi nt}{T}\right)}{\frac{2\pi n}{T}}dt =\\
