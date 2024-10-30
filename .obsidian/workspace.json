@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "febf14121aaf9d85",
+            "id": "810d5ac0dcf8c5e1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,51 +20,6 @@
               },
               "icon": "lucide-file",
               "title": "Trasformata di Fourier"
-            }
-          },
-          {
-            "id": "6c0df9e140bb9417",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Teoria dei Segnali/Serie di Fourier.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Serie di Fourier"
-            }
-          },
-          {
-            "id": "edc98367476306d5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Richiami di Matematica/Numeri Complessi.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Numeri Complessi"
-            }
-          },
-          {
-            "id": "810d5ac0dcf8c5e1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Richiami di Matematica/Formule Trigonometriche.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Formule Trigonometriche"
             }
           }
         ]
@@ -220,19 +175,24 @@
       "daily-notes:Apri nota del giorno": false
     }
   },
-  "active": "febf14121aaf9d85",
+  "active": "810d5ac0dcf8c5e1",
   "lastOpenFiles": [
-    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
-    "Teoria dei Segnali/Trasformata di Fourier.md",
     "Teoria dei Segnali/Serie di Fourier.md",
-    "Richiami di Matematica/Funzione Periodica.md",
+    "Teoria dei Segnali/Filtro.md",
+    "Teoria dei Segnali/Trasformata di Fourier.md",
     "Richiami di Matematica/Formule Trigonometriche.md",
+    "Risposta Impulsiva.md",
+    "Teoria dei Segnali/Risposta Impulsiva.md",
+    "Richiami di Matematica/Numeri Complessi.md",
+    "Teoria dei Segnali/[Segnale di Gauss.md",
+    "Richiami di Matematica/Funzione Segno.md",
+    "Teoria dei Segnali/Segnali/Segnale di Gauss.md",
+    "Teoria dei Segnali/Segnali/Delta di Dirac.md",
+    "Richiami di Matematica/Funzione Periodica.md",
     "Risorse/sawtooth-traslato.png",
     "Risorse/sawtooth-origine.png",
     "Teoria dei Segnali/Energia e potenza.md",
-    "Richiami di Matematica/Numeri Complessi.md",
     "Teoria dei Segnali/Convoluzione.md",
-    "Richiami di Matematica/Funzione Segno.md",
     "Richiami di Matematica/Equazioni differenziali.md",
     "Teoria dei Segnali/Correlazione.md",
     "Richiami di Matematica/Seno Cardinale.md",
@@ -245,11 +205,7 @@
     "Teoria del Controllo/Isteresi.md",
     "Teoria del Controllo/Proprietà di un Sistema",
     "Teoria del Controllo/Senza nome.md",
-    "Teoria dei Segnali/Risposta Impulsiva.md",
-    "Teoria dei Segnali/Filtro.md",
     "Teoria dei Segnali/Segnale.md",
-    "Teoria dei Segnali/Segnali/Segnale Rampa.md",
-    "Teoria dei Segnali/Segnali/Segnale Gradino.md",
     "Risorse/funzione-trasferimento-diagramma.svg",
     "Risorse/funzione_segno.png",
     "Risorse/Diagramma senza titolo.drawio.svg",
