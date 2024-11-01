@@ -73,6 +73,54 @@ t'\coloneqq t-t_o\quad={}&\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi f(t'+t_0)
 ={}&e^{\large -i2\pi ft_0}\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi ft'}dt'=\\
 ={}&e^{\large -i2\pi ft_0}X(f)
 \end{align}$$
+### Derivazione
+$$\begin{align}
+\dot{x}(t)=\frac{d}{dt}x(t)&=\int_{-\infty}^{\infty}i2\pi f\cdot X(f)e^{i2\pi ft}df\\
+\dot{x}(t)=\frac{d}{dt}x(t)&\overset{\mathcal{F}}{\longrightarrow}\boxed{i2\pi f\cdot X(f)}
+\end{align}$$
+#### Duale
+$$\begin{align}
+\dot{X}(f)=\frac{d}{df}X(f)&=\int_{-\infty}^{\infty}-i2\pi t\cdot x(t)e^{\large -i2\pi ft}dt\\
+\boxed{i2\pi t\cdot x(t)}&\overset{\mathcal{F}}{\longrightarrow}-\frac{d}{df}X(f)
+\end{align}$$
+### [[Convoluzione]]
+$$z(t)=x(t)*y(t)\overset{\mathcal{F}}{\longrightarrow}X(f)Y(f)=Z(f)$$
+#### Dimostrazione
+$$\begin{align}
+z(t)=x(t)*y(t)&=\int_{-\infty}^{\infty}x(t-\tau)\underbrace{y(\tau)}_{\mathcal{F^{-1}}}d\tau=\\
+&=\int_{-\infty}^{\infty}x(t-\tau)\int_{-\infty}^{\infty}Y(f)e^{i2\pi f\tau}df\ d\tau=\\
+&=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t-\tau)e^{i2\pi f\tau} d\tau=\\
+t'\coloneqq t-\tau\quad&=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t')e^ {\large i2\pi f(t-t')} dt'=\\
+&=\int_{-\infty}^{\infty}Y(f)e^ {\large i2\pi ft}df\underbrace{\int_{-\infty}^{\infty}x(t')e^ {\large -i2\pi ft'} dt'}_{\large X(f)}=\\
+&=\int_{-\infty}^{\infty}\boxed{Y(f)X(f)}e^ {\large i2\pi ft}df
+\end{align}$$
+### [[Correlazione]]
+$$z(t)=x(t)\otimes y(t)=\int_{-\infty}^{\infty}x(t+\tau)y^*(\tau)d\tau$$
+Ricordando il legame tra correlazione e convoluzione, si può applicare la proprietà di convoluzione.
+$$z(t)= x(t)*y^*(-t)=X(f)Y^*(f)$$
+### Integrazione
+$$\begin{align}
+x(t)&\overset{\mathcal{F}}{\longrightarrow}X(f)\\\\
+x'(t)&=\int_{-\infty}^{\tau}x(\tau)d\tau=\int_{-\infty}^{\infty}u(t-\tau)x(\tau)d\tau\\
+x'(t)&\overset{\mathcal{F}}{\longrightarrow}X(f)\left[\frac{1}{2}\delta(f)+\frac{1}{2\pi if}\right]=\\
+&=\frac{1}{2}X(0)\delta(f)+\frac{X(f)}{2\pi if}
+\end{align}$$
+### Coniugazione
+$$\begin{align}
+x(t)&\overset{\mathcal{F}}{\longrightarrow}X(f)\\\\
+x^*(t)&\overset{\mathcal{F}}{\longrightarrow}\int_{-\infty}^{\infty}x^*(t)e^{\large -i2\pi ft}dt=\left(\int_{-\infty}^{\infty}x(t)e^{\large i2\pi ft}dt\right)^*=X^*(-f)\\
+
+\end{align}$$
+## Teorema di Parseval
+
+Il Teorema di Parseval permette di calcolare velocemente la potenza di un segnale rappresentato come trasformata di Fourier.
+$$z(t)=x(t)*y^*(-t)=\int_{-\infty}^{\infty}x(\tau)y^*(t+\tau)d\tau$$
+Sfruttando la proprietà della [[#Convoluzione]], si può riscrivere come prodotto tra trasformate.
+$$z(t)=\int_{-\infty}^{\infty}X(f)Y^*(f)e^{\large i2\pi ft}df$$
+Valutando l'espressione in $t=0$, è evidente l'uguaglianza con l'operazione di prodotto scalare.
+$$z(0)=\underbrace{\int_{-\infty}^{\infty}x(\tau)y^*(\tau)d\tau}_{\large\left<x(t),y(t)\right>}=\underbrace{\int_{-\infty}^{\infty}X(f)Y^*(f)df}_{{\large\left<X(f),Y(f)\right>}}$$
+Se si pone $x(t) = y(t)$, quindi si fa la sua [[Correlazione#Autocorrelazione|autocorrelazione]], il risultato sarà l'[[Energia e potenza#Energia di un segnale analogico|energia]] del segnale.
+$$E_x=\int_{-\infty}^{\infty}\left|x(t)\right|^2dt=\int_{-\infty}^{\infty}x(\tau)x^*(\tau)d\tau=\int_{-\infty}^{\infty}X(f)X^*(f)df=\int_{-\infty}^{\infty}\left|X(f)\right|^2df$$
 ## Esempi
 ### Trasformata di una [[Segnale Finestra#Finestra rettangolare|finestra rettangolare]]
 Dato un impulso rettangolare $x(t)=\operatorname{rect}\left(\dfrac{t}{\tau}\right)$, calcolare la sua trasformata di Fourier.
@@ -192,4 +240,46 @@ Conoscendo la trasformata di un gradino, si può calcolare questa trasformata se
 $$\begin{align}
 X(f)&=\frac{1}{2}\delta(f)+\frac{1}{2\pi if}-\frac{1}{2}\delta(f)+\frac{1}{2\pi if}=\\
 &=\frac{1}{i\pi f}
+\end{align}$$
+### Trasformata della derivata di una [[Segnale Finestra#Finestra rettangolare|finestra rettangolare]]
+Dato il segnale $x(t)=\operatorname{rect}\left(\dfrac{t}{T}\right)$, di cui si conosce la corrispondente trasformata di Fourier $X(f)=T\operatorname{sinc}(Tf)$, calcolare la trasformata della sua derivata.
+
+>[!info] Calcolo analitico della derivata
+>Se si volesse calcolare a mano la derivata di una funzione discontinua bisogna tener conto dei punti di discontinuità con degli impulsi $\delta(t)$.
+>$$\dot{x}(t)=\delta(t+T/2)-\delta(t-T/2)$$
+
+Sfruttando la proprietà della derivazione, non è necessario calcolare la derivata del segnale nel dominio del tempo.
+$$\begin{align}
+X'(f)&=i2\pi f \cdot T\operatorname{sinc}(fT)=\\
+&=i2\pi fT\cdot\frac{\sin(\pi fT)}{\pi fT}=\\
+&=2i\cdot\sin(\pi fT)=\\
+&=2i\cdot\frac{e^{\large i\pi fT}-e^{\large -i\pi fT}}{2i}=\\
+&=e^{\large i\pi fT}-e^{\large -i\pi fT}
+\end{align}$$
+La trasformata ottenuta è uguale alla trasformata due [[Delta di Dirac]] traslate quindi è corretto.
+### Trasformata della derivata di una [[Segnale Finestra#Finestra triangolare|finestra triangolare]]
+Dato il segnale $x(t)=\operatorname{tri}\left(\dfrac{t}{T}\right)$, calcolare la trasformata della sua derivata.
+
+>[!info] Calcolo analitico della derivata
+>$$\dot{x}(t)=\begin{cases}
+>\hphantom{-}1/T&\text{ se }-T\le t\le0\\
+>-1/T&\text{ se }\hphantom{-T}0\le t\le T\\
+>\hphantom{\dfrac{1}{T}}{0}&\text{ altrove}
+>\end{cases}$$
+>Questa derivata può essere riscritta come somma di due finestre rettangolari.
+>$$\dot{x}(t)=\frac{1}{T}\operatorname{rect}\left(\frac{t+\frac{T}{2}}{T}\right)-\frac{1}{T}\operatorname{rect}\left(\frac{t-\frac{T}{2}}{T}\right)$$
+
+Per calcolare questa trasformata si applicano le proprietà di [[#Traslazione nel tempo]] e [[#Scala]].
+$$\begin{align}
+X'(f)&=\frac{1}{T}T\operatorname{sinc}(fT)e^{\large i2\pi f\frac{T}{2}}-\frac{1}{T}T\operatorname{sinc}(fT)e^{\large -i2\pi f\frac{T}{2}}\\
+&=\operatorname{sinc}(fT)\left(e^{\large i2\pi f\frac{T}{2}}-e^{\large -i2\pi f\frac{T}{2}}\right)=\\
+&=\operatorname{sinc}(fT)\sin(\pi fT)\mathrel{2i}{=}\\
+&=\frac{2i\sin^2(\pi fT)}{\pi fT}
+\end{align}$$
+Da qui si può anche calcolare la trasformata della funzione originale $x(t)=\operatorname{tri}\left(\dfrac{t}{T}\right)$.
+$$\begin{align}
+X(f)&=\frac{X'(f)}{2\pi if}\\
+&=\frac{2i\sin^2(\pi fT)}{\pi fT}\frac{1}{2\pi if}=\\
+&=\frac{\sin^2(\pi fT)}{\pi^2 f^2 T}\frac{T}{T}=\\
+&=T\operatorname{sinc}^2(fT)
 \end{align}$$
