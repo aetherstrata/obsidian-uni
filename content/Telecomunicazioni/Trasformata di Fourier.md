@@ -6,15 +6,15 @@ tags:
 ---
 La trasformata di Fourier è una generalizzazione della [[Serie di Fourier]], capace di operare anche su [[Filtro#Risposta Impulsiva|segnali impulsivi]], che ha uno spazio delle basi infinito **non** numerabile, al contrario della serie.
 $$
-x(t)=\int_{-\infty}^{\infty}X(f)\cdot e^{\large i2\pi ft}df \quad\longrightarrow\quad
+x(t)=\int_{-\infty}^{\infty}X(f)\cdot e^{i2\pi ft}df \quad\longrightarrow\quad
  \begin{cases}
  \mathrel{}X(f) & \text{trasformata di Fourier}\\
- e^{\large i2\pi ft} & \text{nucleo di trasformazione}
+ e^{i2\pi ft} & \text{nucleo di trasformazione}
  \end{cases}
 $$
 L'insieme dei coefficienti definisce la trasformata di Fourier del segnale.
 $$
-X(f)=\int_{-\infty}^{\infty}x(t)\cdot e^{\large -i2\pi ft}dt
+X(f)=\int_{-\infty}^{\infty}x(t)\cdot e^{-i2\pi ft}dt
 $$
 ## Definizione
 A differenza della serie di Fourier, nella trasformata è necessario definire il prodotto scalare per qualsiasi funzione, non solo quelle [[Funzione Periodica|periodiche]].
@@ -28,8 +28,8 @@ Le armoniche definiscono le basi ortonormali dello spazio vettoriale.
 Questo si può dimostrare facendo il prodotto scalare tra due basi.
 $$
 \begin{align*}
-\left<e^{\large i2\pi f_1t},e^{\large i2\pi f_2t}\right> &=\lim_{\Delta T\to\infty}\int_{-\Delta T/2}^{\Delta T/2}e^{\large i2\pi (f_1-f_2)t}dt =\\
-&= \lim_{\Delta T\to\infty} \left.\frac{e^{\large i2\pi(f_1-f_2)t}}{i2\pi(f_1-f_2)}\right|_{-\Delta T/2}^{\Delta T/2} =\\
+\left<e^{i2\pi f_1t},e^{i2\pi f_2t}\right> &=\lim_{\Delta T\to\infty}\int_{-\Delta T/2}^{\Delta T/2}e^{i2\pi (f_1-f_2)t}dt =\\
+&= \lim_{\Delta T\to\infty} \left.\frac{e^{i2\pi(f_1-f_2)t}}{i2\pi(f_1-f_2)}\right|_{-\Delta T/2}^{\Delta T/2} =\\
 &= \lim_{\Delta T\to\infty}\Delta T \frac{\sin(\pi(f_1-f_2)\Delta T)}{\pi(f_1-f_2)\Delta T} =\\
 &=\lim_{\Delta T\to\infty}\Delta T \operatorname{sinc}(\Delta T(f_1-f_2))=\\
 &= \delta(f_1-f_2)
@@ -39,13 +39,13 @@ Come per la serie di Fourier, è dimostrato che le armoniche sono ortogonali tra
 ### Trasformata
 Facendo il prodotto scalare della funzione per un suo versore, si può estrarre il suo coefficiente per l'armonica scelta.
 $$
-X(f)=\left<x(t),e^{\large i2\pi ft}\right> =\int_{-\infty}^{\infty}x(t)e^{\large -i2\pi ft}dt
+X(f)=\left<x(t),e^{i2\pi ft}\right> =\int_{-\infty}^{\infty}x(t)e^{-i2\pi ft}dt
 $$
 ## Proprietà
 ### Valore atteso
 Il valore in $0$ della trasformata è il valor medio del segnale.
 $$
-X(0)=\int_{-\infty}^{\infty}x(t)e^{\large -i2\pi ft}dt=\int_{-\infty}^{\infty}x(t)dt = \mathbb{E}(x)
+X(0)=\int_{-\infty}^{\infty}x(t)e^{-i2\pi ft}dt=\int_{-\infty}^{\infty}x(t)dt = \mathbb{E}(x)
 $$
 ### Linearità
 Ad una combinazione lineare di segnali nel tempo corrisponde una combinazione lineare di spettri di frequenze.
@@ -55,8 +55,8 @@ $$
 x_1(t)&\overset{\mathcal{F}}{\longrightarrow}X_1(f)\\
 x_2(t)&\overset{\mathcal{F}}{\longrightarrow}X_2(f)\\\\ \hline
 \end{aligned}\\\\\begin{aligned}
-ax_1(t)+bx_2(t)\overset{\mathcal{F}}{\longrightarrow}&\int_{-\infty}^{\infty}\left[ax_1(t)+bx_2(t)\right]e^{\large -i2\pi ft}dt=\\
-={}&a\int_{-\infty}^{\infty}x_1(t)e^{\large -i2\pi ft}dt+b\int_{-\infty}^{\infty}x_2(t)e^{\large -i2\pi ft}dt =\\
+ax_1(t)+bx_2(t)\overset{\mathcal{F}}{\longrightarrow}&\int_{-\infty}^{\infty}\left[ax_1(t)+bx_2(t)\right]e^{-i2\pi ft}dt=\\
+={}&a\int_{-\infty}^{\infty}x_1(t)e^{-i2\pi ft}dt+b\int_{-\infty}^{\infty}x_2(t)e^{-i2\pi ft}dt =\\
 ={}&aX_1(f)+bX_2(f)
 \end{aligned}
 \end{gather*}
@@ -67,7 +67,7 @@ x(t)\overset{\mathcal{F}}{\longrightarrow}X(f)\overset{\mathcal{F}}{\longrightar
 $$
 #### Dimostrazione
 $$
-\int_{-\infty}^{\infty}X(t)e^{\large -i2\pi ft}dt = \int_{-\infty}^{\infty} X(f')e^{\large -i2\pi t'f'}df' = x(-t')
+\int_{-\infty}^{\infty}X(t)e^{-i2\pi ft}dt = \int_{-\infty}^{\infty} X(f')e^{-i2\pi t'f'}df' = x(-t')
 $$
 #### Esempio
 $$
@@ -79,9 +79,9 @@ $$
 ### Scala
 $$
 \begin{align*}
-x(at)\overset{\mathcal{F}}{\longrightarrow}{}&\int_{-\infty}^{\infty}x(at)e^{\large -i2\pi ft}dt =\\
-{}\xlongequal{at=t'}{}&\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi f\Large\frac{t'}{a}}\frac{dt'}{|a|}=\\
-={}&\frac{1}{|a|}\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi \Large\frac{f}{a}t'}dt'=\\
+x(at)\overset{\mathcal{F}}{\longrightarrow}{}&\int_{-\infty}^{\infty}x(at)e^{-i2\pi ft}dt =\\
+{}\xlongequal{at=t'}{}&\int_{-\infty}^{\infty}x(t')e^{-i2\pi f\large\frac{t'}{a}}\frac{dt'}{|a|}=\\
+={}&\frac{1}{|a|}\int_{-\infty}^{\infty}x(t')e^{-i2\pi \large\frac{f}{a}t'}dt'=\\
 ={}&\frac{1}{|a|}X\left(\frac{f}{a}\right)
 \end{align*}
 $$
@@ -93,10 +93,10 @@ $$
 ### Traslazione nel tempo
 $$
 \begin{align*}
-x(t-t_0)\overset{\mathcal{F}}{\longrightarrow}{}&\int_{-\infty}^{\infty}x(t-t_0)e^{\large -i2\pi ft}dt =\\
-t'\coloneqq t-t_o\quad={}&\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi f(t'+t_0)}dt' =\\
-={}&e^{\large -i2\pi ft_0}\int_{-\infty}^{\infty}x(t')e^{\large -i2\pi ft'}dt'=\\
-={}&e^{\large -i2\pi ft_0}X(f)
+x(t-t_0)\overset{\mathcal{F}}{\longrightarrow}{}&\int_{-\infty}^{\infty}x(t-t_0)e^{-i2\pi ft}dt =\\
+t'\coloneqq t-t_o\quad={}&\int_{-\infty}^{\infty}x(t')e^{-i2\pi f(t'+t_0)}dt' =\\
+={}&e^{-i2\pi ft_0}\int_{-\infty}^{\infty}x(t')e^{-i2\pi ft'}dt'=\\
+={}&e^{-i2\pi ft_0}X(f)
 \end{align*}
 $$
 ### Derivazione
@@ -109,7 +109,7 @@ $$
 #### Duale
 $$
 \begin{align*}
-\dot{X}(f)=\frac{d}{df}X(f)&=\int_{-\infty}^{\infty}-i2\pi t\cdot x(t)e^{\large -i2\pi ft}dt\\
+\dot{X}(f)=\frac{d}{df}X(f)&=\int_{-\infty}^{\infty}-i2\pi t\cdot x(t)e^{-i2\pi ft}dt\\
 \boxed{i2\pi t\cdot x(t)}&\overset{\mathcal{F}}{\longrightarrow}-\frac{d}{df}X(f)
 \end{align*}
 $$
@@ -123,9 +123,9 @@ $$
 z(t)=x(t)*y(t)&=\int_{-\infty}^{\infty}x(t-\tau)\underbrace{y(\tau)}_{\mathcal{F^{-1}}}d\tau=\\
 &=\int_{-\infty}^{\infty}x(t-\tau)\int_{-\infty}^{\infty}Y(f)e^{i2\pi f\tau}df\ d\tau=\\
 &=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t-\tau)e^{i2\pi f\tau} d\tau=\\
-t'\coloneqq t-\tau\quad&=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t')e^ {\large i2\pi f(t-t')} dt'=\\
-&=\int_{-\infty}^{\infty}Y(f)e^ {\large i2\pi ft}df\underbrace{\int_{-\infty}^{\infty}x(t')e^ {\large -i2\pi ft'} dt'}_{\large X(f)}=\\
-&=\int_{-\infty}^{\infty}\boxed{Y(f)X(f)}e^ {\large i2\pi ft}df
+t'\coloneqq t-\tau\quad&=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t')e^ {i2\pi f(t-t')} dt'=\\
+&=\int_{-\infty}^{\infty}Y(f)e^ {i2\pi ft}df\underbrace{\int_{-\infty}^{\infty}x(t')e^ {-i2\pi ft'} dt'}_{X(f)}=\\
+&=\int_{-\infty}^{\infty}\boxed{Y(f)X(f)}e^ {i2\pi ft}df
 \end{align*}
 $$
 ### [[Correlazione]]
@@ -149,7 +149,7 @@ $$
 $$
 \begin{align*}
 x(t)&\overset{\mathcal{F}}{\longrightarrow}X(f)\\\\
-x^*(t)&\overset{\mathcal{F}}{\longrightarrow}\int_{-\infty}^{\infty}x^*(t)e^{\large -i2\pi ft}dt=\left(\int_{-\infty}^{\infty}x(t)e^{\large i2\pi ft}dt\right)^*=X^*(-f)\\
+x^*(t)&\overset{\mathcal{F}}{\longrightarrow}\int_{-\infty}^{\infty}x^*(t)e^{-i2\pi ft}dt=\left(\int_{-\infty}^{\infty}x(t)e^{i2\pi ft}dt\right)^*=X^*(-f)\\
 \end{align*}
 $$
 ## Teorema di Parseval
@@ -160,11 +160,11 @@ z(t)=x(t)*y^*(-t)=\int_{-\infty}^{\infty}x(\tau)y^*(t+\tau)d\tau
 $$
 Sfruttando la proprietà della [[#Convoluzione]], si può riscrivere come prodotto tra trasformate.
 $$
-z(t)=\int_{-\infty}^{\infty}X(f)Y^*(f)e^{\large i2\pi ft}df
+z(t)=\int_{-\infty}^{\infty}X(f)Y^*(f)e^{i2\pi ft}df
 $$
 Valutando l'espressione in $t=0$, è evidente l'uguaglianza con l'operazione di prodotto scalare.
 $$
-z(0)=\underbrace{\int_{-\infty}^{\infty}x(\tau)y^*(\tau)d\tau}_{\large\left<x(t),y(t)\right>}=\underbrace{\int_{-\infty}^{\infty}X(f)Y^*(f)df}_{{\large\left<X(f),Y(f)\right>}}
+z(0)=\underbrace{\int_{-\infty}^{\infty}x(\tau)y^*(\tau)d\tau}_{\left<x(t),y(t)\right>}=\underbrace{\int_{-\infty}^{\infty}X(f)Y^*(f)df}_{{\left<X(f),Y(f)\right>}}
 $$
 Se si pone $x(t) = y(t)$, quindi si fa la sua [[Correlazione#Autocorrelazione|autocorrelazione]], il risultato sarà l'[[Energia e potenza#Energia di un segnale analogico|energia]] del segnale.
 $$
@@ -175,10 +175,8 @@ $$
 Dato un impulso rettangolare $x(t)=\operatorname{rect}\left(\dfrac{t}{\tau}\right)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}\operatorname{rect}\left(\dfrac{t}{\tau}\right) e^{\large -i2\pi ft}dt =
- \int_{-\tau/2}^{\tau/2}e^{\large -i2\pi ft}dt =\\
-&= \left.\frac{e^{\large -i2\pi ft}}{-i2\pi f}\right|_{-\tau/2}^{\tau/2}=\frac{e^{\large -i2\pi f\frac{\Large\tau}{2}}-e^{\large i2\pi f\frac{\Large\tau
-}{2}}}{ -i2\pi f}=\\
+X(f)&=\int_{-\infty}^{\infty}\operatorname{rect}\left(\frac{t}{\tau}\right) e^{-i2\pi ft}dt = \int_{-\tau/2}^{\tau/2}e^{-i2\pi ft}dt =\\
+&= \left.\frac{e^{-i2\pi ft}}{-i2\pi f}\right|_{-\tau/2}^{\tau/2}=\frac{e^{-i2\pi f\frac{\Large\tau}{2}}-e^{i2\pi f\frac{\Large\tau}{2}}}{ -i2\pi f}=\\
 &=\frac{\sin\left(\pi f\tau\right)}{\pi f} =\tau\operatorname{sinc}(f\tau)
 \end{align*}
 $$
@@ -186,7 +184,7 @@ $$
 Dato un impulso matematico $x(t)=\delta(t)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}\delta(t)e^{\large -i2\pi ft}dt =\\
+X(f)&=\int_{-\infty}^{\infty}\delta(t)e^{-i2\pi ft}dt =\\
 &=\int_{-\infty}^{\infty}\delta(t)dt=\\
 &= 1
 \end{align*}
@@ -199,9 +197,9 @@ Qui si nota una particolare relazione tra la rappresentazione nel tempo e in fre
 Dato un impulso matematico traslato $x(t)=\delta(t-t_0)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}\delta(t-t_0)e^{\large -i2\pi ft}dt =\\
-&=e^{\large i2\pi ft_0}\int_{-\infty}^{\infty}\delta(t-t_0)dt=\\
-&=e^{\large i2\pi ft_0}
+X(f)&=\int_{-\infty}^{\infty}\delta(t-t_0)e^{-i2\pi ft}dt =\\
+&=e^{i2\pi ft_0}\int_{-\infty}^{\infty}\delta(t-t_0)dt=\\
+&=e^{i2\pi ft_0}
 \end{align*}
 $$
 ### Armonica
@@ -221,9 +219,9 @@ $$
 Dato un segnale coseno $x(t)=\cos(2\pi f_0t)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}\cos(2\pi f_0t)e^{\large -i2\pi ft}dt =\\
-&=\int_{-\infty}^{\infty}\frac{e^{\large i2\pi f_0t}+e^{\large -i2\pi f_0t}}{2}e^{\large -i2\pi ft}dt=\\
-&=\int_{-\infty}^{\infty}\frac{e^{\large -i2\pi (f-f_0)t}}{2}dt+\int_{-\infty}^{\infty}\frac{e^{\large -i2\pi (f+f_0)t}}{2}dt =\\
+X(f)&=\int_{-\infty}^{\infty}\cos(2\pi f_0t)e^{-i2\pi ft}dt =\\
+&=\int_{-\infty}^{\infty}\frac{e^{i2\pi f_0t}+e^{-i2\pi f_0t}}{2}e^{-i2\pi ft}dt=\\
+&=\int_{-\infty}^{\infty}\frac{e^{-i2\pi (f-f_0)t}}{2}dt+\int_{-\infty}^{\infty}\frac{e^{-i2\pi (f+f_0)t}}{2}dt =\\
 &=\frac{1}{2}\delta(f-f_0)+\frac{1}{2}\delta(f+f_0)
 \end{align*}
 $$
@@ -231,9 +229,9 @@ $$
 Dato un segnale seno $x(t)=\sin(2\pi f_0t)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}\sin(2\pi f_0t)e^{\large -i2\pi ft}dt =\\
-&=\int_{-\infty}^{\infty}\frac{e^{\large i2\pi f_0t}-e^{\large -i2\pi f_0t}}{2i}e^{\large -i2\pi ft}dt=\\
-&=\int_{-\infty}^{\infty}\frac{e^{\large -i2\pi (f-f_0)t}}{2i}dt-\int_{-\infty}^{\infty}\frac{e^{\large -i2\pi (f+f_0)t}}{2i}dt =\\
+X(f)&=\int_{-\infty}^{\infty}\sin(2\pi f_0t)e^{-i2\pi ft}dt =\\
+&=\int_{-\infty}^{\infty}\frac{e^{i2\pi f_0t}-e^{-i2\pi f_0t}}{2i}e^{-i2\pi ft}dt=\\
+&=\int_{-\infty}^{\infty}\frac{e^{-i2\pi (f-f_0)t}}{2i}dt-\int_{-\infty}^{\infty}\frac{e^{-i2\pi (f+f_0)t}}{2i}dt =\\
 &=\frac{1}{2i}\delta(f-f_0)-\frac{1}{2i}\delta(f+f_0)=\\
 &=-\frac{i}{2}\delta(f-f_0)+\frac{i}{2}\delta(f+f_0)
 \end{align*}
@@ -243,10 +241,10 @@ $$
 Dato un segnale gaussiano $x(t) = e^{\large-\alpha t^2}$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}e^{\large-\alpha t^2}e^{\large -i2\pi ft}dt =\\
-&=\int_{-\infty}^{\infty}e^{\large-\alpha\left[t^2+\frac{i2\pi ft}{\alpha}+\left(\frac{i\pi f}{\alpha}\right)^2-\left(\frac{i\pi f}{\alpha}\right)^2\right]}dt =\\
-&=e^{\large-\frac{\pi^2f^2}{\alpha^2}\alpha} \int_{-\infty}^{\infty}e^{\large-\alpha\left(t+\frac{i\pi f}{\alpha}\right)^2}dt=\\
-t'\coloneqq\sqrt{a}\left(t+\frac{i\pi f}{\alpha}\right)\quad&=e^{\large-\frac{\pi^2f^2}{\alpha}} \underbrace{\int_{-\infty}^{\infty}e^{\large -t'^2}\frac{dt'}{\sqrt{a}}}_{\mathclap{\text{integrale di Gauss}}}=\\
+X(f)&=\int_{-\infty}^{\infty}e^{-\alpha t^2}e^{\large -i2\pi ft}dt =\\
+&=\int_{-\infty}^{\infty}e^{-\alpha\left[t^2+\frac{i2\pi ft}{\alpha}+\left(\frac{i\pi f}{\alpha}\right)^2-\left(\frac{i\pi f}{\alpha}\right)^2\right]}dt =\\
+&=e^{-\frac{\pi^2f^2}{\alpha^2}\alpha} \int_{-\infty}^{\infty}e^{-\alpha\left(t+\frac{i\pi f}{\alpha}\right)^2}dt=\\
+t'\coloneqq\sqrt{a}\left(t+\frac{i\pi f}{\alpha}\right)\quad&=e^{-\frac{\pi^2f^2}{\alpha}} \underbrace{\int_{-\infty}^{\infty}e^{-t'^2}\frac{dt'}{\sqrt{a}}}_{\mathclap{\text{integrale di Gauss}}}=\\
 &=e^{\large-\frac{\pi^2f^2}{\alpha}}\sqrt{\frac{\pi}{a}}
 \end{align*}
 $$
@@ -254,22 +252,22 @@ $$
 Dato il segnale esponenziale $x(t)=e^{\large-\alpha t}u(t)$, calcolare la sua trasformata di Fourier.
 $$
 \begin{align*}
-X(f)&=\int_{-\infty}^{\infty}u(t)e^{\large-\alpha t}e^{\large -i2\pi ft}dt =\\
-&=\int_{0}^{\infty}e^{\large-\alpha t}e^{\large -i2\pi ft}dt =\\
-&=\int_{0}^{\infty}e^{\large -(\alpha +i2\pi f)t}dt =\\
-&=\left.\frac{e^{\large -(\alpha +i2\pi f)t}}{-\alpha -i2\pi f}\right|_{0}^{\infty}=\\
-&= \frac{1}{\alpha+2\pi if}
+X(f)&=\int_{-\infty}^{\infty}u(t)e^{-\alpha t}e^{-i2\pi ft}dt =\\
+&=\int_{0}^{\infty}e^{-\alpha t}e^{-i2\pi ft}dt =\\
+&=\int_{0}^{\infty}e^{-(\alpha +i2\pi f)t}dt =\\
+&=\left.\frac{e^{-(\alpha +i2\pi f)t}}{-\alpha -i2\pi f}\right|_{0}^{\infty}=\\
+&=\frac{1}{\alpha+2\pi if}
 \end{align*}
 $$
 ### Esponenziale simmetrico
 Dato il segnale $x(t) = e^{\large -\alpha|t|}$, calcolare la sua trasformata di Fourier.
 $$
-X(f)=\int_{-\infty}^{\infty}e^{\large-\alpha |t|}e^{\large -i2\pi ft}dt
+X(f)=\int_{-\infty}^{\infty}e^{-\alpha |t|}e^{-i2\pi ft}dt
 $$
 Il segnale può essere diviso in due esponenziali unilateri. $X_1$ è la loro trasformata calcolata nell'esempio sopra.
 $$
 \begin{align*}
-X(f)&= e^{\large -\alpha t}u(t)+e^{\large \alpha t}u(-t) =\\
+X(f)&= e^{-\alpha t}u(t)+e^{\alpha t}u(-t) =\\
 &= X_1(f)+X_1(-f)=\\
 &= \frac{1}{\alpha+2\pi if}+ \frac{1}{\alpha-2\pi if} =\\
 &=\underbrace{\frac{2\alpha}{\alpha^2+4\pi^2f^2}}_{\mathclap{\text{distribuzione Lorentziana}}}
@@ -278,13 +276,13 @@ $$
 ### [[Segnale Gradino]]
 Dato il segnale $x(t)=u(t)$, calcolare la sua trasformata di Fourier.
 $$
-X(f)=\int_{-\infty}^{\infty}u(t )e^{\large -i2\pi ft}dt
+X(f)=\int_{-\infty}^{\infty}u(t )e^{-i2\pi ft}dt
 $$
 
 Questo segnale si può riscrivere come il limite di un esponenziale equilatero, di cui la trasformata è già nota. 
 $$
 \begin{align*}
-x(t)&=\lim_{\alpha\to 0}e^{\large-\alpha t}u(t)\\
+x(t)&=\lim_{\alpha\to 0}e^{-\alpha t}u(t)\\
 X(f)&=\lim_{\alpha\to 0}\frac{1}{\alpha+2\pi if} =\frac{1}{2\pi if}
 \end{align*}
 $$
@@ -320,7 +318,7 @@ $$
 ### [[Funzione Segno]]
 Data la funzione segno $x(t)=\operatorname{sgn}(r)$, calcolare la sua trasformata di Fourier.
 $$
-X(f)=\int_{-\infty}^{\infty}\operatorname{sgn}(t)e^{\large -i2\pi ft}dt
+X(f)=\int_{-\infty}^{\infty}\operatorname{sgn}(t)e^{-i2\pi ft}dt
 $$
 
 La funzione segno può essere riscritta come somma di due gradini.
@@ -350,8 +348,8 @@ $$
 X'(f)&=i2\pi f \cdot T\operatorname{sinc}(fT)=\\
 &=i2\pi fT\cdot\frac{\sin(\pi fT)}{\pi fT}=\\
 &=2i\cdot\sin(\pi fT)=\\
-&=2i\cdot\frac{e^{\large i\pi fT}-e^{\large -i\pi fT}}{2i}=\\
-&=e^{\large i\pi fT}-e^{\large -i\pi fT}
+&=2i\cdot\frac{e^{i\pi fT}-e^{-i\pi fT}}{2i}=\\
+&=e^{i\pi fT}-e^{-i\pi fT}
 \end{align*}
 $$
 
@@ -374,8 +372,8 @@ Dato il segnale $x(t)=\operatorname{tri}\left(\dfrac{t}{T}\right)$, calcolare la
 Per calcolare questa trasformata si applicano le proprietà di [[#Traslazione nel tempo]] e [[#Scala]].
 $$
 \begin{align*}
-X'(f)&=\frac{1}{T}T\operatorname{sinc}(fT)e^{\large i2\pi f\frac{T}{2}}-\frac{1}{T}T\operatorname{sinc}(fT)e^{\large -i2\pi f\frac{T}{2}}=\\
-&=\operatorname{sinc}(fT)\left(e^{\large i2\pi f\frac{T}{2}}-e^{\large -i2\pi f\frac{T}{2}}\right)=\\
+X'(f)&=\frac{1}{T}T\operatorname{sinc}(fT)e^{i2\pi f\frac{T}{2}}-\frac{1}{T}T\operatorname{sinc}(fT)e^{-i2\pi f\frac{T}{2}}=\\
+&=\operatorname{sinc}(fT)\left(e^{i2\pi f\frac{T}{2}}-e^{-i2\pi f\frac{T}{2}}\right)=\\
 &=\operatorname{sinc}(fT)\sin(\pi fT)\mathrel{2i}{=}\\
 &=\frac{2i\sin^2(\pi fT)}{\pi fT}
 \end{align*}
