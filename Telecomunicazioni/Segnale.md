@@ -7,7 +7,6 @@ Un segnale è una variazione temporale dello stato fisico di un [[Sistema|sistem
 I due principali tipi di segnali sono i segnali analogici e i segnali digitali.
 ## Classificazione dei segnali
 ### Segnali analogici e digitali
-
 #### Segnali analogici
 Un segnale analogico può variare gradualmente in un intervallo costituito da
 un numero infinito di possibili valori. 
@@ -19,7 +18,7 @@ Un segnale analogico può essere rappresentato mediante una funzione del tempo c
 Un segnale digitale può variare solamente passando bruscamente da uno all'altro di un insieme molto piccolo di valori (da due a qualche decina).
 
 Un segnale digitale può essere rappresentato da una funzione “tempo discreta” e “quantizzata”. Tale funzione risulta pertanto: 
-- definita solamente in un insieme numerabile di istanti equispaziati
+- definita solamente in un insieme numerabile di istanti equi-spaziati
 - dotata di un codominio costituito da un insieme discreto di valori
 ### Durata dei segnali
 #### Durata rigorosamente limitata
@@ -31,39 +30,53 @@ I segnali a durata praticamente limitata decadono asintoticamente a zero, per cu
 ### Energia dei segnali
 #### Segnali di energia
 Un segnale è un segnale di energia quando il suo [[Energia e potenza#Energia di un segnale analogico|integrale di energia]] è diverso da $0$ e $\infty$.
-$$\int_{-\infty}^{\infty}|x(t)|^2\ dt\ \neq\ \{0,\infty\}$$
+$$
+\int_{-\infty}^{\infty}|x(t)|^2\ dt\ \neq\ \{0,\infty\}
+$$
 #### Segnali di potenza
 Un segnale è un segnale di potenza quando il suo [[Energia e potenza#Potenza di un segnale analogico|integrale di potenza]] è diverso da $0$ e $\infty$.
-$$\lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt \neq \{0,\infty\}$$
+$$
+\lim\limits_{\Delta T \to\infty}\frac{1}{\Delta T} \int_{-\Delta T/2}^{\Delta T/2} |x(t)|^2\ dt \neq \{0,\infty\}
+$$
 
 >[!info] Le categorie di segnali di energia e potenza sono disgiunte
 >- Se un segnale ha energia finita, la sua potenza è nulla
 >- Se un segnale ha potenza finita, la sua energia è infinita
 ## Operazioni sui segnali
-
 ### Somma
 I segnali vengono sommati tra loro per tutto il dominio.
-$$z(t) = x(t) + y(t)$$
+$$
+z(t) = x(t) + y(t)
+$$
 ### Moltiplicazione
 I segnali vengono moltiplicati tra loro per tutto il dominio.
-$$z(t)=x(t)\cdot y(t)$$
+$$
+z(t)=x(t)\cdot y(t)
+$$
 
 >[!summary] Impatto sulla finestra di integrazione
 >Se per alcune regioni del suo dominio un segnale vale $0$, quando viene moltiplicato per altre funzioni può restringere la finestra di integrazione del segnale.
-> $$\begin{gather}
+> $$
+> \begin{gather*}
 > \small\text{Segnale moltiplicato per un gradino :} & \int_{-\infty}^{\infty} x(t)u(t)\ dt\ =\ \int_{0}^{\infty} x(t)\ dt
-> \end{gather}$$
+> \end{gather*}
+>$$
 
 >[!example] Esempio - Moltiplicazione tra un rettangolo e un triangolo
 >Dati i segnali $x(t)=\operatorname{rect}(t)$ e $y(t)=\operatorname{tri}(t)$, il risultato della loro moltiplicazione è:
->$$z(t)=\left\{\begin{matrix*}
+>$$
+>z(t)=\left\{\begin{matrix}
 >1-|t| & \longrightarrow & -\frac{1}{2} < t < \frac{1}{2} \\
 >0 & \longrightarrow & altrove
->\end{matrix*}\right.$$
+>\end{matrix}\right.
+>$$
 >![[moltiplicazione_finestra.png|center]]
 ### Ribaltamento
 I segnali vengono ribaltati invertendo il segno dell'argomento.
-$$z(t) = x(-t)$$
+$$
+z(t) = x(-t)
+$$
+
 >[!important] Il segnale ribaltato è uguale a quello di partenza se la funzione è pari
 
 >[!example] Esempio - Ribaltamento di un esponenziale
@@ -72,19 +85,23 @@ $$z(t) = x(-t)$$
 >![[ribaltamento_esponenziale.png]]
 ### Traslazione
 Il segnale viene traslato aggiungendo un valore costante all'argomento.
-$$z(t) = x(t - \tau)$$
+$$
+z(t) = x(t - \tau)
+$$
 >[!example] Esempio -  Finestra rettangolare ritardata
 >Dato un segnale rettangolare $x(t) = \operatorname{rect}(t)$, il suo risultato traslato di 3 unità nel passato vale $x(t-3)=\operatorname{rect}(t-3)$.
->$$ rect(t-3) = \left\{ \begin{matrix*}
-1 & \longrightarrow & 3-\small\dfrac{1}{2}\normalsize< t < 3+\small\dfrac{1}{2}\normalsize\\
-0 & \longrightarrow & altrove
-\end{matrix*}\right.$$
+>$$ 
+>rect(t-3) = \left\{ \begin{matrix}
+>1 & \longrightarrow & 3-\small\dfrac{1}{2}\normalsize< t < 3+\small\dfrac{1}{2}\normalsize\\
+>0 & \longrightarrow & altrove
+>\end{matrix}\right.
+>$$
 >![[finestra_ritardata.png]]
-
 ### Cambio di scala
 La scala viene manipolata moltiplicando un valore all'argomento.
-$$z(t) = x(\alpha t)$$
+$$
+z(t) = x(\alpha t)
+$$
 >[!example] Esempio - Coseno con frequenza raddoppiata
 >Dato un segnale coseno $x(t) = cos(2\pi f_0t)$, il segnale scalato $x(2t)$ vale $cos(4 \pi f_0 t)$. Si può notare come il segnale in scala è uguale a quello iniziale, ma a frequenza doppia $(2f_0)$.
->
 >![[coseno_scala.png]]

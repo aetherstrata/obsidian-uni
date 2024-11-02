@@ -1,7 +1,6 @@
 ---
 tags:
   - sistema
-  - ´
 ---
 Il sistema di controllo è l'insieme delle strategie e tecnologie necessarie affinché il [[Sistema|sistema controllato]] svolga i suoi compiti con intervento umano ridotto o nullo.
 ### Obiettivi della sintesi
@@ -19,5 +18,4 @@ La strategia necessaria ad assicurare le migliori performance del sistema, rispe
 
 > [!example]+ Esempio - Controllare il livello d'acqua di un serbatoio
 > Il controllore usa le misurazioni del livello dell´acqua date dagli switch per pilotare una pompa e mantenere il livello desiderato - [[Isteresi]]
-> 
 > ![[controllo_serbatoio_esempio.png]]

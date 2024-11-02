@@ -200,10 +200,10 @@
       "switcher:Apri selezione rapida": false,
       "canvas:Crea nuova lavagna": false,
       "templates:Inserisci modello": false,
-      "obsidian-kanban:Crea nuova bacheca": false,
       "command-palette:Apri riquadro comandi": false,
+      "daily-notes:Apri nota del giorno": false,
       "obsidian-git:Open Git source control": false,
-      "daily-notes:Apri nota del giorno": false
+      "obsidian-kanban:Crea nuova bacheca": false
     }
   },
   "active": "cf754a4c39625626",
