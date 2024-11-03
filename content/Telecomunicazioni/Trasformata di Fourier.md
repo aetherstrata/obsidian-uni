@@ -259,6 +259,35 @@ X(f)&=\int_{-\infty}^{\infty}u(t)e^{-\alpha t}e^{-i2\pi ft}dt =\\
 &=\frac{1}{\alpha+2\pi if}
 \end{align*}
 $$
+### [[Segnale Esponenziale|Esponenziale unilatero]] ribaltato
+Dato il segnale $x(t)=e^{3t}u(-t)$, calcolare la sua trasformata di Fourier.
+
+Si noti come questo segnale sia un esponenziale unilatero ribaltato.
+$$
+x(t) = e^{3t}u(-t) \quad\triangle\quad x'(t)=e^{-3t}u(t)
+$$
+In questo caso si vuole calcolare l'energia usando il [[Trasformata di Fourier#Teorema di Parseval|Teorema di Parseval]]. 
+
+Conoscendo la trasformata elementare per un segnale esponenziale unilatero $x_1(t)$, si può applicare la proprietà di [[Trasformata di Fourier#Scala|scala]] per ottenere la trasformata del segnale $x(t)$.
+$$
+X'(f)=\frac{1}{3+2\pi if}\quad\longrightarrow\quad X(f)=\frac{1}{3-2\pi if}
+$$
+### [[Segnale Esponenziale|Esponenziale unilatero]] traslato
+Dato il segnale $x(t)=e^{-2t+4}u(t-2)$, calcolare la sua trasformata di Fourier.
+
+Si noti come questo segnale sia un esponenziale unilatero traslato.
+$$
+\begin{align*}
+x(t)&=e^{-2t+4}u(t-2)\\
+x'(t)&=e^{-2t}u(t)
+\end{align*}
+\quad\longrightarrow\quad
+x(t)=x'(t-2)
+$$
+Quindi, conoscendo la trasformata elementare dell'esponenziale unilatero, si può applicare la proprietà della [[Trasformata di Fourier#Traslazione nel tempo|traslazione nel tempo]] per ottenere la trasformata del segnale $x(t)$.
+$$
+X'(f)=\frac{1}{2+2\pi if}\quad\longrightarrow\quad X(f)=\frac{1}{2+2\pi if}\cdot e^{-i4\pi f}
+$$
 ### Esponenziale simmetrico
 Dato il segnale $x(t) = e^{\large -\alpha|t|}$, calcolare la sua trasformata di Fourier.
 $$
@@ -385,5 +414,26 @@ X(f)&=\frac{X'(f)}{2\pi if}=\\
 &=\frac{2i\sin^2(\pi fT)}{\pi fT}\frac{1}{2\pi if}=\\
 &=\frac{\sin^2(\pi fT)}{\pi^2 f^2 T}\frac{T}{T}=\\
 &=T\operatorname{sinc}^2(fT)
+\end{align*}
+$$
+
+## Esercizi vari
+### Esercizio 1
+Dato il segnale $x(t)=e^{-t/2}\cos(100\pi t)u(t)$, calcolare la sua trasformata di Fourier.
+
+Il segnale può essere scomposto in due segnali ed elaborato separatamente.
+$$
+x'(t)=e^{-t/2}u(t) \quad\longrightarrow\quad x(t)=x'(t)\cos(50\cdot 2\pi t)
+$$
+A questo punto si può calcolare facilmente la trasformata del coseno e dell'esponenziale unilatero.
+$$
+x'(t)=e^{-t/2}u(t)\quad\overset{\mathcal{F}}{\longrightarrow}\quad X'(f)=\frac{1}{\frac{1}{2}+2\pi if}
+$$
+Applicando la proprietà della [[#Convoluzione]], si può ricavare la trasformata del segnale composto.
+$$
+\begin{align*}
+X(f)&=X'(f)*\left[\frac{1}{2}\delta(f-50)+\frac{1}{2}\delta(f+50)\right]=\\
+&=\left[\frac{1}{\frac{1}{2}+2\pi if}*\frac{1}{2}\delta(f-50)\right] + \left[\frac{1}{\frac{1}{2}+2\pi if}*\frac{1}{2}\delta(f+50)\right]=\\
+&=\frac{1}{1+4\pi i(f-50)}+\frac{1}{1+4\pi i(f+50)}
 \end{align*}
 $$

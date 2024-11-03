@@ -199,3 +199,46 @@ $$
 P_x = \frac{5}{2}\frac{1}{2\tau}\int_{0}^{2\tau}dt = \frac{5}{2}
 $$
 Il risultato è un valore finito, quindi è un segnale di potenza.
+
+### Prodotto tra [[Seno Cardinale]] e coseno
+Dato il seguente segnale, calcolare la sua energia.
+$$
+x(t)=\frac{\sin(\pi t)}{\pi t}\cos(2\pi at)
+$$
+Calcolare l'integrale nel tempo è complicato quindi si applica il [[Trasformata di Fourier#Teorema di Parseval|Teorema di Parseval]].
+
+>[!summary] Calcolo trasformata con la [[Numeri Complessi#Rappresentazione esponenziale di seno e coseno|scomposizione in esponenziali]]
+>$$
+>\begin{align*}
+>x(t)&=\operatorname{sinc}(t)\cos(2\pi at)=\operatorname{sinc}(t)\frac{e^{i2\pi at}+e^{-i2\pi at}}{2}\\
+>X(f)&=\frac{1}{2}\operatorname{rect}(f+a)+\frac{1}{2}\operatorname{rect}(f-a)
+>\end{align*}
+>$$
+
+>[!summary] Calcolo trasformata con la [[Trasformata di Fourier#Convoluzione|proprietà di convoluzione]]
+>$$
+>\begin{align*}
+>X(f)&=\operatorname{sinc}(t)*\cos(2\pi at) =\\
+>&=\operatorname{rect}(f)*\frac{1}{2}[\delta(f-a)+\delta(f+a)]=\\
+>&=\frac{1}{2}\operatorname{rect}(f+a)+\frac{1}{2}\operatorname{rect}(f-a)
+>\end{align*}
+>$$
+
+Si può notare come, per valori di $a<1/2$, i due rettangoli si sovrappongono nell'origine.
+
+>[!info] Grafico per $a<1/2$
+>![[aliasing.svg|center|600]]
+#### Caso $a>1/2$
+Le due finestre non si sovrappongono e si possono calcolare i due integrali separati.
+$$
+E_x=\int_{a-1/2}^{a+1/2}\frac{1}{4}df +\int_{-a-1/2}^{-a+1/2}\frac{1}{4}df = \frac{1}{2}
+$$
+#### Caso $a<1/2$
+Attorno all'origine le due finestre si sovrappongono quindi bisogna tenerne conto nel calcolo degli integrali.
+$$
+\begin{align*}
+E_x&=\int_{-a+1/2}^{a+1/2}\frac{1}{4}df +\int_{-a-1/2}^{a-1/2}\frac{1}{4}df + \int_{a-1/2}^{-a+1/2} df=\\
+&=\frac{2a}{4}+\frac{2a}{4}+1-2a=\\
+&=1-a
+\end{align*}
+$$

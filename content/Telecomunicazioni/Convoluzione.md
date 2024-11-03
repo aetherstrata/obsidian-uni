@@ -359,3 +359,5 @@ z(t) &= \left[\operatorname{rect}\left(\frac{t-t_0}{T}\right) + \operatorname{re
 &= T\left[\operatorname{tri}\left(\frac{t+t_0}{T}\right) + 2\cdot\operatorname{tri}\left(\frac{t}{T}\right) + \operatorname{tri}\left(\frac{t-t_0}{T}\right) \right]
 \end{align*}
 $$
+
+
