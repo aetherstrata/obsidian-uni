@@ -15,7 +15,6 @@ L'autoconvoluzione è la convoluzione di un segnale per se stesso.
 $$
 z(t) = x(t) * x(t)
 $$
-
 ## Proprietà
 ### Commutativa
 $$

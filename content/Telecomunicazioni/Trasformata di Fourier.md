@@ -170,6 +170,16 @@ Se si pone $x(t) = y(t)$, quindi si fa la sua [[Correlazione#Autocorrelazione|au
 $$
 E_x=\int_{-\infty}^{\infty}\left|x(t)\right|^2dt=\int_{-\infty}^{\infty}x(\tau)x^*(\tau)d\tau=\int_{-\infty}^{\infty}X(f)X^*(f)df=\int_{-\infty}^{\infty}\left|X(f)\right|^2df
 $$
+## Coefficienti di un segnale periodico
+
+La trasformata di Fourier può anche essere usata per ottenere i coefficienti di Fourier di un segnale [[Funzione Periodica|periodico]].
+$$
+x(t)=\sum_{n=-\infty}^{+\infty}c_ne^{i2\pi\frac{n}{T}t}\overset{\mathcal{F}}{\longrightarrow}X(f)=\sum_{n=-\infty}^{+\infty}c_n\delta(f-\frac{n}{T})
+$$
+Prendendo un campione $\dot{x}(t)$ del segnale periodico. si possono quindi ottenere i coefficienti attraverso la trasformata di Fourier.
+$$
+c_n=\int_{-\infty}^{\infty}\dot{x}(t)e^{-i2\pi\frac{n}{T}t}dt = \frac{1}{T}X\left(\frac{n}{T}\right)
+$$
 ## Esempi
 ### [[Segnale Finestra#Finestra rettangolare|Finestra rettangolare]]
 Dato un impulso rettangolare $x(t)=\operatorname{rect}\left(\dfrac{t}{\tau}\right)$, calcolare la sua trasformata di Fourier.
@@ -435,5 +445,38 @@ $$
 X(f)&=X'(f)*\left[\frac{1}{2}\delta(f-50)+\frac{1}{2}\delta(f+50)\right]=\\
 &=\left[\frac{1}{\frac{1}{2}+2\pi if}*\frac{1}{2}\delta(f-50)\right] + \left[\frac{1}{\frac{1}{2}+2\pi if}*\frac{1}{2}\delta(f+50)\right]=\\
 &=\frac{1}{1+4\pi i(f-50)}+\frac{1}{1+4\pi i(f+50)}
+\end{align*}
+$$
+#### Esercizio 2
+Dato il segnale $x(t)$, calcolare la sua trasformata di Fourier.
+$$
+x(t)=-\operatorname{rect}\left[4\left(t+\frac{3}{8}\right)\right] +\operatorname{rect}\left(2t\right) -\operatorname{rect}\left[4\left(t-\frac{3}{8}\right)\right]
+$$
+>[!tip] Forma alternativa
+>Questo segnale si può riscrivere in modo più semplice per facilitare i calcoli.
+>$$
+>x(t)=2\operatorname{rect}\left(2t\right)-\operatorname{rect}\left(t\right)
+>$$
+>A beneficio dell´esercizio, si terrà conto della prima forma.
+
+Si procede calcolando la trasformata delle varie componenti:
+- il rettangolo centrato nell'origine
+$$
+\operatorname{rect}\left(2t\right)\overset{\mathcal{F}}{\longrightarrow}\frac{1}{2}\operatorname{sinc}\left(\frac{f}{2}\right)
+$$
+- il rettangolo anticipato
+$$
+\operatorname{rect}\left[4\left(t+\frac{3}{8}\right)\right]\overset{\mathcal{F}}{\longrightarrow}\frac{1}{4}\operatorname{sinc}\left(\frac{f}{4}\right)e^{i\pi f\frac{3}{4}}
+$$
+- il rettangolo ritardato
+$$
+\operatorname{rect}\left[4\left(t-\frac{3}{8}\right)\right]\overset{\mathcal{F}}{\longrightarrow}\frac{1}{4}\operatorname{sinc}\left(\frac{f}{4}\right)e^{-i\pi f\frac{3}{4}}
+$$
+Quindi si possono ricomporre insieme le varie trasformate ed ottenere la trasformata del segnale completo.
+$$
+\begin{align*}
+X(f)&=\frac{1}{2}\operatorname{sinc}\left(\frac{f}{2}\right)-\frac{1}{4}\operatorname{sinc}\left(\frac{f}{4}\right)\left(e^{i\pi f\frac{3}{4}}+e^{-i\pi f\frac{3}{4}}\right)=\\
+&=\frac{1}{2}\operatorname{sinc}\left(\frac{f}{2}\right)-\frac{1}{2}\operatorname{sinc}\left(\frac{f}{4}\right)\cos\left(\frac{3}{4}\pi f\right)=\\
+&=\frac{1}{2}\left[\operatorname{sinc}\left(\frac{f}{2}\right)-\operatorname{sinc}\left(\frac{f}{4}\right)\cos\left(\frac{3}{4}\pi f\right)\right]
 \end{align*}
 $$
