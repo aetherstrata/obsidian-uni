@@ -385,3 +385,34 @@ $$
 c_n = \frac{2T}{\pi^2 n^2\tau}\sin^2\left(\frac{\pi n\tau}{2T}\right)=\frac{\tau}{2T}\operatorname{sinc}^2\left(\frac{n\tau}{2T}\right)
 $$
 
+### Somma di esponenziali
+Dato il seguente segnale, calcolare coefficienti di Fourier e potenza del segnale.
+$$
+x(t)=2e^{i\frac{2\pi t}{T_0}}+e^{-i\frac{2\pi t}{4T_0}}
+$$
+Il periodo del segnale vale $4T_0$.
+
+>[!summary] Calcolo della potenza con l'integrale
+>$$
+>\begin{align*}
+>P_x&=\frac{1}{4T_0}\int_{-2T_0}^{2T_0}\left[4+1+4\cos\left(\frac{2\pi t}{T_0}+\frac{2\pi t}{4T_0}\right)\right]dt=\\
+>&=5 + \frac{1}{T_0}\int_{-2T_0}^{2T_0}\underbrace{\cos\left(\frac{5\pi t}{2T_0}\right)}_{\mathclap{\text{periodo }\frac{4}{5}T_0}}dt
+>\end{align*}
+>$$
+>L'integrale è definito su un multiplo del periodo del coseno, quindi l´integrale sarà nullo.
+>$$
+>P_x=5
+>$$
+
+>[!summary] Calcolo dei coefficienti per confronto diretto
+>Il segnale è già una somma di armoniche quindi si possono ricavare facilmente i coefficienti di Fourier.
+>$$
+x(t)=2e^{i\frac{2\pi t}{T_0}}+e^{-i\frac{2\pi t}{4T_0}}=2\underbrace{e^{i\frac{8\pi t}{4T_0}}}_{n=4}+\underbrace{e^{-i\frac{2\pi t}{4T_0}}}_{n=-1}
+>$$
+>I coefficienti sono $c_{-1}=1$ e $c_4=2$. Tutti i rimanenti $c_n$ sono nulli.
+
+Questo si può anche ricavate attraverso la trasformata di Fourier.
+$$
+X(f)=2\delta\left(f-\frac{1}{T_0}\right)+\delta\left(f+\frac{1}{4T_0}\right)
+$$
+

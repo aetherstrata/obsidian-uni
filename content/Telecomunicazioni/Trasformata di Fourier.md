@@ -93,7 +93,7 @@ $$
 ### Traslazione nel tempo
 $$
 \begin{align*}
-x(t-t_0)\overset{\mathcal{F}}{\longrightarrow}{}&\int_{-\infty}^{\infty}x(t-t_0)e^{-i2\pi ft}dt =\\
+x(t-t_0)\overset{\mathcal{F}}{\longrightarrow}&\int_{-\infty}^{\infty}x(t-t_0)e^{-i2\pi ft}dt =\\
 t'\coloneqq t-t_o\quad={}&\int_{-\infty}^{\infty}x(t')e^{-i2\pi f(t'+t_0)}dt' =\\
 ={}&e^{-i2\pi ft_0}\int_{-\infty}^{\infty}x(t')e^{-i2\pi ft'}dt'=\\
 ={}&e^{-i2\pi ft_0}X(f)
@@ -447,7 +447,7 @@ X(f)&=X'(f)*\left[\frac{1}{2}\delta(f-50)+\frac{1}{2}\delta(f+50)\right]=\\
 &=\frac{1}{1+4\pi i(f-50)}+\frac{1}{1+4\pi i(f+50)}
 \end{align*}
 $$
-#### Esercizio 2
+### Esercizio 2
 Dato il segnale $x(t)$, calcolare la sua trasformata di Fourier.
 $$
 x(t)=-\operatorname{rect}\left[4\left(t+\frac{3}{8}\right)\right] +\operatorname{rect}\left(2t\right) -\operatorname{rect}\left[4\left(t-\frac{3}{8}\right)\right]
@@ -480,3 +480,33 @@ X(f)&=\frac{1}{2}\operatorname{sinc}\left(\frac{f}{2}\right)-\frac{1}{4}\operato
 &=\frac{1}{2}\left[\operatorname{sinc}\left(\frac{f}{2}\right)-\operatorname{sinc}\left(\frac{f}{4}\right)\cos\left(\frac{3}{4}\pi f\right)\right]
 \end{align*}
 $$
+### Esercizio 3
+Semplificare il seguente segnale.
+$$
+x(t)=\cos(2\pi f_0t)\cdot\left[\sin(2\pi f_0t)*\frac{\sin(3\pi f_0t)}{\pi t}\right]
+$$
+Facendo una manipolazione algebrica si può riscrivere l'ultimo seno come un [[Seno Cardinale]].
+$$
+x(t)=\cos(2\pi f_0t)\cdot\underbrace{\left[\sin(2\pi f_0t)*3f_0\operatorname{sinc}(3f_0t)\right]}_{z(t)}
+$$
+I due termini del prodotto si possono trattare separatamente per semplificare i calcoli.
+$$
+x(t)=\cos(2\pi f_0t)\cdot z(t)
+$$
+Fare la [[Convoluzione]] tra un seno e un seno cardinale è complicato quindi si passa al dominio della frequenza.
+$$
+\begin{align*}
+Z(f)&=\frac{1}{2i}[\delta(f-f_0)-\delta(f+f_0)]\cdot \frac{\cancel{3f_0}}{\cancel{3f_0}}\operatorname{rect}\left(\frac{f}{3f_0}\right)=\\
+&=\frac{1}{2i}\operatorname{rect}\left(\frac{f_0}{3f_0}\right)\delta(f-f_0)-\frac{1}{2i}\operatorname{rect}\left(\frac{-f_0}{3f_0}\right)\delta(f+f_0)=\\
+&=\frac{1}{2i}\operatorname{rect}\left(\frac{1}{3}\right)\delta(f-f_0)-\frac{1}{2i}\operatorname{rect}\left(\frac{-1}{3}\right)\delta(f+f_0)
+\end{align*}
+$$
+$1/3$ e $-1/3$ sono compresi tra $1/2$ e $-1/2$, quindi le finestre valgono $1$.
+$$
+Z(f)=\frac{1}{2i}\delta(f-f_0)-\frac{1}{2i}\delta(f+f_0)
+$$
+Anti-trasformando $Z(f)$ si ottiene il risultato della convoluzione.
+$$
+z(t)=\sin(2\pi f_0t)
+$$
+Il segnale semplificato vale $x(t)=\cos(2\pi f_0t)\sin(2\pi f_0t)=\dfrac{1}{2}\sin(4\pi f_0t)$.
