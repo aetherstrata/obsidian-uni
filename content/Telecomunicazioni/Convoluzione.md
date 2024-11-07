@@ -239,7 +239,46 @@ Si può notare come, ponendo $T_1$ e $T_2$ uguali, la parte centrale scompare e 
 
 >[!info] Grafico del segnale convoluto
 >![[convoluzione-trapezio-6.png]]
+### Convoluzione di due [[Segnale Finestra#Finestra rettangolare|rettangoli]] di base diversa traslati
+Dati i seguenti segnali $x(t)$ e $y(t)$, calcolare la loro convoluzione.
+$$
+z(t)=x(t)*y(t)=-\operatorname{rect}\left(\frac{t+2T}{2T}\right)*\operatorname{rect}\left(\frac{t-3T}{4T}\right)
+$$
+>[!summary] Finestre di integrazione
+>Se le due finestre rettangolari non si toccano, allora il segnale convoluto sarà nullo in quel punto.
+>$$
+>z(t) = \left\{\begin{matrix*}
+>0 & \longrightarrow & t < -2T\\
+>\vdots \\
+>0 & \longrightarrow & t > 4T
+>\end{matrix*}\right.
+>$$
+>---
+>Finché $t<0$ l'area della sovrapposizione diminuisce linearmente.
+>$$
+>-\int_{T}^{3T+t}d\tau=-t-2T
+>$$
+>---
+>Finché $t<2T$ l'area della sovrapposizione rimane costante.
+>$$
+>-\int_{T+t}^{3T+t}d\tau=-2T
+>$$
+>---
+>Finché $t<4T$ l'area della sovrapposizione aumenta linearmente.
+>$$
+>-\int_{T+t}^{5T}d\tau=t-4T
+>$$
 
+Unendo tutti i casi di $t$ si ottiene il segnale convoluto, che ha la forma di un trapezio.
+$$
+z(t)=\left\{\begin{matrix*}
+0 & \longrightarrow & \hphantom{-2T<{}}t<-2T\\
+-2T-t & \longrightarrow &-2T<t<0\hphantom{-T}\\
+-2T\hphantom{{}-t} & \longrightarrow & \hphantom{-T}0<t<2T\hphantom{-}\\
+-4T+t & \longrightarrow & 2T<t<4T\\
+0 & \longrightarrow & \hphantom{-2T<{}}t>4T\hphantom{-}
+\end{matrix*}\right.
+$$
 ### Convoluzione tra due [[Segnale di Gauss|gaussiane]]
 
 Dati due segnali gaussiani $\ x(t) = e^{-\alpha_1 t^2}$ e $\ y(t) = e^{-\alpha_2 t^2}$ , la loro convoluzione vale

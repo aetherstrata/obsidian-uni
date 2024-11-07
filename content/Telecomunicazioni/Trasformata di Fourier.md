@@ -510,3 +510,27 @@ $$
 z(t)=\sin(2\pi f_0t)
 $$
 Il segnale semplificato vale $x(t)=\cos(2\pi f_0t)\sin(2\pi f_0t)=\dfrac{1}{2}\sin(4\pi f_0t)$.
+### Esercizio 4
+Dato il seguente segnale, calcolare la sua trasformata di Fourier.
+$$
+x(t)=\cos\left[\frac{\pi(t-T)}{2T}\right]\cdot\cos\left(\frac{2\pi t}{T}\right)=\cos\left(\frac{2\pi t}{4T}-\frac{\pi}{2}\right)\cdot\cos\left(\frac{2\pi t}{T}\right)
+$$
+Il primo coseno può essere riscritto come seno in quanto $\cos(\alpha-\pi/2)=\sin(\alpha)$.
+$$
+x(t)=\sin\left(\frac{2\pi t}{4T}\right)\cdot\cos\left(\frac{2\pi t}{T}\right)
+$$
+Applicando le [[Formule Trigonometriche#Formule di Werner|formule di Werner]], il segnale si può riscrivere come somma di seni. 
+$$
+\begin{align*}
+x(t)&=\frac{1}{2}\sin\left(\frac{2\pi t}{4T}+\frac{2\pi t}{T}\right)+\frac{1}{2}\sin\left(\frac{2\pi t}{4T}-\frac{2\pi t}{T}\right)=\\
+&=\frac{1}{2}\sin\left(\frac{5\pi t}{2T}\right)-\frac{1}{2}\sin\left(\frac{3 \pi t}{2T}\right)
+\end{align*}
+$$
+Ora si può ricavare la trasformata usando la trasformata elementare del seno.
+$$
+\begin{align*}
+X(f)&=\frac{1}{2}\left[\frac{i}{2}\delta\left(f+\frac{5}{4T}\right)-\frac{i}{2}\delta\left(f-\frac{5}{4T}\right)\right]-\\
+&-\frac{1}{2}\left[\frac{i}{2}\delta\left(f+\frac{3}{4T}\right)-\frac{i}{2}\delta\left(f-\frac{3}{4T}\right)\right]=\\
+&=\frac{i}{4}\delta\left(f+\frac{5}{4T}\right)-\frac{i}{4}\delta\left(f-\frac{5}{4T}\right)-\frac{i}{4}\delta\left(f+\frac{3}{4T}\right)+\frac{i}{4}\delta\left(f-\frac{3}{4T}\right)
+\end{align*}
+$$
