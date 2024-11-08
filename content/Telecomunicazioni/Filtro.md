@@ -107,7 +107,7 @@ Il segnale $x[t]$ è una [[Funzione Periodica]] di periodo $2$.
 
 L'uscita del filtro si può calcolare attraverso la convoluzione con la risposta impulsiva.
 $$
-y[n]=0
+y[n]=\sum_{k=-\infty}^{+\infty}x[k]h[n-k]=\sum_{k=-\infty}^{+\infty}(-1)^kh[n-k]=0
 $$
 #### Caso $\phi=1/4$
 Se $\phi=1/4$ allora $x[n]=\cos\left(\frac{\pi n}{2}\right)$.
