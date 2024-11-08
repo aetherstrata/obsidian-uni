@@ -92,7 +92,6 @@ Data la risposta impulsiva $h[n]=\dfrac{1}{4}\delta[n+1]+\dfrac{1}{2}\delta[n]+\
 
 >[!info] Grafico di $h[n]$
 >![[filtro-es-1.png]]
-
 #### Caso $\phi=0$
 Se $\phi=0$ allora $x[n]=1$ per tutto il dominio, visto che $\cos(0)=1$. Per ottenere l'uscita si calcola la convoluzione tra $1$ e la risposta impulsiva.
 $$
