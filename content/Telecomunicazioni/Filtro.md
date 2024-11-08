@@ -21,6 +21,17 @@ La funzione di trasferimento è la [[Trasformata di Fourier]] della risposta imp
 $$
 h(t)\overset{\mathcal{F}}{\longrightarrow}H(f)
 $$
+### Peso sulle armoniche
+Il valore di $H(f_0)$ indica il peso della frequenza $f_0$ sul segnale in uscita. 
+
+Questo si può vedere mettendo un'armonica in ingresso nel filtro.
+$$
+y(t)=e^{i2\pi f_0t}*h(t)=\int_{-\infty}^{\infty}h(\tau)e^{i2\pi f_0(t-\tau)}d\tau=e^{i2\pi f_0t}\underbrace{\int_{-\infty}^{\infty}h(\tau)e^{-i2\pi f_0\tau}d\tau}_{H(f)}
+$$
+L'uscita del filtro sarà la stessa armonica ma pesata sulla funzione di trasferimento.
+$$
+y(t)=e^{i2\pi f_0t}\cdot H(f_0)
+$$
 ## Categorie
 ### Filtri passa-basso
 I filtri, o segnali, passa-basso si usano per trasmettere segnali la cui [[Trasformata di Fourier]] è limitata attorno l'origine. La banda del segnale è legata alla frequenza massima del segnale.
