@@ -64,7 +64,7 @@ $$
 \begin{gather*}
 y[n]=x[n]\cdot h[n]\\
 Y(f)=\sum_{n=-\infty}^{+\infty}y[n]e^{-i2\pi nfT}=\sum_{n=-\infty}^{+\infty}x[n]h[n]e^{-i2\pi nfT}\\\\
-\boxed{x[n]\overset{\mathcal{F^{-1}}}{\longrightarrow}T\int_{-1/2T}^{1/2T}X(\theta)e^{i2\pi n\theta T}d\theta}\\\\
+\boxed{X(\theta)\overset{\mathcal{F^{-1}}}{\longrightarrow} x[n] = T\int_{-1/2T}^{1/2T}X(\theta)e^{i2\pi n\theta T}d\theta}\\\\
 \begin{aligned}
 Y(f)&=\sum_{n=-\infty}^{+\infty}h[n]e^{-i2\pi nfT}\cdot T\int_{-1/2T}^{1/2T}X(\theta)e^{i2\pi n\theta T}d\theta =\\
 &=T\int_{-1/2T}^{1/2T}X(\theta)\underbrace{\sum_{n=-\infty}^{+\infty}h[n]e^{-i2\pi n(f-\theta)T}}_{H(f-\theta)}d\theta=\\
@@ -72,3 +72,34 @@ Y(f)&=\sum_{n=-\infty}^{+\infty}h[n]e^{-i2\pi nfT}\cdot T\int_{-1/2T}^{1/2T}X(\t
 \end{aligned}
 \end{gather*}
 $$
+#### Periodicità dello spettro
+Sapendo che gli spettri $X(f)$ e $H(f)$ di segnali discreti sono periodici, si possono riscrivere come treni di repliche $\overline{\!X}(f)$ e $\overline{\!H}(f)$ degli spettri traslate sul il dominio delle frequenze.
+$$
+\begin{align*}
+X(f)&=\sum_{n=-\infty}^{+\infty}\overline{\!X}\left(f-\frac{n\vphantom{k}}{T}\right)\\
+H(f)&=\sum_{k=-\infty}^{+\infty}\overline{\!H}\left(f-\frac{k}{T}\right)
+\end{align*}
+$$
+Queste sommatorie si possono sostituire nella formula ricavata sopra.
+$$
+\begin{gather*}
+Y(f)=T\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty} \int_{-1/2T}^{1/2T}\overline{\!X}\left(\theta-\frac{n\vphantom{k}}{T}\right)\cdot \overline{\!H}\left(f-\theta-\frac{k}{T}\right)\ d\theta\\\\
+\boxed{\ \theta'\coloneqq \theta-\frac{n}{T}\ \vphantom{\int}}\\\\
+\begin{aligned}
+Y(f)&=T\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty} \int\limits_{\displaystyle\tiny-\frac{1}{2T}-\frac{n}{T}}^{\displaystyle\tiny\frac{1}{2T}-\frac{n}{T}}\overline{\!X}(\theta')\cdot \overline{\!H}\left(f-\theta'-\frac{k+n}{T}\right)\ d\theta'
+\end{aligned}
+\end{gather*}
+$$
+Andando a sommare sui vari periodi $1/T$ traslati di $n$, tutte le somme sono uguali a $0$ tranne che per $n=0$ perché il segnale integrando  $\overline{\!X}(\theta')$ è uguale a $0$ per tutto il dominio tranne che attorno l'origine.
+$$
+Y(f)=T\sum_{k=-\infty}^{+\infty} \underbrace{\int_{-1/2T}^{1/2T}\overline{\!X}(\theta') \cdot \overline{\!H}\left(f-\theta'-\frac{k}{T}\right)\ d\theta'}_{\overline{Y}\left(f-\frac{k}{T}\right)}
+$$
+Sia  $\overline{\!Y}(f)$ la convoluzione  $\overline{\!X}(f)*\overline{\!H}(f)$, allora la trasformata $Y(f)$ si può riscrivere come sommatoria delle convoluzioni traslate delle repliche, dato che l'integrale si può riscrivere tra $-\infty$ e $+\infty$, in quanto è nullo per tutti i valori fuori dal periodo.
+$$
+Y(f)=T\sum_{k=-\infty}^{+\infty}\overline{Y}\left(f-\frac{k}{T}\right)
+$$
+### Coniugazione
+$$
+y^*[n] \overset{\mathcal{F}}{\longrightarrow} \sum_{n=-\infty}^{+\infty}y^*[n]e^{-i2\pi nfT}=\left[\sum_{n=-\infty}^{+\infty}y[n]e^{i2\pi nfT}\right]^*=Y^*(-f)
+$$
+## Teorema di Parseval
