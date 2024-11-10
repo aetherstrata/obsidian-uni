@@ -3,6 +3,8 @@ tags:
   - trasformata
   - analisi
   - segnale
+  - operatore
+  - matematica
 ---
 La trasformata di Fourier è una generalizzazione della [[Serie di Fourier]], capace di operare anche su [[Filtro#Risposta Impulsiva|segnali impulsivi]], che ha uno spazio delle basi infinito **non** numerabile, al contrario della serie.
 $$
@@ -40,22 +42,6 @@ Come per la serie di Fourier, è dimostrato che le armoniche sono ortogonali tra
 Facendo il prodotto scalare della funzione per un suo versore, si può estrarre il suo coefficiente per l'armonica scelta.
 $$
 X(f)=\left<x(t),e^{i2\pi ft}\right> =\int_{-\infty}^{\infty}x(t)e^{-i2\pi ft}dt
-$$
-## Trasformata discreta
-Si può ottenere la trasformata anche di segnali tempo-discreti, usando una sommatoria invece che un integrale.
-$$
-X(f)=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi fnT}
-$$
-### Periodicità
-La trasformata $X(f)$ di un segnale tempo-discreto ha periodo $1/T$.
-#### Dimostrazione
-Per essere dimostrato, $X(f)$ deve essere uguale a $X(f-1/T)$.
-$$
-X\left(f-\frac{1}{T}\right)=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi \left(f-\frac{1}{T}\right)nT}=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi fnT}e^{i2\pi n}
-$$
-Il termine $e^{i2\pi n}$ vale sempre $1$ e può essere cancellato. La parte rimanente è proprio uguale alla trasformata calcolata in $f$.
-$$
-X\left(f-\frac{1}{T}\right)=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi fnT}=X(f)
 $$
 ## Proprietà
 ### Valore atteso
