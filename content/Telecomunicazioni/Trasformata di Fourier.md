@@ -117,7 +117,11 @@ $$
 $$
 ### [[Convoluzione]]
 $$
-z(t)=x(t)*y(t)\overset{\mathcal{F}}{\longrightarrow}X(f)Y(f)=Z(f)
+z(t)=x(t)*y(t)\overset{\mathcal{F}}{\longrightarrow}X(f)\cdot Y(f)=Z(f)
+$$
+#### Duale
+$$
+z(t)=x(t)\cdot y(t)\overset{\mathcal{F}}{\longrightarrow}X(f)*Y(f)=Z(f)
 $$
 #### Dimostrazione
 $$
