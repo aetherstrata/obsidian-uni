@@ -35,3 +35,16 @@ y(t)&=\sum_{n=-\infty}^{+\infty}x[n]\delta(t-nT)*\operatorname{sinc}\left(\frac{
 &=\sum_{n=-\infty}^{+\infty}x[n]\operatorname{sinc}\left(\frac{t-nT}{T}\right)
 \end{align*}
 $$
+L'uscita sarà uguale al segnale analogico originale ricostruito.
+### Condizioni
+Per poter ricostruire un segnale bisogna però tener conto di alcune condizioni necessarie affinché questo avvenga con successo.
+#### La banda
+La banda del segnale analogico deve essere finita e limitata ed avere una **frequenza massima**
+#### Il campionamento
+La **frequenza di campionamento** deve essere scelta accuratamente per ottenere un'uscita priva di **aliasing**.
+
+>[!info] Criterio di Nyquist
+>$$
+>\frac{1}{T}=f_c>2f_{max}
+>$$
+
