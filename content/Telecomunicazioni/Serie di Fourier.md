@@ -147,12 +147,9 @@ Dato un segnale, si conoscono anche i coefficienti di Fourier della sua derivata
 ## Teorema di Parseval
 
 Il Teorema di Parseval permette di calcolare velocemente la potenza di un segnale rappresentato come serie di Fourier.
-
->[!info] Integrale di potenza
->$$
->P_x=\frac{1}{T}\int_{-T/2}^{T/2}x(t)x^*(t)dt = \frac{1}{T}\int_{-T/2}^{T/2}\underbrace{\sum_{n=-\infty}^{\infty}c_n\cdot e^{\large\frac{i2\pi nt}{T}}}_{\large x(t)}\underbrace{\sum_{m=-\infty}^{\infty}c^*_m\cdot e^{\large-\frac{i2\pi mt}{T}}}_{\large x^*(t)}dt
->$$
-
+$$
+P_x=\frac{1}{T}\int_{-T/2}^{T/2}x(t)x^*(t)dt = \frac{1}{T}\int_{-T/2}^{T/2}\underbrace{\sum_{n=-\infty}^{\infty}c_n\cdot e^{\large\frac{i2\pi nt}{T}}}_{\large x(t)}\underbrace{\sum_{m=-\infty}^{\infty}c^*_m\cdot e^{\large-\frac{i2\pi mt}{T}}}_{\large x^*(t)}dt
+$$
 Invertendo l'ordine tra integrale e sommatorie, rimane solo il prodotto tra due armoniche dentro l'integrale.
 $$
 P_x = \sum_{n=-\infty}^{\infty}\sum_{m=-\infty}^{\infty}c_n\cdot c^*_m\ \underbrace{\frac{1}{T}\int_{-T/2}^{T/2}e^{\large\frac{i2\pi (n-m)t}{T}}dt}_{\large\delta(n-m)}

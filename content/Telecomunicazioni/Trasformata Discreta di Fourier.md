@@ -102,12 +102,3 @@ $$
 $$
 y^*[n] \overset{\mathcal{F}}{\longrightarrow} \sum_{n=-\infty}^{+\infty}y^*[n]e^{-i2\pi nfT}=\left[\sum_{n=-\infty}^{+\infty}y[n]e^{i2\pi nfT}\right]^*=Y^*(-f)
 $$
-## Teorema di Parseval
-Con la proprietà della convoluzione circolare, si può ricavare l'energia del segnale senza calcolare la [[Energia e potenza#Energia di un segnale discreto|somma dei moduli]].
-$$
-\sum_{n=-\infty}^{+\infty}x^*[n]x[n]=T \int_{-1/2T}^{1/2T}X(f)X^*(f)df = T\int_{-1/2T}^{1/2T}|X(f)|^2df
-$$
-Quindi l'energia di un segnale discreto si può calcolare integrando nel periodo il modulo quadrato del suo spettro.
-$$
-E_x=T\int_{-1/2T}^{1/2T}|X(f)|^2df
-$$

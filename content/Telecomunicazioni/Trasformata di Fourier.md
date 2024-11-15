@@ -158,24 +158,6 @@ x(t)&\overset{\mathcal{F}}{\longrightarrow}X(f)\\\\
 x^*(t)&\overset{\mathcal{F}}{\longrightarrow}\int_{-\infty}^{\infty}x^*(t)e^{-i2\pi ft}dt=\left(\int_{-\infty}^{\infty}x(t)e^{i2\pi ft}dt\right)^*=X^*(-f)\\
 \end{align*}
 $$
-## Teorema di Parseval
-
-Il Teorema di Parseval permette di calcolare velocemente la potenza di un segnale rappresentato come trasformata di Fourier.
-$$
-z(t)=x(t)*y^*(-t)=\int_{-\infty}^{\infty}x(\tau)y^*(t+\tau)d\tau
-$$
-Sfruttando la proprietà della [[#Convoluzione]], si può riscrivere come prodotto tra trasformate.
-$$
-z(t)=\int_{-\infty}^{\infty}X(f)Y^*(f)e^{i2\pi ft}df
-$$
-Valutando l'espressione in $t=0$, è evidente l'uguaglianza con l'operazione di prodotto scalare.
-$$
-z(0)=\underbrace{\int_{-\infty}^{\infty}x(\tau)y^*(\tau)d\tau}_{\left<x(t),y(t)\right>}=\underbrace{\int_{-\infty}^{\infty}X(f)Y^*(f)df}_{{\left<X(f),Y(f)\right>}}
-$$
-Se si pone $x(t) = y(t)$, quindi si fa la sua [[Correlazione#Autocorrelazione|autocorrelazione]], il risultato sarà l'[[Energia e potenza#Energia di un segnale analogico|energia]] del segnale.
-$$
-E_x=\int_{-\infty}^{\infty}\left|x(t)\right|^2dt=\int_{-\infty}^{\infty}x(\tau)x^*(\tau)d\tau=\int_{-\infty}^{\infty}X(f)X^*(f)df=\int_{-\infty}^{\infty}\left|X(f)\right|^2df
-$$
 ## Coefficienti di un segnale periodico
 
 La trasformata di Fourier può anche essere usata per ottenere i coefficienti di Fourier di un segnale [[Funzione Periodica|periodico]].

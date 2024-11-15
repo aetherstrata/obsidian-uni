@@ -205,7 +205,7 @@ Dato il seguente segnale, calcolare la sua energia.
 $$
 x(t)=\frac{\sin(\pi t)}{\pi t}\cos(2\pi at)
 $$
-Calcolare l'integrale nel tempo è complicato quindi si applica il [[Trasformata di Fourier#Teorema di Parseval|Teorema di Parseval]].
+Calcolare l'integrale nel tempo è complicato quindi si applica il [[Teorema di Parseval#Trasformata di Fourier|teorema di Parseval]].
 
 >[!summary] Calcolo trasformata con la [[Numeri Complessi#Rappresentazione esponenziale di seno e coseno|scomposizione in esponenziali]]
 >$$
