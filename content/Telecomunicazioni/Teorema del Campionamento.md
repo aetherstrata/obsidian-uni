@@ -48,3 +48,40 @@ La **frequenza di campionamento** deve essere scelta accuratamente per ottenere 
 >\frac{1}{T}=f_c>2f_{max}
 >$$
 
+## Esempi
+Dato il seguente segnale analogico $x(t)$, verificare se è possibile ricostruirlo correttamente usando una frequenza di campionamento $f_c=4f_0$ e un filtro $H(f)=\operatorname{rect}\left(\frac{f}{4f_0}\right)$.
+$$
+x(t)=2f_0 \operatorname{sinc}^2(f_0t)\cdot\cos(6\pi f_0t)
+$$
+A questo punto si calcola il suo spettro $X(f)$.
+$$
+\begin{align*}
+X(f)&=2\operatorname{tri}\left(\frac{f}{f_0}\right)*\left[\frac{1}{2}\delta(f-3f_0)+\frac{1}{2}\delta(f+3f_0)\right]=\\
+&=\operatorname{tri}\left(\frac{f-3f_0}{f_0}\right)+\operatorname{tri}\left(\frac{f+3f_0}{f_0}\right)
+\end{align*}
+$$
+>[!info] Grafico dello spettro
+>![[1731856141.png]]
+>L'asse delle frequenze è in scala di $f_0$.
+
+Calcolando lo spettro del segnale campionato si può vedere se le componenti si intersecano tra loro.
+$$
+\begin{align*}
+X_c(f)&=4f_0\sum_{n=-\infty}^{+\infty}\operatorname{tri}\left(\frac{f-3f_0-n4f_0}{f_0}\right)+\operatorname{tri}\left(\frac{f+3f_0-n4f_0}{f_0}\right)=\\
+&=4f_0\sum_{n=-\infty}^{+\infty}\operatorname{tri}\left(\frac{f-(4n+3)f_0}{f_0}\right)+\operatorname{tri}\left(\frac{f-(4n-3)f_0}{f_0}\right)
+\end{align*}
+$$
+>[!info] Grafico dello spettro periodicizzato
+>![[1731857178.png]]
+>Le repliche invadono lo spettro di altre repliche. 
+>Nel grafico le repliche per $n=1$ (blu) e $n=-1$ (verde) invadono lo spettro del segnale originale $n=0$ (rosso).
+
+Conoscendo lo spettro del segnale campionato si può procedere con la ricostruzione del segnale.
+$$
+Y(f)=X_c(f)\cdot H(f)=4f_0\operatorname{tri}\left(\frac{f-f_0}{f_0}\right)+4f_0\operatorname{tri}\left(\frac{f+f_0}{f_0}\right)
+$$
+L'ultimo passo è calcolare l'anti-trasformata del segnale di uscita.
+$$
+y(t)=8f_0\operatorname{sinc}^2(f_0t)\cdot\cos(2\pi f_0t)
+$$
+Il segnale non può essere ricos
