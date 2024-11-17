@@ -84,4 +84,4 @@ L'ultimo passo è calcolare l'anti-trasformata del segnale di uscita.
 $$
 y(t)=8f_0\operatorname{sinc}^2(f_0t)\cdot\cos(2\pi f_0t)
 $$
-Il segnale non può essere ricos
+Il segnale non può essere ricostruito correttamente.
