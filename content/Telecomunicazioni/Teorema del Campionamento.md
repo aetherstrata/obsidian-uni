@@ -48,7 +48,8 @@ La **frequenza di campionamento** deve essere scelta accuratamente per ottenere 
 >\frac{1}{T}=f_c>2f_{max}
 >$$
 
-## Esempi
+## Esercizi
+### Esercizio 1
 Dato il seguente segnale analogico $x(t)$, verificare se è possibile ricostruirlo correttamente usando una frequenza di campionamento $f_c=4f_0$ e un filtro $H(f)=\operatorname{rect}\left(\frac{f}{4f_0}\right)$.
 $$
 x(t)=2f_0 \operatorname{sinc}^2(f_0t)\cdot\cos(6\pi f_0t)
@@ -85,3 +86,58 @@ $$
 y(t)=8f_0\operatorname{sinc}^2(f_0t)\cdot\cos(2\pi f_0t)
 $$
 Il segnale non può essere ricostruito correttamente.
+### Esercizio 2
+Un segnale $x(t)$ ha uno spettro $X(f)$ con frequenza massima di $50$ Hz che viene campionato a $100$ Hz.
+
+Dopo il campionamento, i campioni estratti sono i seguenti
+$$
+x(nT)=\begin{cases}
+-1 & n\in\{-2,-1\} \\
+\hphantom{-}1 & n\in\{1,2\} \\
+\hphantom{-}0 & \text{altrove}
+\end{cases}
+$$
+In ricostruzione si usa un filtro con la seguente funzione di trasferimento
+$$
+H(f)=T\operatorname{rect}(Tf)
+$$
+Calcolare il valore del segnale ricostruito all'istante $t=5ms$.
+
+>[!info] Campioni del segnale
+>Sapendo che il segnale è non nullo solo per alcuni valori di $n$, si può riscrivere la funzione come somma di [[Delta di Dirac]].
+>$$
+>\begin{align*}
+>x_c(t)&=x(t)\cdot\Pi(t)=\sum_{n=-\infty}^{+\infty}x(nT)\delta(t-nT)= \\
+>&=x(2T)\delta(t-2T)+x(T)\delta(t-T)+{} \\
+>&\hphantom{=}+x(-T)\delta(t+T)+x(-2T)\delta(t+2T)= \\
+>&=\delta(t-2T)+\delta(t-T)-\delta(t+T)-\delta(t+2T)
+>\end{align*}
+>$$
+
+Sapendo che l'uscita del filtro vale $y(t)=x_c(t)*h(t)$, il segnale può essere ricostruito facilmente.
+
+>[!info] Risposta impulsiva
+>Data la funzione di trasferimento $H(f)=T\operatorname{rect}(Tf)$, si vede chiaramente che la risposta impulsiva associata è un [[Seno Cardinale]].
+>$$
+>H(f)=T\operatorname{rect}(Tf)\overset{\mathcal{F^{-1}}}{\longrightarrow}\operatorname{sinc}\left(\frac{t}{T}\right)=h(t)
+>$$
+
+L'uscita $y(t)$ del filtro è una somma di seni cardinali.
+$$
+\begin{align*}
+y(t)&=x_c(t)*h(t)=\\
+&=\left[\delta(t-2T)+\delta(t-T)-\delta(t+T)-\delta(t+2T)\right]*\operatorname{sinc}\left(\frac{t}{T}\right)=\\
+&=\operatorname{sinc}\left(\frac{t-2T}{T}\right)+\operatorname{sinc}\left(\frac{t-T}{T}\right)-\operatorname{sinc}\left(\frac{t+T}{T}\right)-\operatorname{sinc}\left(\frac{t+2T}{T}\right)
+\end{align*}
+$$
+Per valutare l'uscita in $t=5ms$ basta sostituire i valori, tenendo conto che il tempo di campionamento $T$ vale $\dfrac{1}{f_c}=10ms$.
+$$
+\begin{align*}
+y(5ms)&=\cancel{\operatorname{sinc}\left(\frac{-15}{10}\right)}+\operatorname{sinc}\left(\frac{-5}{10}\right) -
+\cancel{\operatorname{sinc}\left(\frac{15}{10}\right)}-\operatorname{sinc}\left(\frac{25}{10}\right)=\\
+&=\operatorname{sinc}\left(\frac{1}{2}\right)-\operatorname{sinc}\left(\frac{5}{2}\right)=\\
+&=\frac{\sin\left(\frac{\pi}{2}\right)}{\frac{\pi}{2}}-\frac{\sin\left(\frac{5\pi}{2}\right)}{\frac{5\pi}{2}}=\\
+&=\frac{2}{\pi}-\frac{2}{5\pi}=\\
+&=\frac{8}{5\pi}
+\end{align*}
+$$
