@@ -19,7 +19,29 @@ $$
 P(A\cup B)=P(A)+P(B)
 $$
 ### Generalizzazione
-Questo assioma può essere generalizzato ad una sequenza numerabile di insiemi disgiunti
+Questo assioma può essere generalizzato ad una sequenza numerabile di eventi disgiunti
 $$
 P\left(\bigcup_{i=1}^{\infty} E_i\right)=\sum_{i=1}^{\infty}P(E_i)
 $$
+>[!info] Considerazioni sugli eventi non disgiunti
+>È importante considerare le intersezioni nei casi in cui gli eventi non siano reciprocamente esclusivi.
+>
+>Come esempio è riportata la probabilità che venga estratto **almeno** un $2$ da $2$ dadi.
+>$$
+>P_r\set{2}=\left(\begin{array}{c|c}
+>& \begin{matrix*}
+>1 & 2 & 3 & 4 & 5 & 6  
+>\end{matrix*} \\ 
+>\hline
+>\begin{matrix*}
+>1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6  
+>\end{matrix*} & \begin{matrix*}
+>0 & 1 & 0 & 0 & 0 & 0 \\
+>1 & 1 & 1 & 1 & 1 & 1 \\
+>0 & 1 & 0 & 0 & 0 & 0 \\
+>0 & 1 & 0 & 0 & 0 & 0 \\
+>0 & 1 & 0 & 0 & 0 & 0 \\
+>0 & 1 & 0 & 0 & 0 & 0 \\
+>\end{matrix*}
+>\end{array}\right) = \frac{11}{36}
+>$$
