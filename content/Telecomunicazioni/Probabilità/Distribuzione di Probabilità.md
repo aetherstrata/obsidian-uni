@@ -71,7 +71,7 @@ f_X(x)=\left\{\begin{matrix*}
 1 & \hphantom{a<{}} x\ge b
 \end{matrix*}\right.
 $$
->[!info] Grafico
+>[!info] Grafico per $(-1,1)$
 >![[1732458296.png|center]]
 >$$
 >\begin{align*}
@@ -80,3 +80,7 @@ $$
 >\end{align*}
 >$$
 ### Distribuzione normale
+#### Densità della probabilità
+$$
+f_X(x)=\frac{e^{-(x-\mu)^2/2\sigma^2}}{\sqrt{2\pi\sigma^2}}
+$$
