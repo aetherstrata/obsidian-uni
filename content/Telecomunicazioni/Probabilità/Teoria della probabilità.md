@@ -13,7 +13,7 @@ $$
 P_r\{\mathcal{E}\}\le1
 $$
 >[!tip] Caso $P_r=1$
->La probabilità sarà uguale a $1$ solo quando l'insieme degli eventi favorevoli è uguale allo spazio degli eventi.
+>La probabilità sarà uguale a $1$ solo quando l'insieme degli eventi favorevoli è uguale allo spazio campionario.
 ## Probabilità condizionata
 ### Teorema di Bayes
 Il teorema di Bayes lega due probabilità con condizione opposta
