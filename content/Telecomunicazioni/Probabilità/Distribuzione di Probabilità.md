@@ -20,9 +20,24 @@ Se la [[Variabile Aleatoria]] $X$ è continua la distribuzione di probabilità �
 $$
 P(X \in A) = \int_{A} f(x)  dx
 $$
-## Distribuzione cumulativa
-Nel caso in cui la [[Variabile Aleatoria]] sia un valore reale, la distribuzione continua può equamente essere rappresentata da una distribuzione cumulativa che fornisce la probabilità di accadimento del valore dato *o qualsiasi altro valore minore*.
+### Distribuzione cumulativa
+Nel caso in cui la [[Variabile Aleatoria]] sia un valore reale, la **distribuzione continua** può equamente essere rappresentata da una distribuzione cumulativa che fornisce la probabilità di accadimento del valore dato *o qualsiasi altro valore minore*.
 $$
 F(x)=P(X\le x)
 $$
-La distribuzione cumulativa è quindi una funzione 
+La distribuzione cumulativa è quindi una funzione monotona crescente continua a destra che mantiene le proprietà fondamentali delle distribuzioni.
+
+- Può assumere solo valori compresi tra $0$ e $1$
+$$
+F(x) : \mathbb{R}\to[0,1]
+$$
+- Dato che la funzione è monotona, questi valori sicuramente compaiono almeno agli estremi del dominio 
+$$
+\begin{array}{c|c}
+\lim\limits_{x\to-\infty}F(x)=0 & \lim\limits_{x\to\infty}F(x)=1
+\end{array}
+$$
+- Integrare la funzione restituisce la probabilità che accada un evento compreso tra gli estremi di integrazione
+$$
+P(a<X<b)=\int_{a}^{b}f(x)dx=F(b)-F(a)
+$$
