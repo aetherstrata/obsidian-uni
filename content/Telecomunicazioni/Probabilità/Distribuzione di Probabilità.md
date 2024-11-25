@@ -56,14 +56,14 @@ $$
 Questa funzione di distribuzione è anche detta **funzione di ripartizione**.
 ### Distribuzione uniforme
 Nel caso in cui gli eventi della [[Variabile Aleatoria]] hanno tutti la stessa probabilità di verificarsi in  un intervallo $(a,b)$, allora la distribuzione di probabilità si dice uniforme.
-#### Densità della probabilità
+#### Funzione di densità
 $$
 f_X(x)=\left\{\begin{matrix*}
 \dfrac{1}{b-a} & a<x<b \\
 0 & altrimenti
 \end{matrix*}\right.
 $$
-#### Ripartizione della probabilità
+#### Funzione di ripartizione
 $$
 f_X(x)=\left\{\begin{matrix*}
 0 & \hphantom{a<{}} x\le a\\
@@ -80,7 +80,11 @@ $$
 >\end{align*}
 >$$
 ### Distribuzione normale
-#### Densità della probabilità
+#### Funzione di densità
 $$
 f_X(x)=\frac{e^{-(x-\mu)^2/2\sigma^2}}{\sqrt{2\pi\sigma^2}}
+$$
+#### Funzione di ripartizione
+$$
+F_X(x)=\frac{1}{2}+\frac{1}{2}\operatorname{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)
 $$
