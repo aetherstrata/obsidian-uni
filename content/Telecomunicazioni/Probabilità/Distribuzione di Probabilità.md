@@ -30,7 +30,26 @@ $$
 $$
 ### Valore atteso
 $$
-\mathbb{E}[X] = \int_{-\infty}^{\infty} x\cdot f(x) dx 
+\mathbb{E}[X] = \int_{-\infty}^{\infty} x\cdot f(x) dx = \mu_X
+$$
+Il valore atteso è anche chiamato **valor medio** e **momento del primo ordine**.
+### Momento del secondo ordine
+$$
+\mathbb{E}[X^2] = \int_{-\infty}^{\infty} x^2\cdot f(x) dx 
+$$
+### Varianza
+$$
+\mathbb{E}[(X-\mathbb{E}[X])^2] = \int_{-\infty}^{\infty} (x-\mathbb{E}[X])^2\cdot f(x) dx = \mathbb{E}[X^2]-\mathbb{E}[X]^2=\sigma_X^2
+$$
+La varianza è anche chiamata **momento centrato di secondo ordine**.
+### Funzione caratteristica
+Due distribuzioni non condividono mai la stessa funzione caratteristica, a meno che non coincidano.
+$$
+\phi_X(t)=\mathbb{E}[e^{itX}]=\int_{\mathbb{R}}e^{itx}dF(x)=\int_{-\infty}^{\infty}f_X(x)e^{itx}dx
+$$
+Se si pone $t=-2\pi f$, si vede chiaramente che questa è una [[Trasformata di Fourier]].
+$$
+\phi_X(-2\pi f)=\int_{-\infty}^{\infty}f_X(x)e^{-i2\pi fx}dx=P_X(f)
 $$
 ### Distribuzione cumulativa
 Nel caso in cui la [[Variabile Aleatoria]] sia un valore reale, la **distribuzione continua** può equamente essere rappresentata da una distribuzione cumulativa che fornisce la probabilità di accadimento di un evento *prima o dopo un certo punto*.
@@ -46,7 +65,7 @@ $$
 - Dato che la funzione è monotona, questi valori sicuramente compaiono almeno agli estremi del dominio 
 $$
 \begin{array}{c|c}
-\lim\limits_{x\to-\infty}F(x)=0 & \lim\limits_{x\to\infty}F(x)=1
+\lim\limits_{x\to-\infty}F(x)=0 & \lim\limits_{x\to+\infty}F(x)=1
 \end{array}
 $$
 - Integrare la funzione restituisce la probabilità che accada un evento compreso tra gli estremi di integrazione
@@ -71,6 +90,14 @@ f_X(x)=\left\{\begin{matrix*}
 1 & \hphantom{a<{}} x\ge b
 \end{matrix*}\right.
 $$
+#### Valore atteso
+$$
+\mathbb{E}[X]=\frac{a+b}{2}
+$$
+#### Varianza
+$$
+\sigma_X^2=\frac{(b-a)^2}{12}
+$$
 >[!info] Grafico per $(-1,1)$
 >![[1732458296.png|center]]
 >$$
@@ -87,4 +114,12 @@ $$
 #### Funzione di ripartizione
 $$
 F_X(x)=\frac{1}{2}+\frac{1}{2}\operatorname{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)
+$$
+#### Valore atteso
+$$
+\mathbb{E}[X]=\mu
+$$
+#### Varianza
+$$
+\mathbb{E}[(X-\mu)^2]=\sigma²
 $$
