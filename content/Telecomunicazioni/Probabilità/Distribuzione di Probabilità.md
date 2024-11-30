@@ -123,3 +123,29 @@ $$
 $$
 \mathbb{E}[(X-\mu)^2]=\sigma²
 $$
+## Distribuzione bivariata
+Date due variabili aleatorie $X$ e $Y$, si dice **distribuzione bivariata** la distribuzione di probabilità associata al vettore $(X,Y)$. 
+### Momento misto del primo ordine
+$$
+\mathbb{E}[XY]=\iint\limits_{-\infty}^{\infty}xy\cdot P_{XY}(x,y)\,dxdy=\mu_{XY}
+$$
+Dove $P_{XY}(x,y)$ è la densità di probabilità congiunta. 
+
+>[!info] Variabili indipendenti
+>Se le variabili aleatorie sono totalmente indipendenti allora $P_{XY}(x,y)=P_X(x)P_Y(y)$.
+>$$
+>\mathbb{E}[XY]=\int_{-\infty}^{\infty}x\cdot P_X(x)dx\int_{-\infty}^{\infty}y\cdot P_Y(y)dy = \mu_X\cdot\mu_Y
+>$$
+### Distribuzioni marginali
+$$
+P_Y(y)=\int_{-\infty}^{\infty}P_{XY}(x,y)\,dx
+$$
+### Covarianza
+$$
+\sigma_{XY}=\mathbb{E}[(x-\mu_X)(y-\mu_Y)]=\mu_{XY}-\mu_X\mu_Y
+$$
+### Funzione caratteristica
+Dato $Z=X+Y$, quindi con variabili indipendenti, la funzione caratteristica di una distribuzione bivariata è il prodotto delle funzioni caratteristiche delle singole distribuzioni.
+$$
+\phi_Z=P_X(f)P_Y(f)\longrightarrow P_Z(z)=P_X(f)*P_Y(f)
+$$
