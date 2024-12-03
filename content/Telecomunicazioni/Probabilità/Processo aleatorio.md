@@ -11,10 +11,23 @@ Un processo viene definito partendo da un insieme di [[Variabile Aleatoria|varia
 ### Processo stazionario
 Un processo si dice **stazionario** se le sue gerarchie del *primo ordine*[^1] non dipendono dal tempo e le sue gerarchie del *secondo ordine*[^2]  non dipendono da $t_1$ e $t_2$ separatamente ma dalla loro *differenza*.
 
+>[!tip] Differenza nulla
+>Nel caso in cui la differenza tra $t_1$ e $t_2$ sia nulla, allora la correlazione del processo stazionario avrà la seguente forma, che è uguale alla [[Energia e potenza|potenza]] del processo.
+>$$
+>R_X(0)=\mathbb{E}[x(t)x(t)]=\mathbb{E}[x^2(t)]=P_x
+>$$
+
 [^1]:  valore medio, valore quadratico medio, varianza
 [^2]:  correlazione e covarianza
 ### Processo ergodico
-
+Un processo di dice **ergodico** se è un processo stazionario se, per ogni momento di $t$, la media temporale è uguale alla media d'insieme.
+$$
+\mathbb{E}[x(t)]=\int_{-\infty}^{\infty}x(t)P_X(x)\,dx=\lim_{\Delta T\to\infty}\frac{1}{\Delta T}\int_{-\Delta T/2}^{\Delta T/2}x(t)\,dt
+$$
+Questa proprietà può essere applicata alla definizione della potenza.
+$$
+P_X=\mathbb{E}[x^2(t)]=\lim_{\Delta T\to\infty}\frac{1}{\Delta T}\int_{-\Delta T/2}^{\Delta T/2}x^2(t)\,dt
+$$
 ## Esempi
 ### Coseno con ampiezza aleatoria
 Studiare il processo $x(t)=A\cos\left(\frac{2\pi t}{T}\right)$, dove $A$ è una variabile aleatoria con distribuzione di probabilità uniforme tra $0$ e $1$.
