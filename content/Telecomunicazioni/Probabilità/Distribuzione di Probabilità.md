@@ -35,11 +35,11 @@ $$
 Il valore atteso è anche chiamato **valor medio** e **momento del primo ordine**.
 ### Momento del secondo ordine
 $$
-\mathbb{E}[X^2] = \int_{-\infty}^{\infty} x^2\cdot f(x) dx 
+\mathbb{E}[X^2] = \int_{-\infty}^{\infty} x^2\cdot f(x) dx = \mu_X^{(2)}
 $$
 ### Varianza
 $$
-\mathbb{E}[(X-\mathbb{E}[X])^2] = \int_{-\infty}^{\infty} (x-\mathbb{E}[X])^2\cdot f(x) dx = \mathbb{E}[X^2]-\mathbb{E}[X]^2=\sigma_X^2
+\mathbb{E}[(X- \mu_X)^2] = \int_{-\infty}^{\infty} (x- \mu_X)^2\cdot f(x) dx =  \mu_X^{(2)}- \mu_X^2=\sigma_X^2
 $$
 La varianza è anche chiamata **momento centrato di secondo ordine**.
 ### Funzione caratteristica
