@@ -8,6 +8,7 @@ Un processo aleatorio è la versione [[Teoria della probabilità|probabilistica]
 ## Definizione
 ### Variabile aleatoria
 Un processo viene definito partendo da un insieme di [[Variabile Aleatoria|variabili aleatorie]] $\set{X(t),\ t\in\mathbb{R}}$ dipendenti dal tempo $t$, definite su un opportuno spazio campionario $\Omega$.
+### Processo stazionario
 ## Esempi
 ### Coseno con ampiezza aleatoria
 Studiare il processo $x(t)=A\cos\left(\frac{2\pi t}{T}\right)$, dove $A$ è una variabile aleatoria con distribuzione di probabilità uniforme tra $0$ e $1$.
@@ -47,7 +48,7 @@ $$
 &=\frac{1}{2}\cos\left(\frac{2\pi t}{T}\right)
 \end{align*}
 $$
-#### Momento del secondo ordine
+#### Valore quadratico medio
 $$
 \begin{align*}
 \mathbb{E}[X^2]&=\int_{-\infty}^{\infty}x^2(t)P_X(x)\,dx=\\
@@ -64,4 +65,34 @@ $$
 Studiare il processo $x(t)=\cos\left(\frac{2\pi t}{T}+\phi\right)$, dove $\phi$ è una variabile aleatoria con distribuzione di probabilità uniforme tra $0$ e $2\pi$.
 $$
 P_\phi(\phi)=\frac{1}{2\pi}\operatorname{rect}\left(\frac{\phi-\pi}{2\pi}\right)
+$$Conoscendo le caratteristiche di una variabile aleatoria $Y|X\coloneqq y=\cos(x)$ si possono ricavare facilmente le caratteristiche di questo processo.
+$$
+P_X(x)=\frac{1}{2\pi}\operatorname{rect}\left(\frac{x-\pi}{2\pi}\right)\to P_Y(y)=\frac{1}{\sqrt{1-y^2}}\operatorname{rect}\left(\frac{y}{2}\right)
+$$
+#### Valore medio
+$$
+\mathbb{E}[X]=\int_{-\infty}^{\infty}\cos\left(\frac{2\pi t}{T}+\phi\right)P_\phi(\phi)\,d\phi=\int_{0}^{2\pi}\frac{1}{2\pi}\cos\left(\frac{2\pi t}{T}+\phi\right)\,d\phi=0
+$$
+#### Valore quadratico medio
+$$
+\begin{align*}
+\mathbb{E}[X^2]&=\int_{-\infty}^{\infty}\cos^2\left(\frac{2\pi t}{T}+\phi\right)P_\phi(\phi)\,d\phi=\\
+&=\int_{0}^{2\pi}\frac{1}{2\pi}\cos^2\left(\frac{2\pi t}{T}+\phi\right)\,d\phi=\\
+&=\frac{1}{2\pi}\int_{0}^{2\pi}\left[\frac{1}{2}+\frac{1}{2}\cos\left(\frac{4\pi t}{T}+2\phi\right)\right]\,d\phi=\\
+&=\frac{1}{4\pi}\int_{0}^{2\pi}d\phi=\\
+&=\frac{1}{2}
+\end{align*}
+$$
+#### Varianza
+$$
+\sigma^2_X=\mathbb{E}[X^2]-\mathbb{E}[X]^2=\frac{1}{2}
+$$
+#### Correlazione
+$$
+\begin{align*}
+\mathbb{E}[X_1,X_2]&=\int_{-\infty}^{\infty}\cos\left(\frac{2\pi t_1}{T}+\phi\right)\cos\left(\frac{2\pi t_2}{T}+\phi\right)P_\phi(\phi)\,d\phi=\\
+&=\frac{1}{2}\int_{0}^{2\pi}\frac{1}{2\pi}\cos^2\left(\frac{2\pi (t_1+t_2)}{T}+2\phi\right)\,d\phi=\\
+&=\frac{1}{2}\cos^2\left(\frac{2\pi (t_1+t_2)}{T}\right)\int_{0}^{2\pi}\frac{1}{2\pi}\,d\phi=\\
+&=\frac{1}{2}\cos^2\left(\frac{2\pi (t_1+t_2)}{T}\right)
+\end{align*}
 $$
