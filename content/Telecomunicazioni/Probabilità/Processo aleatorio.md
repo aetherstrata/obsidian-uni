@@ -151,7 +151,7 @@ Dato un processo stazionario $x(t)$, con distribuzione di probabilità uniforme 
 $$
 C_X(\tau)=A\operatorname{tri}\left(\frac{\tau}{2}\right)
 $$
-Dato il seguente sistema, calcolare il valore atteso $\mu_Y$ e la correlazione per $Y$.
+Dato il seguente sistema, calcolare il valore atteso $\mu_Y$, la correlazione per $Y$ e la potenza.
 $$
 y(t)=x(t)+x(t-1)
 $$
@@ -185,4 +185,19 @@ $$
 Il valore atteso dell'uscita del sistema si calcola sommando i singoli valori attesi.
 $$
 \mu_Y=\mathbb{E}[x(t)]+\mathbb{E}[x(t-1)]=4+4=8
+$$
+La correlazione per $Y$ si ricava in funzione dei processi in ingresso.
+$$
+\begin{align*}
+R_Y(\tau)&=\mathbb{E}[y(t+\tau)y(t)]=\\
+&=\mathbb{E}[(x(t+\tau)+x(t+\tau-1))(x(t)+x(t-1))]=\\
+&=\mathbb{E}[x(t+\tau)x(t)]+\mathbb{E}[x(t+\tau-1)x(t)]\mathrel{+}\\
+&\quad\mathrel{+}\mathbb{E}[x(t+\tau)x(t-1)]+\mathbb{E}[x(t+\tau-1)x(t-1)]=\\
+&=R_X(\tau)+R_X(\tau-1)+R_X(\tau+1)+R_X(\tau)=\\
+&=2R_X(\tau)+R_X(\tau-1)+R_X(\tau+1)
+\end{align*}
+$$
+Calcolare la correlazione in $0$ corrisponde alla potenza del processo.
+$$
+P_Y=2R_X(0)+R_X(-1)+R_X(1)=2\cdot28+22+22=100
 $$
