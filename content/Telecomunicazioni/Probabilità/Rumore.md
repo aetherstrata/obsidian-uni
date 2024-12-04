@@ -39,6 +39,12 @@ $$
 \begin{align*}
 R_Z(\tau)&=\mathbb{E}[z(t+\tau)z(t)]=\\
 &=\mathbb{E}[(x(t+\tau)+y(t+\tau))(x(t)+y(t))]=\\
-&=
+&=\underbrace{\mathbb{E}[(x(t+\tau)x(t))]}_{R_X(\tau)}+\underbrace{\mathbb{E}[(y(t+\tau)y(t))]}_{R_Y(\tau)}\mathrel{+}\\
+&\quad\mathrel{+}\mathbb{E}[(x(t+\tau)y(t))]+\mathbb{E}[(y(t+\tau)x(t))]=\\
+&=R_X(\tau)+R_Y(\tau)+2\mu_X\mu_Y
 \end{align*}
 $$
+#### Spettro densità di potenza
+$$
+R_Z(\tau)\overset{\mathcal{F}}{\longrightarrow}G_Z(f)=G_X(f)+G_Y(f)+2\mu_X\mu_Y\cdot\delta(f)
+$$ 
