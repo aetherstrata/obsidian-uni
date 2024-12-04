@@ -4,7 +4,6 @@ tags:
   - segnale
 ---
 Un processo aleatorio è la versione [[Teoria della probabilità|probabilistica]] di un [[Sistema#Sistema dinamico|sistema dinamico]] che rappresenta la variazione in modo casuale nel tempo di una grandezza.
-
 ## Definizione
 ### Variabile aleatoria
 Un processo viene definito partendo da un insieme di [[Variabile Aleatoria|variabili aleatorie]] $\set{X(t),\ t\in\mathbb{R}}$ dipendenti dal tempo $t$, definite su un opportuno spazio campionario $\Omega$.
