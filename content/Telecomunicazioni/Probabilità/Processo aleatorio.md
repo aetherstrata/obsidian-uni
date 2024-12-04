@@ -145,3 +145,44 @@ $$
 $$
 \rho_X(t_1,t_2)=\frac{C_X(t_1,t_2)}{\sqrt{\sigma^2_X(t_1)\sigma^2_X(t_2)}}=\cos\left(\frac{2\pi (t_1-t_2)}{T}\right)
 $$
+## Esercizi
+### Esercizio 1
+Dato un processo stazionario $x(t)$, con distribuzione di probabilità uniforme tra $-2$ e $10$, calcolare  l'autocorrelazione, il valore di $A$ della covarianza.
+$$
+C_X(\tau)=A\operatorname{tri}\left(\frac{\tau}{2}\right)
+$$
+Dato il seguente sistema, calcolare il valore atteso $\mu_Y$ e la correlazione per $Y$.
+$$
+y(t)=x(t)+x(t-1)
+$$
+Per cominciare si ricavano alcune misure del processo.
+$$
+\begin{align*}
+\mu_X&=\int_{-2}^{10}\frac{x}{12}\, dx=4\\
+\mu_X^{(2)}&=\int_{-2}^{10}\frac{x^2}{12}\, dx=28\\
+\sigma_X^2&=\mu_X^{(2)}-\mu_X^2=28-16=12
+\end{align*}
+$$
+Applicando questi valori alla formula della covarianza si ottiene il valore di $A$.
+$$
+C_X(\tau)=A\operatorname{tri}\left(\frac{\tau}{2}\right)=\mathbb{E}[(x(t+\tau)-\mu_X)(x(t)-\mu_X)]
+$$
+Per $\tau=0$ la covarianza è uguale alla varianza.
+$$
+\begin{gather*}
+\begin{aligned}
+C_X(0)&=A\operatorname{tri}\left(\frac{0}{2}\right)=A\\
+C_X(0)&=\mathbb{E}[(x(t)-\mu_X)^2]=\sigma_X^2=12\\\hline
+\end{aligned} \\
+\boxed{A=12} \\\\
+C_X(\tau)=12\operatorname{tri}\left(\frac{\tau}{2}\right)
+\end{gather*}
+$$
+L'autocorrelazione si può ricavare con la covarianza appena trovata.
+$$
+R_X(\tau)=C_X(\tau)+\mu_X^2=12\operatorname{tri}\left(\frac{\tau}{2}\right)+16
+$$
+Il valore atteso dell'uscita del sistema si calcola sommando i singoli valori attesi.
+$$
+\mu_Y=\mathbb{E}[x(t)]+\mathbb{E}[x(t-1)]=4+4=8
+$$
