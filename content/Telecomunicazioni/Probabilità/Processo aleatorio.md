@@ -9,12 +9,26 @@ Un processo aleatorio è la versione [[Teoria della probabilità|probabilistica]
 ### Variabile aleatoria
 Un processo viene definito partendo da un insieme di [[Variabile Aleatoria|variabili aleatorie]] $\set{X(t),\ t\in\mathbb{R}}$ dipendenti dal tempo $t$, definite su un opportuno spazio campionario $\Omega$.
 ### Processo stazionario
-Un processo si dice **stazionario** se le sue gerarchie del *primo ordine*[^1] non dipendono dal tempo e le sue gerarchie del *secondo ordine*[^2]  non dipendono da $t_1$ e $t_2$ separatamente ma dalla loro *differenza*.
-
+Un processo si dice **stazionario** se le sue gerarchie del *primo ordine*[^1] non dipendono dal tempo e le sue gerarchie del *secondo ordine*[^2]  non dipendono da $t_1$ e $t_2$ separatamente ma dalla loro *differenza* $\tau$.
+$$
+R_X(\tau)=\mathbb{E}[x(t+\tau)x(t)]
+$$
+Applicando la [[Trasformata di Fourier]] alla correlazione di un processo stazionario si ottiene lo **spettro densità di potenza**.
+$$
+R_X(\tau)\overset{\mathcal{F}}{\longrightarrow}G_X(f)=\int_{-\infty}^{\infty}R_X(\tau)e^{-i2\pi f\tau}\,d\tau
+$$
+Di conseguenza, esiste anche la trasformazione inversa $G_X(\tau)\overset{\mathcal{F^{-1}}}{\longrightarrow}R_X(f)$.
+$$
+G_X(f)\overset{\mathcal{F^{-1}}}{\longrightarrow}R_X(\tau)=\int_{-\infty}^{\infty}G_X(f)e^{i2\pi f\tau}\,df
+$$
 >[!tip] Differenza nulla
->Nel caso in cui la differenza tra $t_1$ e $t_2$ sia nulla, allora la correlazione del processo stazionario avrà la seguente forma, che è uguale alla [[Energia e potenza|potenza]] del processo.
+>Nel caso in cui la differenza $\tau$ sia nulla, allora la correlazione del processo stazionario avrà la seguente forma, che è uguale alla [[Energia e potenza|potenza]] del processo.
 >$$
 >R_X(0)=\mathbb{E}[x(t)x(t)]=\mathbb{E}[x^2(t)]=P_x
+>$$
+>Applicando questa relazione alla trasformata dello spettro densità si ottiene una formula alternativa della potenza.
+>$$
+>P_X=R_X(0)=\int_{-\infty}^{\infty}G_X(f)\,df
 >$$
 
 [^1]:  valore medio, valore quadratico medio, varianza
