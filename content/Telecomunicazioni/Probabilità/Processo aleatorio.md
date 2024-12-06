@@ -234,7 +234,7 @@ $$
 &=0
 \end{align*}
 $$
-Il processo ha valore atteso nullo.
+Il processo ha valore atteso nullo. Ora si procede con il calcolo dell'autocorrelazione.
 $$
 \begin{align*}
 R_X(\tau)&=\mathbb{E}[x(t+\tau)x(t)]=\\
@@ -243,7 +243,34 @@ R_X(\tau)&=\mathbb{E}[x(t+\tau)x(t)]=\\
 &=\mathbb{E}[(A+2B)^2\cos(300\pi (t+\tau)-\theta)\cos(300\pi t-\theta)]\mathrel{+}\\
 &\quad\mathrel{+}\mathbb{E}[(A+2B)\cos(300\pi (t+\tau)-\theta)n(t)]\mathrel{+}\\
 &\quad\mathrel{+}\mathbb{E}[(A+2B)\cos(300\pi t-\theta)n(t+\tau)]\mathrel{+}\\
-&\quad\mathrel{+}\mathbb{E}[n(t+\tau)n(t)]=\\
-&=
+&\quad\mathrel{+}\mathbb{E}[n(t+\tau)n(t)]
+\end{align*}
+$$
+Anche qui si possono fattorizzare i termini e calcolare i valori attesi separatamente.
+$$
+\begin{gather*}
+\begin{aligned}
+\mathbb{E}[(A+2B)^2]&=\mathbb{E}[A^2]+4\mathbb{E}[B^2]+4\cancel{\mathbb{E}[A]}\cancel{\mathbb{E}[B]}=\\
+&=\frac{1}{3}+\frac{16}{3}=\\
+&=\frac{17}{3}\\\\\hline
+\end{aligned}\\\\
+\begin{aligned}
+\mathbb{E}[\cos(300\pi&(t+\tau)-\theta)\cos(300\pi t-\theta)]=\\
+&=\int_{0}^{4\pi}\frac{1}{4\pi}\cos(300\pi (t+\tau)-\theta)\cos(300\pi t-\theta)\,d\theta=\\
+&=\frac{1}{8\pi}\int_{0}^{4\pi}\cos(300\pi(2t+\tau)-2\theta)\,d\theta + \frac{1}{8\pi}\int_{0}^{4\pi}\cos(300\pi\tau)\,d\theta=\\
+&=\frac{1}{8\pi}\cos(300\pi\tau)\int_{0}^{4\pi}d\theta=\\
+&=\frac{1}{2}\cos(300\pi\tau)
+\end{aligned}
+\end{gather*}
+$$
+I termini intermedi sono nulli, rimane solo $\mathbb{E}[(A+2B)^2]\mathbb{E}[\cos(300\pi(t+\tau)-\theta)\cos(300\pi t-\theta)]$ e $\mathbb{E}[n(t+\tau)n(t)]$, che è uguale a $R_N(\tau)$.
+$$
+R_X(\tau)=\frac{17}{3}\cdot\frac{1}{2}\cos(300\pi\tau)+10\delta(\tau)
+$$
+Applicando la [[Trasformata di Fourier]] all'autocorrelazione, si ottiene la densità spettrale di potenza.
+$$
+\begin{align*}
+G_X(f)&=\mathcal{F}\left\{\frac{17}{3}\cdot\frac{1}{2}\cos(300\pi\tau)+10\delta(\tau)\right\}=\\
+&=\frac{17}{6}\left[\frac{1}{2}\delta(f-150)+\frac{1}{2}\delta(f+150)\right]+10
 \end{align*}
 $$
