@@ -201,3 +201,49 @@ Calcolare la correlazione in $0$ corrisponde alla potenza del processo.
 $$
 P_Y=2R_X(0)+R_X(-1)+R_X(1)=2\cdot28+22+22=100
 $$
+### Esercizio 2
+Dato il seguente processo $x(t)$, a cui è aggiunto [[Rumore]] bianco, calcolare il valore atteso e la densità spettrale di potenza.
+$$
+x(t)=(A+2B)\cos(300\pi t-\theta)+n(t)
+$$
+Le distribuzioni di probabilità delle variabili aleatorie $A$, $B$ e $\theta$ sono le seguenti.
+$$
+\begin{align*}
+P_A(a)&=\frac{1}{2}\operatorname{rect}\left(\frac{a}{2}\right)\\
+P_B(b)&=\frac{1}{4}\operatorname{rect}\left(\frac{b}{4}\right)\\
+P_\theta(\theta)&=\frac{1}{4\pi}\operatorname{rect}\left(\frac{\theta-2\pi}{4\pi}\right)\\
+\end{align*}
+$$
+Il rumore presenta la seguente autocorrelazione.
+$$
+R_N(\tau)=10\delta(\tau)
+$$
+Da questo si può ricavare facilmente la potenza e la densità spettro di potenza del rumore.
+$$
+\begin{gather*}
+G_N(f)=\mathcal{F}\set{R_N(\tau)}=\mathcal{F}\set{10\delta(\tau)}=10\\\\
+P_N=R_N(0)=10\delta(0)=10
+\end{gather*}
+$$
+Dato che tutte le variabili aleatorie sono indipendenti tra loro, possono essere fattorizzate nel calcolo delle statistiche.
+$$
+\begin{align*}
+\mathbb{E}[x(t)]&=\mathbb{E}[(A+2B)\cos(300\pi t-\theta)+n(t)]=\\
+&=\mathbb{E}[(A+2B)\cos(300\pi t-\theta)]+\cancel{\mathbb{E}[n(t)]}=\\
+&=(\cancel{\mathbb{E}[A]}+2\cancel{\mathbb{E}[B]})\mathbb{E}[\cos(300\pi t-\theta)]=\\
+&=0
+\end{align*}
+$$
+Il processo ha valore atteso nullo.
+$$
+\begin{align*}
+R_X(\tau)&=\mathbb{E}[x(t+\tau)x(t)]=\\
+&=\mathbb{E}[\set{(A+2B)\cos(300\pi (t+\tau)-\theta)+n(t+\tau)}\mathrel{\cdot}\\
+&\quad\mathrel{\cdot}\set{(A+2B)\cos(300\pi t-\theta)+n(t)}]=\\
+&=\mathbb{E}[(A+2B)^2\cos(300\pi (t+\tau)-\theta)\cos(300\pi t-\theta)]\mathrel{+}\\
+&\quad\mathrel{+}\mathbb{E}[(A+2B)\cos(300\pi (t+\tau)-\theta)n(t)]\mathrel{+}\\
+&\quad\mathrel{+}\mathbb{E}[(A+2B)\cos(300\pi t-\theta)n(t+\tau)]\mathrel{+}\\
+&\quad\mathrel{+}\mathbb{E}[n(t+\tau)n(t)]=\\
+&=
+\end{align*}
+$$
