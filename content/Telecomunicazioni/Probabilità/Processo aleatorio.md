@@ -274,3 +274,43 @@ G_X(f)&=\mathcal{F}\left\{\frac{17}{3}\cdot\frac{1}{2}\cos(300\pi\tau)+10\delta(
 &=\frac{17}{6}\left[\frac{1}{2}\delta(f-150)+\frac{1}{2}\delta(f+150)\right]+10
 \end{align*}
 $$
+### Esercizio 3
+Dato un processo stazionario con potenza $P_X=19$ e covarianza $C_X(\tau)=3\operatorname{tri}(\tau)$, calcolare il valore atteso e la varianza. 
+#### Parte 1
+La varianza si ottiene valutando la covarianza a ritardo nullo.
+$$
+\sigma^2_X=C_X(0)=3\operatorname{tri}(0)=3
+$$
+Per ottenere il valore atteso si usa la formula computazionale della varianza in termini di momenti di origine zero.
+$$
+\sigma^2_X=\mathbb{E}[X^2]-\mathbb{E}[X]^2=P_X-\mu^2_X
+$$
+Invertendo la formula si ottiene il valore atteso.
+$$
+\mu_X=\sqrt{P_X-\sigma^2_X}=\sqrt{16}=4
+$$
+#### Parte 2
+Questo processo passa attraverso un filtro con risposta rettangolare di base $3$. Calcolare il valore atteso dell'uscita $y(t)$.
+$$
+h(t)=\operatorname{rect}\left(\frac{t}{3}\right)
+$$
+L'uscita del sistema si può calcolare con la [[Convoluzione]] del segnale in entrata con la risposta impulsiva del sistema.
+$$
+y(t)=x(t)*h(t)=\int_{-\infty}^{\infty}x(t-t')h(t')\,dt'
+$$
+Sostituendo l'integrale di convoluzione nella formula del valore atteso si ottiene il risultato.
+$$
+\begin{align*}
+\mathbb{E}[y(t)]&=\int_{-\infty}^{\infty}\underbrace{\mathbb{E}[x(t-t')]}_{\mathclap{\mu_X\text{ stazionario}}} h(t')\,dt'=\\
+&=\mu_X\int_{-\infty}^{\infty}h(t')\,dt'=\\
+&=4\int_{-3/2}^{3/2}dt'=\\
+&=12
+\end{align*}
+$$
+### Esercizio 4
+Dato un processo aleatorio stazionario $x(t)$, con valore medio $\mu_X=-3$, potenza $P_X=12$ e coefficiente di correlazione $\rho_X(\tau)=\operatorname{sinc}(\tau/4)$, calcolare lo la densità spettrale di potenza.
+
+Conoscendo la potenza e il valore atteso si può ottenere la varianza.
+$$
+\sigma^2_X=P_X-\mu^2_X=12-9=3
+$$
