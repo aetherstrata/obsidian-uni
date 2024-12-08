@@ -309,8 +309,40 @@ $$
 $$
 ### Esercizio 4
 Dato un processo aleatorio stazionario $x(t)$, con valore medio $\mu_X=-3$, potenza $P_X=12$ e coefficiente di correlazione $\rho_X(\tau)=\operatorname{sinc}(\tau/4)$, calcolare lo la densità spettrale di potenza.
-
+#### Parte 1
 Conoscendo la potenza e il valore atteso si può ottenere la varianza.
 $$
 \sigma^2_X=P_X-\mu^2_X=12-9=3
+$$
+Conoscendo la varianza e il coefficiente di correlazione si può ottenere la covarianza.
+$$
+C_X(\tau)=\sigma^2_X\cdot\rho_X(\tau)=3\operatorname{sinc}\left(\frac{\tau}{4}\right)
+$$
+Per ottenere l'autocorrelazione si usa lo stesso procedimento della varianza.
+$$
+\begin{align*}
+C_X(\tau)&=R_X(\tau)-\mu_X^2\\
+R_X(\tau)&=C_X(\tau)+\mu_X^2=3\operatorname{sinc}\left(\frac{\tau}{4}\right)+9
+\end{align*}
+$$
+Applicando la [[Trasformata di Fourier]] all'autocorrelazione si ottiene, infine, la densità spettrale di potenza.
+$$
+G_X(f)=\mathcal{F}\left\{3\operatorname{sinc}\left(\frac{\tau}{4}\right)+9\right\}=12\operatorname{rect}(4f)+9\cdot\delta(f)
+$$
+#### Parte 2
+Dopo essere stato passato in un [[Filtro]] con funzione di trasferimento $H(f)=\cos(4\pi f)$, calcolare la potenza in uscita $P_Y$.
+
+La densità spettrale di potenza dell'uscita si può calcolare facendo il prodotto tra quella dell'ingresso e il modulo quadrato della funzione di trasferimento.
+$$
+G_Y(f)=G_X(f)\cdot|H(f)|^2=12\cos^2(4\pi f)\operatorname{rect}(4f)+9\cdot\delta(f)
+$$
+La potenza può essere ricavata calcolando l'integrale su $G_Y(f)$.
+$$
+\begin{align*}
+P_Y&=12\int_{-\infty}^{\infty}\cos^2(4\pi f)\operatorname{rect}(4f)\,df+9\int_{-\infty}^{\infty}\delta(f)\, df=\\
+&=12\int_{-1/8}^{1/8}\cos^2(4\pi f)\,df+9=\\
+&=12\int_{-1/8}^{1/8}\left[\frac{1}{2}+\frac{1}{2}\cos(8\pi f)\right]\,df + 9=\\
+&=6\int_{-1/8}^{1/8}df+6\underbrace{\int_{-1/8}^{1/8}\cos(8\pi f)\, df}_{0} + 9=\\
+&=\frac{6}{4}+9=\frac{21}{2}
+\end{align*}
 $$
