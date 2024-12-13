@@ -3,7 +3,7 @@ tags:
   - segnale
   - digitale
 ---
-Per diminuire la quantità di dati necessari per trasmettere un segnale, si può adottare una codifica a lunghezza variabile, come la codifica Huffman.
+La codifica Huffman è una codifica di sorgente.
 
 La codifica Huffman si usa nei casi in cui nel segnale esistono simboli più frequenti di altri. In questo modo, assegnando codici più corti ai simboli più frequenti e viceversa, si ottiene una riduzione della banda necessaria alla trasmissione del segnale.
 ## Descrizione
