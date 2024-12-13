@@ -54,11 +54,11 @@ $$
 R_Z(\tau)\overset{\mathcal{F}}{\longrightarrow}G_Z(f)=G_X(f)+G_Y(f)+2\mu_X\mu_Y\cdot\delta(f)
 $$ 
 ## SNR
-Il *rapporto segnale-rumore* è il rapporto tra la potenza utile del segnale rispetto a quella del rumore.
+Il *rapporto segnale-rumore* è il rapporto tra la potenza utile del segnale rispetto a quella del rumore e deve essere il più alto possibile.
 $$
 \text{SNR}=\frac{\text{potenza segnale}}{\text{potenza rumore}}
 $$
-### Dimostrazione
+### Filtro adattato
 Per rimuovere il rumore si applica un [[Filtro]] adattato alla fine del canale trasmissivo.
 $$
 x(t)\longrightarrow\boxed{\vphantom{\int}\text{ canale rumoroso }}\longrightarrow\boxed{\vphantom{\int}\text{ filtro - }h(t)\ }\longrightarrow y(t)
@@ -85,9 +85,20 @@ P_X=c_m^2\left|\int_{-\infty}^{\infty}G(f)H(f)\,df\right|^2
 $$
 A differenza del segnale $x(t)$, che è deterministico, il rumore è un processo aleatorio con statistica gaussiana e densità spettrale costante.
 $$
-P_N=\frac{N_0}{2}|H(f)|^2
+P_N=\int_{-\infty}^{\infty}\frac{N_0}{2}|H(f)|^2\,df
 $$
 Unendo i due termini si ottiene il rapporto segnale-rumore.
 $$
-\text{SNR}=\frac{c_m^2\left|\int_{-\infty}^{\infty}G(f)H(f)\,df\right|^2}{\frac{N_0}{2}|H(f)|^2}
+\text{SNR}=\frac{\displaystyle c_m^2\left|\int_{-\infty}^{\infty} G(f)H(f)\,df\right|^2}{\displaystyle \frac{N_0}{2} \int_{-\infty}^{\infty}|H(f)|^2\,df}
 $$
+Si può ricavare la funzione di trasferimento del filtro adattato usando la disuguaglianza di Schwarz, secondo cui il modulo quadrato dell'integrale del prodotto è minore o uguale del prodotto degli integrali dei moduli.
+$$
+\frac{\displaystyle c_m^2\left|\int_{-\infty}^{\infty} G(f)H(f)\,df\right|^2}{\displaystyle \frac{N_0}{2} \int_{-\infty}^{\infty}|H(f)|^2\,df}
+\le
+\frac{\displaystyle c_m^2 \int_{-\infty}^{\infty}|G(f)|^2df\ \cdot \int_{-\infty}^{\infty}|H(f)|^2df}{\displaystyle \frac{N_0}{2} \int_{-\infty}^{\infty}|H(f)|^2\,df}
+$$
+I due termini si equivalgono quando $H(f)=G^*(f)$, ovvero quando $h(t)=g^*(-t)$. L'impulso in banda base è sempre un segnale reale quindi si può omettere la stella di coniugazione.
+$$
+\text{SNR}=\frac{2\,\displaystyle c_m^2 \int_{-\infty}^{\infty}|G(f)|^2df}{N_0}=\frac{2\,c_m^2 E_G}{N_0}
+$$
+Questo rapporto influenza il
