@@ -92,6 +92,9 @@ $$
 $$
 In questo ambito è solito definire una nuova funzione $Q(x)$ sulla funzione di errore complementare.
 $$
-Q(x)=\frac{1}{2}\operatorname{erfc}\left(\
-fright)
+Q(x)\coloneqq\frac{1}{2}\operatorname{erfc}\left(\frac{x}{\sqrt{2}}\right)
+$$
+Quindi, il bit error rate del segnale trasmesso si può riscrivere usando questa funzione.
+$$
+\text{BER}=Q\left(\frac{C_2-C_1}{2\sigma_n}\right)=Q\left(\frac{d}{2\sqrt{N_0B}}\right)
 $$
