@@ -59,3 +59,39 @@ Il primo termine è invece uguale alla potenza di $X$ calcolata in decibel.
 $$
 (P_E)_{dB}=(P_X)_{dB}-6k
 $$
+## Soglia
+Quando si trasmette un segnale quantizzato su un canale, c'è la possibilità che il valore di un simbolo cambi in modo significativo a causa del [[Rumore]] immesso. 
+
+Di solito si sceglie una soglia a metà tra due simboli adiacenti per definire quali valori siano associati ad un simbolo e quali all'altro.
+### Sopra la soglia
+
+>[!info] Grafico
+>![[errore-sopra-soglia.png]]
+
+L'area in verde rappresenta la probabilità di trasmettere il simbolo $C_1$ e ricevere il simbolo $C_2$.
+$$
+P_e\set{y>\overline{C}\,|\,C_1}=\int_{\overline{C}}^{\infty}\frac{1}{\sqrt{2\pi}\sigma_n}\cdot e^{-\frac{(y-c_1)^2}{2\sigma_n^2}}dy=\frac{1}{2}\operatorname{erfc}\left(\frac{\overline{C}-C_1}{\sqrt{2}\sigma_n}\right)
+$$
+### Sotto la soglia
+
+>[!info] Grafico
+>![[1734124588.png]]
+
+L'area in rosso rappresenta la probabilità di trasmettere il simbolo $C_2$ e ricevere il simbolo $C_1$.
+$$
+P_e\set{y<\overline{C}\,|\,C_2}=\int_{-\infty}^{\overline{C}}\frac{1}{\sqrt{2\pi}\sigma_n}\cdot e^{-\frac{(y-c_2)^2}{2\sigma_n^2}}dy=\frac{1}{2}\operatorname{erfc}\left(\frac{C_2-\overline{C}}{\sqrt{2}\sigma_n}\right)
+$$
+### Bit Error Rate
+Sommando la metà di queste due probabilità (visto che la probabilità di inviare uno $0$ o un $1$ è equamente distribuita), si ottiene il bit error rate (**BER**).
+$$
+\text{BER}=\frac{1}{4}\operatorname{erfc}\left(\frac{\overline{C}-C_1}{\sqrt{2}\sigma_n}\right)+\frac{1}{4}\operatorname{erfc}\left(\frac{C_2-\overline{C}}{\sqrt{2}\sigma_n}\right)
+$$
+Il BER è minimo per valori di $\overline{C}$ tale che $\overline{C}-C_1=C_2-\overline{C}$, quindi $\overline{C} = \dfrac{C_1+C_2}{2}$.
+$$
+\text{BER}=\frac{1}{2}\operatorname{erfc}\left(\frac{C_2-C_1}{2\sqrt{2}\sigma_n}\right)
+$$
+In questo ambito è solito definire una nuova funzione $Q(x)$ sulla funzione di errore complementare.
+$$
+Q(x)=\frac{1}{2}\operatorname{erfc}\left(\
+fright)
+$$

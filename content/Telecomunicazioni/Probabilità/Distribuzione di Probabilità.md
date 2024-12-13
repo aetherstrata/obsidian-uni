@@ -99,7 +99,7 @@ $$
 \sigma_X^2=\frac{(b-a)^2}{12}
 $$
 >[!info] Grafico per $(-1,1)$
->![[1732458296.png|center]]
+>![[distribuzione-uniforme.png|center]]
 >$$
 >\begin{align*}
 >\mathbf{Blu } & \text{ funzione densità di probablità} \\

@@ -17,6 +17,11 @@ Il rumore è *bianco* se ha valore atteso nullo e spettro densità di potenza co
 $$
 \mathbb{E}[w(t)]=0\quad;\quad G_W(f)=K
 $$
+>[!tip] Rumore nei sistemi reali
+>Dato che questo tipo di rumore ha densità spettrale di potenza teoricamente costante, la sua potenza è infinita. Nella realtà questo è irrealizzabile e si limita lo studio del rumore nella banda del segnale.
+>$$
+>P_W=\int_{-B}^{B}G(f)df
+>$$
 ## AWGN
 Il rumore gaussiano bianco additivo rappresenta il **rumore termico** generato dall'agitazione dei portatori di carica.
 ### Proprietà di un segnale disturbato

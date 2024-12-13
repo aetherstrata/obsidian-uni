@@ -22,7 +22,7 @@ Per prima cosa i simboli vengono ordinati per peso.
 | **Probabilità** | 0.02 | 0.03 | 0.04 | 0.04 | 0.06 | 0.19 | 0.29 | 0.33 |
 Per finire si costruisce l'albero prendendo sempre i due elementi con il peso più piccolo nella lista.
 
-![[1733928138.png]]
+![[huffman-esempio.png]]
 
 I rami verso destra aggiungono uno $0$ al codice, mentre quelli verso sinistra aggiungono un $1$.
 

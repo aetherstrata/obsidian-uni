@@ -9,4 +9,4 @@ Modulando il segnale in questo modo è possibile trasmettere più [[Entropia|bit
 $$
 R_b=R_s\log_2 M
 $$
-Aumentando il numero di ampiezze codificate, la soglia tra ampiezze adiacenti diminuisce e il rateo di errore aumenta.
+Aumentando il numero di ampiezze codificate, la [[Quantizzazione#Soglia|soglia]] tra ampiezze adiacenti diminuisce e il rateo di errore aumenta.
