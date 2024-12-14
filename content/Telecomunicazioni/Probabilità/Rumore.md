@@ -101,4 +101,25 @@ I due termini si equivalgono quando $H(f)=G^*(f)$, ovvero quando $h(t)=g^*(-t)$.
 $$
 \text{SNR}=\frac{2\,\displaystyle c_m^2 \int_{-\infty}^{\infty}|G(f)|^2df}{N_0}=\frac{2\,c_m^2 E_G}{N_0}
 $$
-Questo rapporto influenza il
+Questo rapporto influenza il [[Quantizzazione#Bit Error Rate|BER]] del sistema.
+$$
+\text{BER}=Q\left(\frac{\sqrt{\text{SNR}}_2-\sqrt{\text{SNR}}_1}{2}\right)=Q\left(\frac{C_2-C_1}{2}\sqrt{\frac{2E_G}{N_0}}\right)
+$$
+#### Sistema unipolare
+Nei sistemi unipolari, uno dei due simboli ha valore nullo.
+$$
+\text{BER}=Q\left(C_2\sqrt{\frac{E_G}{2N_0}}\right)
+$$
+Il bit error rate si può scrivere anche come rapporto tra l'energia di un bit e la densità spettrale del rumore.
+$$
+E_B=\frac{C_2^2E_G+0}{2} \quad\longrightarrow\quad \text{BER}=Q\left(\sqrt{\frac{E_B}{N_0}}\right)
+$$
+#### Sistema bipolare
+Nei sistemi bipolari, i due simboli hanno valori opposti.
+$$
+\text{BER}=Q\left(2\,C_2\sqrt{\frac{E_G}{2N_0}}\right)
+$$
+Il bit error rate si può scrivere anche come rapporto tra l'energia di un bit e la densità spettrale del rumore.
+$$
+E_B=\frac{2C_2^2E_G}{2} \quad\longrightarrow\quad \text{BER}=Q\left(\sqrt{\frac{2E_B}{N_0}}\right)
+$$
