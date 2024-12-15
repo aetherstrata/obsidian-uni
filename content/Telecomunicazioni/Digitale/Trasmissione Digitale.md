@@ -16,3 +16,14 @@ Alla ricezione corrispondono le operazioni complementari a quanto detto (es. dec
 $$
 x(t)\longrightarrow\boxed{\vphantom{\int}\text{ ADC }}\longrightarrow\boxed{\vphantom{\int}\text{ canale }}\longrightarrow\boxed{\vphantom{\int}\text{ DAC }}\longrightarrow x(t)
 $$
+## Velocità
+La velocità di trasmissione di un sistema si misura sul tempo $T_s$ necessario per trasmettere un simbolo.
+
+L'inverso di questo tempo di simbolo è chiamato *frequenza di simbolo*, o *baud rate*.
+$$
+f_s=\frac{1}{T_s}
+$$
+Un sistema può anche trasmettere più [[Entropia|bit]] per simbolo, quindi per ottenere il bit rate è necessario moltiplicare la frequenza di simbolo per il numero di bit $N$.
+$$
+R=Nf_s=f_s \log_2 M
+$$

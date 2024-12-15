@@ -132,7 +132,7 @@ d_n = \frac{1}{2}c_{n-1}+\frac{1}{2}c_{n+1}
 \end{gather*}
 $$
 
- I coefficienti del segnale modulato sono uguali a quelli del segnale modulante doppiati e dimezzati, uno traslato di un unità verso destra, e l'altro verso sinistra.
+ I coefficienti del segnale modulato sono uguali a quelli del segnale modulante specchiati e dimezzati, uno traslato di un unità verso destra, e l'altro verso sinistra.
 ### Derivazione
 $$
 \begin{gather*}\begin{aligned}
