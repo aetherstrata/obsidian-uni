@@ -96,9 +96,18 @@ $$
 $$
 \begin{align*}
 x(t-t_0)\overset{\mathcal{F}}{\longrightarrow}&\int_{-\infty}^{\infty}x(t-t_0)e^{-i2\pi ft}dt =\\
-t'\coloneqq t-t_o\quad={}&\int_{-\infty}^{\infty}x(t')e^{-i2\pi f(t'+t_0)}dt' =\\
+\boxed{t'\coloneqq t-t_o}\quad={}&\int_{-\infty}^{\infty}x(t')e^{-i2\pi f(t'+t_0)}dt' =\\
 ={}&e^{-i2\pi ft_0}\int_{-\infty}^{\infty}x(t')e^{-i2\pi ft'}dt'=\\
-={}&e^{-i2\pi ft_0}X(f)
+={}&e^{-i2\pi ft_0}\cdot X(f)
+\end{align*}
+$$
+### Traslazione in frequenza
+$$
+\begin{align*}
+X(f-f_0)\overset{\mathcal{F}^{-1}}{\longrightarrow}&\int_{-\infty}^{\infty}X(f-f_0)e^{i2\pi ft}df =\\
+\boxed{f'\coloneqq f-f_0}\quad={}&\int_{-\infty}^{\infty}X(f')e^{i2\pi (f'+f_0)t}df' =\\
+={}&e^{i2\pi f_0t}\int_{-\infty}^{\infty}X(f')e^{i2\pi f't}df'=\\
+={}&e^{i2\pi f_0t}\cdot x(t)
 \end{align*}
 $$
 ### Derivazione
@@ -126,7 +135,7 @@ $$
 #### Dimostrazione
 $$
 \begin{align*}
-z(t)=x(t)*y(t)&=\int_{-\infty}^{\infty}x(t-\tau)\underbrace{y(\tau)}_{\mathcal{F^{-1}}}d\tau=\\
+z(t)=x(t)*y(t)&=\int_{-\infty}^{\infty}x(t-\tau)\underbracket{y(\tau)}_{\mathcal{F^{-1}}}d\tau=\\
 &=\int_{-\infty}^{\infty}x(t-\tau)\int_{-\infty}^{\infty}Y(f)e^{i2\pi f\tau}df\ d\tau=\\
 &=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t-\tau)e^{i2\pi f\tau} d\tau=\\
 t'\coloneqq t-\tau\quad&=\int_{-\infty}^{\infty}Y(f)df\int_{-\infty}^{\infty}x(t')e^ {i2\pi f(t-t')} dt'=\\
@@ -168,7 +177,7 @@ Prendendo un campione $\dot{x}(t)$ del segnale periodico. si possono quindi otte
 $$
 c_n=\int_{-\infty}^{\infty}\dot{x}(t)e^{-i2\pi\frac{n}{T}t}dt = \frac{1}{T}X\left(\frac{n}{T}\right)
 $$
-## Esempi
+## Trasformate elementari
 ### [[Segnale Finestra#Finestra rettangolare|Finestra rettangolare]]
 Dato un impulso rettangolare $x(t)=\operatorname{rect}\left(\dfrac{t}{\tau}\right)$, calcolare la sua trasformata di Fourier.
 $$
