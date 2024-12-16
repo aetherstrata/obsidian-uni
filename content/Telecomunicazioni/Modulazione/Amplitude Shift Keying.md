@@ -8,6 +8,7 @@ La modulazione a cambiamenti di ampiezza, detta anche **ASK**, è un tipo di mod
 $$
 z(t)=x(t)\cos(2\pi f_0t)=c_ng(t)\cos(2\pi f_0t)
 $$
+## Descrizione
 Il segnale in ingresso è [[Trasformata di Fourier#Traslazione in frequenza|traslato in frequenza]] sulla portante del coseno.
 $$
 Z(f)=\frac{c_n}{2}\left[G(f-f_0)+G(f+f_0)\right]
