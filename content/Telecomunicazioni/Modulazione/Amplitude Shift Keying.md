@@ -4,7 +4,7 @@ tags:
   - segnale
   - digitale
 ---
-La modulazione a cambiamenti di ampiezza, detta anche **ASK**, è un tipo di modulazione passa-banda in cui i simboli del segnale sono codificati nell'ampiezza che assume l'onda portante.
+La modulazione a codifica di ampiezza, detta anche **ASK**, è un tipo di modulazione passa-banda in cui i simboli del segnale sono codificati nell'ampiezza che assume l'onda portante.
 $$
 z(t)=x(t)\cos(2\pi f_0t)=c_ng(t)\cos(2\pi f_0t)
 $$
