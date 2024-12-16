@@ -55,10 +55,22 @@ Per conoscere quale valore sta trasmettendo il segnale bisogna, quindi, conoscer
 ## Energia per simbolo
 Dato il seguente segnale $z(t)$ opportunamente modulato si può ricavare la sua energia per simbolo prendendo un solo simbolo dalla sommatoria.
 $$
-z(t)=a_n\,g(t)\cos(2\pi f_0t)+b_n\,g(t)\sin(2\pi f_0t)
+z(t)=a_m\,g(t)\cos(2\pi f_0t)+b_m\,g(t)\sin(2\pi f_0t)
 $$
 L'energia può essere calcolata con il [[Teorema di Parseval]].
 $$
 \begin{align*}
+E_s&=\int_{-\infty}^{\infty}|Z(f)|^2df=\\
+&=\int_{-\infty}^{\infty}\left|\frac{a_m}{2}[G(f-f_0)+G(f+f_0)] + \frac{b_m}{2i}[G(f-f_0)-G(f+f_0)]\right|^2df=\\
+&=\int_{-\infty}^{\infty}\left|\frac{a_m-ib_m}{2}G(f-f_0)+\frac{a_m+ib_m}{2}G(f+f_0)\right|^2df
+\end{align*}
+$$
+Per svolgere questo quadrato non serve calcolare il doppio prodotto perché le due funzioni $G(f-f_0)$ e $G(f+f_0)$ non si sovrappongono.
+$$
+\begin{align*}
+E_s&=\int_{-\infty}^{\infty}\frac{a_m^2+b_m^2}{4}[|G(f-f_0)|^2+|G(f+f_0)|^2]df=\\
+&=\frac{a_m^2+b_m^2}{4}\int_{-\infty}^{\infty}|G(f-f_0)|^2+|G(f+f_0)|^2df=\\
+&=\frac{a_m^2+b_m^2}{4}\underbrace{\int_{-\infty}^{\infty}|G(f-f_0)|^2df}_{E_G} + \frac{a_m^2+b_m^2}{4}\underbrace{\int_{-\infty}^{\infty}|G(f+f_0)|^2df}_{E_G}=\\
+&=\frac{a_m^2+b_m^2}{2}E_G
 \end{align*}
 $$
