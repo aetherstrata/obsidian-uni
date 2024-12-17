@@ -133,7 +133,7 @@ BER = 10^{-9} \quad\longrightarrow\quad Q\left(\sqrt{\frac{2E_B}{N_0}}\right)=6 
 $$
 Il corrispondente valore in decibel di $18$ è $12.5 \text{ dB}$.
 
-Secondo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo è legata al rapporto segnale-rumore.
+Secondo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo di banda $B$ è legata al rapporto segnale-rumore.
 $$
 C=B\log_2\left(1+\frac{P_S}{P_N}\right)=B\log_2(1+\text{SNR})
 $$E questo influenza la quantità di simboli che si possono inviare.
