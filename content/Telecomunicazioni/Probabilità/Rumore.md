@@ -25,7 +25,7 @@ $$
 ## AWGN
 Il rumore gaussiano bianco additivo rappresenta il **rumore termico** generato dall'agitazione dei portatori di carica.
 ### Proprietà di un segnale disturbato
-Le variabili aleatorie sono incorrelate e possono essere fattorizzate.
+Le variabili aleatorie sono incorrelate e possono essere fattorizzate (in questo corso).
 #### Valore atteso
 $$
 \begin{align*}
@@ -133,7 +133,7 @@ BER = 10^{-9} \quad\longrightarrow\quad Q\left(\sqrt{\frac{2E_B}{N_0}}\right)=6 
 $$
 Il corrispondente valore in decibel di $18$ è $12.5 \text{ dB}$.
 
-Secondo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo di banda $B$ è legata al rapporto segnale-rumore.
+Seguendo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo con banda $B$ è legata al rapporto segnale-rumore.
 $$
 C=B\log_2\left(1+\frac{P_S}{P_N}\right)=B\log_2(1+\text{SNR})
 $$E questo influenza la quantità di simboli che si possono inviare.
@@ -144,4 +144,17 @@ C&=B\log_2(1+\text{SNR})\\
 \log_2 M^2&=\log_2(1+\text{SNR})\\
 M&=\sqrt{1+\text{SNR}}
 \end{align*}
+$$
+## Esercizi
+### Esercizio 3
+Dato un canale trasmissivo con banda $B=10\text{ kHz}$, ricavare il valore del rapporto segnale-rumore necessario per avere capacità $C=50\text{ kb/s}$.
+
+Dai dati si evince il rapporto $\dfrac{C}{B} = 5$, e di conseguenza che $1+\text{SNR}=2^5$.
+$$
+\text{SNR}=2^5-1=31=14.3\text{ dB}
+$$
+### Esercizio 4
+Dato un canale trasmissivo con banda $B=1\text{ MHz}$ e rapporto segnale-rumore $\text{SNR}=-30\text{ dB}$, ricavare la capacità di Shannon.
+$$
+C=B\log_2(1+)
 $$
