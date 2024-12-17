@@ -178,7 +178,7 @@ $$
 $$
 Calcolando il limite per $\lambda\to0$ si può ricavare il valore del punto. Tenendo conto che questo limite è riferito a $\dfrac{N_0}{E_b}$, il risultato risulta invertito rispetto al grafico.
 $$
-\lim_{\lambda\to0}\frac{1}{\lambda}\frac{\ln(1+\lambda)}{\ln2}=\frac{1}{\ln2} \quad\longrightarrow\quad\frac{E_b}{N_0}=\ln2=-1.6\text{ dB}
+\lim_{\lambda\to0}\frac{\ln(1+\lambda)}{\lambda\ln2}=\frac{1}{\ln2} \quad\longrightarrow\quad\frac{E_b}{N_0}=\ln2=-1.6\text{ dB}
 $$
 Questo è il limite sotto al quale è impossibile andare.
 ## Saturazione della capacità
@@ -188,16 +188,36 @@ Come detto nei paragrafi precedenti, la capacità trasmissiva di un canale è le
 $$
 C=B\log_2\left(1+\frac{P_R}{N_0B}\right)
 $$
+### Banda illimitata
 Disegnando il grafico della capacità in funzione della banda si osserva un asintoto orizzontale oltre il quale la capacità non può aumentare.
+
+Quindi viene studiato il caso in cui il rapporto segnale-rumore sia piccolo ($\text{SNR}\ll0\text{ dB}$).
 $$
 \begin{align*}
 C&=\frac{N_0B}{P_R}\cdot\frac{P_R}{N_0}\log_2\left(1+\frac{P_R}{N_0B}\right)=\\
-\boxed{\ \lambda \coloneqq \dfrac{P_R}{N_0B}\ }\quad &= \frac{1}{\lambda}\cdot\frac{P_R}{N_0}\log_2\left(1+\lambda\right)=\\
-&=\frac{P_R}{N_0}\log_2\left(1+\lambda\right)
+\boxed{\ \lambda \coloneqq \dfrac{P_R}{N_0B}\ }\quad &= \frac{1}{\lambda}\cdot\frac{P_R}{N_0}\log_2(1+\lambda)=\\
+&=\frac{P_R}{N_0}\frac{\ln(1+\lambda)}{\lambda\ln2}
 \end{align*}
 $$
+Per calcolare il valore dell'asintoto si calcola il limite della funzione per $B\to\infty$, quindi quando $\lambda\to0$.
+$$
+C=\frac{P_R}{N_0}\cdot\lim_{\lambda\to0}\frac{\ln(1+\lambda)}{\lambda\ln2}=\frac{P_R}{N_0}\cdot\frac{1}{\ln2}
+$$
+Questo è chiamato *limite di potenza limitata*.
+### Banda nulla
+Disegnando il grafico della capacità in funzione della banda si osserva come la curva passa per l'origine.
 
+Quindi viene studiato il caso in cui il rapporto segnale-rumore sia grande ($\text{SNR}\gg0\text{ dB}$). 
 
+In questo caso il  termine $1$ dentro al logaritmo può essere trascurato.
+$$
+\begin{align*}
+C&=B\log_2\frac{P_R}{N_0B}=\\
+&=B\frac{\log_{10}\frac{P_R}{N_0B}}{\log_{10}2}=\\
+&=B\frac{\text{SNR}_{\text{dB}}}{\log_{10}2}\approx \frac{B}{3}\text{SNR}_{\text{dB}}
+\end{align*}
+$$
+Questo è chiamato *limite di banda limitata*.
 ## Esercizi
 ### Esercizio 3
 Dato un canale trasmissivo con banda $B=10\text{ kHz}$, ricavare il valore del rapporto segnale-rumore necessario per avere capacità $C=50\text{ kb/s}$.
