@@ -58,7 +58,7 @@ Il *rapporto segnale-rumore* è il rapporto tra la potenza utile del segnale ris
 $$
 \text{SNR}=\frac{\text{potenza segnale}}{\text{potenza rumore}}
 $$
-### Filtro adattato
+## Filtro adattato
 Per rimuovere il rumore si applica un [[Filtro]] adattato alla fine del canale trasmissivo.
 $$
 x(t)\longrightarrow\boxed{\vphantom{\int}\text{ canale rumoroso }}\longrightarrow\boxed{\vphantom{\int}\text{ filtro - }h(t)\ }\longrightarrow y(t)
@@ -123,7 +123,7 @@ Il bit error rate si può scrivere anche come rapporto tra l'energia di un bit e
 $$
 E_B=\frac{2C_2^2E_G}{2} \quad\longrightarrow\quad \text{BER}=Q\left(\sqrt{\frac{2E_B}{N_0}}\right)
 $$
-### Sistema privo di errori
+## Sistema privo di errori
 Un sistema è considerato privo di errori se il suo $\text{BER}$ è minore di $10^{-9}$, che equivale ad avere un argomento di $Q$ maggiore di $6$.
 
 >[!info] Qui è studiato il caso di sistemi bipolari, per quelli unipolari basta cambiare i parametri
@@ -145,6 +145,23 @@ C&=B\log_2(1+\text{SNR})\\
 M&=\sqrt{1+\text{SNR}}
 \end{align*}
 $$
+## Puppa
+Sapendo che la potenza è proporzionale al rapporto tra l'energia e il tempo di bit, si può manipolare la formula della capacità trasmissiva.
+$$
+P_S=\frac{E_b}{T_b}=E_b\cdot C \quad\longrightarrow\quad C=B\log_2\left(1+\frac{E_b\cdot C}{N_0\cdot B}\right)\\
+$$
+Allora si può esplicitare il rapporto tra $C$ e $B$.
+$$
+\begin{align*}
+\frac{C}{B}&=\log_2\left(1+\frac{E_b\cdot C}{N_0\cdot B}\right)\\
+2^{\frac{C}{B}}&=1+\frac{E_b\cdot C}{N_0\cdot B}\\
+\frac{E_b}{N_0}&=\frac{2^{\frac{C}{B}}-1}{\frac{C}{B}}
+\end{align*}
+$$
+In questa relazione è espressa la potenza di ricezione come prodotto tra l'energia di bit e la capacità trasmissiva. 
+
+Le due grandezze $\dfrac{E_b}{N_0}$ e $\dfrac{C}{B}$ si possono analizzare anche sul grafico della funzione.
+
 ## Esercizi
 ### Esercizio 3
 Dato un canale trasmissivo con banda $B=10\text{ kHz}$, ricavare il valore del rapporto segnale-rumore necessario per avere capacità $C=50\text{ kb/s}$.
@@ -156,5 +173,5 @@ $$
 ### Esercizio 4
 Dato un canale trasmissivo con banda $B=1\text{ MHz}$ e rapporto segnale-rumore $\text{SNR}=-30\text{ dB}$, ricavare la capacità di Shannon.
 $$
-C=B\log_2(1+)
+C=B\log_2(1-30\text{ dB})=B\log_2(1+10^{-3})=1.44\text{ kb/s}
 $$
