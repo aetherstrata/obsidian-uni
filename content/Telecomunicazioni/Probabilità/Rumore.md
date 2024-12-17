@@ -123,3 +123,25 @@ Il bit error rate si può scrivere anche come rapporto tra l'energia di un bit e
 $$
 E_B=\frac{2C_2^2E_G}{2} \quad\longrightarrow\quad \text{BER}=Q\left(\sqrt{\frac{2E_B}{N_0}}\right)
 $$
+### Sistema privo di errori
+Un sistema è considerato privo di errori se il suo $\text{BER}$ è minore di $10^{-9}$, che equivale ad avere un argomento di $Q$ maggiore di $6$.
+
+>[!info] Qui è studiato il caso di sistemi bipolari, per quelli unipolari basta cambiare i parametri
+
+$$
+BER = 10^{-9} \quad\longrightarrow\quad Q\left(\sqrt{\frac{2E_B}{N_0}}\right)=6 \quad\longrightarrow\quad \frac{E_b}{N_0}=18
+$$
+Il corrispondente valore in decibel di $18$ è $12.5 \text{ dB}$.
+
+Secondo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo è legata al rapporto segnale-rumore.
+$$
+C=B\log_2\left(1+\frac{P_S}{P_N}\right)=B\log_2(1+\text{SNR})
+$$E questo influenza la quantità di simboli che si possono inviare.
+$$
+\begin{align*}
+C&=B\log_2(1+\text{SNR})\\
+2B\log_2 M&=B\log_2(1+\text{SNR})\\
+\log_2 M^2&=\log_2(1+\text{SNR})\\
+M&=\sqrt{1+\text{SNR}}
+\end{align*}
+$$
