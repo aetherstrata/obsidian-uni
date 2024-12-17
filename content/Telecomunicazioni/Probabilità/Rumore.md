@@ -145,7 +145,7 @@ C&=B\log_2(1+\text{SNR})\\
 M&=\sqrt{1+\text{SNR}}
 \end{align*}
 $$
-## Puppa
+## Limite teorico di trasmissione
 Sapendo che la potenza è proporzionale al rapporto tra l'energia e il tempo di bit, si può manipolare la formula della capacità trasmissiva.
 $$
 P_S=\frac{E_b}{T_b}=E_b\cdot C \quad\longrightarrow\quad C=B\log_2\left(1+\frac{E_b\cdot C}{N_0\cdot B}\right)\\
@@ -161,6 +161,42 @@ $$
 In questa relazione è espressa la potenza di ricezione come prodotto tra l'energia di bit e la capacità trasmissiva. 
 
 Le due grandezze $\dfrac{E_b}{N_0}$ e $\dfrac{C}{B}$ si possono analizzare anche sul grafico della funzione.
+
+>[!info] Esempio di grafico
+>![[1734470074.png]]
+
+Il punto che interseca l'asse delle ascisse è di particolare interesse. 
+$$
+\begin{align*}
+C&=B\log_2\left(1+\frac{E_b\cdot C}{N_0\cdot B}\right)\\
+\frac{N_0}{E_b}&=\frac{N_0B}{E_bC}\log_2\left(1+\frac{E_b\cdot C}{N_0\cdot B}\right)
+\end{align*}
+$$
+Si definisce una variabile $\lambda = \dfrac{E_b}{N_0}\cdot\dfrac{C}{B}$ e si cambia la base del logaritmo.
+$$
+\frac{N_0}{E_b}=\frac{1}{\lambda}\log_2(1+\lambda)=\frac{1}{\lambda}\frac{\ln(1+\lambda)}{\ln2}
+$$
+Calcolando il limite per $\lambda\to0$ si può ricavare il valore del punto. Tenendo conto che questo limite è riferito a $\dfrac{N_0}{E_b}$, il risultato risulta invertito rispetto al grafico.
+$$
+\lim_{\lambda\to0}\frac{1}{\lambda}\frac{\ln(1+\lambda)}{\ln2}=\frac{1}{\ln2} \quad\longrightarrow\quad\frac{E_b}{N_0}=\ln2=-1.6\text{ dB}
+$$
+Questo è il limite sotto al quale è impossibile andare.
+## Saturazione della capacità
+La capacità del canale indica la massima velocità teorica di trasferimento affinché l´[[Entropia|informazione]] possa essere trasmessa in modo affidabile.
+
+Come detto nei paragrafi precedenti, la capacità trasmissiva di un canale è legata alla potenza del segnale ricevuto e del rumore.
+$$
+C=B\log_2\left(1+\frac{P_R}{N_0B}\right)
+$$
+Disegnando il grafico della capacità in funzione della banda si osserva un asintoto orizzontale oltre il quale la capacità non può aumentare.
+$$
+\begin{align*}
+C&=\frac{N_0B}{P_R}\cdot\frac{P_R}{N_0}\log_2\left(1+\frac{P_R}{N_0B}\right)=\\
+\boxed{\ \lambda \coloneqq \dfrac{P_R}{N_0B}\ }\quad &= \frac{1}{\lambda}\cdot\frac{P_R}{N_0}\log_2\left(1+\lambda\right)=\\
+&=\frac{P_R}{N_0}\log_2\left(1+\lambda\right)
+\end{align*}
+$$
+
 
 ## Esercizi
 ### Esercizio 3
