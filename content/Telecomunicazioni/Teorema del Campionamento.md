@@ -214,4 +214,31 @@ Il segnale campionato ha solo due campioni non nulli.
 $$
 x[-1]=x[1]=1
 $$
-
+Questo vuol dire che il segnale campionato è composto solamente da due [[Delta di Dirac]].
+$$
+x_c(t)=\delta(t-T)+\delta(t+T)
+$$
+Da questo segnale campionato si può ottenere la corrispondente rappresentazione spettrale.
+$$
+\begin{align*}
+X_c(f)&=\mathcal{F}\set{\delta(t-T)+\delta(t+T)}=\\
+&=2\cdot\mathcal{F}\left\{\frac{1}{2}\delta(t-T)+\frac{1}{2}\delta(t+T)\right\}=\\
+&=2\cos(2\pi fT)
+\end{align*}
+$$
+Lo spettro del segnale ricostruito è il prodotto tra la funzione di trasferimento e lo spettro del segnale campionato.
+$$
+\begin{align*}
+X'(f)&=X_c(f)\cdot H(f)=\\
+&=T\operatorname{rect}(fT)\cdot2\cos(2\pi fT)=\\
+&=2T\operatorname{rect}(fT)\cos(2\pi fT)
+\end{align*}
+$$
+Il segnale ricostruito si può ottenere attraverso la [[Convoluzione]] tra la risposta impulsiva e il segnale campionato.
+$$
+\begin{align*}
+x'(t)&=x_c(t)*h(t)=\\
+&=[\delta(t-T)+\delta(t+T)]*\operatorname{sinc}\left(\frac{t}{T}\right)=\\
+&=\operatorname{sinc}\left(\frac{t-T}{T}\right)+\operatorname{sinc}\left(\frac{t+T}{T}\right)
+\end{align*}
+$$
