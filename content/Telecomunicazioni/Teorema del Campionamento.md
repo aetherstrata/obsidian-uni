@@ -142,7 +142,9 @@ y(5ms)&=\cancel{\operatorname{sinc}\left(\frac{-15}{10}\right)}+\operatorname{si
 \end{align*}
 $$
 ### Esercizio 3
-Dato il segnale $x(t)=8\operatorname{sinc}(4t)\cos(6\pi t)$ campionato con tempo $T_c$ pari al massimo valore per evitare l'aliasing. Il segnale è poi ricostruito con un filtro passa-basso ideale $H(f)$ ad ampiezza unitaria e spettro di frequenza compreso tra $[-3,3]$. Calcolare il valore di $T_c$, il segnale ricostruito e la sua trasformata.
+Dato il segnale $x(t)=8\operatorname{sinc}(4t)\cos(6\pi t)$ campionato con tempo $T_c$ pari al massimo valore per evitare l'aliasing. 
+Il segnale è poi ricostruito con un filtro passa-basso ideale $H(f)$ ad ampiezza unitaria e spettro di frequenza compreso tra $[-3,3]$. 
+Calcolare il valore di $T_c$, il segnale ricostruito e la sua trasformata.
 $$
 H(f)=\operatorname{rect}\left(\frac{f}{6}\right)\quad\longrightarrow\quad h(t)=6\operatorname{sinc}(-6t)=6\operatorname{sinc}(6t)
 $$
@@ -200,5 +202,16 @@ $$
 x'(t)&=20\cdot\mathcal{F}^{-1}\left\{\operatorname{rect}\left(\frac{f}{2}\right)*\left[\frac{1}{2}\delta(f-2)+\frac{1}{2}\delta(f+2)\right]\right\}=\\
 &=20\cdot2\operatorname{sinc}(2t)\cos(4\pi t)
 \end{align*}
+$$
+### Esercizio 4
+Dato un segnale $x(t)$, campionato con il massimo intervallo $T_c$ necessario per evitare l'aliasing, determinare il segnale ricostruito $x'(t)$ e la sua trasformata $X'(f)$. 
+
+Il segnale campionato è ricostruito usando un filtro passa-basso ideale con ampiezza $T$ e intervallo di frequenze $\left[-\dfrac{1}{2T};\dfrac{1}{2T}\right]$ .
+$$
+H(f)=T\operatorname{rect}(fT)\quad\longrightarrow\quad h(t)=\operatorname{sinc}\left(\frac{t}{T}\right)
+$$
+Il segnale campionato ha solo due campioni non nulli.
+$$
+x[-1]=x[1]=1
 $$
 
