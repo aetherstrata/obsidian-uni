@@ -75,7 +75,7 @@ $$
 ### Sotto la soglia
 
 >[!info] Grafico
->![[1734124588.png]]
+>![[sovrapposizione-simboli.png]]
 
 L'area in rosso rappresenta la probabilità di trasmettere il simbolo $C_2$ e ricevere il simbolo $C_1$.
 $$

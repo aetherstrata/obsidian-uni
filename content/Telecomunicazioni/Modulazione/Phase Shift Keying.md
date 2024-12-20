@@ -7,7 +7,7 @@ tags:
 La modulazione a codifica di fase, detta anche **PSK**, è un tipo di modulazione passa-banda in cui i simboli del segnale sono codificati nella fase di quadratura della portante.
 
 >[!info] Costellazione 8-PSK
->![[8PSK_Gray_Coded.svg|center|bg-white]]
+>![[diagramma-8psk.svg|center|bg-white]]
 
 ## Descrizione
 Tutti i simboli hanno la stessa ampiezza $A$ e fasi equidistanti tra loro.

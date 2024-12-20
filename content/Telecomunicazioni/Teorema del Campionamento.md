@@ -141,3 +141,64 @@ y(5ms)&=\cancel{\operatorname{sinc}\left(\frac{-15}{10}\right)}+\operatorname{si
 &=\frac{8}{5\pi}
 \end{align*}
 $$
+### Esercizio 3
+Dato il segnale $x(t)=8\operatorname{sinc}(4t)\cos(6\pi t)$ campionato con tempo $T_c$ pari al massimo valore per evitare l'aliasing. Il segnale è poi ricostruito con un filtro passa-basso ideale $H(f)$ ad ampiezza unitaria e spettro di frequenza compreso tra $[-3,3]$. Calcolare il valore di $T_c$, il segnale ricostruito e la sua trasformata.
+$$
+H(f)=\operatorname{rect}\left(\frac{f}{6}\right)\quad\longrightarrow\quad h(t)=6\operatorname{sinc}(-6t)=6\operatorname{sinc}(6t)
+$$
+Si comincia studiando la rappresentazione in frequenza del segnale $x(t)$.
+$$
+\begin{align*}
+x(t)\overset{\mathcal{F}}{\longrightarrow}X(f)&=8\cdot\mathcal{F}\set{\operatorname{sinc}(4t)}*\mathcal{F}\set{\cos(6\pi t)}=\\
+&=8\cdot\frac{1}{4}\operatorname{rect}\left(\frac{f}{4}\right)*\left[\frac{1}{2}\delta(f-3)+\frac{1}{2}\delta(f+3)\right]=\\
+&=\operatorname{rect}\left(\frac{f-3}{4}\right)+\operatorname{rect}\left(\frac{f+3}{4}\right)
+\end{align*}
+$$
+>[!info] Grafico della trasformata
+>![[campionamento-es-3.png]]
+
+Da questa si può ricavare la trasformata del segnale campionato moltiplicando lo spettro del segnale per il treno campionatore.
+$$
+\begin{align*}
+X_c(f)&=X(f)\cdot\frac{1}{T_c}\sum_{n}\delta\left(f-\frac{n}{T_c}\right)=\\
+&=\frac{1}{T_c}\sum_{n}X\left(f-\frac{n}{T_c}\right)
+\end{align*}
+$$
+La frequenza di campionamento deve essere almeno il doppio della massima frequenza del segnale, quindi $f_c=10$. 
+$$
+T_c=\frac{1}{f_c}=\frac{1}{10}
+$$
+Sostituendo il valore nella trasformata si ottiene la forma finale.
+$$
+\begin{align*}
+X_c(f)&=10\sum_{n}X(f-10n)=\\
+&=10\sum_{n}\left[\operatorname{rect}\left(\frac{f-10n-3}{4}\right)+\operatorname{rect}\left(\frac{f-10n+3}{4}\right)\right]
+\end{align*}
+$$
+L'aliasing non è un problema in quanto le repliche non si sovrappongono.
+
+Per ricostruire il segnale si moltiplica la trasformata del segnale campionato per la funzione di trasferimento del [[Filtro]].
+$$
+X'(f)=X_c(F)H(f)
+$$
+>[!info] Funzione di trasferimento
+>![[1734706613.png]]
+>$$
+>\downarrow
+>$$
+>![[1734707026.png]]
+
+$$
+\begin{align*}
+X'(f)&=10\left[\operatorname{rect}\left(\frac{f-2}{2}\right)+\operatorname{rect}\left(\frac{f+2}{2}\right)\right]=\\
+&=20\cdot\operatorname{rect}\left(\frac{f}{2}\right)*\left[\frac{1}{2}\delta(f-2)+\frac{1}{2}\delta(f+2)\right]
+\end{align*}
+$$
+Per ottenere il segnale ricostruito si applica l'anti-trasformata allo spettro ricostruito.
+$$
+\begin{align*}
+x'(t)&=20\cdot\mathcal{F}^{-1}\left\{\operatorname{rect}\left(\frac{f}{2}\right)*\left[\frac{1}{2}\delta(f-2)+\frac{1}{2}\delta(f+2)\right]\right\}=\\
+&=20\cdot2\operatorname{sinc}(2t)\cos(4\pi t)
+\end{align*}
+$$
+
