@@ -346,3 +346,26 @@ P_Y&=12\int_{-\infty}^{\infty}\cos^2(4\pi f)\operatorname{rect}(4f)\,df+9\int_{-
 &=\frac{6}{4}+9=\frac{21}{2}
 \end{align*}
 $$
+### Esercizio 5
+Il processo $z(t)$ è la somma di due processi aleatori $a(t)$ e $b(t)$, i quali sono tra loro indipendenti e [[Rumore#AWGN|bianchi]] nella banda $[-W;W]$, con densità di probabilità uniforme nell'intervallo $[-A;A]$.
+$$
+\begin{align*}
+p_A(x)=p_B(x)&=\frac{1}{2A}\operatorname{rect}\left(\frac{x}{2A}\right)\\
+G_A(f)=G_B(f)&=\frac{P}{2W}\operatorname{rect}\left(\frac{f}{2W}\right)
+\end{align*}
+$$
+Calcolare valore atteso, potenza, correlazione, densità spettrale e densità di probabilità di $z(t)$.
+
+In quanto uniformemente distribuiti attorno all'origine, $a(t)$ e $b(t)$ hanno valori attesi nulli.
+$$
+\mathbb{E}[a(t)]=\mathbb{E}[b(t)]=0
+$$
+Per ottenere la potenza si calcola il valore quadratico medio.
+$$
+\begin{align*}
+P_A=P_B&=\mathbb{E}[a^2(t)]=\\
+&=\int_{-\infty}^{\infty}x^2p_A(x)\,dx=\\
+&=\frac{1}{}\int_{-A}^{A}x^2\,dx=\\
+&=\left.\frac{x^3}{3}\right|_{-A}^{A}
+\end{align*}
+$$
