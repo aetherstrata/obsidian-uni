@@ -351,7 +351,7 @@ Il processo $z(t)$ è la somma di due processi aleatori $a(t)$ e $b(t)$, i quali
 $$
 \begin{align*}
 p_A(x)=p_B(x)&=\frac{1}{2A}\operatorname{rect}\left(\frac{x}{2A}\right)\\
-G_A(f)=G_B(f)&=\frac{P}{2W}\operatorname{rect}\left(\frac{f}{2W}\right)
+G_A(f)=G_B(f)&=\frac{P_N}{2W}\operatorname{rect}\left(\frac{f}{2W}\right)
 \end{align*}
 $$
 Calcolare valore atteso, potenza, correlazione, densità spettrale e densità di probabilità di $z(t)$.
@@ -360,12 +360,51 @@ In quanto uniformemente distribuiti attorno all'origine, $a(t)$ e $b(t)$ hanno v
 $$
 \mathbb{E}[a(t)]=\mathbb{E}[b(t)]=0
 $$
-Per ottenere la potenza si calcola il valore quadratico medio.
+Sommando i valori attesi si ricava il valore atteso di $z(t)$, anch'esso nullo.
+$$
+\mathbb{E}[z(t)]=\mathbb{E}[a(t)]+\mathbb{E}[b(t)]=0
+$$
+Per ottenere la potenza dei processi si calcola il valore quadratico medio.
+$$
+\begin{gather*}
+P_N\ =\ \boxed{\vphantom{\int}\quad P_A=\mathbb{E}[a^2(t)]=\mathbb{E}[b^2(t)]=P_B\quad}\\\\
+\begin{aligned}
+P_N=&\int_{-\infty}^{\infty}x^2p_A(x)\,dx=\\
+&=\frac{1}{2A}\int_{-A}^{A}x^2\,dx=\\
+&=\frac{1}{2A}\cdot\left.\frac{x^3}{3}\right|_{-A}^{A}=\\
+&=\frac{A^2}{3}
+\end{aligned}
+\end{gather*}
+$$
+Ora, conoscendo la potenza dei processi, si può ricavare anche lo spettro densità di potenza.
+$$
+G_A(f)=G_B(f)=\frac{A^2}{6W}\operatorname{rect}\left(\frac{f}{2W}\right)
+$$
+Si può passare al calcolo dell'auto-correlazione.
 $$
 \begin{align*}
-P_A=P_B&=\mathbb{E}[a^2(t)]=\\
-&=\int_{-\infty}^{\infty}x^2p_A(x)\,dx=\\
-&=\frac{1}{}\int_{-A}^{A}x^2\,dx=\\
-&=\left.\frac{x^3}{3}\right|_{-A}^{A}
+R_Z(\tau)&=\mathbb{E}[z(t+\tau)z(t)]=\\
+&=\mathbb{E}[(a(t+\tau)+b(t+\tau))(a(t)+b(t))]=\\
+&=R_A(\tau)+R_A(\tau)
 \end{align*}
 $$
+Per completare il calcolo serve la correlazione di $a(t)$ e $b(t)$.
+$$
+\begin{align*}
+R_A(\tau)=R_B(\tau)&=\frac{A^2}{6W}\cdot\mathcal{F}^{-1}\left\{\operatorname{rect}\left(\frac{f}{2W}\right)\right\}=\\
+&=\frac{A^2}{3}\operatorname{sinc}(2W\tau)
+\end{align*}
+$$
+Allora, sostituendo i valori ottenuti, la correlazione del processo $z(t)$ è la somma delle correlazioni dei sotto-processi.
+$$
+R_Z(\tau)=R_A(\tau)+R_A(\tau)=\frac{2A^2}{3}\operatorname{sinc}(2W\tau)
+$$
+Lo spettro densità di potenza si può ottenere dalla correlazione del processo.
+$$
+\begin{align*}
+G_Z(f)&=\frac{2A^2}{3}\cdot\mathcal{F}^{-1}\left\{\operatorname{sinc}(2W\tau)\right\}=\\
+&=\frac{2A^2}{3}\cdot\frac{1}{2W}\,\operatorname{rect}\left(\frac{f}{2W}\right)=\\
+&=\frac{A^2}{3W}\operatorname{rect}\left(\frac{f}{2W}\right)
+\end{align*}
+$$
+
