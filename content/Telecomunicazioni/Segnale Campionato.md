@@ -35,7 +35,8 @@ $$
 Data la seguente sequenza $x[n]$, calcolare la sua trasformata.
 $$
 x[n]=\frac{\sin\left(\frac{\pi n}{3}\right)}{\pi n}\cos\left(\frac{2\pi n}{6}\right)
-$$La sequenza può essere estratta dal segnale $x(t)$ ponendo $nT = t$. Dato che $T$ non esiste nella formula viene posto $T=1$.
+$$
+La sequenza può essere estratta dal segnale $x(t)$ ponendo $nT = t$. Dato che $T$ non esiste nella formula viene posto $T=1$.
 $$
 x(t)=\frac{\sin\left(\frac{\pi t}{3}\right)}{\pi t}\cos\left(\frac{2\pi t}{6}\right)=\frac{1}{3}\operatorname{sinc}\left(\frac{t}{3}\right)\cos\left(\frac{2\pi t}{6}\right)
 $$
