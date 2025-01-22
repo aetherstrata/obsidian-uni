@@ -110,7 +110,8 @@ Il corrispondente valore in decibel di $18$ è $12.5 \text{ dB}$.
 Seguendo il secondo teorema di Shannon, la capacità massima $C$ del canale trasmissivo con banda $B$ è legata al rapporto segnale-rumore.
 $$
 C=B\log_2\left(1+\frac{P_S}{P_N}\right)=B\log_2(1+\text{SNR})
-$$E questo influenza la quantità di simboli che si possono inviare.
+$$
+E questo influenza la quantità di simboli che si possono inviare.
 $$
 \begin{align*}
 C&=B\log_2(1+\text{SNR})\\
