@@ -55,6 +55,7 @@ export function pageResources(
         contentType: "external",
       },
     ],
+    additionalHead: staticResources.additionalHead,
   }
 }
 
