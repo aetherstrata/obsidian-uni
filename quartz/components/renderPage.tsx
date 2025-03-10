@@ -58,6 +58,26 @@ export function pageResources(
     ],
     additionalHead: staticResources.additionalHead,
   }
+  
+  resources.js.push({
+    src: joinSegments(baseDir, "postscript.js"),
+    loadTime: "afterDOMReady",
+    moduleType: "module",
+    contentType: "external",
+  })
+
+  // dynamic afterDOMReady must come after postscript.js
+  if (fileData.hasMermaidDiagram) {
+    resources.js.push({
+      script: mermaidScript,
+      loadTime: "afterDOMReady",
+      moduleType: "module",
+      contentType: "inline",
+    })
+    resources.css.push({ content: mermaidStyle, inline: true })
+  }
+
+  return resources
 }
 
 export function renderPage(
