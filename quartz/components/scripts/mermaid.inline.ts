@@ -1,5 +1,4 @@
-import { removeAllChildren } from "./util"
-import mermaid from "mermaid"
+import { registerEscapeHandler, removeAllChildren } from "./util"
 
 interface Position {
   x: number
@@ -157,6 +156,15 @@ document.addEventListener("nav", async () => {
     {} as Record<(typeof cssVars)[number], string>,
   )
 
+<<<<<<< HEAD
+=======
+  mermaidImport ||= await import(
+    // @ts-ignore
+    "https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs"
+  )
+  const mermaid = mermaidImport.default
+
+>>>>>>> b00198b (fix: load mermaid as normal now that inline is safely below bundle size)
   const darkMode = document.documentElement.getAttribute("saved-theme") === "dark"
   mermaid.initialize({
     startOnLoad: false,
@@ -231,12 +239,12 @@ document.addEventListener("nav", async () => {
 
     closeBtn.addEventListener("click", hideMermaid)
     expandBtn.addEventListener("click", showMermaid)
+    registerEscapeHandler(popupContainer, hideMermaid)
     document.addEventListener("keydown", handleEscape)
 
     window.addCleanup(() => {
       closeBtn.removeEventListener("click", hideMermaid)
       expandBtn.removeEventListener("click", showMermaid)
-      document.removeEventListener("keydown", handleEscape)
     })
   }
 })
