@@ -17,7 +17,6 @@ const config: QuartzConfig = {
     baseUrl: "md.aest.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
-    generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -86,6 +85,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
+      Plugin.CustomOgImages(),
     ],
   },
 }
