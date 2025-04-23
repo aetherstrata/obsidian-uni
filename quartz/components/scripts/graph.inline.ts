@@ -67,6 +67,15 @@ type TweenNode = {
   stop: () => void
 }
 
+async function determineGraphicsAPI(): Promise<"webgpu" | "webgl"> {
+  const adapter = await navigator.gpu?.requestAdapter().catch(() => null)
+  if (!adapter) {
+    return "webgl"
+  }
+  // Devices with WebGPU but no float32-blendable feature fail to render the graph
+  return adapter.features.has("float32-blendable") ? "webgpu" : "webgl"
+}
+
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
@@ -346,6 +355,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   tweens.forEach((tween) => tween.stop())
   tweens.clear()
 
+  const pixiPreference = await determineGraphicsAPI()
   const app = new Application()
   await app.init({
     width,
@@ -354,7 +364,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     autoStart: false,
     autoDensity: true,
     backgroundAlpha: 0,
-    preference: "webgpu",
+    preference: pixiPreference,
     resolution: window.devicePixelRatio,
     eventMode: "static",
   })
