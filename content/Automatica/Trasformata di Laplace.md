@@ -23,6 +23,23 @@ $$
 $$
 \begin{align*}
 \mathcal{L}\{f'\} &= s\mathcal{L}\{f\} - f(0^-) \\
-\mathcal{L}\{f''\} &= s\mathcal{L}\{f\} - f(0^-) \\
+\mathcal{L}\{f''\} &= s^2\mathcal{L}\{f\} -sf(0^-) -f'(0^-)\\
+\mathcal{L}\{f^{(n)}\} &= s^n \mathcal{L}\{f\} - \sum_{k=1}^n s^{n-k}\frac{d^{k-1}f(0)}{dt^{k-1}}
 \end{align*}
+$$
+### Integrazione
+$$
+\mathcal{L}\left\{\int_0^tf(\tau)\,d\tau\right\} = \frac{1}{s}\mathcal{L}\{f\}
+$$
+### Convoluzione
+$$
+\mathcal{L}\{f*g\} = \mathcal{L}\{f\}\mathcal{L}\{g\}
+$$
+### Traslazione nel tempo
+$$
+\mathcal{L}\{f(t-a)\delta_{-1}(t-a)\} = e^{-as}\mathcal{L}\{f\}(s)
+$$
+### Traslazione nel dominio di Laplace
+$$
+\mathcal{L}\{e^{-as}f(t)\} = \mathcal{L}\{f\}(s-a)
 $$
