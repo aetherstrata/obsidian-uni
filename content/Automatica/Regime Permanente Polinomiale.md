@@ -42,7 +42,7 @@ Quindi si possono separare gli integratori dal resto della catena diretta, che c
 $$
 G(S) = \frac{G'(S)}{s^h}
 $$
-Ponendo $G'(S) = K_G$, si ottiene la relazione tra l'errore in uscita e i gradi del polinomio.
+Ponendo $G'(0) = K_G$, si ottiene la relazione tra l'errore in uscita e i gradi del polinomio.
 $$
 \begin{align*}
 \lim_{t\to\infty}e(t) &= \lim_{s\to0}  \frac{1}{s^k} \frac{K_d^2}{K_d+\frac{G'(S)}{s^h}} =\\
