@@ -3,6 +3,7 @@ tags:
   - trasformata
   - sistema
   - operatore
+  - analisi
 ---
 La trasformata di Laplace è un operatore integrale che associa ad una funzione a variabile reale una funzione a variabile complessa.
 $$
@@ -42,4 +43,9 @@ $$
 ### Traslazione nel dominio di Laplace
 $$
 \mathcal{L}\{e^{-as}f(t)\} = \mathcal{L}\{f\}(s-a)
+$$
+## Teorema del valor finale
+Il teorema del valore finale è un teorema utilizzato per legare le funzioni nel dominio delle frequenze al comportamento delle funzioni nel dominio del tempo quando il tempo tende a $0$.
+$$
+\lim_{t\to\infty}f(t) = \lim_{s\to0}sF(s)
 $$
