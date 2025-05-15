@@ -45,3 +45,8 @@ h \\ k\ \ \ \ \ \
 \end{array} 
 $$
 Quindi ogni integratore nella catena diretta riduce il tipo del disturbo di un grado.
+
+>[!error] Disturbi in controreazione
+>Questo ragionamento è valido solamente per i disturbi in catena diretta. I sistemi a
+controreazione non sono mai in grado di rigettare disturbi presenti nella catena di
+controreazione.
