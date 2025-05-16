@@ -39,12 +39,18 @@ Da questa scomposizione si può anche calcolare l'antitrasformata.
 $$
 \mathcal{L^{-1}} \left\{\frac{R}{s-j\omega}\right\} = Re^{j\omega t} \quad;\quad \mathcal{L^{-1}} \left\{\frac{R^*}{s+j\omega}\right\} = R^*e^{-j\omega t} 
 $$
-Sapendo che un numero complesso è anche esprimibile in forma esponenziale, allora l'uscita a regime permanente si può riscrivere come
+Sapendo che un numero complesso è anche esprimibile in forma esponenziale, allora l'uscita a regime permanente si può riscrivere come una sinusoide, proprio con la stessa frequenza dell'ingresso.
 $$
 \begin{align*}
 y_p(t) &= Re^{j\omega t} + R^*e^{-j\omega t} =\\
 &= \frac{G(j\omega)}{2j}e^{j\omega t} + \frac{G^*(j\omega)}{-2j}e^{-j\omega t} = \\
 &= \frac{|G(j\omega)|e^{j\varphi}}{2j}e^{j\omega t} + \frac{|G(j\omega)|e^{-j\varphi}}{-2j}e^{-j\omega t} = \\
-&= |G(j\omega)|\frac{}{2j}
+&= |G(j\omega)|\frac{e^{j(\omega t+\varphi)}-e^{-j(\omega t+\varphi)}}{2j} = \\
+&= |G(j\omega)|\sin(\omega t + \varphi)
 \end{align*}
 $$
+Quindi, nota la pulsazione $\omega$, l’uscita rimane determinata dal modulo e dalla fase della funzione
+di trasferimento calcolati su $j\omega$. Gli andamenti del modulo e della fase di $G(S)$ prendono il nome
+di risposta armonica: questa definisce come il sistema si comporta quando è eccitato da una
+sinusoide.
+
