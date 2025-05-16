@@ -68,3 +68,8 @@ $$
 \angle(j\omega)^h = h\cdot 90^{\circ}
 \end{gather*}
 $$
+### Radici binomiali
+#### Modulo
+$$
+|s\tau + 1|\overset{s=j\omega}{\longrightarrow} |j\omega\tau+1| \overset{\text{dB}}{\longrightarrow} 20\log_{10}\sqrt{\omega^2\tau^2+1} = 10\log_{10}(\omega^2\tau^2+1)
+$$
