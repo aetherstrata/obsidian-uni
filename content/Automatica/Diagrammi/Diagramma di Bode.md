@@ -39,3 +39,32 @@ $$
 -180 & \text{per } K_G < 0\\
 \end{cases}
 $$
+### Radici nell'origine $s^h$
+#### Modulo
+$$
+|s^h|\overset{s=j\omega}{\longrightarrow} (|j\omega|)^h \overset{\text{dB}}{\longrightarrow} 20\log_{10}(\omega)^h = 20h\log_{10}\omega
+$$
+Questo studio è limitato a valori di $\omega > 0$ dato che il caso $\omega < 0$ è lo stesso grafico ma ribaltato.
+
+>[!info] Scala dei grafici
+>Graficare questi valori in un piano cartesiano in scala lineare rende difficoltoso applicare le operazioni definite sopra per modulo e fase.
+>
+>![[1747410415.png]]
+>$$
+>\text{Grafico in scala lineare}
+>$$
+>---
+>In scala logaritmica queste curve diventano rette e si può operare su di esse con molta più facilità.
+>
+>![[1747410579.png]]
+>$$
+>\text{Grafico in scala logaritmica}
+>$$
+#### Fase
+Dato che la fase di $j\omega$ vale $90^{\circ}$ e la fase di un prodotto è la somma delle fasi, allora la fase del termine $(j\omega)^h$ è un multiplo di $90^{\circ}$.
+$$
+\begin{gather*}
+\angle s^h \overset{s=j\omega}{\longrightarrow} \angle(j\omega)^h = (j\omega)(j\omega)(j\omega)\dots(j\omega)\\\\
+\angle(j\omega)^h = h\cdot 90^{\circ}
+\end{gather*}
+$$
