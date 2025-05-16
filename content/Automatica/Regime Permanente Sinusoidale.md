@@ -44,9 +44,9 @@ $$
 \begin{align*}
 y_p(t) &= Re^{j\omega t} + R^*e^{-j\omega t} =\\
 &= \frac{G(j\omega)}{2j}e^{j\omega t} + \frac{G^*(j\omega)}{-2j}e^{-j\omega t} = \\
-&= \frac{|G(j\omega)|e^{j\varphi}}{2j}e^{j\omega t} + \frac{|G(j\omega)|e^{-j\varphi}}{-2j}e^{-j\omega t} = \\
-&= |G(j\omega)|\frac{e^{j(\omega t+\varphi)}-e^{-j(\omega t+\varphi)}}{2j} = \\
-&= |G(j\omega)|\sin(\omega t + \varphi)
+&= \frac{|G(j\omega)|e^{j\angle G(j\omega)}}{2j}e^{j\omega t} + \frac{|G(j\omega)|e^{-j\angle G(j\omega)}}{-2j}e^{-j\omega t} = \\
+&= |G(j\omega)|\frac{e^{j(\omega t+\angle G(j\omega))}-e^{-j(\omega t+\angle G(j\omega))}}{2j} = \\
+&= |G(j\omega)|\sin(\omega t + \angle G(j\omega))
 \end{align*}
 $$
 Quindi, nota la pulsazione $\omega$, l’uscita rimane determinata dal modulo e dalla fase della funzione
@@ -54,3 +54,7 @@ di trasferimento calcolati su $j\omega$. Gli andamenti del modulo e della fase d
 di risposta armonica: questa definisce come il sistema si comporta quando è eccitato da una
 sinusoide.
 
+Dato che in regime permanente tutte le radici giacciono sull'asse immaginario, si può sostituire $s$ con $j\omega$ ed ottenere una [[Trasformata di Fourier]].
+$$
+\mathcal{L}\{g\} = \int_{0}^{\infty}g(t)\,e^{-st}\,dt \quad\overset{s=j\omega}{\longrightarrow}\quad \int_{0}^{\infty}g(t)\,e^{-j\omega t}\,dt
+$$
