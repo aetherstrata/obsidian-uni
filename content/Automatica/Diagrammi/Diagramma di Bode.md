@@ -71,5 +71,22 @@ $$
 ### Radici binomiali
 #### Modulo
 $$
-|s\tau + 1|\overset{s=j\omega}{\longrightarrow} |j\omega\tau+1| \overset{\text{dB}}{\longrightarrow} 20\log_{10}\sqrt{\omega^2\tau^2+1} = 10\log_{10}(\omega^2\tau^2+1)
+\begin{gather*}
+|s\tau + 1|\overset{s=j\omega}{\longrightarrow} |j\omega\tau+1| \overset{\text{dB}}{\longrightarrow} 20\log_{10}\sqrt{\omega^2\tau^2+1} = 10\log_{10}(\omega^2\tau^2+1) \\\\
+10\log_{10}(\omega^2\tau^2+1) \to \left\{
+\begin{matrix}
+\omega\ll\frac{1}{\tau}\quad\to& 0\text{dB}\\
+\omega\gg\frac{1}{\tau}\quad\to& 20\log_{10}\omega\tau = 20\log_{10}\omega + \cancel{20\log_{10}\tau}\\
+\omega=\frac{1}{\tau}\ \quad\to& 20\log_{10}\sqrt{\frac{1}{\tau^ 2}\tau^2+1} = 20\log_{10}\sqrt{2}\approx3\text{dB}
+\end{matrix}\right.
+\end{gather*}
+$$
+#### Fase
+$$
+\angle(s\tau+1)=\angle(j\omega\tau+1)=
+\begin{cases}
+0^{\circ} & \omega\ll\frac{1}{\tau}\\
+90^{\circ} & \omega\gg\frac{1}{\tau}\\
+45^{\circ} & \omega=\frac{1}{\tau}
+\end{cases}
 $$
