@@ -1,0 +1,6 @@
+---
+tags:
+  - matematica
+  - analisi
+  - proprietà
+---
