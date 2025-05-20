@@ -9,7 +9,6 @@ e/o poli che giacciono nel semipiano positivo, cioè sono a parte reale positiva
 reale positiva si può ottenere la stabilità.
 
 Il problema principale di questi sistemi è che la fase tende a scendere sotto i $-180^{\circ}$, non essendoci termini che permettono di farla risalire, cioè poli a parte reale negativa.
-
 ## Comportamento
 
 Preso un sistema a controreazione, in cui si ipotizza che in $N(S)$ siano presenti zeri a parte reale positiva, si devono calcolare i poli della funzione $W(S)$ al variare di $K$.
