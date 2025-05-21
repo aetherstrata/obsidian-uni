@@ -1,6 +1,0 @@
----
-tags:
-  - analisi
-  - sistema
-  - controllo
----
