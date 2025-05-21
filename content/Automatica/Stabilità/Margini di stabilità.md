@@ -32,3 +32,18 @@ Il _margine di fase_ è l'angolo con cui la funzione di trasferimento interseca 
 Il _margine di guadagno_ è l'inverso della distanza della funzione dall'origine quando passa per l'asse orizzontale.
 
 ![[1747835266.png]]
+
+>[!tip] Limite di stabilità
+>Se la curva passa esattamente per il punto $-1$, si avranno delle condizioni ben precise:
+>$$
+>|F(j\omega)| = 1 \quad ; \quad \angle F(j\omega) = -180^{\circ}
+>$$
+>Questo vuol dire che l'ingresso del sistema $u(t) = \sin(j\omega t)$ arriva in uscita dal sistema ribaltato di $-180^{\circ}$, quindi $y(t) = -\sin(j\omega t)$.
+>
+Il sistema quindi mantiene l’oscillazione posta in input, ritrovandosi al limite della stabilità. In
+particolare:
+>- se il grafico passa a destra di $-1$, il sistema è stabile
+>- se passa proprio per il punto $-1$, è al limite della stabilità
+>- se passa a sinistra del punto $-1$, il sistema è instabile.
+
+

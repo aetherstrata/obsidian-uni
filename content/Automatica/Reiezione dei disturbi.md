@@ -3,6 +3,8 @@ tags:
   - sistema
   - controllo
 ---
+## Regime permanente polinomiale
+
 Sulla reiezione dei disturbi si può applicare lo stesso ragionamento usato per studiare il comportamento in [[Regime Permanente Polinomiale]]. Un disturbo è un tipo di ingresso non misurabile che causa una variazione indesiderata nell'uscita.
 
 ![[Pasted image 20250515212809.png]]
