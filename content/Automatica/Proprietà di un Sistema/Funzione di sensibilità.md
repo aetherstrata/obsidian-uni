@@ -38,3 +38,20 @@ $$
 La _sensibilità diretta_ $S^W_G$ tende a $0$ per guadagni di anello elevati.
 La _sensibilità inversa_ $S^W_H$ tende a $1$ per guadagni di anello elevati.
 Questo significa che queste sono misure proporzionali, è impossibile averle entrambe basse, e all'aumentare di una corrisponde il diminuire dell'altra.
+
+## Sensibilità ai disturbi
+Da queste osservazioni si possono dedurre importanti informazioni sulla reiezione dei disturbi.
+
+![[Pasted image 20250521183935.png]]
+
+Per quanto riguarda il disturbo in catena diretta $z_1$, l'uscita è calcolata come
+$$
+Y(S)=\frac{G_2(S)}{1+G_1(S)G_2(S)H(S)}Z_1(S) = S^W_G \cdot G_2(S)Z_1(S)
+$$
+Quindi l'effetto del disturbo $z_1$ segue le variazioni della sensibilità $S^W_G$. 
+$$
+S^W_G\to0 \quad;\quad S^W_G \cdot G_2(S)Z_1(S) \to0
+$$
+Allora, più la sensibilità di $W(S)$ rispetto a $G(S)$ tende a $0$, più l'effetto del disturbo sull'uscita sarà basso.
+
+Invece, rispetto al disturbo in controreazione $z_2$, non si riesce quasi mai ad essere attenuato.
