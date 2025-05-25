@@ -10,7 +10,7 @@ un certo tempo dall'applicazione del segnale d’ingresso. L’analisi del compo
 risposta. Una volta estinto il transitorio, la differenza che esiste tra il valore desiderato e quello
 ottenuto identifica l’indice di fedeltà della risposta, o l’errore.
 
-![[Pasted image 20250515201830.png]]
+![[errore_polinomiale.png]]
 
 L'obiettivo è avere l'uscita del sistema $Y(S)$ il più vicino possibile all'uscita desiderata $Y_d(S)$, quindi l'errore di uscita $E(S)$ tra i due deve essere il più vicino possibile a $0$.
 $$

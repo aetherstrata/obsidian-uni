@@ -10,6 +10,6 @@ Sugli assi cartesiani sono sono riportati, sull'asse orizzontale la fase a ciclo
 
 Oltre agi assi cartesiani, sul grafico sono presenti delle regioni curvilinee concentriche che corrispondono ai moduli che assume il sistema a ciclo chiuso. Queste regioni hanno centro proprio in $(-180^{\circ}, 0\text{dB})$, il limite di stabilità, quindi ad un maggiore guadagno a ciclo chiuso corrisponde anche un margine di stabilità minore.
 
-![[Pasted image 20250525162031.png|center]]
+![[nichols.png|center]]
 
 Su questo grafico si possono individuare sia i [[Margini di stabilità]] che le [[Specifiche]] del ciclo chiuso.

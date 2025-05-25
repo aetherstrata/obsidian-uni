@@ -35,7 +35,7 @@ Infine, le due componenti sono riunite ed il segnale originare è ricostruito.
 Nel caso di modulazione di un segnale digitale, è utile rappresentare i vari possibili stati in un diagramma di costellazione.
 
 >[!Grafico costellazioni]
->![[Pasted image 20241216153858.png|centre|bg-white]]
+>![[qam_constellation.png|centre|bg-white]]
 >In questo diagramma l'asse delle ascisse corrisponde alla componente in fase $I(t)$ mentre l'asse delle ordinate corrisponde alla componente in quadratura $Q(t)$. 
 >$$
 >\begin{align*}

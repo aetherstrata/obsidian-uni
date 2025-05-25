@@ -10,7 +10,7 @@ Uno degli effetti operati dalla chiusura in controreazione di un sistema è la l
 La dimostrazione più semplice è con un sistema statico non lineare, nel quale le equazioni
 differenziali che lo rappresentano non dipendono dal tempo:
 
-![[Pasted image 20250523201327.png]]
+![[nlin_statico.png]]
 $$
 e=u-y\quad ;\quad v=Ke \quad;\quad v+v^3=y
 $$
@@ -34,7 +34,7 @@ diventare lineare.
 Si considera ora un sistema dinamico non lineare, le cui equazioni differenziali dipendono
 dal tempo. In particolare si vuole analizzare un pendolo con un guadagno in velocità molto
 elevato.
-![[Pasted image 20250523202431.png|center|300]]
+![[pendolo.png|center|300]]
 $$
 u(t) = Md^2\ddot\theta + Mgd\sin\theta\qquad \text{(smorzamento trascurato)}
 $$

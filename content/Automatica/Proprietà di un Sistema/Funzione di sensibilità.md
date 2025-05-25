@@ -13,7 +13,7 @@ $$
 ## Dimostrazione
 Posto un sistema dove la funzione in catena diretta $G(S) = \dfrac{1}{ps+3}$ dipende da un parametro $p$ 
 
-![[Pasted image 20250521163119.png]]
+![[sens_diag.png]]
 
 La funzione di sensibilità di $W(S)=\dfrac{G(S)}{1+G(S)H(S)}$ sarà uguale a
 $$
@@ -42,7 +42,7 @@ Questo significa che queste sono misure proporzionali, è impossibile averle ent
 ## Sensibilità ai disturbi
 Da queste osservazioni si possono dedurre importanti informazioni sulla reiezione dei disturbi.
 
-![[Pasted image 20250521183935.png]]
+![[disturbi.png]]
 
 Per quanto riguarda il disturbo in catena diretta $z_1$, l'uscita è calcolata come
 $$

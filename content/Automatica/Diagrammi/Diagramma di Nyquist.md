@@ -11,5 +11,5 @@ L'andamento della funzione di trasferimento viene rappresentato, al variare dell
 Questo diagramma utilizza un solo piano di riferimento, al contrario del [[Diagramma di Bode]] che rappresenta modulo e la fase della funzione $\omega$ in due distinti piani cartesiani.
 
 >[!info] Grafico di esempio
-![[Pasted image 20250521144514.png|center|bg-white]]
+![[nyquist.png|center|bg-white]]
 
