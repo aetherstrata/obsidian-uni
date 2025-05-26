@@ -33,3 +33,10 @@ Tra $-\dfrac{T_c}{2}$ e  $\dfrac{T_c}{2}$ c'è sempre solo un impulso, quindi $c
 $$
 x_c(t)=x(t)\sum_{k=-\infty}^{+\infty} \frac{1}{T_c}e^{jk\omega_ct} = \frac{1}{T_c}\sum_{k=-\infty}^{+\infty} x(t)\,e^{jk\omega_ct}
 $$
+Questa rappresentazione si può riportare nel dominio di Laplace calcolandone la trasformata.
+$$
+\frac{1}{T_c}\sum_{k=-\infty}^{+\infty} x(t)\,e^{jk\omega_ct}\quad \overset{\mathcal{L}}{\longrightarrow}\quad \frac{1}{T_c}\sum_{k=-\infty}^{+\infty} \mathcal{L}\left\{x(t)\,e^{jk\omega_ct}\right\} = \frac{1}{T_c}\sum_{k=-\infty}^{+\infty} X(s-jk\omega_c)
+$$
+Facendo uno studio sull'asse immaginario, ponendo $s=j\omega$, si ottengono i diagrammi della risposta armonica. Il risultato sono ripetizioni lungo tutto l'asse del contenuto spettrale del segnale ce centrate in $k\omega_c$. 
+
+Per ricostruire il segnale originale bisogna filtrare le repliche derivanti dal campionamento.
