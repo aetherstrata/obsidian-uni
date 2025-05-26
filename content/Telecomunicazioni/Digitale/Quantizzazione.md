@@ -26,7 +26,7 @@ $$
 \Delta = \frac{2V}{M}
 $$
 ## Errore
-A differenza del [[Teorema del Campionamento|campionamento]], nella quantizzazione c'è perdita di informazioni del segnale (anche se limitato in banda).
+A differenza del [[Telecomunicazioni/Teorema del Campionamento|campionamento]], nella quantizzazione c'è perdita di informazioni del segnale (anche se limitato in banda).
 $$
 e_q[n]=x[n]-x_q[n]
 $$
