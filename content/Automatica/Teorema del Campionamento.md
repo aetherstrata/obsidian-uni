@@ -40,3 +40,16 @@ $$
 Facendo uno studio sull'asse immaginario, ponendo $s=j\omega$, si ottengono i diagrammi della risposta armonica. Il risultato sono ripetizioni lungo tutto l'asse del contenuto spettrale del segnale ce centrate in $k\omega_c$. 
 
 Per ricostruire il segnale originale bisogna filtrare le repliche derivanti dal campionamento.
+### No aliasing
+Se le repliche sono distanziate tra loro di $\omega_c >\omega_{MAX}$, allora non è presente aliasing e si può prendere lo spettro compreso tra $-\omega_c/2$ e $\omega_c/2$. Per riottenere il segnale iniziale si calcola l'antitrasformata e si interpolano dei [[Seno Cardinale|seni cardinali]] centrati sugli impulsi.
+$$
+\operatorname{sinc}\left(\frac{\omega_c}{2}\right) = \frac{\sin \frac{\omega_c}{2}t}{\frac{\omega_c}{2}t} = h(t)
+$$
+Interpolando gli impulsi con $h(t)$ si ottiene il segnale originale. Questa metodologia è il
+ricostruttore ideale di Shannon.
+$$
+y(t) = x_c(t)*h(t)
+$$
+Bisogna evidenziare che se lavoriamo su sistemi real-time, dove i campioni vengono prodotti nello stesso momento dell'elaborazione, questo tipo di ricostruttore non è applicabile, poiché il [[Seno Cardinale]] è un filtro non causale.
+### Aliasing
+Se le repliche sono distanziate tra loro di $\omega_c < \omega_{MAX}$, allora le parti a frequenza maggiore saranno sovrapposte.
