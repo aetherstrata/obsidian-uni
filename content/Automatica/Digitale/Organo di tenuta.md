@@ -1,0 +1,6 @@
+---
+tags:
+  - sistema
+  - segnale
+  - digitale
+---

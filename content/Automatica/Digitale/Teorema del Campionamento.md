@@ -16,7 +16,7 @@ $$
 X_c(S) = \sum_{k=0}^{+\infty}x(t)\exp({-skT_c}) = \sum_{k=0}^{+\infty}x(t)\exp\left({-\sigma k\frac{2\pi}{\omega_c}}\right)\exp\left({-j\omega k\frac{2\pi}{\omega_c}}\right)
 $$
 L'esponenziale è periodico nella parte immaginaria, quindi il piano complesso viene diviso in fasce orizzontali, dato che la fase si ripete ogni $\omega_c$. Tutte le fasce riproducono il contenuto della fascia principale, passante per l'origine.
-
+### Rappresentazione in serie
 Per completare la dimostrazione si trasforma il segnale in una [[Serie di Fourier]].
 $$
 x(t) =  \sum_{k=-\infty}^{+\infty} c_ke^{jk\omega_ct}
@@ -52,4 +52,6 @@ y(t) = x_c(t)*h(t)
 $$
 Bisogna evidenziare che se lavoriamo su sistemi real-time, dove i campioni vengono prodotti nello stesso momento dell'elaborazione, questo tipo di ricostruttore non è applicabile, poiché il [[Seno Cardinale]] è un filtro non causale.
 ### Aliasing
-Se le repliche sono distanziate tra loro di $\omega_c < \omega_{MAX}$, allora le parti a frequenza maggiore saranno sovrapposte.
+Se le repliche sono distanziate tra loro di $\omega_c < \omega_{MAX}$, allora le parti a frequenza maggiore saranno sovrapposte e si avrà perdita di informazioni.
+
+Per correggere questo comportamento si può aumentare la frequenza di campionamento oppure filtrare il segnale con un filtro _anti-aliasing_ per eliminare il contenuto in eccesso.
