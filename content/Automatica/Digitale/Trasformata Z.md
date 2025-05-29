@@ -35,14 +35,26 @@ $$
 $$
 La serie converge su tutto il piano fuori dal cerchio di raggio $e^{pT_c}$.
 ## Relazione con il dominio di Laplace
+### Segnale continuo
 $$
 \begin{align*}
-x(t) = e^{pt} &\quad\overset{\mathcal{L}}{\longrightarrow}\quad X(S) = \frac{1}{s-p}\\
+x(t) = e^{pt} &\quad\overset{\mathcal{L}}{\longrightarrow}\quad X(S) = \frac{1}{s-p}\\[4pt]
 x[k] = e^{pkt_c}&\quad\overset{Z}{\longrightarrow}\quad X(Z) = \frac{z}{z-e^{pT_C}}
 \end{align*}
 $$Il polo che era in $p$ nel dominio continuo si sposta in $e^{pT_c}$ nel dominio discreto.
 $$
 p \quad\longrightarrow\quad e^{pT_c}
+$$
+### Segnale campionato
+$$
+\begin{align*}
+x(t) = \sum_{k=0}^\infty x[k]\delta_0(t-kT_c) &\quad\overset{\mathcal{L}}{\longrightarrow}\quad X(S) = \sum_{k=0}^\infty x[k]e^{-skT_c}\\
+\{x_k\} &\quad\overset{Z}{\longrightarrow}\quad X(Z) = \sum_{k=0}^\infty x[k]z^{-k}
+\end{align*}
+$$
+Le serie delle trasformate sono molto simili, cambia solo il kernel.
+$$
+\boxed{\vphantom{\int}\quad z = e^{sT_c} \quad}
 $$
 ## Gradino
 Per avere un gradino unitario si pone $p=0$ e si ha di conseguenza $e^{0t}$.
