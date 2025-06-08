@@ -39,7 +39,7 @@ La serie converge su tutto il piano fuori dal cerchio di raggio $e^{pT_c}$.
 $$
 \begin{align*}
 x(t) = e^{pt} &\quad\overset{\mathcal{L}}{\longrightarrow}\quad X(S) = \frac{1}{s-p}\\[4pt]
-x[k] = e^{pkt_c}&\quad\overset{Z}{\longrightarrow}\quad X(Z) = \frac{z}{z-e^{pT_C}}
+x[k] = e^{pkT_c}&\quad\overset{Z}{\longrightarrow}\quad X(Z) = \frac{z}{z-e^{pT_C}}
 \end{align*}
 $$Il polo che era in $p$ nel dominio continuo si sposta in $e^{pT_c}$ nel dominio discreto.
 $$
