@@ -18,3 +18,5 @@ Il tempo in cui l'uscita del sistema si assesta a valori attorno al $3\%$ del va
 Indica il modulo massimo che assume il guadano a ciclo chiuso al variare della frequenza $\omega$ rispetto al guadagno desiderato $k_d$.
 #### Banda passante
 La banda passante è la frequenza in cui il modulo del guadagno scende di $3$ dB rispetto al valore desiderato. Rappresenta il punto dopo il quale il sistema smette di amplificare in maniera uniforme le frequenze.
+
+nichols

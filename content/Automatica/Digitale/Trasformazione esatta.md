@@ -4,7 +4,7 @@ tags:
   - controllo
   - digitale
 ---
-Preso un sistema di controllo $C(S)$, si può ricavare la sua antitrasformata $c(t)$.
+obsPreso un sistema di controllo $C(S)$, si può ricavare la sua antitrasformata $c(t)$.
 $$
 C(S) = \frac{1}{s-p} \quad\overset{\mathcal{L^{-1}}}{\longrightarrow}\quad e^{pt}
 $$
@@ -26,4 +26,4 @@ $$
 I guadagni sono diversi in quanto la trasformazione è stata fatta attraverso una risposta impulsiva e non a gradino.
 ## Correzione del guadagno
 
-Per correggere il guadagno si può usare la sintesi diretta, dividendo il controllore per $\dfcra$
+Per correggere il guadagno si può usare la sintesi diretta, dividendo il controllore per $\dfrac{1}{1-e^{pT_c}}$ e moltiplicandolo per $-\dfrac{1}{p}$.

@@ -1,0 +1,6 @@
+---
+tags:
+  - controllo
+  - sistema
+  - digitale
+---
