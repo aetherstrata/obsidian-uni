@@ -4,7 +4,7 @@ tags:
   - controllo
   - digitale
 ---
-obsPreso un sistema di controllo $C(S)$, si può ricavare la sua antitrasformata $c(t)$.
+Preso un sistema di controllo $C(S)$, si può ricavare la sua antitrasformata $c(t)$.
 $$
 C(S) = \frac{1}{s-p} \quad\overset{\mathcal{L^{-1}}}{\longrightarrow}\quad e^{pt}
 $$
