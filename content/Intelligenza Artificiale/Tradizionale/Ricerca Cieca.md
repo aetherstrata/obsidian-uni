@@ -21,7 +21,6 @@ Nella **ricerca in ampiezza** si procede
 **Completezza** sì
 
 **Ottimalità** sì, sotto una condizione
-
 Questo algoritmo è ottimo se il costo di cammino è una funzione *monotona non decrescente*
 della profondità del nodo, ossia se dati due nodi $n$ e $m$:
 $$
@@ -46,51 +45,54 @@ $$
 **Complessità spaziale** $O(b^d)$
 Tutte le foglie dell'albero devono essere conservate in memoria.
 
+#### Esempio
+
 ```python
 import collections
 
 def breadth_first_search(graph, start_node, goal_node):
   """
-  Performs a Breadth-First Search to find the shortest path from a start node to a goal node.
+  Esegui una ricerca in ampiezza per trovare il percorso più breve dal nodo
+  iniziale al nodo obiettivo.
 
   Args:
-    graph: A dictionary representing the graph's adjacency list.
-    start_node: The starting node for the search.
-    goal_node: The target node to find.
+    graph: Una mappa che rappresenta la lista di adiacenza del grafo.
+    start_node: Lo stato di partenza.
+    goal_node: Lo stato obiettivo.
 
   Returns:
-    A list representing the path from the start node to the goal node, or None if no path is found.
+    Una lista rappresentante il percorso dal nodo iniziale al nodo finale, 
+    o None se non esiste un percorso valido.
   """
-  # fringe ← MAKE-QUEUE(MAKE-NODE(INITIAL-STATE[problem])
-  # A queue for the nodes to visit (the "fringe")
+  # Una coda per i nodi da visitare (la frontiera)
   fringe = collections.deque([start_node])
-  # A set to keep track of visited nodes to avoid cycles and redundant processing.
+  # Un set per tenere traccia dei nodi già visitati.
   visited = {start_node}
-  # A dictionary to reconstruct the path from the goal back to the start.
+  # Una mappa per ricostruire il percorso dallo stato iniziale 
+  # allo stato obiettivo.
   parent = {start_node: None}
 
-  # loop do
   while fringe:
-    # node ← REMOVE-FRONT(fringe)
+    # Prendi il primo nodo della coda
     current_node = fringe.popleft()
 
-    # if GOAL-TEST(problem, STATE[node]) then return SOLUTION(node)
+    # Se il nodo corrente è obiettivo, ritorna il cammino
     if current_node == goal_node:
       path = []
       while current_node is not None:
         path.append(current_node)
         current_node = parent[current_node]
-      return path[::-1]  # Return reversed path
+      return path[::-1]  # Ritorna il percorso inverso
 
-    # fringe ⟵ ENQUEUE-AT-END(fringe,EXPAND(node,OPERATORS(problem)))
+    # Espandi il nodo e metti i figli nella coda
     for neighbor in graph.get(current_node, []):
       if neighbor not in visited:
         visited.add(neighbor)
         parent[neighbor] = current_node
         fringe.append(neighbor)
 
-  # If EMPTY?(fringe) then return failure
-  return None # Goal not reachable
+  # Se la coda è vuota allora l'obiettivo è irraggiungibile
+  return None
 ```
 ## Ricerca in profondità
 
