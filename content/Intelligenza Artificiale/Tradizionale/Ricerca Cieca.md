@@ -248,6 +248,7 @@ def depth_limited_search(graph, start, goal, limit):
 		
 		if depth < 0: # Superamento del limite di profondità
 			return None
+			
 		# Aggiungi il nodo corrente al percorso
 		path.append(node)
 		visited.add(node)
@@ -261,10 +262,10 @@ def depth_limited_search(graph, start, goal, limit):
 			result = recursive_dls(neighbor, depth - 1, path, visited)
 				if result is not None: # Obiettivo trovato, ritorna il percorso
 					return result
-			
-			# Rimuovi il nodo corrente dal percorso prima di tornare indietro
-			path.pop()
-			return None
+		
+		# Rimuovi il nodo corrente dal percorso prima di tornare indietro
+		path.pop()
+		return None
 
 return recursive_dls(start, limit)
 
@@ -293,10 +294,11 @@ Combina i benefici della [[Ricerca Cieca#Ricerca in profondità|ricerca in profo
 **Ottimalità** sì
 
 **Complessità temporale** $O(b^d)$
-- Nodi livello 1 $(b)$ generati $d$ volte
-- Nodi livello 2 $(b^2)$ generati $d-1$ volte
-- Nodi livello 3 $(b^3)$ generati $d-2$ volte
+- Nodi livello $1$ $(b)$ generati $d$ volte
+- Nodi livello $2$ $(b^2)$ generati $d-1$ volte
+- Nodi livello $3$ $(b^3)$ generati $d-2$ volte
 - $\hphantom{+}\dots\hphantom{+}$
+- Nodi livello $d$ $(b^d)$ generati $1$ volta
 
 Numero di nodi generati:
 $$
@@ -306,3 +308,56 @@ $$
 **Complessità spaziale** $O(b\cdot d)$
 - $b$ = fattore di ramificazione dell'albero
 - $d$ = profondità minima di una soluzione
+#### Esempio
+
+```python
+Grafo = dict[str, list[str]] # Dizionario: nodo -> lista di nodi adiacenti
+
+def depth_limited_search(graph: Grafo, start: str, goal: str, limit: int):
+	# Funzione ricorsiva della ricerca limitata in profondità
+	def recursive_dls(node: str, depth: int, path=[], visited=set()):
+		
+		if depth < 0: # Il limite di profondità è stato superato
+			return None
+		
+		# Aggiungi il nodo corrente al percorso e al set dei visitati
+		path.append(node)
+		visited.add(node)
+		
+		if node == goal: # Obiettivo raggiunto, ritorna il percorso
+			return list(path)
+		
+		# Esplora i nodi adiacenti
+		for neighbor in graph[node]:
+			if neighbor not in visited: # Nodo non ancora visitato
+				result = recursive_dls(neighbor, depth - 1, path, visited)
+				if result is not None:
+					return result
+		
+		# Rimuovi il nodo corrente dal percorso prima di tornare indietro
+		path.pop()
+		return None
+	return recursive_dls(start, limit)
+
+def iterative_deepening_search(graph, start, goal, max_depth):
+	# Esegui DLS con profondità crescente fino a max_depth
+	for depth in range(max_depth + 1):
+		path = depth_limited_search(graph, start, goal, depth)
+		if path is not None: # Se trovi un percorso, restituiscilo
+			return path
+	return None
+
+# Esempio di grafo come dizionario di liste
+graph = {
+	'A': ['B', 'C'],
+	'B': ['A', 'D', 'E'],
+	'C': ['A', 'F'],
+	'D': ['B'],
+	'E': ['B', 'F'],
+	'F': ['C', 'E']
+}
+
+max_depth = 4
+percorso = iterative_deepening_search(graph, 'A', 'F', max_depth)
+print(f"Percorso da 'A' a 'F' con IDDFS: {percorso}")
+```
