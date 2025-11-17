@@ -94,6 +94,24 @@ def breadth_first_search(graph, start_node, goal_node):
 ```
 ## Ricerca in profondità
 
+La **ricerca in profondità** espande sempre per primo il nodo a profondità maggiore nella frontiera.
+
+Si procede
+- espandendo il nodo radice
+- espandendo sempre per primo il nodo più profondo nella frontiera dell'albero di ricerca
+
+Questa ricerca si può implementare con una funzione ricorsiva, usando lo stack di attivazione come lista di nodi. Quando si espande un nodo non obiettivo e senza figli si fa **backtracking**, cioè si torna indietro no all'ultimo nodo in cui è possibile effettuare una scelta.
+
+**Completezza** no
+
+**Ottimale** no
+
+**Complessità temporale** $O(b^m)$
+- $b$ = fattore di ramificazione dell'albero
+- $m$ = profondità massima dell'albero di ricerca
+
+**Complessità spaziale** $O(b\cdot m)$
+Si deve memorizzare solo un cammino radice-foglia e i fratelli non espansi di ciascun nodo del cammino.
 ## Algoritmo di Dijkstra
 
 Anche chiamata ricerca a *costo uniforme*.
@@ -105,6 +123,58 @@ Questo algoritmo di ricerca si contraddistingue dal fatto che, dato il costo del
 
 Questo algoritmo è completo e ottimale se il costo di ogni step $g(\operatorname{next}(n)) - g(n)$ è
 sempre maggiore o uguale a una costante positiva $\varepsilon$.
+
+**Completezza** sì
+
+**Ottimalità** sì, purché tutti i costi degli archi siano non negativi.
+#### Esempio
+```python
+import heapq
+
+max_int = 2**31 - 1
+
+ListaAdiacenza = list[tuple[int, int]] # Lista di tuple (nodo_vicino, peso)
+Grafo = dict[int, ListaAdiacenza] # Dizionario: nodo -> lista di adiacenza
+
+def dijkstra(graph: Grafo, source: int, goal: int):
+	
+	# Imposta le distanze iniziali al massimo
+	dist = {node: max_int for node in graph}
+	# Imposta il predecessore di ogni nodo a -1 (nessuno)
+	prev = {node: -1 for node in graph}
+	# La distanza del nodo sorgente a se stesso è 0
+	dist[source] = 0
+	# Coda di priorità per i nodi da esplorare
+	heap = [(0, source)]
+	  
+	while heap:
+	# Estrai il nodo con la distanza minima
+	curr_dist, curr_node = heapq.heappop(heap)
+	
+	if curr_node == goal: # Obiettivo raggiunto, termina la ricerca
+		break
+	
+	if curr_dist > dist[curr_node]: # Nodo già elaborato con distanza minore
+		continue
+	
+	for node, weight in graph[curr_node]:
+		# Se troviamo un percorso più breve verso il nodo vicino
+		if dist[curr_node] + weight < dist[node]
+			# Aggiorna la distanza e il predecessore
+			dist[node] = dist[curr_node] + weight
+			prev[node] = curr_node
+			heapq.heappush(heap, (dist[node], node))
+	
+	# Ricostruisci il percorso da source a goal
+	path = []
+	curr = goal
+	while curr >= 0:
+	path.append(curr)
+	curr = prev[curr]
+	path.reverse()
+	
+	return dist[goal], path
+```
 ## Ricerca in profondità limitata
 
 ## Ricerca per approfondimenti successivi
