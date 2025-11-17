@@ -4,8 +4,6 @@ tags:
   - ai
 ---
 Un algoritmo di **ricerca cieca** (non informata) non riceve *nessuna informazione* su quanto uno stato sia vicino all'obiettivo.
-## Algoritmo di Dijkstra
-
 ## Ricerca in ampiezza
 
 Nella **ricerca in ampiezza** si procede
@@ -96,6 +94,17 @@ def breadth_first_search(graph, start_node, goal_node):
 ```
 ## Ricerca in profondità
 
+## Algoritmo di Dijkstra
+
+Anche chiamata ricerca a *costo uniforme*.
+
+Questo algoritmo di ricerca si contraddistingue dal fatto che, dato il costo del cammino dalla radice a $n$, detto $g(n)$, viene scelto per l'espansione il nodo che ha il costo $g(n)$ minore.
+
+>[!tip] Caso particolare
+>Se il costo $g(n)$ è uguale alla profondità $\operatorname{depth}(n)$ allora l'algoritmo si comporta come una [[Ricerca Cieca#Ricerca in ampiezza|Ricerca in ampiezza]]. 
+
+Questo algoritmo è completo e ottimale se il costo di ogni step $g(\operatorname{next}(n)) - g(n)$ è
+sempre maggiore o uguale a una costante positiva $\varepsilon$.
 ## Ricerca in profondità limitata
 
 ## Ricerca per approfondimenti successivi
