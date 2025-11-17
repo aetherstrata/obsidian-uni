@@ -104,7 +104,7 @@ Questa ricerca si può implementare con una funzione ricorsiva, usando lo stack 
 
 **Completezza** no
 
-**Ottimale** no
+**Ottimale** no, in quanto esplora completamente un percorso, incorrendo così nella possibilità di trovare una soluzione più costosa di un'altra.
 
 **Complessità temporale** $O(b^m)$
 - $b$ = fattore di ramificazione dell'albero
@@ -112,11 +112,46 @@ Questa ricerca si può implementare con una funzione ricorsiva, usando lo stack 
 
 **Complessità spaziale** $O(b\cdot m)$
 Si deve memorizzare solo un cammino radice-foglia e i fratelli non espansi di ciascun nodo del cammino.
+#### Esempio
+```python
+Grafo = dict[str, list[str]] # Dizionario: nodo -> lista di nodi adiacenti
+
+def dfs_path(graph: Grafo, start: str, goal: str, path=[], visited=set()):
+	
+	# Aggiungi il nodo corrente al percorso e all'insieme dei visitati
+	path.append(start)
+	visited.add(start)
+	
+	if start == goal: # Obiettivo raggiunto, ritorna il percorso attuale
+		return list(path)
+	
+	# Esplora i nodi adiacenti
+	for neighbor in graph[start]:
+		if neighbor not in visited: # Nodo non ancora visitato
+			result = dfs_path(graph, neighbor, goal, path, visited)
+			if result is not None: # Percorso trovato
+				return result
+	
+	# Se non si trova il percorso, rimuovi il nodo corrente dal percorso
+	path.pop()
+	return None
+
+# Esempio di grafo come dizionario di liste
+graph: Grafo = {
+	'A': ['B', 'C'],
+	'B': ['A', 'D', 'E'],
+	'C': ['A', 'F'],
+	'D': ['B'],
+	'E': ['B', 'F'],
+	'F': ['C', 'E']
+}
+
+percorso = dfs_path(graph, 'A', 'F')
+print("Percorso da 'A' a 'F':", percorso)
+```
 ## Algoritmo di Dijkstra
 
-Anche chiamata ricerca a *costo uniforme*.
-
-Questo algoritmo di ricerca si contraddistingue dal fatto che, dato il costo del cammino dalla radice a $n$, detto $g(n)$, viene scelto per l'espansione il nodo che ha il costo $g(n)$ minore.
+Anche chiamato ricerca a *costo uniforme*, questo algoritmo di ricerca si contraddistingue dal fatto che, dato il costo del cammino dalla radice a $n$, detto $g(n)$, viene scelto per l'espansione il nodo che ha il costo $g(n)$ minore.
 
 >[!tip] Caso particolare
 >Se il costo $g(n)$ è uguale alla profondità $\operatorname{depth}(n)$ allora l'algoritmo si comporta come una [[Ricerca Cieca#Ricerca in ampiezza|Ricerca in ampiezza]]. 
@@ -148,33 +183,126 @@ def dijkstra(graph: Grafo, source: int, goal: int):
 	heap = [(0, source)]
 	  
 	while heap:
-	# Estrai il nodo con la distanza minima
-	curr_dist, curr_node = heapq.heappop(heap)
-	
-	if curr_node == goal: # Obiettivo raggiunto, termina la ricerca
-		break
-	
-	if curr_dist > dist[curr_node]: # Nodo già elaborato con distanza minore
-		continue
-	
-	for node, weight in graph[curr_node]:
-		# Se troviamo un percorso più breve verso il nodo vicino
-		if dist[curr_node] + weight < dist[node]
-			# Aggiorna la distanza e il predecessore
-			dist[node] = dist[curr_node] + weight
-			prev[node] = curr_node
-			heapq.heappush(heap, (dist[node], node))
+		# Estrai il nodo con la distanza minima
+		curr_dist, curr_node = heapq.heappop(heap)
+		
+		if curr_node == goal: # Obiettivo raggiunto, termina la ricerca
+			break
+		
+		if curr_dist > dist[curr_node]: # Nodo già elaborato con distanza minore
+			continue
+		
+		for node, weight in graph[curr_node]:
+			# Se troviamo un percorso più breve verso il nodo vicino
+			if dist[curr_node] + weight < dist[node]
+				# Aggiorna la distanza e il predecessore
+				dist[node] = dist[curr_node] + weight
+				prev[node] = curr_node
+				heapq.heappush(heap, (dist[node], node))
 	
 	# Ricostruisci il percorso da source a goal
 	path = []
 	curr = goal
 	while curr >= 0:
-	path.append(curr)
-	curr = prev[curr]
+		path.append(curr)
+		curr = prev[curr]
 	path.reverse()
 	
 	return dist[goal], path
+	
+# Esempio di grafo come dizionario di adiacenza 
+graph = {     
+	0: [(1, 10), (2, 3)],    
+	1: [(2, 1), (3, 2)],    
+	2: [(1, 4), (3, 8), (4, 2)],    
+	3: [(4, 7)],    
+	4: [(3, 9)] 
+}
+
+costo, percorso = dijkstra(graph, 0, 4) 
+print(f"Costo minimo dal nodo 0 al nodo 4: {costo}") 
+print(f"Percorso: {percorso}")
 ```
 ## Ricerca in profondità limitata
 
+Opera come la [[Ricerca Cieca#Ricerca in profondità|ricerca in profondità]] imponendo, però, un limite alla profondità massima dei cammini: un nodo viene espanso solo se la lunghezza del cammino corrispondente è minore del massimo stabilito.
+
+**Ottimalità** no
+
+**Completezza** sì, se il problema ha una soluzione di lunghezza minore o uguale al limite massimo.
+
+**Complessità temporale** $O(b^l)$
+- $b$ = fattore di ramificazione dell'albero
+- $l$ = limite di profondità di ricerca fissato
+
+**Complessità spaziale** $O(b\cdot l)$
+Si deve memorizzare solo un cammino radice-foglia e i fratelli non espansi di ciascun nodo del cammino di lunghezza massima $l$.\
+
+#### Esempio
+```python
+Grafo = dict[str, list[str]] # Dizionario: nodo -> lista di nodi adiacenti
+
+def depth_limited_search(graph, start, goal, limit):
+	# Funzione ricorsiva della ricerca limitata in profondità
+	def recursive_dls(node, depth, path=[], visited=set()):
+		
+		if depth < 0: # Superamento del limite di profondità
+			return None
+		# Aggiungi il nodo corrente al percorso
+		path.append(node)
+		visited.add(node)
+		
+		if node == goal: # Obiettivo raggiunto, ritorna il percorso attuale
+			return list(path)
+		
+		# Esplora i nodi adiacenti
+		for neighbor in graph[node]:
+			if neighbor not in visited: # Nodo non ancora visitato
+			result = recursive_dls(neighbor, depth - 1, path, visited)
+				if result is not None: # Obiettivo trovato, ritorna il percorso
+					return result
+			
+			# Rimuovi il nodo corrente dal percorso prima di tornare indietro
+			path.pop()
+			return None
+
+return recursive_dls(start, limit)
+
+# Esempio di grafo come dizionario di liste
+graph: Grafo = {
+	'A': ['B', 'C'],
+	'B': ['A', 'D', 'E'],
+	'C': ['A', 'F'],
+	'D': ['B'],
+	'E': ['B', 'F'],
+	'F': ['C', 'E']
+}
+
+limite = 2
+percorso = depth_limited_search(graph, 'A', 'F', limite)
+print(f"Percorso da 'A' a 'F' entro profondità {limite}: {percorso}")
+```
 ## Ricerca per approfondimenti successivi
+
+Anche detto *iterative deepening search*, questo algoritmo evita il problema della scelta di un limite provando iterativamente tutti i limiti possibili, in quanto non sempre si conosce un limite adeguato per la ricerca in profondità limitata.
+
+Combina i benefici della [[Ricerca Cieca#Ricerca in profondità|ricerca in profondità]] con quelli della [[Ricerca Cieca#Ricerca in ampiezza|ricerca in ampiezza]].
+
+**Completezza** sì
+
+**Ottimalità** sì
+
+**Complessità temporale** $O(b^d)$
+- Nodi livello 1 $(b)$ generati $d$ volte
+- Nodi livello 2 $(b^2)$ generati $d-1$ volte
+- Nodi livello 3 $(b^3)$ generati $d-2$ volte
+- $\hphantom{+}\dots\hphantom{+}$
+
+Numero di nodi generati:
+$$
+b\cdot d + b^2\cdot(d-1) + \dots + b^{d-1}\cdot d + b^d\cdot 1
+$$
+
+**Complessità spaziale** $O(b\cdot d)$
+- $b$ = fattore di ramificazione dell'albero
+- $d$ = profondità minima di una soluzione
