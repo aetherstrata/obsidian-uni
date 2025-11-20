@@ -7,3 +7,4 @@
 - IAM – Identity & Access Management
 - CSP – Cloud Service Provider
 - SOC – Security Operation Center
+- IXP – Internet eXchange Point
