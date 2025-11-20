@@ -1,0 +1,9 @@
+- IaaS – Infrastructure as a Service
+- PaaS – Platform as a Service
+- DBaaS – Database as a Service
+- BaaS – Backup as a Service
+- DRaaS – Disaster Recovery as a Service
+- CaaS – Containers as a Service
+- IAM – Identity & Access Management
+- CSP – Cloud Service Provider
+- SOC – Security Operation Center
