@@ -2,6 +2,7 @@
 tags:
   - algoritmi
   - ai
+  - ricerca
 ---
 Un algoritmo di **ricerca cieca** (non informata) non riceve *nessuna informazione* su quanto uno stato sia vicino all'obiettivo.
 ## Ricerca in ampiezza
