@@ -2,6 +2,7 @@
 tags:
   - datacenter
   - cloud
+  - italia
 ---
 Il **PSN** nasce da una gara europea e viene gestito attraverso un partenariato pubblico-privato. Coinvolge principali player italiani: TIM, CDP, Leonardo e Sogei. L’obiettivo è centralizzare, proteggere e innovare le infrastrutture informatiche della PA, garantendo **sovranità, sicurezza e controllo** sui dati.
 ## Servizi offerti
