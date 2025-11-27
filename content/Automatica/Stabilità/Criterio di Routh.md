@@ -4,7 +4,7 @@ tags:
   - analisi
   - stabilità
 ---
-Il criterio di Routh stabilisce alcune condizioni da rispettare per assicurarsi che il sistema sia stabile.
+Il criterio di Routh stabilisce alcune condizioni da rispettare per assicurarsi che il [[sistema]] sia stabile.
 
 Per essere stabile, tutte le radici del polinomio caratteristico dio un sistema devono giacere nel semipiano sinistro, ovvero devono avere parte reale negativa.
 $$

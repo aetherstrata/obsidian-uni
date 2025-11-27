@@ -4,7 +4,7 @@ tags:
   - controllo
   - proprietà
 ---
-I sistemi a fase non minima sono sistemi di controllo che, a ciclo aperto, hanno uno o più zeri
+I sistemi a fase non minima sono [[Sistemi di controllo]] che, a ciclo aperto, hanno uno o più zeri
 e/o poli che giacciono nel semipiano positivo, cioè sono a parte reale positiva. Per i sistemi con poli a parte reale positiva l‘instabilità è certa, tuttavia per sistemi che presentano solo zeri a parte
 reale positiva si può ottenere la stabilità.
 

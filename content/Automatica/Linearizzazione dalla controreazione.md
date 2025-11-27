@@ -4,11 +4,10 @@ tags:
   - controllo
   - proprietà
 ---
-Uno degli effetti operati dalla chiusura in controreazione di un sistema è la linearizzazione della catena diretta all'aumentare del guadagno.
+Uno degli effetti operati dalla chiusura in controreazione di un [[sistema]] è la linearizzazione della catena diretta all'aumentare del guadagno.
 ## Dimostrazione
 ### Sistema statico
-La dimostrazione più semplice è con un sistema statico non lineare, nel quale le equazioni
-differenziali che lo rappresentano non dipendono dal tempo:
+La dimostrazione più semplice è con un sistema statico non lineare, nel quale le [[Equazioni differenziali]] che lo rappresentano non dipendono dal tempo:
 
 ![[nlin_statico.png]]
 $$

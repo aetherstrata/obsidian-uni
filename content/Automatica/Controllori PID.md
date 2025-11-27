@@ -16,7 +16,7 @@ P+I\frac{1}{s} + D\frac{N}{1+N\frac{1}{s}} &\quad \text{Forma parallela}
 $$
 Il controllore PID ha una componente derivativa, quindi non sarebbe realizzabile, per cui si usa una approssimazione.
 ## Comportamento
-Ogni componente del controllore ha azioni diversi sul sistema e variano con i coefficienti.
+Ogni componente del controllore ha azioni diverse sul [[Sistema]] e variano con i coefficienti.
 ### Azione proporzionale
 Questa azione è in grado di aumentare la banda passante e ridurre l‘effetto di variazioni parametriche e/o disturbi. Tuttavia riduce i margini di stabilità.
 $$
