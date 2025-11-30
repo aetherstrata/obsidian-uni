@@ -73,14 +73,21 @@ Invio di un distance vector **a intervalli regolari** (per esempio ogni T second
 >- in presenza di degradazioni della topologia di rete (guasti di link o router).
 
 Per questo motivo, è difficile usare il puro distance vector in reti con *più di un migliaio* di nodi: la convergenza può diventare troppo lenta e il traffico di aggiornamento troppo elevato.
+### Reazione ai cambiamenti
 
+#### La rete rimane connessa
+Nonostante possibili cambiamenti di costo o la scomparsa di alcuni link, esiste sempre un cammino alternativo tra ogni coppia di nodi. In questo caso, è possibile dimostrare (modello di **Bellman-Ford**) che l’algoritmo distance vector **converge sempre** a una soluzione ottima:
+- indipendentemente dai valori iniziali delle distanze;
+- con un numero di passi limitato (lineare nel diametro della rete se la metrica è il numero di hop).
+
+#### La rete si disconnette
+Alcune coppie di nodi non sono più raggiungibili tra loro. Qui emerge il problema del **count-to-infinity** e diventa essenziale definire un valore convenzionale di infinito adeguato, ed  eventualmente introdurre meccanismi aggiuntivi ([[#split horizon]], [[#Poison Reverse (Veleno Inverso)|poison reverse]], [[#Hold-down Timer|hold-down timers]]) per mitigare il problema.
 ## Count-to-infinity
 Uno degli aspetti più critici degli algoritmi distance vector è il problema del **count-to-infinity** (contare all'infinito). Il nocciolo del problema è che se un router A dice a B di avere un percorso verso una destinazione, B non ha modo di sapere se quel percorso include B stesso.
 
 L’osservazione fondamentale è che:
 - Gli algoritmi distance vector **reagiscono velocemente alle “buone notizie”** (nuovi cammini più corti).
 - **Reagiscono invece molto lentamente alle “cattive notizie”** (rottura di un link, aumento di costo, disconnessione).
-​​
 ### Buona notizia
 
 Si consideri una rete in cui inizialmente la linea tra i router A e B è **guasta**, e la metrica è il numero di hop.
@@ -115,7 +122,6 @@ t & A & B & C & D & E \\ \hline
 $$
 
 In generale, una buona notizia su un certo cammino nuovo e migliore si propaga in **k passi** se la destinazione è a distanza $k$ in hop: servono tanti cicli di aggiornamento quanti sono i router da attraversare.
-
 ### Cattiva notizia
 
 Si consideri ora che la linea A - B vada di nuovo **fuori servizio**.
@@ -144,19 +150,78 @@ $$
 Questa dinamica è il **count-to-infinity**. I router “contano verso l’infinito” (incrementano ripetutamente il valore della metrica) prima di dichiarare A irraggiungibile.
 
 Un effetto simile può verificarsi anche in configurazioni molto semplici (per esempio reti con pochi nodi), se i router continuano a “rimbalzarsi” distanze tra loro basate su vecchie informazioni.
-
 ### Scelta dell'infinito
 
-Poiché in pratica non si può lasciare che il conteggio cresca indefinitamente, gli algoritmi distance vector introducono un **valore convenzionale di infinito**:
-
-- Una distanza superiore o uguale a questo valore viene considerata *non raggiungibile*.
+Poiché in pratica non si può lasciare che il conteggio cresca indefinitamente, gli algoritmi distance vector introducono un **valore convenzionale di infinito** una distanza superiore o uguale a questo valore viene considerata *non raggiungibile*.
 
 - Il tempo necessario perché una _cattiva notizia_ (perdita di connettività) si propaghi è funzione del valore scelto per **infinito**.
 
 - In genere, si sceglie come infinito la **lunghezza del cammino più lungo più 1**: se il cammino semplice più lungo nella rete ha al massimo $L$ hop, si sceglie $\infty=L+1$.
 
-Nell'esempio delle slide, viene proposto un valore convenzionale di infinito pari a 5:
-
-- Se la linea A - B va fuori servizio, la cattiva notizia si propaga in circa ∞−1=4∞−1=4 passi: i valori aumentano fino a stabilizzarsi a 5 (infinito) per tutti i router, che quindi segnano A come non raggiungibile.
+>[!example] Esempio su reticolo quadrato
+>$$
+>\begin{array}[ccccc]
+>a\boxed{A}&\leftrightarrow&\boxed{B}&\leftrightarrow&\boxed{C}\\
+>\updownarrow&&\updownarrow&&\updownarrow \\
+>\boxed{D}&\leftrightarrow&\boxed{E}&\leftrightarrow&\boxed{F}\\
+>\updownarrow&&\updownarrow&&\updownarrow \\
+>\boxed{G}&\leftrightarrow&\boxed{H}&\leftrightarrow&\boxed{\,I\,}\\
+>\end{array}
+>$$
+Per questo esempio viene proposto un valore convenzionale di infinito pari a 5:
+>- Se la linea A - B va fuori servizio, la cattiva notizia si propaga in circa $\infty-1=4$ passi: i valori aumentano fino a stabilizzarsi a 5 (infinito) per tutti i router, che quindi segnano A come non raggiungibile.
 
 Nel protocollo [[RIP]], il valore di infinito è **16 hop**, che rappresenta la metrica massima per una destinazione raggiungibile. Questo limite è stato scelto perché la maggior parte delle reti locali ha un diametro molto inferiore a 16 hop, e questo valore permette di contenere il count-to-infinity entro limiti gestibili.
+### Soluzioni
+
+I protocolli distance vector reali implementano diverse tecniche per mitigare il problema del count-to-infinity:
+#### Split Horizon
+
+Lo **split horizon** è un metodo che impedisce a un router di pubblicizzare una rotta attraverso la stessa interfaccia da cui l'ha appresa. Questo previene immediatamente i loop di routing più semplici. In pratica, se un router A apprende una rotta per C da B, non invierà mai quella rotta di nuovo a B.
+#### Poison Reverse (Veleno Inverso)
+
+Il **poison reverse** è una variante più aggressiva dello split horizon: invece di non inviare nulla, il router invia la rotta con **metrica infinita** (poisoned) attraverso l'interfaccia da cui l'ha appresa. Questo garantisce che il vicino riceva immediatamente la notifica che quella rotta è considerata irraggiungibile attraverso quel percorso, accelerando la convergenza dopo una rottura di link.
+#### Route Poisoning
+
+Il **route poisoning** è la tecnica di pubblicizzare una rotta fallita con metrica infinita a **tutti** i vicini, non solo a quello da cui è stata appresa. Quando un router rileva che un link è caduto, invia immediatamente un *triggered update* con costo infinito per quella destinazione, propagando rapidamente la "cattiva notizia" in tutta la rete.
+#### Hold-down Timer
+
+I router implementano timer di attesa (hold-down timer) per evitare di accettare nuove informazioni su una rotta che è stata appena dichiarata irraggiungibile, dando tempo alla rete di stabilizzarsi.
+## Efficienza
+
+### Efficienza in termini di numero di passi
+
+Si consideri una rete con:
+- $n$ nodi;
+- $m$ link;
+- metrica basata solo sul **numero di hop**.
+
+Tra due nodi qualunque, il cammino semplice più lungo ha al massimo $n-1$ link (non ha senso attraversare un nodo più di una volta in un cammino minimo).
+
+Una **buona notizia** (esistenza di un cammino più corto) si propaga su tutta la rete in **al più $n−1$ passi**: 
+- Ogni passo permette di “guadagnare” un hop nella conoscenza del cammino.
+
+Se si attribuisce a infinito il valore $n$, una **cattiva notizia** (perdita di connettività) si propaga su tutta la rete in **al più $n−1$ passi**:
+- Il valore della distanza non può aumentare più di $n-1$ volte prima di raggiungere $n$ (l’infinito convenzionale).
+
+Quindi, in termini di passi sincronizzati, sia buone che cattive notizie si propagano, nel caso peggiore, in **tempo lineare** nel numero di nodi $O(n)$.
+#### Lavoro svolto da ciascun router
+
+ Ogni router può avere al più **m linee adiacenti** (nel caso peggiore coincide con il numero totale di link).
+
+In ogni passo (round), un router:
+- riceve al più mm distance vector (uno per ogni linea adiacente);
+- per ciascun distance vector deve esaminare tutte le destinazioni in esso contenute.
+
+Poiché ogni tabella contiene al più $O(n)$ destinazioni (un entry per ogni nodo o rete della topologia), il lavoro di **un singolo router in un passo** è $O(nm)$:
+- fino a $m$ distance vector;
+ - ciascuno con $O(n)$ righe.
+
+Dato che nel caso peggiore la convergenza richiede $O(n)$ passi, il **tempo di calcolo totale per router** è:    
+$$
+O(n)\cdot O(nm)=O(n2m)
+$$
+
+Questa stima mostra che, con l’aumentare del numero di nodi, il lavoro cresce rapidamente, e contribuisce a spiegare perché i semplici algoritmi distance vector siano difficili da applicare su reti molto grandi senza ottimizzazioni.
+
+​
