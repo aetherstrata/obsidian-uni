@@ -160,7 +160,7 @@ Poiché in pratica non si può lasciare che il conteggio cresca indefinitamente,
 
 >[!example] Esempio su reticolo quadrato
 >$$
->\begin{array}[ccccc]
+>\begin{array}{ccccc}
 >\boxed{A}&\leftrightarrow&\boxed{B}&\leftrightarrow&\boxed{C}\\
 >\updownarrow&&\updownarrow&&\updownarrow \\
 >\boxed{D}&\leftrightarrow&\boxed{E}&\leftrightarrow&\boxed{F}\\
