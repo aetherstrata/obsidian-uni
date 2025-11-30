@@ -161,14 +161,14 @@ Poiché in pratica non si può lasciare che il conteggio cresca indefinitamente,
 >[!example] Esempio su reticolo quadrato
 >$$
 >\begin{array}[ccccc]
->a\boxed{A}&\leftrightarrow&\boxed{B}&\leftrightarrow&\boxed{C}\\
+>\boxed{A}&\leftrightarrow&\boxed{B}&\leftrightarrow&\boxed{C}\\
 >\updownarrow&&\updownarrow&&\updownarrow \\
 >\boxed{D}&\leftrightarrow&\boxed{E}&\leftrightarrow&\boxed{F}\\
 >\updownarrow&&\updownarrow&&\updownarrow \\
 >\boxed{G}&\leftrightarrow&\boxed{H}&\leftrightarrow&\boxed{\,I\,}\\
 >\end{array}
 >$$
-Per questo esempio viene proposto un valore convenzionale di infinito pari a 5:
+>Per questo esempio viene proposto un valore convenzionale di infinito pari a 5:
 >- Se la linea A - B va fuori servizio, la cattiva notizia si propaga in circa $\infty-1=4$ passi: i valori aumentano fino a stabilizzarsi a 5 (infinito) per tutti i router, che quindi segnano A come non raggiungibile.
 
 Nel protocollo [[RIP]], il valore di infinito è **16 hop**, che rappresenta la metrica massima per una destinazione raggiungibile. Questo limite è stato scelto perché la maggior parte delle reti locali ha un diametro molto inferiore a 16 hop, e questo valore permette di contenere il count-to-infinity entro limiti gestibili.
