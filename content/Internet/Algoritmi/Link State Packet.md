@@ -19,7 +19,11 @@ Nella pratica, il flooding deve essere _affidabile_: non basta inviare il pacche
 
 - **Sequence Numbers:** Ogni LSP ha un numero di sequenza (a 32-bit in OSPF). Se un router riceve un LSP con un numero di sequenza _inferiore_ a quello che ha già in memoria, lo scarta (è un'informazione vecchia). Se è _superiore_, aggiorna il database e rilancia il pacchetto.
 
-- **Aging (Invecchiamento):** Ogni record nel database ha un timer (es. `MaxAge` in OSPF). Se un LSP non viene riaggiornato dal creatore originale entro un certo tempo (es. 30-60 minuti), viene considerato non valido e rimosso. Questo evita che router fantasma o link ormai inesistenti rimangano nella topologia.
+- **Aging (Invecchiamento):** Ogni record nel database ha un timer (es. `MaxAge` in OSPF). Se un LSP non viene riaggiornato dal creatore originale entro un certo periodo di tempo (es. 30-60 minuti), viene considerato non valido e rimosso. Questo evita che router fantasma o link ormai inesistenti rimangano nella topologia.
+
+>[!warning] Limiti
+>- **Micro-loop:** Durante la convergenza (mentre i database si stanno allineando), router diversi possono avere visioni diverse della rete, causando loop temporanei di pacchetti.
+>- **Flooding Storms:** Un guasto hardware che fa oscillare un'interfaccia (up/down continuo) può inondare la rete di LSP aggiornati, saturando la CPU dei router. Per mitigare ciò, si usano timer esponenziali per rallentare la generazione di aggiornamenti in caso di instabilità frequente (_LSP Throttling_).
 ### Il problema delle LAN e lo "Pseudo-Nodo"
 
 Le LAN, i domini di collisione, sono modellati come uno "pseudo-nodo" per evitare un numero quadratico di adiacenze ($n^2$).
