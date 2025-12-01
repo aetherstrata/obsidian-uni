@@ -36,7 +36,7 @@ Le LAN, i domini di collisione, sono modellati come uno "pseudo-nodo" per evitar
 
 Il file dedica ampio spazio alla dimostrazione matematica della correttezza di Dijkstra tramite il **Lemma dell'Invariante**.
 
-Il concetto chiave è l'espansione *greedy* (ingorda): l'algoritmo fissa definitivamente la distanza di un nodo solo quando è certo che non esistano percorsi indiretti più brevi.
+Il concetto chiave è l'espansione *greedy*: l'algoritmo fissa definitivamente la distanza di un nodo solo quando è certo che non esistano percorsi indiretti più brevi.
 ### Complessità Computazionale
 
 - **$O(n^2)$**: Implementazione naive con array o liste non ordinate.
