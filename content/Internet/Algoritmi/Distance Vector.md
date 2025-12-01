@@ -79,11 +79,11 @@ Per questo motivo, è difficile usare il puro distance vector in reti con *più 
 Nonostante possibili cambiamenti di costo o la scomparsa di alcuni link, esiste sempre un cammino alternativo tra ogni coppia di nodi. In questo caso, è possibile dimostrare (modello di **Bellman-Ford**) che l’algoritmo distance vector **converge sempre** a una soluzione ottima:
 - indipendentemente dai valori iniziali delle distanze;
 - con un numero di passi limitato (lineare nel diametro della rete se la metrica è il numero di hop).
-
 #### La rete si disconnette
 Alcune coppie di nodi non sono più raggiungibili tra loro. Qui emerge il problema del **count-to-infinity** e diventa essenziale definire un valore convenzionale di infinito adeguato, ed  eventualmente introdurre meccanismi aggiuntivi ([[#split horizon]], [[#Poison Reverse (Veleno Inverso)|poison reverse]], [[#Hold-down Timer|hold-down timers]]) per mitigare il problema.
 ## Count-to-infinity
-Uno degli aspetti più critici degli algoritmi distance vector è il problema del **count-to-infinity** (contare all'infinito). Il nocciolo del problema è che se un router A dice a B di avere un percorso verso una destinazione, B non ha modo di sapere se quel percorso include B stesso.
+
+Uno degli aspetti più critici degli algoritmi distance vector è il problema del **count-to-infinity**. Il nocciolo del problema è che se un router A dice a B di avere un percorso verso una destinazione, B non ha modo di sapere se quel percorso include B stesso.
 
 L’osservazione fondamentale è che:
 - Gli algoritmi distance vector **reagiscono velocemente alle “buone notizie”** (nuovi cammini più corti).
