@@ -78,3 +78,13 @@ Gli **Interior Gateway Protocols** (IGP) sono definiti come i protocolli usati a
 >[!important] Separazione tra interno ed esterno
 >La separazione tra IGP ed EGP è motivata sia da problemi tecnici (scalabilità, dimensione delle tabelle, convergenza) sia da problemi amministrativi e di policy: ciascun provider è libero di usare qualunque IGP internamente, ma serve un protocollo comune per scambiare rotte verso l’esterno, supportando vincoli commerciali e politiche di transito o peering.
 
+### Complessità delle reti
+
+Un punto importante è la complessità del routing reale rispetto al caso “elementare” con un solo protocollo di rete (per esempio IPv4) e un solo protocollo di routing (per esempio [[OSPF]]). Nella pratica, host e router possono essere dual‑stack, cioè eseguire più protocolli di rete (tipicamente IPv4 e IPv6) in parallelo, con pile protocollari separate e tabelle di instradamento indipendenti, descritte come “navi nella nebbia” perché convivono senza interazione diretta.
+
+Analogamente, uno stesso router può eseguire più protocolli di routing riferiti allo stesso protocollo di rete (es. [[OSPF]] e [[RIP]] per IPv4), ciascuno con la propria tabella e database (ad esempio database link‑state). L’insieme delle tabelle di routing dei vari protocolli contribuisce alla tabella usata per il forwarding, con priorità configurate dall'amministratore, e rientra nel cosiddetto *control plane*, distinto dal *data plane* che si occupa dell’inoltro dei pacchetti.
+### Redistribuzione di rotte e perdita di ottimalità
+
+I protocolli di routing possono scambiarsi rotte tramite meccanismi di redistribuzione, in cui un protocollo “inietta” le rotte apprese da un altro, che le vede come rotte statiche. Questa comunicazione permette, per esempio, di far conoscere a [[OSPF]] rotte apprese da [[BGP]] o da [[RIP]], ma comporta una perdita di informazione: le metriche del protocollo sorgente non vengono trasferite in modo fedele, quindi il cammino scelto può non essere globalmente ottimale, soprattutto quando attraversa molti domini amministrativi.
+
+Questa perdita di ottimalità è inevitabile quando si passa tra protocolli che usano metriche diverse (hop count, costo basato su banda, politiche di percorso ecc.) e quando l'EGP introduce vincoli di policy che prevalgono sulla metrica puramente tecnica. Per questo l’amministratore deve progettare con attenzione le regole di redistribuzione e l’assegnazione delle priorità tra protocolli, per evitare loop e percorsi eccessivamente subottimali.
