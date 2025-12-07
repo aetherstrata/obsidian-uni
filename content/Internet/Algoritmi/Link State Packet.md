@@ -35,7 +35,7 @@ Le LAN, i domini di collisione, sono modellati come uno "pseudo-nodo" per evitar
 
 - **OSPF:** Elegge un **Designated Router (DR)**. Tutti i router parlano solo con il DR, che aggrega le informazioni e le ridistribuisce come se fosse un nodo centrale.
 
-- **IS-IS:** Usa il **Designated Intermediate System (DIS)**. A differenza del DR di OSPF, il DIS in IS-IS è prempitive (può cambiare se arriva un router con priorità più alta) e non esiste un "Backup" (BDR) formale, rendendo il processo leggermente più fluido ma diverso nella gestione dei fallimenti.
+- **IS-IS:** Usa il **Designated Intermediate System (DIS)**. A differenza del DR di OSPF, il DIS in IS-IS è preemptive (può cambiare se arriva un router con priorità più alta) e non esiste un "Backup" (BDR) formale, rendendo il processo leggermente più fluido ma diverso nella gestione dei fallimenti.
 ## Efficienza
 
 Il file dedica ampio spazio alla dimostrazione matematica della correttezza di Dijkstra tramite il **Lemma dell'Invariante**.

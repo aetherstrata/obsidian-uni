@@ -58,11 +58,22 @@ L'algoritmo dovrebbe avere costi ridotti di manutenzione e configurazione
 ### Tipi di algoritmi
 #### Algoritmi statici
 
-I criteri di instradamento usati per calcolare i percorsi sono fissi, indipendenti dallo stato della topologia.
+I criteri di instradamento usati per calcolare i percorsi sono fissi, indipendenti dallo stato della topologia. In questa categoria rientrano gli algoritmi di [[Flooding]] e [[Static Routing]].
 #### Algoritmi dinamici
 
 L'algoritmo tiene conto del carico e/o della topologia corrente della rete per instradare i pacchetti.
+Questo comportamento può essere diviso in due grandi categorie:
+- negli algoritmi di *routing isolato* ogni IS prende le decisioni usando solo le loro informazioni locali. Gli algoritmi [[Hot Potato]] e [[Backward Learning]] sono di questo tipo.
+- negli algoritmi di *routing distribuito* gli IS si comunicano tra loro informazioni sulla rete. Gli algoritmi [[Distance Vector]] e [[Link State Packet]] sono algoritmi di questo tipo. 
+
+È anche possibile che nella rete sia presente un unico apparato dedicato alla gestione dell'instradamento di tutti gli IS. In quel caso si parla di [[Routing Centralizzato]].
 
 >[!tip] Rapporto tra routing statico e dinamico
 >Il routing statico è preferito nelle parti periferiche della rete, in cui si ha una topologia prevalentemente ad albero e poche variazioni nel tempo. Al contrario, il routing dinamico è preferito nella parte centrale della rete, in cui è presente una topologia fortemente magliata e molte variazioni.
 
+## Protocolli
+
+Gli **Interior Gateway Protocols** (IGP) sono definiti come i protocolli usati all'interno di un unico dominio amministrativo, tipicamente la rete di un singolo *ISP* o di un’azienda; esempi sono [[RIP]], [[OSPF]] e [[IS‑IS]]. Gli **Exterior Gateway Protocols** (EGP) invece servono a scambiare informazioni di routing tra domini amministrativi diversi, cioè tra [[Autonomous System]], ed è in questa categoria che rientrano l’originario EGP storico e l’attuale [[BGP]].
+
+>[!important] Separazione tra interno ed esterno
+La separazione tra IGP ed EGP è motivata sia da problemi tecnici (scalabilità, dimensione delle tabelle, convergenza) sia da problemi amministrativi e di policy: ciascun provider è libero di usare qualunque IGP internamente, ma serve un protocollo comune per scambiare rotte verso l’esterno, supportando vincoli commerciali e politiche di transito o peering.
