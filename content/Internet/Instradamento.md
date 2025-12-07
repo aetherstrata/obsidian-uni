@@ -73,7 +73,8 @@ Questo comportamento può essere diviso in due grandi categorie:
 
 ## Protocolli
 
-Gli **Interior Gateway Protocols** (IGP) sono definiti come i protocolli usati all'interno di un unico dominio amministrativo, tipicamente la rete di un singolo *ISP* o di un’azienda; esempi sono [[RIP]], [[OSPF]] e [[IS‑IS]]. Gli **Exterior Gateway Protocols** (EGP) invece servono a scambiare informazioni di routing tra domini amministrativi diversi, cioè tra [[Autonomous System]], ed è in questa categoria che rientrano l’originario EGP storico e l’attuale [[BGP]].
+Gli **Interior Gateway Protocols** (IGP) sono definiti come i protocolli usati all'interno di un unico dominio amministrativo, tipicamente la rete di un singolo *ISP* o di un’azienda; esempi sono [[RIP]], [[OSPF]] e [[IS-IS]]. Gli **Exterior Gateway Protocols** (EGP) invece servono a scambiare informazioni di routing tra domini amministrativi diversi, cioè tra [[Autonomous System]], ed è in questa categoria che rientrano l’originario EGP storico e l’attuale [[BGP]].
 
 >[!important] Separazione tra interno ed esterno
-La separazione tra IGP ed EGP è motivata sia da problemi tecnici (scalabilità, dimensione delle tabelle, convergenza) sia da problemi amministrativi e di policy: ciascun provider è libero di usare qualunque IGP internamente, ma serve un protocollo comune per scambiare rotte verso l’esterno, supportando vincoli commerciali e politiche di transito o peering.
+>La separazione tra IGP ed EGP è motivata sia da problemi tecnici (scalabilità, dimensione delle tabelle, convergenza) sia da problemi amministrativi e di policy: ciascun provider è libero di usare qualunque IGP internamente, ma serve un protocollo comune per scambiare rotte verso l’esterno, supportando vincoli commerciali e politiche di transito o peering.
+
