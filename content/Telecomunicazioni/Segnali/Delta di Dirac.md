@@ -43,7 +43,7 @@ $$
 $$
 Da qui di ottiene la definizione della funzione Delta di Dirac, che non è una funzione nel senso tradizionale del termine.
 ### Relazione con la funzione gradino
-La funzione  Delta di Dirac è la derivata della [[Segnale Gradino|funzione gradino]]. Ponendo una costante $a \in \mathbb{R}$ e una funzione a valori reali $y(t)$, si ottiene questo integrale.
+La funzione Delta di Dirac è la derivata della [[Segnale Gradino|funzione gradino]]. Ponendo una costante $a \in \mathbb{R}$ e una funzione a valori reali $y(t)$, si ottiene questo integrale.
 $$
 \int y(t)\ \delta(t-a)\ dt\ =\ y(a)\ u(t-a) + C
 $$

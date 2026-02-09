@@ -1,6 +1,0 @@
----
-tags:
-  - protocollo
-  - instradamento
-  - reti
----

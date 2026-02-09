@@ -1,6 +1,0 @@
----
-tags:
-  - apparati
-  - reti
-  - internet
----
