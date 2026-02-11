@@ -35,6 +35,7 @@ L’amministratore può influenzare l’esito del calcolo modificando opportuni 
 >[!warning] Tempo di convergenza
 >Un punto pratico molto importante è il **tempo di convergenza**: in 802.1D classico la transizione delle porte verso l’inoltro può richiedere fino a ~50s con i timer di default (Max Age 20s + Forward Delay 15s in Listening + 15s in Learning), e richiede decine di secondi per stabilizzarsi.
 ## Parametri di input
+
 - Ogni bridge/switch ha un **Bridge ID** (priorità + MAC), in cui il valore più basso significa più propenso ai fini dell’elezione. Questo ID è lungo _8 byte_ ed è formato come segue:
 	- 2 byte per scegliere la priorità
 	- 6 byte corrispondenti al MAC address
@@ -103,3 +104,57 @@ I bridge possono rilevare dei cambiamenti alla topologia della rete e lo comunic
 Il pacchetto Topology Change Notification viene trasmesso dal bridge fino a quando non riceve una Configuration BPDU con acknowledgement.
 
 Nella pratica STP usa questi meccanismi per accelerare la “pulizia” delle informazioni obsolete (es. entries MAC apprese prima del cambio) e per gestire la riconvergenza in modo controllato.
+
+# Evoluzione dello Spanning Tree Protocol
+
+Con l’introduzione e la diffusione delle VLAN su trunk 802.1Q, avere più istanze di spanning tree (MSTP) è utile per evitare disconnessioni e per bilanciare meglio il traffico. In più, MSTP (IEEE 802.1s) riusa i meccanismi di convergenza rapida di RSTP (IEEE 802.1w) e introduce il concetto di _regioni_ per scalare su LAN grandi.​
+## Evoluzione
+
+A differenza dello standard STP classico (_IEEE 802.1D_), che calcola **un solo** albero per l’intera LAN, imponendo porte in blocking per eliminare cicli, nel 1998, con la pubblicazione dello standard IEEE 802.1w, viene introdotto **RSTP**, che mantiene l’idea di loop-prevention ma accelera drasticamente la riconvergenza dopo guasti/cambi topologici grazie a un meccanismo di handshake link-by-link (Proposal/Agreement) invece di dipendere soprattutto da timer lenti. 
+
+Infine, IEEE 802.1s introduce MSTP: più istanze di spanning tree sulla stessa infrastruttura fisica, con mappatura [[VLAN]]→istanza, e viene poi integrato nello standard **802.1Q**.
+
+>[!info] Motivo per adottare più Spanning Tree
+Le [[VLAN]] hanno successo perché permettono segmentazione logica su infrastruttura condivisa, e in presenza di link ridondanti serve comunque un meccanismo anti-loop (spanning tree).
+>
+>Sui [[VLAN#Trunk 802.1Q|trunk 802.1Q]] possono transitare tutte le VLAN oppure solo un loro sottoinsieme (allowed VLANs), per esempio per ragioni di sicurezza o progettazione. Usando un STP unico (802.1D), se la topologia fisica viene potata senza considerare quali VLAN passano su quali trunk, è possibile che venga messo in blocking un collegamento che era necessario per raggiungere alcuni segmenti VLAN, con disconnessione di alcune (o tutte) le VLAN.
+
+## Funzionamento
+
+MSTP permette di definire più spanning tree (MST Instances / MSTI) e di associare ogni VLAN a **una sola** istanza, mentre una istanza può rappresentare più VLAN. 
+
+Così, invece di avere un albero per tutta la rete, si può raggruppare VLAN con requisiti simili nello stesso albero e, quando serve, separare VLAN diverse su alberi diversi per evitare disconnessioni o migliorare l’uso dei link.
+
+Come risultato pratico, una porta può risultare blocking per un’istanza (quindi per tutte le VLAN mappate lì) e forwarding per un’altra.​​
+### Bilanciamento del traffico
+
+Usare STP tradizionale si potrebbe bloccare un link buono per tutte le VLAN, sprecando capacità. Con MSTP, invece, si possono definire due istanze (es. “rossa” e “blu”), scegliere root bridge diversi per ciascuna istanza e ottenere che un link sia bloccato solo per una parte del traffico (le VLAN dell’istanza rossa) mentre resta utilizzabile per l’altra (istanza blu), ottenendo una forma di bilanciamento.
+
+![[Pasted image 20260211221809.png|325]] ![[Pasted image 20260211221825.png|325]]
+### Velocità di convergenza
+
+**MSTP** utilizza lo spanning tree a convergenza veloce di **RSTP** (802.1w). L’accelerazione deriva dal fatto che RSTP fa convergere la topologia con una sincronizzazione per-link: un bridge propone (Proposal), il vicino sincronizza le proprie porte (bloccando quelle non-edge necessarie) e risponde con Agreement, consentendo transizioni a forwarding più rapide e meno “timer-driven”. Per questo, a parità di condizioni, RSTP/MSTP tendono a reagire meglio di 802.1D classico a guasti e riconfigurazioni.​
+
+## Configurazione
+
+Ogni istanza è identificata da un **MSTID** (1–4094) e per ogni istanza può essere impostata la priorità del bridge e parametri per-porta (costi e priorità). Questo è coerente con l’idea generale dello spanning tree: cambiando priorità/costi si può deviare l’elezione del root e la scelta dei percorsi preferiti per quell'istanza, quindi indirettamente per le [[VLAN]] mappate su quell'istanza.​
+
+>[!warning] Interazione con i Trunk e Tag
+Un concetto importante è il fatto che MSTP non calcola un albero per VLAN in funzione della reale topologia dei trunk che trasportano _quella_ VLAN, perché i pacchetti BPDU vengono trasmessi _untagged_, invece che nel modo in cui uno potrebbe invece immaginare.
+>
+>Di conseguenza, se viene mappata la VLAN blu su un'istanza in cui un certo link risulta forwarding, MSTP non verifica automaticamente che quel link sia effettivamente configurato per trasportare (tagged/allowed) la VLAN blu; se questa VLAN non è _allowed_ sul trunk, questo comportamento può portare a disconnessioni anche se lo Spanning Tree sembra coerente. 
+>
+>![[Pasted image 20260211222115.png|325]] ![[Pasted image 20260211222143.png|325]]
+>
+>MSTP risolve una classe di problemi (loop + migliore utilizzo), ma non sostituisce la correttezza della configurazione VLAN sugli uplink.​
+
+## Scalabilità
+
+Per reti grandi **MSTP** introduce le **regioni**: gruppi di switch che condividono la stessa configurazione MST (nome regione, revision, mappa VLAN→istanza) e che calcolano le istanze interne in modo coerente all'interno dei confini della regione. 
+
+A livello concettuale, oltre alle MSTI interne, esiste un _albero comune_ che collega le regioni (spesso descritto come CIST, _Common and Internal Spanning Tree_), mentre le MSTI determinano le topologie attive per i gruppi di VLAN _dentro_ la regione. 
+
+Questo approccio riduce complessità e overhead rispetto ad avere un’istanza per ogni [[VLAN]] in tutta la rete, specialmente quando le VLAN sono tante.​
+
+>[!info] Nota su PVST/PVST+/Rapid-PVST (Cisco)
+>Negli apparati Cisco è presente anche un'implementazione proprietaria per avere un’istanza per VLAN (PVST/PVST+) e la variante rapida (Rapid-PVST). Questo porta la massima flessibilità di bilanciamento, ma cresce il numero di istanze e quindi il carico di controllo/gestione quando le VLAN aumentano. MSTP è invece lo standard multi-vendor pensato per “raggruppare” VLAN in poche istanze mantenendo convergenza rapida.

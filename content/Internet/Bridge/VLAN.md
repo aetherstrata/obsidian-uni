@@ -74,14 +74,19 @@ La soluzione standardizzata dall'_IEEE_ è il **trunk 802.1Q**: un singolo link 
 Lo switch ricevente usa il tag per assegnare il frame alla VLAN corretta e rimuove il tag quando inoltra verso porte “utente” (access), così gli host finali non devono sapere nulla di 802.1Q.​​
 ### Tag 802.1Q
 
-Il tag 802.1Q è un'etichetta di **4 byte** inserita nel frame Ethernet, identificata dal valore **TPID = 0x8100** (in posizione EtherType/Length) e seguita da **TCI** che include priorità e VLAN ID (PCP, DEI, VID). La dimensione massima del frame passa da **1518 a 1522 byte** per accomodare questi 4 byte (estensione storicamente associata a IEEE 802.3ac).​​
-## Porte access/trunk/ibride (semantica operativa)
+Il tag 802.1Q è un'etichetta di **4 byte** inserita nel frame Ethernet, identificata dal valore **TPID = 0x8100** (in posizione EtherType/Length) e seguita da **TCI** che include priorità e VLAN ID (PCP, DEI, VID). 
+
+La dimensione massima del frame passa da **1518** a **1522** byte per accomodare questi 4 byte (estensione storicamente associata a IEEE 802.3ac).​​
+
+>[!info] Struttura dei pacchetti Ethernet
+>![[Pasted image 20260211210949.png]]
+
+### Porte access/trunk/ibride
 
 In questo standard sono definiti tre tipi di porte coerenti con la semantica di tagging:​
 - **Access**: riceve/invia frame non taggati (tipicamente appartengono a una VLAN “associata alla porta”).​
 - **Trunk**: riceve/invia frame taggati (trasporta più VLAN).​
 - **Ibrida**: può mescolare tagged e untagged secondo regole/configurazione (concetto vicino alla “native VLAN” o a policy più articolate, a seconda del vendor).​
-
 ## Double tagging (802.1ad / Q-in-Q)
 
 Lo standard IEEE **802.1ad** introduce il **double tagging** (Q-in-Q), molto usato dagli ISP per incapsulare VLAN del cliente (C-TAG) dentro una VLAN di servizio (S-TAG) dell’operatore.
