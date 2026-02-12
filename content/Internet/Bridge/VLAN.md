@@ -60,14 +60,14 @@ Nelle VLAN **asimmetriche** ingress ports ed egress ports possono differire, per
 In presenza di VLAN asimmetriche è preferibile utilizzare switch in modalità SVL.
 
 >[!important] VLAN come insieme di vincoli
-Questa parte è importante perché separa il concetto di VLAN come isolamento dall'idea più generale di VLAN come classificazione e vincoli di uscita, che è più vicina a come operano molti switch enterprise (policy/segmentation).​
+>Questa parte è importante perché separa il concetto di VLAN come isolamento dall'idea più generale di VLAN come classificazione e vincoli di uscita, che è più vicina a come operano molti switch enterprise (policy/segmentation).​
 
 ## Trunk 802.1Q
 
 Con più switch, una soluzione è quella di collegare fisicamente una VLAN per volta (un link per VLAN).
 
 >[!error] Porte bloccate
-Il problema di questo approccio è lo spreco di porte e rischia di introdurre dei **cicli L2** se aumentano i collegamenti. Infatti l'algoritmo [[Spanning Tree Algorithm]] in funzione sugli switch, in presenza di loop, blocca alcune delle porte per ottenere una topologia senza cicli.​
+>Il problema di questo approccio è lo spreco di porte e rischia di introdurre dei **cicli L2** se aumentano i collegamenti. Infatti l'algoritmo [[Spanning Tree Algorithm]] in funzione sugli switch, in presenza di loop, blocca alcune delle porte per ottenere una topologia senza cicli.​
 
 La soluzione standardizzata dall'_IEEE_ è il **trunk 802.1Q**: un singolo link tra switch trasporta traffico di molte VLAN, marcando i frame con un tag VLAN (tagged) quando attraversano il trunk.
 

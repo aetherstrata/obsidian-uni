@@ -115,7 +115,7 @@ A differenza dello standard STP classico (_IEEE 802.1D_), che calcola **un solo*
 Infine, IEEE 802.1s introduce MSTP: più istanze di spanning tree sulla stessa infrastruttura fisica, con mappatura [[VLAN]]→istanza, e viene poi integrato nello standard **802.1Q**.
 
 >[!info] Motivo per adottare più Spanning Tree
-Le [[VLAN]] hanno successo perché permettono segmentazione logica su infrastruttura condivisa, e in presenza di link ridondanti serve comunque un meccanismo anti-loop (spanning tree).
+>Le [[VLAN]] hanno successo perché permettono segmentazione logica su infrastruttura condivisa, e in presenza di link ridondanti serve comunque un meccanismo anti-loop (spanning tree).
 >
 >Sui [[VLAN#Trunk 802.1Q|trunk 802.1Q]] possono transitare tutte le VLAN oppure solo un loro sottoinsieme (allowed VLANs), per esempio per ragioni di sicurezza o progettazione. Usando un STP unico (802.1D), se la topologia fisica viene potata senza considerare quali VLAN passano su quali trunk, è possibile che venga messo in blocking un collegamento che era necessario per raggiungere alcuni segmenti VLAN, con disconnessione di alcune (o tutte) le VLAN.
 
@@ -140,7 +140,7 @@ Usare STP tradizionale si potrebbe bloccare un link buono per tutte le VLAN, spr
 Ogni istanza è identificata da un **MSTID** (1–4094) e per ogni istanza può essere impostata la priorità del bridge e parametri per-porta (costi e priorità). Questo è coerente con l’idea generale dello spanning tree: cambiando priorità/costi si può deviare l’elezione del root e la scelta dei percorsi preferiti per quell'istanza, quindi indirettamente per le [[VLAN]] mappate su quell'istanza.​
 
 >[!warning] Interazione con i Trunk e Tag
-Un concetto importante è il fatto che MSTP non calcola un albero per VLAN in funzione della reale topologia dei trunk che trasportano _quella_ VLAN, perché i pacchetti BPDU vengono trasmessi _untagged_, invece che nel modo in cui uno potrebbe invece immaginare.
+>Un concetto importante è il fatto che MSTP non calcola un albero per VLAN in funzione della reale topologia dei trunk che trasportano _quella_ VLAN, perché i pacchetti BPDU vengono trasmessi _untagged_, invece che nel modo in cui uno potrebbe invece immaginare.
 >
 >Di conseguenza, se viene mappata la VLAN blu su un'istanza in cui un certo link risulta forwarding, MSTP non verifica automaticamente che quel link sia effettivamente configurato per trasportare (tagged/allowed) la VLAN blu; se questa VLAN non è _allowed_ sul trunk, questo comportamento può portare a disconnessioni anche se lo Spanning Tree sembra coerente. 
 >

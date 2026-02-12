@@ -10,6 +10,6 @@ IS‑IS usa anch'esso il paradigma link‑state con flooding di [[Link State Pac
 
 ## Gerarchia
 
-In *IS-IS* la gerarchia è organizzata per livelli (Level‑1 e Level‑2) e che il confine tra aree passa sui link, non sui router, al contrario di OSPF. I router di Level‑1 fanno routing intranet e conoscono solo la topologia della propria area, mentre i router di Level‑2 svolgono il ruolo di backbone per il routing tra aree, mantenendo una visione globale dell’insieme delle aree.
+In *IS-IS* la gerarchia è organizzata per livelli (Level‑1 e Level‑2) e che il confine tra aree passa sui link, non sui router, al contrario di [[OSPF]]. I router di Level‑1 fanno routing intranet e conoscono solo la topologia della propria area, mentre i router di Level‑2 svolgono il ruolo di backbone per il [[Instradamento|routing]] tra aree, mantenendo una visione globale dell’insieme delle aree.
 
 I router L1/L2 partecipano a entrambi i livelli e sono concettualmente simili agli *ABR* [[OSPF]], fungendo da ponte tra area interna e backbone ma con una gerarchia meno rigida (non esiste un singolo “Area 0” obbligatorio). Su reti broadcast IS‑IS non elegge un *DR*/*BDR* come [[OSPF]] ma un *Designated Intermediate System* (DIS), con funzioni analoghe di riduzione della complessità delle adiacenze e gestione del segmento.
