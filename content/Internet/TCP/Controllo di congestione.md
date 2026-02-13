@@ -1,0 +1,6 @@
+---
+tags:
+  - tcp
+  - reti
+  - algoritmi
+---
