@@ -25,7 +25,7 @@ La reputazione delle aziende/organizzazioni è sempre più legata all'esperienza
 >- **Session**: Sequenza delle _page request_ provenienti dallo stesso client
 ## HTTP
 
-Una stessa connessione TCP può essere usata per più richieste, e relative risposte, per evitare di eseguire il three-way handshake per ogni richiesta, diminuendo la lantenza, e di effettuare lo [[Controllo di congestione#Slow start|slow start]], migliorando l'uso della banda. 
+Una stessa connessione TCP può essere usata per più richieste, e relative risposte, per evitare di eseguire il three-way handshake per ogni richiesta, diminuendo la latenza, e di effettuare lo [[Controllo di congestione#Slow start|slow start]], migliorando l'uso della banda. 
 
 In HTTP/1.1 le connessioni TCP sono persistenti per default. Server e client possono comunque chiuderle in base a politiche locali (timeout, limiti risorse).​
 
@@ -75,10 +75,10 @@ La scalabilità di un servizio Web dipende da diversi attori:
 
 ### Tassonomia dei servizi scalabili
 
-- **Distribuzione Locale**:
+- **[[Distribuzione Locale]]**:
 	- Scheduling a **un livello** (Load Balancer)
 	- Scheduling a **due livelli** (Load Balancer e Redirection)
-- **Distribuzione Globale**:
+- **[[Distribuzione Globale]]**:
 	- **MIrroring**
 	- **Redirection**
 	- **DNS**
