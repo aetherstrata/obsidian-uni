@@ -38,8 +38,6 @@ Le LAN, i domini di collisione, sono modellati come uno "pseudo-nodo" per evitar
 - **IS-IS:** Usa il **Designated Intermediate System (DIS)**. A differenza del DR di OSPF, il DIS in IS-IS è preemptive (può cambiare se arriva un router con priorità più alta) e non esiste un "Backup" (BDR) formale, rendendo il processo leggermente più fluido ma diverso nella gestione dei fallimenti.
 ## Efficienza
 
-Il file dedica ampio spazio alla dimostrazione matematica della correttezza di Dijkstra tramite il **Lemma dell'Invariante**.
-
 Il concetto chiave è l'espansione *greedy*: l'algoritmo fissa definitivamente la distanza di un nodo solo quando è certo che non esistano percorsi indiretti più brevi.
 ### Complessità Computazionale
 
@@ -50,3 +48,7 @@ Il concetto chiave è l'espansione *greedy*: l'algoritmo fissa definitivamente l
 >In una rete reale con migliaia di nodi, ricalcolare Dijkstra da zero (Full SPF) a ogni minimo "flap" di un link è troppo oneroso per la CPU. I router moderni possono operare alcune ottimizzazioni:
 >- **iSPF (Incremental SPF):** Se cambia solo la connessione di una foglia della rete, non serve ricalcolare tutto l'albero; si aggiorna solo il ramo interessato.
 >- **PRC (Partial Route Calculation):** Se cambia solo l'informazione di raggiungibilità (es. una subnet IP) ma non la topologia dei router, si evita completamente il calcolo SPF.
+
+### Dimostrazione
+
+TODO

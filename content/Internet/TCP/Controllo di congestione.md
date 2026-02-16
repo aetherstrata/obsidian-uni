@@ -95,7 +95,7 @@ Karn risolve il problema ignorando i campioni RTT dei segmenti ritrasmessi e int
 Questo si sposa con le regole standard di gestione del timer (RTO) che prevedono backoff quando il timer scade, proprio per ridurre pressione sulla rete in condizioni di congestione o blackhole temporanei.
 ### Fast retransmit e fast recovery
 
-Le slide spiegano che un segmento fuori sequenza induce ACK duplicati immediati (non ritardati) e che 3 duplicate ACK con lo stesso ACK number sono una forte evidenza di perdita (più che semplice riordino). 
+Un segmento fuori sequenza induce ACK duplicati immediati (non ritardati) e che 3 duplicate ACK con lo stesso ACK number sono una forte evidenza di perdita (più che semplice riordino). 
 
 Con **fast retransmit** il mittente ritrasmette subito il segmento mancante senza aspettare il timeout, riducendo drasticamente il tempo di recupero quando la rete sta ancora consegnando dati. 
 

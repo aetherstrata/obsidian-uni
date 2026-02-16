@@ -4,13 +4,12 @@ tags:
   - reti
   - instradamento
 ---
-L’algoritmo **Distance Vector** è una delle famiglie fondamentali di [[Instradamento#Algoritmi|algoritmi di instradamento]] nelle reti di comunicazione. Si basa su un’idea concettualmente semplice: ogni router diffonde periodicamente (o quando cambia qualcosa) la propria “visione” della rete ai vicini, sotto forma di tabella di distanze, e tutti aggiornano le proprie tabelle in base alle informazioni ricevute. Il materiale che segue riprende ed estende i concetti presenti nelle slide fornite, approfondendone il funzionamento, i problemi (in particolare il _count-to-infinity_) e l’analisi di efficienza.
+L’algoritmo **Distance Vector** è una delle famiglie fondamentali di [[Instradamento#Algoritmi|algoritmi di instradamento]] nelle reti di comunicazione. Si basa su un’idea concettualmente semplice: ogni router diffonde periodicamente (o quando cambia qualcosa) la propria “visione” della rete ai vicini, sotto forma di tabella di distanze, e tutti aggiornano le proprie tabelle in base alle informazioni ricevute. 
 ## Funzionamento
 
 1. Ogni router (indicato anche come **IS**) mantiene una tabella di instradamento in cui, per ogni destinazione nota, memorizza almeno:
     - il **costo** del cammino migliore verso quella destinazione;
     - il **prossimo hop** (il vicino a cui inoltrare i pacchetti).
-
 2. Periodicamente, oppure ogni volta che la tabella cambia, ogni router invia ai router adiacenti (vicini) una tabella sintetica, detta **distance vector**, che contiene:
     - per ogni destinazione nota, la distanza (costo stimato) a quella destinazione vista da quel router.
 

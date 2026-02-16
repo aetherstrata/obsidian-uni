@@ -62,7 +62,6 @@ Facendo il prodotto scalare della funzione per un suo versore, si può estrarre 
 $$
 c_n=\left<x(t), e^{\large\frac{i2\pi nt}{T}}\right> = \frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{\large-\frac{i2\pi nt}{T}}dt
 $$
-
 ## Condizioni di Dirichlet
 Un segnale periodico $x(t)$, di periodo $T$, può essere sviluppato in serie se soddisfa le condizioni al contorno di Dirichlet:
 
