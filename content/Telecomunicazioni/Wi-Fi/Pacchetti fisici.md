@@ -1,0 +1,6 @@
+---
+tags:
+  - wifi
+  - pacchetti
+  - physical
+---
