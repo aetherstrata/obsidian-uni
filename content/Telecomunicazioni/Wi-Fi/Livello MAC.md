@@ -19,7 +19,7 @@ Il Wi‑Fi usa un meccanismo di accesso multiplo al canale basato su _Carrier Se
 1) prima di trasmettere, una stazione deve **ascoltare il mezzo**;
 2) solo se il canale risulta libero può iniziare la procedura di trasmissione;
 3) il livello MAC prende i pacchetti dei livelli superiori, ad esempio i pacchetti IP, e li inserisce in un **frame MAC**;
-4) il frame viene poi passato al [[Telecomunicazioni/Wi-Fi/Pacchetti fisici|livello fisico]] per la trasmissione.
+4) il frame viene poi passato al [[Livello fisico|livello fisico]] per la trasmissione.
 
 Il MAC non usa gli indirizzi IP per la trasmissione sul mezzo radio, ma gli **indirizzi MAC** dei dispositivi coinvolti, ad esempio l’indirizzo dell’**Access Point** a cui il frame deve essere inviato.
 
@@ -190,6 +190,51 @@ I casi tipici sono:
 - **To DS = 1, From DS = 1**: collegamento tra Access Point in modalità bridge wireless, quindi può servire anche il quarto indirizzo.
 - **To DS = 0, From DS = 0**: comunicazioni che non coinvolgono il DS, ad esempio alcuni frame di management o reti ad hoc.
 
+## Accesso alla rete
+
+### Procedure di Scanning
+
+Per potersi connettere a una rete wireless, una stazione deve prima scoprire quali Access Point sono disponibili nelle vicinanze. Questo processo si chiama scanning e può avvenire in due modalità distinte, a seconda delle impostazioni del sistema operativo e delle priorità energetiche.
+#### Scanning passivo
+
+Lo scanning passivo avviene quando il client si sintonizza sui vari canali radio e si mette semplicemente in ascolto.
+
+L'Access Point trasmette periodicamente (di solito ogni 100 millisecondi) frame di *management* chiamati Beacon, contenenti il SSID, le velocità supportate e i parametri di rete.
+
+ Il vantaggio principale dello scanning passivo è il notevole risparmio energetico, che lo rende ideale per i dispositivi alimentati a batteria.
+
+Lo svantaggio dello scanning passivo è la lentezza, poiché il client deve sostare su ogni canale per un tempo sufficiente ad intercettare un eventuale Beacon.
+#### Scanning attivo
+
+Lo scanning attivo prevede invece che il client prenda l'iniziativa, inviando su tutti i canali dei frame di management chiamati Probe Request.
+
+Gli Access Point in ascolto che soddisfano i criteri della richiesta rispondono direttamente alla stazione con un frame di Probe Response.
+
+Questo metodo è molto più veloce e permette connessioni rapide, ma comporta un maggiore consumo di energia per la trasmissione attiva.
+
+Lo scanning attivo espone maggiormente la privacy del dispositivo, poiché spesso i client trasmettono in chiaro i nomi delle reti a cui si sono connessi in passato per cercarle nell'etere.    
+
+### Autenticazione e Sicurezza
+
+Dopo aver individuato la rete, la stazione deve completare il processo di autenticazione e la successiva associazione all'Access Point. Nel tempo, lo standard IEEE 802.11 ha introdotto diverse tecnologie per garantire l'accesso sicuro al mezzo condiviso.
+#### Rete aperta
+L'autenticazione **Open System** è il metodo basilare dove non avviene alcuna verifica crittografica delle credenziali a livello MAC.
+
+In un sistema aperto la stazione invia la richiesta e l'Access Point l'accetta sempre, delegando la reale sicurezza ai livelli superiori della rete (come un Captive Portal o l'uso di una VPN).
+
+#### Wired Equivalent Privacy
+Il protocollo **WEP** (*Wired Equivalent Privacy*) è lo standard di sicurezza originale, oggi deprecato e totalmente insicuro a causa di gravi vulnerabilità nella gestione dei vettori di inizializzazione (IV) dell'algoritmo RC4.
+
+Con il WEP, un attaccante in ascolto passivo può decifrare la chiave di rete semplicemente catturando un numero sufficiente di pacchetti dati perché rimane la stessa durante tutta la sessione.
+
+#### Wi-Fi Protected Access
+Il protocollo **WPA** (*Wi-Fi Protected Access*) è stato introdotto come soluzione ponte per sostituire il WEP utilizzando lo stesso hardware, implementando il **TKIP** per variare dinamicamente le chiavi di cifratura.
+
+Il **WPA2** rappresenta l'attuale standard di base per la sicurezza wireless, introducendo l'uso obbligatorio dell'algoritmo di crittografia forte AES-CCMP.
+
+Il **WPA3** è lo standard di ultima generazione, progettato per bloccare gli attacchi a dizionario offline grazie al protocollo di handshake **SAE** (*Simultaneous Authentication of Equals*) e per garantire la Forward Secrecy.
+
+Le implementazioni WPA si dividono in Personal, basate su una password condivisa (PSK), ed Enterprise, che richiedono un server RADIUS per autenticare individualmente ogni utente della rete.
 ## Power Management nel Wi-Fi
 
 Poiché l'AP è generalmente collegato alla rete elettrica mentre i dispositivi client vanno a batteria, il Wi-Fi prevede funzioni di risparmio energetico (Power Save).
