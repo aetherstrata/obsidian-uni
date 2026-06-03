@@ -1,0 +1,6 @@
+---
+tags:
+  - reti
+  - physical
+  - fibra
+---

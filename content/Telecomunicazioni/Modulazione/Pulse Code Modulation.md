@@ -27,7 +27,9 @@ Poiché nella voce umana i suoni a bassa ampiezza sono molto più frequenti di q
 ## Ottimizzazione con TDM
 
 Nella PCM, l'informazione non impegna il canale trasmissivo in maniera continua. Nel caso della voce campionata a 8 kHz, un campione codificato viene trasmesso ogni 125 microsecondi. Per sfruttare efficacemente la banda disponibile sul cavo o sulla fibra, si usa la tecnica *Time Division Multiplexing* ([[Time Division Multiplexing|TDM]]).
-Il TDM interallaccia le trasmissioni di più utenti sullo stesso canale fisico, assegnando a ciascun utente un breve *time slot*. In questo modo, un unico mezzo di comunicazione ad alta capacità può veicolare decine o centinaia di flussi PCM simultaneamente.
+
+Il TDM interlaccia le trasmissioni di più utenti sullo stesso canale fisico, assegnando a ciascun utente un breve *time slot*. In questo modo, un unico mezzo di comunicazione ad alta capacità può veicolare decine o centinaia di flussi PCM simultaneamente.
+
 ## Vantaggi
 - **Robustezza al rumore:** I segnali digitali, essendo costituiti solo da due stati (0 e 1), sono intrinsecamente meno suscettibili ai disturbi, all'interferenza elettromagnetica e all'attenuazione rispetto a un segnale analogico.
 - **Rigenerazione del segnale:** Durante le trasmissioni a lunga distanza, il segnale digitale degradato può essere "rigenerato" perfettamente dai ripetitori di linea ricostruendo i fronti d'onda degli impulsi binari, evitando l'accumulo del rumore che si ha invece con gli amplificatori analogici.

@@ -1,0 +1,6 @@
+---
+tags:
+  - segnale
+  - digitale
+  - errori
+---
