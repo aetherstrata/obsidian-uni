@@ -1,0 +1,6 @@
+---
+tags:
+  - multiplexing
+  - segnale
+  - physical
+---

@@ -28,7 +28,7 @@ Conoscendo la [[Filtro#Funzione di trasferimento|funzione di trasferimento]] del
 >H(f)=T\operatorname{rect}(Tf)\overset{\mathcal{F}}{\longrightarrow}\operatorname{sinc}\left(\frac{t}{T}\right)
 >$$
 
-Facendo la convoluzione tra la [[Filtro#Risposta impulsiva|risposta impulsiva]] e il segnale campionato, si ottiene l'uscita.
+Facendo la [[convoluzione]] tra la [[Filtro#Risposta impulsiva|risposta impulsiva]] e il segnale campionato, si ottiene l'uscita.
 $$
 \begin{align*}
 y(t)&=\sum_{n=-\infty}^{+\infty}x[n]\delta(t-nT)*\operatorname{sinc}\left(\frac{t}{T}\right)=\\
