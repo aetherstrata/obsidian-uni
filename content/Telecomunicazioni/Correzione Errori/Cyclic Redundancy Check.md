@@ -45,3 +45,11 @@ Gli esponenziali del polinomio indicano dove posizionare i cavi per intercettare
 
 >[!info] Schema di funzionamento
 >![[Pasted image 20260604213827.png]]
+
+## Burst Error
+La scelta dei **Tap** (gli esponenti del polinomio) non è mai casuale, ma è frutto di lunghi studi matematici. Un polinomio ben scelto, come il CRC-24 o il CRC-32 (usato in Ethernet), garantisce:
+
+- Il rilevamento del 100% degli errori di singolo bit. 
+- Il rilevamento del 100% degli errori di due bit isolati.
+- Il rilevamento del 100% di tutti i **Burst Error** che abbiano una lunghezza inferiore al grado del polinomio (es. un CRC-32 rileva sempre raffiche di errore fino a 32 bit consecutivi).
+- Per raffiche di errori ancora più lunghe, la probabilità che il CRC produca un "falso positivo" (cioè dia resto 0 pur essendoci un errore disastroso) scende a frazioni microscopiche, rendendo il protocollo matematicamente solidissimo per le reti commerciali.

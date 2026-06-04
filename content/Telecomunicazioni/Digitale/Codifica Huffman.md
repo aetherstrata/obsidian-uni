@@ -2,6 +2,7 @@
 tags:
   - segnale
   - digitale
+  - codifica
 ---
 La codifica Huffman è una codifica di sorgente.
 
