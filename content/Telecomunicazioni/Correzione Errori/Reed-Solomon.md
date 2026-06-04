@@ -8,7 +8,6 @@ I codici di *Reed-Solomon* sono **codici a blocchi lineari non binari**. A diffe
 
 L'idea fondamentale si basa sull'**interpolazione polinomiale** e sui Campi di Galois, noti come campi finiti $GF(q)$.
 ## Modello matematico
-
 ### Rappresentazione dei dati
 I simboli del messaggio da inviare (ad esempio $k=239$ simboli) diventano i coefficienti di un polinomio associato al messaggio, $P(x)$, o alternativamente, punti su cui far passare un polinomio di grado $k−1$.
 ### Creazione della ridondanza
@@ -38,8 +37,12 @@ Siccome **RS** non guarda i singoli bit ma lavora su simboli interi (come byte a
 - Se un disturbo radio prolungato cambia 4 bit all'interno dello stesso byte, per il codice RS quello conta come **1 solo simbolo errato**, ed è facilmente risolvibile.
 - RS impiega solo una porzione di ridondanza per sistemare l'intero byte. Se si usasse un normale codice FEC sui singoli bit, un treno di 8 bit consecutivi errati devasterebbe il sistema; per RS, è semplicemente la correzione di un singolo simbolo su un massimo di 8 consentiti.
 
-## Applicazioni
+## Bit Error Rate
+Lo standard *ITU-T G.709* definisce un meccanismo FEC che può migliorare il [[Trasmissione Digitale#SNR|SNR]] fino a $6.2\,\text{dB}$, ovvero che permette di ottenere lo stesso [[Quantizzazione#Bit Error Rate|BER]] trasmettendo un [[Segnale]] con una potenza inferiore di $6.2\,\text{dB}$ rispetto al caso senza FEC.
 
+>[!info] Andamento del BER sulla potenza del segnale
+>![[Pasted image 20260604205735.png|center]]
+## Applicazioni
 Nonostante l'algoritmo sia stato inventato nel 1960, la sua applicazione pratica esplose negli anni successivi, man mano che l'elettronica cominciò a sostenere i pesanti calcoli matematici richiesti.
 
 - **Storage Ottico:** È alla base dei CD, DVD e Blu-Ray. Grazie a questo codice, un CD graffiato (che perde consecutivamente migliaia di bit sulla traccia fisica) può essere letto perfettamente dal lettore CD senza saltare.
