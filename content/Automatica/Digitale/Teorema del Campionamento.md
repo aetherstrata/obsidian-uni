@@ -5,7 +5,7 @@ tags:
   - segnale
   - teorema
 ---
-Come visto anche nel [[Telecomunicazioni/Teorema del Campionamento|dominio di Fourier]],  il teorema del campionamento si applica anche al dominio di Laplace, secondo cui la frequenza di campionamento necessaria per evitare aliasing deve essere maggiore del doppio della frequenza massima del segnale analogico.
+Come visto anche nel [[Telecomunicazioni/Segnali/Operazioni e Proprietà/Teorema del Campionamento|dominio di Fourier]],  il teorema del campionamento si applica anche al dominio di Laplace, secondo cui la frequenza di campionamento necessaria per evitare aliasing deve essere maggiore del doppio della frequenza massima del segnale analogico.
 ## Dimostrazione
 Il [[Segnale Campionato]] presenta nel vari istanti di campionamento $kT_c$ un [[Delta di Dirac|impulso]] di ampiezza pari al valore del segnale nel punto.
 $$

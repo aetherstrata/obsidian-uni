@@ -8,7 +8,7 @@ La *Pulse Code Modulation* (**PCM**) è una tecnica di modulazione usata per tra
 ## Funzionamento
 Il processo di modulazione PCM si articola in tre passaggi in sequenza.
 ### Campionamento (Discretizzazione nel tempo) 
-Il segnale analogico continuo viene misurato a intervalli di tempo regolari $T$. La frequenza con cui si estraggono questi campioni deve rispettare il [[Telecomunicazioni/Teorema del Campionamento|Teorema del Campionamento]]: la frequenza di campionamento deve essere pari ad almeno il doppio della frequenza massima contenuta nello spettro del segnale. 
+Il segnale analogico continuo viene misurato a intervalli di tempo regolari $T$. La frequenza con cui si estraggono questi campioni deve rispettare il [[Telecomunicazioni/Segnali/Operazioni e Proprietà/Teorema del Campionamento|Teorema del Campionamento]]: la frequenza di campionamento deve essere pari ad almeno il doppio della frequenza massima contenuta nello spettro del segnale. 
 
 Per la telefonia standard (con banda vocale limitata a circa 4 kHz), la frequenza di campionamento è fissata a 8 kHz, producendo 8.000 campioni al secondo.
 ### Quantizzazione (Discretizzazione in ampiezza)
