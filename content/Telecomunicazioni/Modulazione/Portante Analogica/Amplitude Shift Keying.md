@@ -42,3 +42,5 @@ $$
 $$
 Usando un coseno come segnale portante ha la conseguenza di sdoppiare le frequenze nel semiasse negativo, con il conseguente dimezzamento della banda utilizzabile.
 
+## On-Off Keying
+La modulazione *on-off keying* (**OOK**) è un tipo particolare di **ASK** su simboli binari che trasmette a massima potenza quando il simbolo è alto e non trasmette nulla quando il simbolo è basso.

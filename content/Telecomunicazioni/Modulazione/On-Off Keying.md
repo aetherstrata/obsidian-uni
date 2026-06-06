@@ -1,6 +1,0 @@
----
-tags:
-  - segnale
-  - digitale
-  - modulazione
----
