@@ -30,6 +30,8 @@ La rete di distribuzione si divide in tre segmenti fisici con lunghezze standard
 2. **Rete di distribuzione primaria**: dalla centrale all'armadio di distribuzione (**1–1,2 km**) cavi ad alta potenzialità interrati in tubazione
 3. **Rete di distribuzione secondaria**: dall'armadio al box esterno (**200–300 m**) cavi a bassa potenzialità in trincea o aerea
 4. **Raccordo**: dal box esterno alla borchia in casa del cliente (**50–70 m**)
+
+![[Pasted image 20260607222111.png]]
 #### Struttura della centrale
 All'interno della centrale si trovano:
 - **Sala MDF** (*Main Distribution Frame*): permutatore principale che connette i cavi in arrivo dalla rete primaria con gli apparati attivi (DSLAM, commutatori)
@@ -47,19 +49,14 @@ Le vecchie reti **PSTN** (*Public Switched Telephone Network*) usavano questa te
 >Non è più usabile in quanto è stata dismessa per direttiva europea intorno al 2025 e tutti i collegamenti telefonici ora viaggiano su **VoIP**.
 #### ISDN (Integrated Services Digital Network)
 La tecnologia *ISDN* è la prima rete **digitale** sul doppino, introdotta negli anni '90. Utilizza la codifica **2B1Q** (2 Binary 1 Quaternary): ogni simbolo codifica **2 bit** usando **4 livelli di ampiezza** ($\pm 2.5\ V$ e $\pm0.833\ V$), per un totale di **80 kbaud -> 160 kbit/s**. Il servizio Basic Rate Interface (**BRI**) prevede 2 canali B da 64 kbit/s ciascuno + 1 canale D da 16 kbit/s per la segnalazione, per un totale di **128 kbit/s utili**. La distanza massima è circa **5 km**.
-#### ADSL / ADSL2+
-Utilizza la modulazione [[Discrete Multi Tone]] con **256 sottoportanti** e [[Quadrature Amplitude Modulation|QAM]] adattiva, usando la banda fino a **1,1 MHz**. L'ADSL2+ raddoppia le sottoportanti a 512 estendendo la banda a 2,2 MHz, raggiungendo **24 Mbit/s in downstream e 3,5 Mbit/s in upstream** entro 4 km.
-#### VDSL2
-La VDSL2 utilizza [[Discrete Multi Tone]] con **4096 sottoportanti**, banda fino a **17,6 MHz** (profilo 17a) o **35 MHz** (profilo 35b). Raggiunge **100 Mbit/s in download e 50 Mbit/s in upload** entro 1 km. Richiede che la fibra ottica arrivi al cabinet (FTTC) e che il tratto in rame sia corto.
-#### G.fast
-Adotta **DFT-Spread OFDM** (una variante dell'[[Orthogonal Frequency Division Multiplexing|OFDM]] che riduce il PAPR, usata anche nel [[5G]]) con banda fino a **212 MHz** e vectoring obbligatorio. Raggiunge **1 Gbit/s in download e 500 Mbit/s in upload** entro **250 m**. A queste frequenze l'attenuazione del rame è così elevata che il tratto in rame deve essere minimo (tipicamente dall'armadio stradale direttamente all'edificio).
-
->[!info] Tabella di evoluzione di xDSL
->|Standard|Banda|Subcarrier|DL max|UL max|
->|---|---|---|---|---|
->|**ADSL** G.992.1|1,1 MHz|256|8 Mbit/s|1 Mbit/s|
->|**ADSL2** G.992.3|1,1 MHz|256|12 Mbit/s|1 Mbit/s|
->|**ADSL2+** G.992.5|2,2 MHz|512|24 Mbit/s|3,5 Mbit/s|
->|**VDSL2 17a** G.993.2|17,664 MHz|4096|150 Mbit/s|50 Mbit/s|
->|**VDSL2 35b** G.993.2|35,328 MHz|8192|300 Mbit/s|100 Mbit/s|
->|**G.fast** G.9701|106–212 MHz|2048–4096|1 Gbit/s|500 Mbit/s|
+#### ADSL fino a G.fast
+Per questi argomenti fare riferimento alla pagina sul [[Discrete Multi Tone]].
+### DSLAM
+l **DSLAM** (*Digital Subscriber Line Access Multiplexer*) è l'apparato attivo della rete di accesso che si interpone tra i doppini degli utenti e la rete dell'operatore. In ADSL classico era installato nella **centrale telefonica**, mentre con il passaggio a VDSL2 e G.fast, viene spostato nell'**armadio di distribuzione** stradale per ridurre la lunghezza del tratto in rame.
+#### Funzioni
+- Termina le singole linee DSL degli utenti (una porta per ogni doppino)
+- Aggrega il traffico di decine o centinaia di utenti con tecniche di **multiplexing** (ATM, Frame Relay o IP)
+- Instradata il traffico aggregato verso la dorsale dell'operatore a velocità tipiche di **10 Gbit/s**
+- Gestisce il **bit loading** adattivo, misurando il SNR su ogni sottoportante durante la fase di training
+### Splitter
+Lo **splitter** è un filtro analogico passivo (installato sia a casa che in centrale) che separa la banda voce (0 - 4 kHz) dalla banda dati, permettendo la coesistenza di POTS e ADSL sullo stesso doppino. Il **NID** (*Network Interface Device*) è il punto di demarcazione tra la rete dell'operatore e l'impianto interno del cliente.

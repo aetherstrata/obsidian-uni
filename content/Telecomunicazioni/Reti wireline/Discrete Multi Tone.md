@@ -65,27 +65,40 @@ In **ADSL** il [[Cavi elettrici#Doppino telefonico|doppino telefonico]] è condi
 | 25 - 138    | Upstream (upload dati)                            |
 | 138 - 1104  | Downstream (download dati)                        |
 
-- I primi 25 kHz sono riservati al **POTS** per garantire la retrocompatibilità con la voce analogica, da cui deriva la necessità del [[filtro]] splitter sulle prese telefoniche.
+- I primi 25 kHz sono riservati al **POTS** per garantire la retro compatibilità con la voce analogica, da cui deriva la necessità del [[filtro]] splitter sulle prese telefoniche.
 - Il sistema è **asimmetrico** (da cui la *A* di ADSL): il downstream ha banda molto maggiore dell'upstream perché l'utente tipicamente scarica più dati di quanti ne carichi.
 - La spaziatura fissa di $\Delta f=4,3125\ \text{kHz}$ implica che la banda totale di $1104\ \text{kHz}$ si suddivide in 256 sottoportanti downstream.
+$$
+T_s=\frac{1}{4312.5}\approx0.232\ \text{ms} + T_{CP} = 0.25\ \text{ms}\ \Longrightarrow\ 4\ \text{kbaud/s}
+$$
 
 >[!info] Allocazione in Bin
->| Bin | Servizio                                          |
+>| Bin | Uso                                          |
 >| ----------- | ------------------------------------------------- |
 >| 0        | DC |
->|1 - 5    | Upstream (upload dati)                            |
->| 138 - 1104  | Downstream (download dati)                        |
+>|1 - 5    | Guard band (fino a 25.875 kHz)  - usato per traffico POTS                    |
+>| 6 - 31  | Upstream (25 - 138 kHz)                     |
+>| 16  | Pilota Upstream (69 kHz) |
+>| 32 - 255 | Downstream (138 - 1.104 kHz)  |
+>| 32  | Guard band (138 kHz) |
+>| 64 | Pilota Downstream (276 kHz) |
 
 ### Varianti degli Standard xDSL
 
-| Standard             | Sottoportanti N | Banda B  | Downstream max | Note                        |
-| -------------------- | --------------- | -------- | -------------- | --------------------------- |
-| **ADSL** (G.992.1)   | 256             | 1,1 MHz  | ~8 Mbit/s      | 32 upstream, 224 downstream |
-| **ADSL2+** (G.992.5) | 512             | 2,2 MHz  | ~24 Mbit/s     | Doppia banda vs ADSL        |
-| **VDSL2 17a**        | 4096            | 17,6 MHz | ~100 Mbit/s    | FDD, vectoring opzionale    |
-| **VDSL2 35b**        | ~8000           | 35 MHz   | ~400 Mbit/s    | Distanza <1 km              |
-| **G.fast 106**       | 2048            | 106 MHz  | ~1 Gbit/s      | TDD, distanza <250 m        |
-| **G.fast 212**       | 4096            | 212 MHz  | ~2 Gbit/s      | Distanza ancora minore      |
+| Standard              | Banda       | Subcarrier | DL max     | UL max     |
+| --------------------- | ----------- | ---------- | ---------- | ---------- |
+| **ADSL** G.992.1      | 1,1 MHz     | 256        | 8 Mbit/s   | 1 Mbit/s   |
+| **ADSL2** G.992.3     | 1,1 MHz     | 256        | 12 Mbit/s  | 1 Mbit/s   |
+| **ADSL2+** G.992.5    | 2,2 MHz     | 512        | 24 Mbit/s  | 3,5 Mbit/s |
+| **VDSL2 17a** G.993.2 | 17,664 MHz  | 4096       | 150 Mbit/s | 50 Mbit/s  |
+| **VDSL2 35b** G.993.2 | 35,328 MHz  | 8192       | 300 Mbit/s | 100 Mbit/s |
+| **G.fast** G.9701     | 106–212 MHz | 2048–4096  | 1 Gbit/s   | 500 Mbit/s |
+#### ADSL / ADSL2+
+Utilizza **256 sottoportanti** e [[Quadrature Amplitude Modulation|QAM]] adattiva, usando la banda fino a **1,1 MHz**. L'ADSL2+ raddoppia le sottoportanti a 512 estendendo la banda a 2,2 MHz, raggiungendo **24 Mbit/s in downstream e 3,5 Mbit/s in upstream** entro 4 km.
+#### VDSL2
+Utilizza **4096 sottoportanti**, banda fino a **17,6 MHz** (profilo 17a) o **35 MHz** (profilo 35b). Raggiunge **100 Mbit/s in download e 50 Mbit/s in upload** entro 1 km. Richiede che la fibra ottica arrivi al cabinet (FTTC) e che il tratto in rame sia corto.
+#### G.fast
+Adotta **DFT-Spread OFDM** (una variante dell'[[Orthogonal Frequency Division Multiplexing|OFDM]] che riduce il PAPR, usata anche nel [[5G]]) con banda fino a **212 MHz** e vectoring obbligatorio. Raggiunge **1 Gbit/s in download e 500 Mbit/s in upload** entro **250 m**. A queste frequenze l'attenuazione del rame è così elevata che il tratto in rame deve essere minimo (tipicamente dall'armadio stradale direttamente all'edificio).
 
 Con G.fast la spaziatura tra sottoportanti aumenta a **51,75 kHz**, contro i 4,3125 kHz di ADSL, e il bit loading massimo scende a **12 bit/sottoportante** (opzionale 14 bit) per gestire le maggiori perdite a frequenze elevate. Inoltre G.fast adotta il **TDD (Time Division Duplexing)** invece del FDD classico, e usa obbligatoriamente il **vectoring** per ridurre la diafonia (FEXT) tra più doppini nello stesso cavo.
 
