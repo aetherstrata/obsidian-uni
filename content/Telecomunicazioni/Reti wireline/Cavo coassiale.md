@@ -51,7 +51,7 @@ Il fenomeno fisico dominante alle alte frequenze è l'**effetto pelle**: la corr
 $$
 \delta = \sqrt{\frac{\rho}{\pi f \mu}}
 $$
-dove ρ\rhoρ è la resistività del materiale, fff la frequenza e μ\muμ la permeabilità magnetica. All'aumentare di fff, δ\deltaδ diminuisce: solo la superficie del conduttore trasporta corrente, la sezione utile si riduce e la resistenza aumenta, incrementando le perdite. Per questo motivo, a parità di corrente applicata, un cavo coassiale alle alte frequenze dissipa più potenza rispetto alle basse frequenze.
+dove $\rho$ è la resistività del materiale, $f$ la frequenza e $\mu$ la permeabilità magnetica. All'aumentare di $f$, $\delta$ diminuisce: solo la superficie del conduttore trasporta corrente, la sezione utile si riduce e la resistenza aumenta, incrementando le perdite. Per questo motivo, a parità di corrente applicata, un cavo coassiale alle alte frequenze dissipa più potenza rispetto alle basse frequenze.
 
 Nel cavo coassiale l'effetto pelle ha anche un ruolo **positivo**: la corrente nello schermo scorre anch'essa solo sulla superficie interna della maglia, isolando completamente il campo interno dal mondo esterno, il che garantisce l'elevata schermatura EMI caratteristica del coassiale.
 
