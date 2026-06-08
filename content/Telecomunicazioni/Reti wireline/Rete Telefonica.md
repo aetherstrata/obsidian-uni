@@ -39,7 +39,7 @@ All'interno della centrale si trovano:
 - **Cunicoli e camerette**: infrastruttura interrata per il passaggio dei cavi
 - **Pressurizzazione**: i cavi vengono mantenuti a pressione positiva per rilevare eventuali infiltrazioni d'acqua
 ### Tecnologie
-Il [[Cavi elettrici#Doppino telefonico|doppino telefonico]] ha ospitato nel tempo tecnologie sempre più avanzate, sfruttando progressivamente una banda di frequenze sempre più ampia.
+Il [[Doppino telefonico#Doppino telefonico|doppino telefonico]] ha ospitato nel tempo tecnologie sempre più avanzate, sfruttando progressivamente una banda di frequenze sempre più ampia.
 #### POTS (Plain Old Telephone System)
 Trasmissione **analogica** nella banda **300–3400 Hz** (larghezza di banda utile: 3,1 kHz). Il segnale vocale viaggiava come differenza di potenziale analogica direttamente fino alla centrale.
 

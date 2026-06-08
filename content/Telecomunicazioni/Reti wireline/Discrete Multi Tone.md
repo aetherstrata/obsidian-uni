@@ -6,7 +6,7 @@ tags:
   - segnale
   - adsl
 ---
-La **DMT** (*Discrete Multi-Tone Modulation*) è la tecnica di modulazione multiportante adottata dagli standard ITU-T per i sistemi *xDSL* (come **ADSL**, **ADSL2+**, **VDSL2**, **G.fast**). La modulazione DMT è l'equivalente dell'[[Orthogonal Frequency Division Multiplexing|OFDM]] applicata in **banda base**: a differenza dell'OFDM classico, che trasla il segnale su una portante ad alta frequenza (es. 2.4 GHz per il Wi-Fi), la DMT opera direttamente sulle frequenze del [[Cavi elettrici#Doppino telefonico|doppino telefonico]], senza modulazione in banda passante. Questo la rende adatta alla trasmissione su cavo in rame, dove non serve alcuna antenna e la trasmissione è guidata.
+La **DMT** (*Discrete Multi-Tone Modulation*) è la tecnica di modulazione multiportante adottata dagli standard ITU-T per i sistemi *xDSL* (come **ADSL**, **ADSL2+**, **VDSL2**, **G.fast**). La modulazione DMT è l'equivalente dell'[[Orthogonal Frequency Division Multiplexing|OFDM]] applicata in **banda base**: a differenza dell'OFDM classico, che trasla il segnale su una portante ad alta frequenza (es. 2.4 GHz per il Wi-Fi), la DMT opera direttamente sulle frequenze del [[Doppino telefonico#Doppino telefonico|doppino telefonico]], senza modulazione in banda passante. Questo la rende adatta alla trasmissione su cavo in rame, dove non serve alcuna antenna e la trasmissione è guidata.
 
 |Caratteristica|OFDM|DMT|
 |---|---|---|
@@ -52,12 +52,12 @@ dove:
 - $\text{SNR}_k$​ = rapporto segnale-rumore misurato sulla k-esima sottoportante
 - $\Gamma$ = **gap di codifica** (coding gap), pari a circa **9 dB** per un BER target di $10^{-7}$
 
-Il gap $\Gamma$ rappresenta la distanza dalla capacità di Shannon teorica in condizioni pratiche di codifica. Sottoportanti con [[Trasmissione Digitale#SNR|SNR]] elevato ricevono molti bit (es. 12-15 bit/simbolo), mentre quelle in zone rumorose o a frequenze elevate, dove l'attenuazione del  [[Cavi elettrici#Doppino telefonico|doppino]] è alta, ricevono pochi bit o vengono disabilitate. In pratica, il modem misura il SNR su ogni bin prima dell'inizio della trasmissione dati (fase di _initialization/training_) e aggiorna periodicamente la mappa di bit loading.
+Il gap $\Gamma$ rappresenta la distanza dalla capacità di Shannon teorica in condizioni pratiche di codifica. Sottoportanti con [[Trasmissione Digitale#SNR|SNR]] elevato ricevono molti bit (es. 12-15 bit/simbolo), mentre quelle in zone rumorose o a frequenze elevate, dove l'attenuazione del  [[Doppino telefonico#Doppino telefonico|doppino]] è alta, ricevono pochi bit o vengono disabilitate. In pratica, il modem misura il SNR su ogni bin prima dell'inizio della trasmissione dati (fase di _initialization/training_) e aggiorna periodicamente la mappa di bit loading.
 
 ![[Pasted image 20260607191405.png]]
 
 ### Allocazione spettrale
-In **ADSL** il [[Cavi elettrici#Doppino telefonico|doppino telefonico]] è condiviso tra tre servizi:
+In **ADSL** il [[Doppino telefonico#Doppino telefonico|doppino telefonico]] è condiviso tra tre servizi:
 
 | Banda (kHz) | Servizio                                          |
 | ----------- | ------------------------------------------------- |
@@ -106,7 +106,7 @@ Con G.fast la spaziatura tra sottoportanti aumenta a **51,75 kHz**, contro i 4,3
 >Il **vectoring** (standardizzato in ITU-T G.993.5 per VDSL2 e obbligatorio in G.fast) è una tecnica di cancellazione della diafonia che opera in modo analogo alla cancellazione del rumore nelle cuffie: misura i segnali di crosstalk tra più doppini e li sottrae precisamente dal segnale ricevuto, permettendo di mantenere SNR elevato anche a frequenze alte e su distanze maggiori.
 
 ## Canale
-Il canale DMT è il [[Cavi elettrici#Doppino telefonico|doppino telefonico]] *twisted pair*, caratterizzato da:
+Il canale DMT è il [[Doppino telefonico#Doppino telefonico|doppino telefonico]] *twisted pair*, caratterizzato da:
 
 - **Attenuazione crescente con la frequenza**: più alta è la frequenza, più il segnale si attenua, da cui il profilo a campana del bit loading.
 - **Rumore [[Rumore#AWGN|AWGN]]** e **diafonia** (crosstalk, FEXT/NEXT) dovuta all'accoppiamento tra doppini paralleli nello stesso cavo.
