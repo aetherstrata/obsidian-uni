@@ -67,8 +67,8 @@ La **banda passante** di un cavo coassiale dipende dal tipo di costruzione e dal
 |Cavi semigidi/rigidi specializzati|**DC – 50 GHz+**|Applicazioni militari, test e misure|
 
 Il cavo coassiale supera nettamente il doppino telefonico nella banda trasportabile: il rame telefonico arriva a 212 MHz (G.fast), mentre un buon cavo coassiale per CATV gestisce facilmente 1 GHz. Tuttavia, l'attenuazione rimane **crescente con la frequenza e la distanza**: raddoppiare la frequenza aumenta l'attenuazione di circa 3 dB su ogni 100 m, rendendo necessari ripetitori o amplificatori per tratte lunghe.
-### Ripetitori vs Amplificatori
 
+>[!info] Ripetitori vs Amplificatori
 > Nelle reti coassiali non sono sufficienti semplici **amplificatori**, perché questi aumentano il livello del segnale ma amplificano anche il **rumore** e la **distorsione** accumulati. Servono invece **rigeneratori di segnale (repeater)**, che ricostruiscono il segnale digitale da zero, eliminando il rumore. Per i segnali analogici (televisione) si usano amplificatori ad alta linearità posti a intervalli regolari (tipicamente ogni 500–1000 m nelle reti CATV).
 
 ## Connettori per Cavi Coassiali
