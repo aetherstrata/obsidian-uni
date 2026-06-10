@@ -3,6 +3,7 @@ tags:
   - wireline
   - cavo
   - canale
+  - fibra
 ---
 La **fibra ottica** è un mezzo trasmissivo guidato in cui l'informazione viaggia sotto forma di **impulsi luminosi** (luce infrarossa, non visibile) anziché segnali elettrici. Le sue proprietà la rendono superiore a qualsiasi mezzo metallico per applicazioni a lunga distanza e ad alta capacità:
 - **Larghezza di banda nell'ordine dei Tbit/s** (vs ~200 MHz del [[Doppino telefonico|rame]] G.fast)
