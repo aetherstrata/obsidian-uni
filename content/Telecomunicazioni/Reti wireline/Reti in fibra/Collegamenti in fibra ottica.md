@@ -45,9 +45,13 @@ Il **VCSEL** emette perpendicolarmente al wafer (surface-emitting), ha bassissim
 
 Nella **modulazione diretta**, il segnale dati viene convertito in corrente di iniezione dal laser driver, modulando direttamente la potenza luminosa uscente. Il laser opera sopra la corrente di soglia $I_{th}$​: al di sotto non c'è emissione laser (solo spontanea), al di sopra la potenza cresce linearmente con la corrente. Questo approccio è semplice ed economico, ma soffre di **chirp** (variazione di frequenza durante la transizione 0 -> 1), che limita la distanza e il bit rate.
 
+![[Pasted image 20260610232352.png]]
+
 ### Modulazione Esterna (EOM)
 
 Nella **modulazione esterna**, il laser opera in onda continua (CW) e un modulatore separato impone il segnale sulla luce. Il modulatore più usato è il **Mach-Zehnder Modulator (MZM)**: la luce viene divisa in due rami in un materiale elettro-ottico; applicando una tensione si varia l'indice di rifrazione e quindi la differenza di fase tra i due percorsi; alla ricombinazione si ha interferenza costruttiva o distruttiva che converte la fase in ampiezza. I modulatori EA (Electro-Absorption) sono più compatti e integrabili sullo stesso chip del laser DFB.
+
+![[Pasted image 20260610232416.png]]
 
 ### On-Off Keying (OOK)
 
@@ -67,6 +71,8 @@ cioè proporzionale al campo del segnale (non alla sua potenza), permettendo di 
 
 Il **fotodiodo PIN** sfrutta l'effetto fotoelettrico: un fotone con energia $E = h\nu \geq E_g$ viene assorbito nello strato intrinseco (I) generando una coppia elettrone-lacuna. Polarizzato inversamente, in assenza di luce non scorre corrente; ogni fotone assorbito produce una coppia che genera la **fotocorrente** $I_p = R \cdot P_{in}$. Lo strato intrinseco controlla la larghezza della zona di svuotamento, riducendo la corrente diffusiva e aumentando la velocità di risposta.
 
+![[Pasted image 20260610232639.png]]
+
 **Parametri tipici del PIN:**
 
 | Parametro                 | Valore tipico           |
@@ -76,6 +82,8 @@ Il **fotodiodo PIN** sfrutta l'effetto fotoelettrico: un fotone con energia $E =
 | Corrente di buio          | 1 - 10 nA               |
 | Tensione polariz. inversa | 5 - 15 V                |
 | NEP                       | $\approx10^{-14}$ W/√Hz |
+
+![[Pasted image 20260610232734.png]]
 
 ### Fotodiodo a Valanga (APD)
 
