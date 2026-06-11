@@ -61,7 +61,7 @@ La modulazione più semplice è l'**OOK**: modulazione di ampiezza su due livell
 
 ## Modulazione Coerente
 
-I sistemi coerenti sfruttano **ampiezza, fase e polarizzazione** del campo ottico, avvicinandosi al limite teorico di Shannon. Si usa un **modulatore IQ** che combina due portanti ortogonali (sfasate di 90°) per trasmettere le componenti in-phase (I) e in-quadratura (Q) del segnale, implementato otticamente con due MZM in parallelo.
+I sistemi coerenti sfruttano **ampiezza, fase e polarizzazione** del campo ottico, avvicinandosi al limite teorico di Shannon. Si usa un **modulatore IQ** che combina due portanti ortogonali (sfasate di 90°) per trasmettere le componenti in-phase (I) e in-quadrature (Q) del segnale, implementato otticamente con due MZM in parallelo.
 
 ![[Pasted image 20260611211641.png]]
 

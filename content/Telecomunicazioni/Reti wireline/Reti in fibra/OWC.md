@@ -52,7 +52,9 @@ Le comunicazioni **UV-C (200-280 nm)** sono caratterizzate da propagazione **NLo
 Nelle **OCC** il ricevitore è una fotocamera (sensore CMOS, come quella di uno smartphone), che può essere divisa in settori per implementare **MIMO ottico** (*Multiple Input Multiple Output*): ogni settore del sensore funziona come un fotodiodo indipendente, consentendo la separazione spaziale di segnali provenienti da più LED o display. Le applicazioni includono navigazione indoor, realtà aumentata, V2V e V2I.
 ## Schema del Sistema OWC
 
-Il trasmettitore converte il segnale elettrico in ottico (conversione E/O) tramite laser o LED, con segnale **sempre non negativo** (intensità ottica $\ge 0$) - a differenza dei sistemi coerenti in fibra che modulano la fase. Il ricevitore converte il segnale ottico in elettrico (O/E) tramite fotodiodo ([[Collegamenti in fibra ottica#Fotodiodo PIN|PIN]] o [[Collegamenti in fibra ottica#Fotodiodo a Valanga (APD)|APD]]) o sensore di immagine, seguito da processamento in banda base. I laser hanno **Field of View (FoV) ridotto** e richiedono allineamento LoS preciso; i LED hanno **FoV ampio** e tollerano configurazioni NLoS.
+Il trasmettitore converte il segnale elettrico in ottico (conversione E/O) tramite laser o LED, con segnale **sempre non negativo** (intensità ottica $\ge 0$), a differenza dei [[Collegamenti in fibra ottica#Modulazione Coerente|sistemi coerenti]] in fibra che modulano la fase. Il ricevitore converte il segnale ottico in elettrico (O/E) tramite fotodiodo ([[Collegamenti in fibra ottica#Fotodiodo PIN|PIN]] o [[Collegamenti in fibra ottica#Fotodiodo a Valanga (APD)|APD]]) o sensore di immagine, seguito da processamento in banda base. I laser hanno **Field of View (FoV) ridotto** e richiedono allineamento LoS preciso; i LED hanno **FoV ampio** e tollerano configurazioni NLoS.
+
+![[Pasted image 20260611221444.png]]
 
 ## Confronto con RF
 
@@ -117,6 +119,15 @@ I sistemi **acustici sottomarini** tradizionali soffrono di banda ridotta (1 kHz
 ### Backhaul 5G e Last Mile
 
 L'FSO è usato come **backhaul ottico** per stazioni base 5G quando la posa di fibra non è praticabile, o come collegamento di emergenza in caso di disastri naturali (terremoti, alluvioni) che danneggino la fibra interrata.
+
+### PAN e BAN
+
+Le **PAN** (*Personal Area Network*) ottiche sostituiscono le tradizionali connessioni Bluetooth/IrDA per collegare dispositivi personali (smartphone, stampanti, schermi, POS, ATM) tramite VLC o IRC, sfruttando la luce come canale di comunicazione a corto raggio senza occupare lo spettro RF. 
+
+Le **BAN** (*Body Area Network*) ottiche utilizzano invece sensori indossabili che comunicano otticamente per il monitoraggio continuo di parametri fisici e biochimici (frequenza cardiaca, saturazione, attività muscolare), trovando impiego nell'**e-health** e nel monitoraggio delle prestazioni atletiche in ambienti dove i segnali RF interferirebbero con apparecchiature mediche. 
+
+In entrambi i casi, il range operativo è limitato a pochi metri e richiede allineamento *LoS*, ma offre in compenso elevata sicurezza fisica e immunità alle interferenze elettromagnetiche.
+
 ## Schemi di Modulazione VLC
 
 | Schema    | Data rate     | Caratteristiche                     | Uso                  |
