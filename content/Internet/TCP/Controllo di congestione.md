@@ -62,8 +62,7 @@ Il funzionamento dell'algoritmo combinato è il seguente:
 > [!tip] TCP Tahoe vs Reno
 >
 > - **Tahoe** (1988): usa [[#slow start]] + [[#congestion avoidance]], ma non include [[#fast retransmit]]/[[#fast recovery]].​
-> - **Reno**: aggiunge [[#fast retransmit e fast recovery]], producendo l’andamento “a dente di sega” (saw-teeth).​  
->
+> - **Reno**: aggiunge [[#fast retransmit e fast recovery]], producendo l’andamento “a dente di sega” (saw-teeth).​
 >
 > RFC 5681 formalizza/descrive il comportamento moderno “classico” del controllo congestione TCP (post-Tahoe/Reno).​
 
