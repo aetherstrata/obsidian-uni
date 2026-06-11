@@ -1,7 +1,12 @@
 import { render } from "preact-render-to-string"
 import { QuartzComponent, QuartzComponentProps } from "./types"
 import BodyConstructor from "./Body"
-import { CSSResource, JSResourceToScriptElement, StaticResources } from "../util/resources"
+import {
+  CSSResource,
+  JSResource,
+  JSResourceToScriptElement,
+  StaticResources,
+} from "../util/resources"
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { clone } from "../util/clone"
 import { Root, Element, ElementContent } from "hast"
@@ -45,16 +50,37 @@ export function pageResources(
     }
   }
 
+  const extracted = ctx?.extractedInlineResources
+  const resolvedCss: CSSResource[] = staticResources.css.map((resource) => {
+    if (!(resource.inline ?? false) || !extracted) return resource
+    const filename = extracted.get(resource.content)
+    if (!filename) return resource
+    return { content: joinSegments(baseDir, filename) }
+  })
+
+  const resolvedJs: JSResource[] = staticResources.js.map((resource) => {
+    if (resource.contentType !== "inline" || !extracted) return resource
+    const filename = extracted.get(resource.script)
+    if (!filename) return resource
+    return {
+      src: joinSegments(baseDir, filename),
+      loadTime: resource.loadTime,
+      contentType: "external" as const,
+      moduleType: resource.moduleType,
+      spaPreserve: resource.spaPreserve,
+    }
+  })
+
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
-  return {
+  const resources: StaticResources = {
     css: [
       {
         content: joinSegments(baseDir, cssFile),
       },
       ...componentCssResources,
-      ...staticResources.css,
+      ...resolvedCss,
     ],
     js: [
       {
@@ -68,17 +94,11 @@ export function pageResources(
         spaPreserve: true,
         script: contentIndexScript,
       },
-      ...staticResources.js,
-      {
-        src: joinSegments(baseDir, "postscript.js"),
-        loadTime: "afterDOMReady",
-        moduleType: "module",
-        contentType: "external",
-      },
+      ...resolvedJs,
     ],
     additionalHead: staticResources.additionalHead,
   }
-  
+
   resources.js.push({
     src: joinSegments(baseDir, postscriptFile),
     loadTime: "afterDOMReady",
