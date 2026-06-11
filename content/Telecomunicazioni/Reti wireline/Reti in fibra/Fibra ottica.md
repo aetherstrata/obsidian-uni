@@ -20,13 +20,13 @@ Una fibra ottica è un filo di vetro (_biossido di silicio_, $SiO_2$) composto d
 ### Nucleo (Core)
 Il nucleo è formato da un cilindro centrale in vetro drogato con ossidi (es. germanio) per alzare leggermente l'indice di rifrazione. 
 
-Il vetro ha un indice di rifrazione di circa $n_g\simeq1.5$ e ha un diametro che varia in base alle esigenze di trasmissione: **9** $\textmu\text{m}$ (monomodo) o **50-62,5** $\textmu\text{m}$ (multimodo).
+Il vetro ha un indice di rifrazione di circa $n_g\simeq1.5$ e ha un diametro che varia in base alle esigenze di trasmissione: **9** μm (monomodo) o **50-62,5** μm (multimodo).
 
 ### Mantello (Cladding)
 Il mantello è uno strato esterno in vetro con indice di rifrazione $n_1<n_g$ , la differenza è piccola (es. da 1,50 a 1,48). È la discontinuità tra questi due indici che crea la riflessione totale.
 
 ### Rivestimento (Coating)
-Il rivestimento è una guaina protettiva in materiale polimerico (acrilato o poliammide) che protegge meccanicamente la fibra. Il diametro totale della fibra è **125** $\textmu\text{m}$, più sottile di un capello (**~80** $\textmu\text{m}$).
+Il rivestimento è una guaina protettiva in materiale polimerico (acrilato o poliammide) che protegge meccanicamente la fibra. Il diametro totale della fibra è **125** μm, più sottile di un capello (**~80** μm).
 
 ## Principio di Propagazione
 
@@ -68,7 +68,7 @@ dove $a$ è il raggio del core e \lambda\lambda la lunghezza d'onda. Per $V<2.40
 
 ![[Pasted image 20260609220609.png]]
 
-- Core ampio (**50** o **62,5** $\textmu\text{m}$) e una NA più elevata rendono la fibra più semplice da installare e connettere
+- Core ampio (**50** o **62,5** μm) e una NA più elevata rendono la fibra più semplice da installare e connettere
 - Più modi di propagazione con percorsi diversi -> **[[#Dispersione Intermodale (MMF)]]**
 - Usate con sorgenti VCSEL a 850 nm a basso costo
 - Distanze massime: **da 33 m a 550 m** a seconda dello standard
@@ -76,16 +76,16 @@ dove $a$ è il raggio del core e \lambda\lambda la lunghezza d'onda. Per $V<2.40
 
 | Standard | Core                       | Anno | Sorgente     | 10 Gbit/s | 100 Gbit/s |
 | -------- | -------------------------- | ---- | ------------ | --------- | ---------- |
-| **OM1**  | 62,5/125 $\textmu\text{m}$ | 1989 | LED          | 33 m      | ,          |
-| **OM2**  | 50/125 $\textmu\text{m}$   | 1998 | LED          | 82 m      | ,          |
-| **OM3**  | 50/125 $\textmu\text{m}$   | 2002 | VCSEL 850 nm | 300 m     | 100 m      |
-| **OM4**  | 50/125 $\textmu\text{m}$   | 2009 | VCSEL 850 nm | 550 m     | 150 m      |
-| **OM5**  | 50/125 $\textmu\text{m}$   | 2014 | VCSEL, SWDM  | 440 m     | 150 m      |
+| **OM1**  | 62,5/125 μm | 1989 | LED          | 33 m      | ,          |
+| **OM2**  | 50/125 μm   | 1998 | LED          | 82 m      | ,          |
+| **OM3**  | 50/125 μm   | 2002 | VCSEL 850 nm | 300 m     | 100 m      |
+| **OM4**  | 50/125 μm   | 2009 | VCSEL 850 nm | 550 m     | 150 m      |
+| **OM5**  | 50/125 μm   | 2014 | VCSEL, SWDM  | 440 m     | 150 m      |
 ## Fibre Monomodo (SMF)
 
 ![[Pasted image 20260609220639.png]]
 
-- Core sottile (**9** $\textmu\text{m}$) e una NA ridotta limitano la propagazione a un solo modo, nessuna dispersione intermodale
+- Core sottile (**9** μm) e una NA ridotta limitano la propagazione a un solo modo, nessuna dispersione intermodale
 - Richiede laser a banda stretta e connettori con allineamento preciso
 - Distanze: **migliaia di km** (cavi sottomarini con amplificatori EDFA ogni ~100 km)
 - **Applicazioni**: reti di accesso FTTH/GPON, reti metropolitane, backbone, cavi sottomarini
