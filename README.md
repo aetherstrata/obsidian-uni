@@ -5,6 +5,7 @@ Questa è una collezione di appunti del Corso di Laurea in Ingegneria Informatic
 Gli appunti sono fruibili online all'indirizzo: https://md.aest.dev
 
 I corsi trattati nei documenti di questo archivio sono
+
 - [Elettrotecnica ed Elettronica](content/Elettrotecnica)
 - [Fond. di Telecomunicazioni](content/Telecomunicazioni)
 - [Fond. di Automatica](content/Automatica)

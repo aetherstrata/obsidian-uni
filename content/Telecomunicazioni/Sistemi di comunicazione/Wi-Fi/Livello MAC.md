@@ -4,6 +4,7 @@ tags:
   - pacchetti
   - data-link
 ---
+
 Il livello **MAC** del Wi‑Fi genera i propri **frame**, in modo analogo a quanto fa Ethernet, ma con scopi diversi. In particolare, il livello MAC deve:
 
 - gestire l’**accesso al mezzo trasmissivo**;
@@ -12,14 +13,15 @@ Il livello **MAC** del Wi‑Fi genera i propri **frame**, in modo analogo a quan
 - supportare i meccanismi di _risparmio energetico_ (**power saving**).
 
 Nei sistemi Wi‑Fi moderni, la gestione del consumo energetico è molto importante, quindi il MAC ha anche il compito di ridurre l’uso di potenza quando possibile.
+
 ## Accesso al canale
 
 Il Wi‑Fi usa un meccanismo di accesso multiplo al canale basato su _Carrier Sense Multiple Access_, più precisamente **CSMA/CA** (_collision avoidance_), al contrario di Ethernet classica che usa **CSMA/CD** (_collision detection_). L’idea di base è questa:
 
-1) prima di trasmettere, una stazione deve **ascoltare il mezzo**;
-2) solo se il canale risulta libero può iniziare la procedura di trasmissione;
-3) il livello MAC prende i pacchetti dei livelli superiori, ad esempio i pacchetti IP, e li inserisce in un **frame MAC**;
-4) il frame viene poi passato al [[Livello fisico|livello fisico]] per la trasmissione.
+1. prima di trasmettere, una stazione deve **ascoltare il mezzo**;
+2. solo se il canale risulta libero può iniziare la procedura di trasmissione;
+3. il livello MAC prende i pacchetti dei livelli superiori, ad esempio i pacchetti IP, e li inserisce in un **frame MAC**;
+4. il frame viene poi passato al [[Livello fisico|livello fisico]] per la trasmissione.
 
 Il MAC non usa gli indirizzi IP per la trasmissione sul mezzo radio, ma gli **indirizzi MAC** dei dispositivi coinvolti, ad esempio l’indirizzo dell’**Access Point** a cui il frame deve essere inviato.
 
@@ -42,13 +44,13 @@ L'accesso al mezzo e le priorità dei pacchetti sono gestiti tramite gli **IFS**
 
 Per trasmettere un pacchetto dati standard, una stazione deve seguire una precisa sequenza per evitare collisioni simultanee:
 
-1) La stazione verifica se il canale è libero (Carrier Sense).
-2) Se occupato, attende che si liberi.
-3) Quando il canale si libera, attende obbligatoriamente il tempo **DIFS**.
-4) Se il canale è ancora libero dopo il DIFS, la stazione avvia un timer di **Backoff** casuale scelto all'interno di una Contention Window.
-5) Il timer scala solo mentre il canale è libero; se qualcun altro inizia a trasmettere, il timer si congela e riprenderà quando il mezzo tornerà libero.
-6) Quando il backoff arriva a zero, la stazione trasmette i dati.
-7) Se la trasmissione va a buon fine, il destinatario attende un tempo **SIFS** (molto breve) e risponde con un **ACK**.
+1. La stazione verifica se il canale è libero (Carrier Sense).
+2. Se occupato, attende che si liberi.
+3. Quando il canale si libera, attende obbligatoriamente il tempo **DIFS**.
+4. Se il canale è ancora libero dopo il DIFS, la stazione avvia un timer di **Backoff** casuale scelto all'interno di una Contention Window.
+5. Il timer scala solo mentre il canale è libero; se qualcun altro inizia a trasmettere, il timer si congela e riprenderà quando il mezzo tornerà libero.
+6. Quando il backoff arriva a zero, la stazione trasmette i dati.
+7. Se la trasmissione va a buon fine, il destinatario attende un tempo **SIFS** (molto breve) e risponde con un **ACK**.
 
 ### Il Problema del Nodo Nascosto e RTS/CTS
 
@@ -86,8 +88,8 @@ I frame di controllo servono perché nel Wi‑Fi non è possibile rilevare una c
 I principali frame di controllo sono:
 
 - **ACK**, per confermare che un frame è stato ricevuto correttamente;
-- **RTS** (*Request to Send*), per chiedere il permesso di trasmettere;
-- **CTS** (*Clear to Send*), inviato dall’Access Point per autorizzare la trasmissione.
+- **RTS** (_Request to Send_), per chiedere il permesso di trasmettere;
+- **CTS** (_Clear to Send_), inviato dall’Access Point per autorizzare la trasmissione.
 
 L’uso di RTS e CTS non è sempre obbligatorio, perché introduce overhead e quindi consuma banda.
 
@@ -131,7 +133,7 @@ Il **NAV** serve a far capire alle stazioni che il canale deve essere considerat
 
 ### I quattro indirizzi
 
-Una delle particolarità del frame MAC del Wi‑Fi è che può contenere fino a **quattro indirizzi**. 
+Una delle particolarità del frame MAC del Wi‑Fi è che può contenere fino a **quattro indirizzi**.
 
 In Ethernet di solito bastano:
 
@@ -147,7 +149,7 @@ Se un client deve trasmettere un frame verso la rete tramite un Access Point, ne
 - **Address 1**: il destinatario radio immediato, cioè l’Access Point (**Receiver Address / BSSID**).
 - **Address 2**: la stazione che sta trasmettendo, cioè il mittente radio (**Transmitter Address / Source Address**).
 - **Address 3**: la destinazione finale del frame nella rete.
-    
+
 In pratica:
 
 - il frame viene mandato via radio all’Access Point;
@@ -195,15 +197,17 @@ I casi tipici sono:
 ### Procedure di Scanning
 
 Per potersi connettere a una rete wireless, una stazione deve prima scoprire quali Access Point sono disponibili nelle vicinanze. Questo processo si chiama scanning e può avvenire in due modalità distinte, a seconda delle impostazioni del sistema operativo e delle priorità energetiche.
+
 #### Scanning passivo
 
 Lo scanning passivo avviene quando il client si sintonizza sui vari canali radio e si mette semplicemente in ascolto.
 
-L'Access Point trasmette periodicamente (di solito ogni 100 millisecondi) frame di *management* chiamati Beacon, contenenti il SSID, le velocità supportate e i parametri di rete.
+L'Access Point trasmette periodicamente (di solito ogni 100 millisecondi) frame di _management_ chiamati Beacon, contenenti il SSID, le velocità supportate e i parametri di rete.
 
- Il vantaggio principale dello scanning passivo è il notevole risparmio energetico, che lo rende ideale per i dispositivi alimentati a batteria.
+Il vantaggio principale dello scanning passivo è il notevole risparmio energetico, che lo rende ideale per i dispositivi alimentati a batteria.
 
 Lo svantaggio dello scanning passivo è la lentezza, poiché il client deve sostare su ogni canale per un tempo sufficiente ad intercettare un eventuale Beacon.
+
 #### Scanning attivo
 
 Lo scanning attivo prevede invece che il client prenda l'iniziativa, inviando su tutti i canali dei frame di management chiamati Probe Request.
@@ -212,29 +216,34 @@ Gli Access Point in ascolto che soddisfano i criteri della richiesta rispondono 
 
 Questo metodo è molto più veloce e permette connessioni rapide, ma comporta un maggiore consumo di energia per la trasmissione attiva.
 
-Lo scanning attivo espone maggiormente la privacy del dispositivo, poiché spesso i client trasmettono in chiaro i nomi delle reti a cui si sono connessi in passato per cercarle nell'etere.    
+Lo scanning attivo espone maggiormente la privacy del dispositivo, poiché spesso i client trasmettono in chiaro i nomi delle reti a cui si sono connessi in passato per cercarle nell'etere.
 
 ### Autenticazione e Sicurezza
 
 Dopo aver individuato la rete, la stazione deve completare il processo di autenticazione e la successiva associazione all'Access Point. Nel tempo, lo standard IEEE 802.11 ha introdotto diverse tecnologie per garantire l'accesso sicuro al mezzo condiviso.
+
 #### Rete aperta
+
 L'autenticazione **Open System** è il metodo basilare dove non avviene alcuna verifica crittografica delle credenziali a livello MAC.
 
 In un sistema aperto la stazione invia la richiesta e l'Access Point l'accetta sempre, delegando la reale sicurezza ai livelli superiori della rete (come un Captive Portal o l'uso di una VPN).
 
 #### Wired Equivalent Privacy
-Il protocollo **WEP** (*Wired Equivalent Privacy*) è lo standard di sicurezza originale, oggi deprecato e totalmente insicuro a causa di gravi vulnerabilità nella gestione dei vettori di inizializzazione (IV) dell'algoritmo RC4.
+
+Il protocollo **WEP** (_Wired Equivalent Privacy_) è lo standard di sicurezza originale, oggi deprecato e totalmente insicuro a causa di gravi vulnerabilità nella gestione dei vettori di inizializzazione (IV) dell'algoritmo RC4.
 
 Con il WEP, un attaccante in ascolto passivo può decifrare la chiave di rete semplicemente catturando un numero sufficiente di pacchetti dati perché rimane la stessa durante tutta la sessione.
 
 #### Wi-Fi Protected Access
-Il protocollo **WPA** (*Wi-Fi Protected Access*) è stato introdotto come soluzione ponte per sostituire il WEP utilizzando lo stesso hardware, implementando il **TKIP** per variare dinamicamente le chiavi di cifratura.
+
+Il protocollo **WPA** (_Wi-Fi Protected Access_) è stato introdotto come soluzione ponte per sostituire il WEP utilizzando lo stesso hardware, implementando il **TKIP** per variare dinamicamente le chiavi di cifratura.
 
 Il **WPA2** rappresenta l'attuale standard di base per la sicurezza wireless, introducendo l'uso obbligatorio dell'algoritmo di crittografia forte AES-CCMP.
 
-Il **WPA3** è lo standard di ultima generazione, progettato per bloccare gli attacchi a dizionario offline grazie al protocollo di handshake **SAE** (*Simultaneous Authentication of Equals*) e per garantire la Forward Secrecy.
+Il **WPA3** è lo standard di ultima generazione, progettato per bloccare gli attacchi a dizionario offline grazie al protocollo di handshake **SAE** (_Simultaneous Authentication of Equals_) e per garantire la Forward Secrecy.
 
 Le implementazioni WPA si dividono in Personal, basate su una password condivisa (PSK), ed Enterprise, che richiedono un server RADIUS per autenticare individualmente ogni utente della rete.
+
 ## Power Management nel Wi-Fi
 
 Poiché l'AP è generalmente collegato alla rete elettrica mentre i dispositivi client vanno a batteria, il Wi-Fi prevede funzioni di risparmio energetico (Power Save).

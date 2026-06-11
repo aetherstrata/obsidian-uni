@@ -6,41 +6,63 @@ tags:
   - operatore
   - matematica
 ---
+
 La trasformata discreta è un particolare tipo di [[Trasformata di Fourier]] che converte un insieme di campioni equispaziati di una funzione in una combinazione lineare di armoniche
+
 $$
 x[n]\overset{\mathcal{F}}{\longrightarrow} X(f)=\underbracket{\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi fnT}}_{\text{serie di Fourier}}
 $$
+
 La rappresentazione in frequenza di un segnale tempo-discreto è scritta come una [[Serie di Fourier]] di periodo $1/T$.
+
 ## Anti-trasformata
+
 $$
 X(f)\overset{\mathcal{F^{-1}}}{\longrightarrow}x[n]=T\int_{-1/2T}^{1/2T}X(f)e^{i2\pi nfT}df
 $$
+
 ## Periodicità
+
 La trasformata $X(f)$ di un segnale tempo-discreto ha periodo $1/T$.
+
 ### Dimostrazione
+
 Per essere dimostrato, $X(f)$ deve essere uguale a $X(f-1/T)$.
+
 $$
 X\left(f-\frac{1}{T}\right)=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi \left(f-\frac{1}{T}\right)nT}=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi fnT}e^{i2\pi n}
 $$
+
 Il termine $e^{i2\pi n}$ vale sempre $1$ e può essere cancellato. La parte rimanente è proprio uguale alla trasformata calcolata in $f$.
+
 $$
 X\left(f-\frac{1}{T}\right)=\sum_{n=-\infty}^{+\infty}x[n]e^{-i2\pi nfT}=X(f)
 $$
+
 ## Proprietà
+
 ### Traslazione nel tempo
+
 $$
 x[n-n_0]\overset{\mathcal{F}}{\longrightarrow}X(f)e^{-i2\pi n_0fT}
 $$
+
 ### Traslazione in frequenza
+
 $$
 x[n]e^{i2\pi nf_0T}\overset{\mathcal{F}}{\longrightarrow}X(f-f_0)
 $$
+
 ### Convoluzione
+
 La trasformata di un [[Convoluzione|segnale convoluto]] è il prodotto delle trasformate delle componenti.
+
 $$
 y[n]=x[n]*h[n]\overset{\mathcal{F}}{\longrightarrow}Y(f)=X(f)\cdot H(f)
 $$
+
 #### Dimostrazione
+
 $$
 \begin{gather*}
 \begin{alignedat}{4}
@@ -55,11 +77,15 @@ Y(f)&=\sum_{k=-\infty}^{+\infty}x[k]\sum_{n'=-\infty}^{+\infty}h[n']e^{-i2\pi n'
 \end{aligned}
 \end{gather*}
 $$
+
 ### Convoluzione circolare
+
 $$
 y[n]=x[n]\cdot h[n] \overset{\mathcal{F}}{\longrightarrow} Y(f)=T\int_{-1/2T}^{1/2T}X(\theta)\cdot H(f-\theta)\ d\theta
 $$
+
 #### Dimostrazione
+
 $$
 \begin{gather*}
 y[n]=x[n]\cdot h[n]\\
@@ -72,15 +98,20 @@ Y(f)&=\sum_{n=-\infty}^{+\infty}h[n]e^{-i2\pi nfT}\cdot T\int_{-1/2T}^{1/2T}X(\t
 \end{aligned}
 \end{gather*}
 $$
+
 #### Periodicità dello spettro
+
 Sapendo che gli spettri $X(f)$ e $H(f)$ di segnali discreti sono periodici, si possono riscrivere come treni di repliche $\overline{\!X}(f)$ e $\overline{\!H}(f)$ degli spettri traslate sul il dominio delle frequenze.
+
 $$
 \begin{align*}
 X(f)&=\sum_{n=-\infty}^{+\infty}\overline{\!X}\left(f-\frac{n\vphantom{k}}{T}\right)\\
 H(f)&=\sum_{k=-\infty}^{+\infty}\overline{\!H}\left(f-\frac{k}{T}\right)
 \end{align*}
 $$
+
 Queste sommatorie si possono sostituire nella formula ricavata sopra.
+
 $$
 \begin{gather*}
 Y(f)=T\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty} \int_{-1/2T}^{1/2T}\overline{\!X}\left(\theta-\frac{n\vphantom{k}}{T}\right)\cdot \overline{\!H}\left(f-\theta-\frac{k}{T}\right)\ d\theta\\\\
@@ -90,15 +121,21 @@ Y(f)&=T\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty} \int\limits_{\displa
 \end{aligned}
 \end{gather*}
 $$
-Andando a sommare sui vari periodi $1/T$ traslati di $n$, tutte le somme sono uguali a $0$ tranne che per $n=0$ perché il segnale integrando  $\overline{\!X}(\theta')$ è uguale a $0$ per tutto il dominio tranne che attorno l'origine.
+
+Andando a sommare sui vari periodi $1/T$ traslati di $n$, tutte le somme sono uguali a $0$ tranne che per $n=0$ perché il segnale integrando $\overline{\!X}(\theta')$ è uguale a $0$ per tutto il dominio tranne che attorno l'origine.
+
 $$
 Y(f)=T\sum_{k=-\infty}^{+\infty} \underbrace{\int_{-1/2T}^{1/2T}\overline{\!X}(\theta') \cdot \overline{\!H}\left(f-\theta'-\frac{k}{T}\right)\ d\theta'}_{\overline{Y}\left(f-\frac{k}{T}\right)}
 $$
-Sia  $\overline{\!Y}(f)$ la convoluzione  $\overline{\!X}(f)*\overline{\!H}(f)$, allora la trasformata $Y(f)$ si può riscrivere come sommatoria delle convoluzioni traslate delle repliche, dato che l'integrale si può riscrivere tra $-\infty$ e $+\infty$, in quanto è nullo per tutti i valori fuori dal periodo.
+
+Sia $\overline{\!Y}(f)$ la convoluzione $\overline{\!X}(f)*\overline{\!H}(f)$, allora la trasformata $Y(f)$ si può riscrivere come sommatoria delle convoluzioni traslate delle repliche, dato che l'integrale si può riscrivere tra $-\infty$ e $+\infty$, in quanto è nullo per tutti i valori fuori dal periodo.
+
 $$
 Y(f)=T\sum_{k=-\infty}^{+\infty}\overline{Y}\left(f-\frac{k}{T}\right)
 $$
+
 ### Coniugazione
+
 $$
 y^*[n] \overset{\mathcal{F}}{\longrightarrow} \sum_{n=-\infty}^{+\infty}y^*[n]e^{-i2\pi nfT}=\left[\sum_{n=-\infty}^{+\infty}y[n]e^{i2\pi nfT}\right]^*=Y^*(-f)
 $$

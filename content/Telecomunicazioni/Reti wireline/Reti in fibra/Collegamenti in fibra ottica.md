@@ -5,6 +5,7 @@ tags:
   - physical
   - infrastruttura
 ---
+
 Un collegamento in fibra ottica è composto da tre elementi fondamentali: un **trasmettitore ottico**, il **canale di comunicazione** (la fibra), e un **ricevitore ottico**. Il trasmettitore comprende un codificatore, un modulatore e un laser; il ricevitore contiene un filtro ottico, un fotorivelatore e un filtro elettrico per recuperare i bit. Nei sistemi terrestri, ogni tratto (span) è tipicamente di circa **100 km**, al termine del quale si inserisce un amplificatore ottico prima di ripetere il collegamento.
 
 ## Principi Fisici
@@ -13,12 +14,14 @@ L'energia di un fotone è descritta dalla relazione di Planck-Einstein: $E = h\n
 
 - **Assorbimento**: il fotone cede la sua energia a un elettrone, portandolo dalla banda di valenza a quella di conduzione. Il fotone cessa di esistere
 - **Emissione spontanea**: un elettrone eccitato decade spontaneamente generando un fotone di fase e direzione casuali. Questo è il principio del LED
-- **Emissione stimolata**: un fotone incidente su un atomo eccitato provoca il rilascio di un secondo fotone _identico_ (stessa frequenza, fase, direzione). Questo è il principio del **LASER** (*Light Amplification Stimulated Emission Radiation*)
+- **Emissione stimolata**: un fotone incidente su un atomo eccitato provoca il rilascio di un secondo fotone _identico_ (stessa frequenza, fase, direzione). Questo è il principio del **LASER** (_Light Amplification Stimulated Emission Radiation_)
 
 ![[Pasted image 20260610231953.png]]
+
 ## Sorgenti Ottiche
 
 Le sorgenti devono emettere nelle **tre finestre di bassa attenuazione** della silice: ~850 nm (I finestra), ~1310 nm (II), ~1550 nm (III). I LED a semiconduttore hanno una larghezza spettrale di $30\text{-}60\ \text{nm}$ e potenza emessa inferiore a −10 dBm; sono economici ma poco adatti alle telecomunicazioni ad alta capacità a causa della radiazione incoerente. I laser producono luce coerente grazie alla cavità risonante, e il materiale semiconduttore determina la lunghezza d'onda: $\text{GaAs}$ per la prima finestra, $\text{InGaAsP}$ per la seconda e terza.
+
 ## Tipi di Laser a Semiconduttore
 
 | Tipo                                  | Linewidth               | Range tipico         | Applicazioni                            |
@@ -34,11 +37,12 @@ Il laser **Fabry-Pérot (FP)** è il tipo di laser a semiconduttore più semplic
 
 ![[Pasted image 20260610231705.png]]
 
-Il laser **DFB** utilizza un reticolo di Bragg integrato nel mezzo attivo che seleziona una sola lunghezza d'onda con feedback distribuito, garantendo emissione a singolo modo longitudinale e alta stabilità in frequenza. 
+Il laser **DFB** utilizza un reticolo di Bragg integrato nel mezzo attivo che seleziona una sola lunghezza d'onda con feedback distribuito, garantendo emissione a singolo modo longitudinale e alta stabilità in frequenza.
 
 ![[Pasted image 20260610231836.png]]
 
 Il **VCSEL** emette perpendicolarmente al wafer (surface-emitting), ha bassissimo consumo e profilo circolare del fascio, ideale per il test in produzione e le connessioni intra-data-center.
+
 ## Modulazione del Segnale
 
 ### Modulazione Diretta (DML)
@@ -66,10 +70,12 @@ I sistemi coerenti sfruttano **ampiezza, fase e polarizzazione** del campo ottic
 ![[Pasted image 20260611211641.png]]
 
 In ricezione, il segnale ricevuto $E_s$ viene fatto interferire con un **oscillatore locale** (laser locale) $E_{LO}$​ alla stessa lunghezza d'onda in un **90° optical hybrid**, che produce quattro uscite combinate inviate a fotodiodi differenziali. La fotocorrente complessa risultante è:
+
 $$
 \tilde{i}(t) \propto 2 E_s E_{LO}^*
 $$
-cioè proporzionale al campo del segnale (non alla sua potenza), permettendo di recuperare fase e ampiezza. Ciò abilita formati come **QPSK, 16-QAM, 64-QAM** e la trasmissione su **due polarizzazioni ortogonali** (DP - Dual Polarization), raddoppiando la capacità a parità di banda. Un sistema DP-QPSK a 400 Gb/s usa tipicamente $4\times50$ Gbaud con **DSP** (*Digital Signal Processing*) per correggere dispersione cromatica, PMD e rumore di fase.
+
+cioè proporzionale al campo del segnale (non alla sua potenza), permettendo di recuperare fase e ampiezza. Ciò abilita formati come **QPSK, 16-QAM, 64-QAM** e la trasmissione su **due polarizzazioni ortogonali** (DP - Dual Polarization), raddoppiando la capacità a parità di banda. Un sistema DP-QPSK a 400 Gb/s usa tipicamente $4\times50$ Gbaud con **DSP** (_Digital Signal Processing_) per correggere dispersione cromatica, PMD e rumore di fase.
 
 ![[Pasted image 20260611211659.png]]
 
@@ -109,6 +115,7 @@ L'**APD (Avalanche PhotoDiode)** aggiunge una regione di moltiplicazione ad alto
 | **GaAs**   | Visibile - 870 nm  | Alta     | Bassa            | Medio |
 
 $\text{Si}$ e $\text{Ge}$ hanno **bandgap indiretto**: non possono lascerare, ma possono assorbire fotoni. Per la terza finestra (1550 nm) il materiale di riferimento è **InGaAs**.
+
 ## Amplificatori Ottici
 
 ### EDFA (Erbium Doped Fiber Amplifier)
@@ -139,22 +146,24 @@ Il **SOA** è strutturalmente simile a un laser, ma con trattamenti anti-rifless
 
 ### Confronto tra Amplificatori
 
-|Parametro|EDFA|Raman|SOA|
-|---|---|---|---|
-|Guadagno|20-40 dB|10-20 dB|20-30 dB|
-|Noise Figure|3-5 dB|< 3 dB (ottico)|7-9 dB|
-|Banda|Banda C/L|O-L (ampia)|40-100 nm|
-|Trasparenza bit rate|✅|✅|✅|
-|Fibra speciale richiesta|✅ EDF|❌|❌ chip|
-|Applicazione principale|Long-haul, backbone|Sottomarina, coerente|Switch, accesso, PIC|
+| Parametro                | EDFA                | Raman                 | SOA                  |
+| ------------------------ | ------------------- | --------------------- | -------------------- |
+| Guadagno                 | 20-40 dB            | 10-20 dB              | 20-30 dB             |
+| Noise Figure             | 3-5 dB              | < 3 dB (ottico)       | 7-9 dB               |
+| Banda                    | Banda C/L           | O-L (ampia)           | 40-100 nm            |
+| Trasparenza bit rate     | ✅                  | ✅                    | ✅                   |
+| Fibra speciale richiesta | ✅ EDF              | ❌                    | ❌ chip              |
+| Applicazione principale  | Long-haul, backbone | Sottomarina, coerente | Switch, accesso, PIC |
 
 ## Switch Ottici
 
 La commutazione nel dominio ottico evita costose conversioni O-E-O. Le principali tecnologie di switch sono:
+
 - **MEMS (Micro-Electro-Mechanical Systems)**: specchietti mobili fabbricati su silicio che deflettono fisicamente il fascio ottico; perdite 1-3 dB, tempi di commutazione 1-10 ms, matrici fino a 1000×1000 porte
 - **Thermo-Optic (TO)**: variazione dell'indice di rifrazione con la temperatura ($\Delta T \rightarrow \Delta n \rightarrow \Delta \varphi$); integrabili in PLC/PIC, tempi 1-10 ms
 - **Electro-Optic (EO)**: effetto Pockels (campo elettrico -> $\Delta n$), tempi < 1 ns, perdite 3-6 dB
 - **SOA-based**: commutazione on/off per iniezione di corrente; guadagno netto (0 dB di perdita), tempi ~1 ns, integrabili in PIC
+
 ## Nodi di Commutazione Ottica
 
 ### OXC (Optical Cross Connect)
@@ -170,9 +179,11 @@ Le tre varianti dell'OXC si distinguono per la **granularità** del segnale comm
 ### ROADM (Reconfigurable Optical Add-Drop Multiplexer)
 
 Il **ROADM** è un nodo WDM riconfigurabile da remoto che può aggiungere (add), estrarre (drop) o lasciare passare selettivamente i canali ottici via software (GMPLS). È basato sul **WSS (Wavelength Selective Switch)**: la luce viene dispersa da un reticolo di diffrazione su un array **LCoS (Liquid Crystal on Silicon)**, i cui pixel controllati elettricamente riflettono selettivamente le lunghezze d'onda verso le porte di uscita desiderate. Il ROADM ha architettura a moduli separati connessi tramite patch cord esterne, il che rende la scalabilità più complessa rispetto all'OXC, ma rimane lo standard nelle reti di trasporto metropolitane e dorsali.
+
 ### Photonic Integrated Circuits (PIC)
 
 I **PIC** integrano su un singolo chip funzioni ottiche multiple: laser, modulatori, fotodiodi, amplificatori e switch. La tecnologia **Silicon Photonics** (compatibile con i processi CMOS) ha abbattuto i costi di produzione; i **Co-Packaged Optics (CPO)** montano il chip fotonico direttamente accanto alla CPU per ridurre il consumo energetico. L'evoluzione verso PIC programmabili (simili agli FPGA elettronici) integra migliaia di componenti ottici, abilitando acceleratori hardware per AI, sensori LiDAR compatti e processori quantistici ottici.
+
 ## Formulario di Riferimento
 
 | Formula                                            | Descrizione                            |

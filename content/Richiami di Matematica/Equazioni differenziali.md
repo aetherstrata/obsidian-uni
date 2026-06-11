@@ -2,29 +2,40 @@
 tags:
   - matematica
 ---
+
 La dinamica di un [[Sistema]] descrive le sue mutazioni nel tempo. Per ottenere una situazione di equilibrio, tutte le derivate devono essere uguali a 0.
 
 Se si ottengono autovalori complessi e coniugati dal polinomio caratteristico, allora il sistema presenterà oscillazioni.
 
 ## Esempi
+
 ### Carrello legato a una molla e uno smorzatore
 
->[!info]- Schema
->![[massa_molla_smorzatore.svg]]
+> [!info]- Schema
+> ![[massa_molla_smorzatore.svg]]
+
 #### Analisi statica
+
 Si vuole trovare i parametri per arrivare ad una situazione di equilibrio tra la forza che spinge verso destra e le reazioni di molla e smorzatore. Per la seconda legge di Newton:
+
 $$
 F_{tot} = ma = m \frac{d^2x}{dt^2}= -Kx(t)-c\frac{dx}{dt}+F(t)
 $$
+
 $$
 m \ddot x(t) + c \dot x(t) + Kx(t) = F(t)
 $$
+
 All'equilibrio tutte le derivate devono essere uguali a 0 quindi quello che rimane è il termine della molla.
+
 $$
 Kx_{eq}=F \longrightarrow x_{eq}=\frac{F}{K}
 $$
+
 #### Polinomio caratteristico
-L'equazione differenziale di secondo grado è stata trasformata in un sistema di equazioni differenziali di primo grado. 
+
+L'equazione differenziale di secondo grado è stata trasformata in un sistema di equazioni differenziali di primo grado.
+
 $$
 \begin{cases}
 x_1=x \\ x_2=\dot x
@@ -36,6 +47,7 @@ x_1=x \\ x_2=\dot x
 $$
 
 Trasformandolo in forma matriciale si avrà la rappresentazione di spazio di stato:
+
 $$
 \begin{bmatrix}
 \dot x_1 \\ \dot x_2
@@ -48,13 +60,16 @@ x_1 \\ x_2
 0 \\ \frac{1}{m}
 \end{bmatrix} F
 $$
+
 SI calcola l'autovalore con il determinante del sistema
+
 $$
 det(\lambda I-A)\ =\ \begin{vmatrix}
 \lambda & -1 \\
 \frac{K}{m} & \lambda + \frac{c}{m}
 \end{vmatrix} \  = \ \lambda² + \frac{c}{m}\lambda + \frac{K}{m} = 0
 $$
+
 $$
 \lambda² + \frac{c}{m}\lambda + \frac{K}{m}
 \quad\longrightarrow\quad
@@ -62,12 +77,14 @@ $$
 $$
 
 Da qui si può risolvere l'equazione e ottenere i due autovalori $\lambda_1$ e $\lambda_2$.
+
 ### Circuito RC
 
->[!info]- Schema
->![[circuito_rc.svg|500]]
+> [!info]- Schema
+> ![[circuito_rc.svg|500]]
 
 Analizzando la struttura del circuito si possono ricavare i comportamenti delle uscite.
+
 $$
 \begin{equation}
 \begin{split}
@@ -76,12 +93,13 @@ $$
 \end{split}
 \end{equation}
 $$
+
 Manipolando queste equazioni si ottiene la seguente equazione differenziale con $RC=\tau$.
+
 $$
 V_0sin(\omega t) = RC\frac{dv_c(t)}{dt}+v_c(t)
 $$
+
 $$
 \frac{dv_c(t)}{dt}+\frac{v_c(t)-V_0sin(\omega t)}{\tau} = 0
 $$
-
-

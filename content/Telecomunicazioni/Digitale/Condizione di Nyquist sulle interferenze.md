@@ -4,7 +4,9 @@ tags:
   - segnale
   - digitale
 ---
+
 L'impulso portante deve avere valore unitario nell'origine e nullo nei multipli del tempo di simbolo. Se la funzione $G(t)$ avesse valore non nullo in un istante $nT$, ci sarebbero interferenze tra i simboli da trasmettere. Questo fenomeno è chiamato **ISI** (interferenza inter simbolica).
+
 $$
 g(t)=\begin{cases}
 1 & t=0 \\
