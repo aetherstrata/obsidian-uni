@@ -56,15 +56,23 @@ Nella **modulazione esterna**, il laser opera in onda continua (CW) e un modulat
 ### On-Off Keying (OOK)
 
 La modulazione più semplice è l'**OOK**: modulazione di ampiezza su due livelli (bit 1 = luce, bit 0 = no luce). In ricezione si usa la **rivelazione diretta**: il segnale va direttamente al fotorivelatore che misura l'intenstensità, con relazione $I = R \cdot |E_{sig}|^2$, dove $R$ è la responsività (A/W).
+
+![[Pasted image 20260611211415.png]]
+
 ## Modulazione Coerente
 
 I sistemi coerenti sfruttano **ampiezza, fase e polarizzazione** del campo ottico, avvicinandosi al limite teorico di Shannon. Si usa un **modulatore IQ** che combina due portanti ortogonali (sfasate di 90°) per trasmettere le componenti in-phase (I) e in-quadratura (Q) del segnale, implementato otticamente con due MZM in parallelo.
+
+![[Pasted image 20260611211641.png]]
 
 In ricezione, il segnale ricevuto $E_s$ viene fatto interferire con un **oscillatore locale** (laser locale) $E_{LO}$​ alla stessa lunghezza d'onda in un **90° optical hybrid**, che produce quattro uscite combinate inviate a fotodiodi differenziali. La fotocorrente complessa risultante è:
 $$
 \tilde{i}(t) \propto 2 E_s E_{LO}^*
 $$
 cioè proporzionale al campo del segnale (non alla sua potenza), permettendo di recuperare fase e ampiezza. Ciò abilita formati come **QPSK, 16-QAM, 64-QAM** e la trasmissione su **due polarizzazioni ortogonali** (DP - Dual Polarization), raddoppiando la capacità a parità di banda. Un sistema DP-QPSK a 400 Gb/s usa tipicamente $4\times50$ Gbaud con **DSP** (*Digital Signal Processing*) per correggere dispersione cromatica, PMD e rumore di fase.
+
+![[Pasted image 20260611211659.png]]
+
 ## Fotorivelatori
 
 ### Fotodiodo PIN
@@ -89,6 +97,8 @@ Il **fotodiodo PIN** sfrutta l'effetto fotoelettrico: un fotone con energia $E =
 
 L'**APD (Avalanche PhotoDiode)** aggiunge una regione di moltiplicazione ad alto campo elettrico (~100 V) dove le coppie fotogenerate innescano ionizzazione a impatto: un fotone può generare $10\text{-}100$ coppie secondarie (guadagno M). Ciò aumenta la responsività effettiva di M volte, ma a scapito di maggiore corrente di buio, tensione di polarizzazione più elevata (30-100 V) e banda ridotta (fino a 20 GHz). Il caso estremo è lo **SPAD (Single Photon Avalanche Diode)**: APD operato oltre la tensione di breakdown, in grado di rilevare singoli fotoni, usato nella crittografia quantistica (QKD).
 
+![[Pasted image 20260611211830.png]]
+
 ### Scelta del Materiale
 
 | Materiale  | Range spettrale    | Velocità | Corrente di buio | Costo |
@@ -104,6 +114,8 @@ $\text{Si}$ e $\text{Ge}$ hanno **bandgap indiretto**: non possono lascerare, ma
 ### EDFA (Erbium Doped Fiber Amplifier)
 
 L'**EDFA** droga la fibra con ioni Erbio ($\text{Er}^{3+}$) che vengono eccitati da un **laser di pompa** a 980 nm o 1480 nm. I fotoni del segnale a 1550 nm inducono emissione stimolata dagli ioni eccitati, amplificando il segnale senza conversione elettro-ottica. L'EDFA è **trasparente al bit rate e al formato di modulazione**: amplifica tutti i canali WDM contemporaneamente in banda C (1530-1565 nm) e L (1565-1625 nm).
+
+![[Pasted image 20260611212050.png]]
 
 **Parametri tipici EDFA:**
 
@@ -148,6 +160,13 @@ La commutazione nel dominio ottico evita costose conversioni O-E-O. Le principal
 ### OXC (Optical Cross Connect)
 
 L'**OXC** instrada segnali da una fibra di ingresso a una fibra di uscita senza conversione O-E-O, trasparente al bit rate e al protocollo. Le architetture variano da **Wavelength Blocking** (commuta l'intera fibra WDM, semplice ma non flessibile) a **Wavelength Selective** (demultiplexa, commuta per singola $\lambda$, ri-multiplexa). Le prestazioni tipiche sono: perdite di inserzione < 5 dB, crosstalk < −35 dB, capacità fino a $1000\times1000$ porte. L'OXC utilizza un **backplane ottico integrato**, senza cablaggio esterno, che riduce ingombro e consumi di 2/3 rispetto al ROADM.
+
+#### Varianti
+
+Le tre varianti dell'OXC si distinguono per la **granularità** del segnale commutato: l'**FXC (Fiber Cross Connect)** opera sull'intera fibra come unità indivisibile, instradando tutto il multiplex WDM da una porta all'altra senza distinzione di lunghezza d'onda, risultando la soluzione più semplice ma meno flessibile; il **WXC (Waveband Cross Connect)** introduce un livello intermedio, commutando gruppi (bande) di lunghezze d'onda, così da bilanciare complessità e flessibilità nelle reti con elevato numero di canali DWDM; infine, l'**LXC (Lightpath Cross Connect)** opera al massimo livello di granularità, instradando individualmente ogni singolo lightpath (cioè ogni singola lunghezza d'onda), abilitando provisioning fine, protezione per canale e conversione di lunghezza d'onda, a costo di una complessità architetturale maggiore.
+
+![[Pasted image 20260611213028.png]]
+
 ### ROADM (Reconfigurable Optical Add-Drop Multiplexer)
 
 Il **ROADM** è un nodo WDM riconfigurabile da remoto che può aggiungere (add), estrarre (drop) o lasciare passare selettivamente i canali ottici via software (GMPLS). È basato sul **WSS (Wavelength Selective Switch)**: la luce viene dispersa da un reticolo di diffrazione su un array **LCoS (Liquid Crystal on Silicon)**, i cui pixel controllati elettricamente riflettono selettivamente le lunghezze d'onda verso le porte di uscita desiderate. Il ROADM ha architettura a moduli separati connessi tramite patch cord esterne, il che rende la scalabilità più complessa rispetto all'OXC, ma rimane lo standard nelle reti di trasporto metropolitane e dorsali.
