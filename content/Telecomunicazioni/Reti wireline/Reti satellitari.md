@@ -48,12 +48,15 @@ Le orbite satellitari si classificano in tre fasce principali, con caratteristic
 ### LEO - Low Earth Orbit (200-2.000 km)
 
 I satelliti LEO completano un'orbita in circa 90 minuti, quindi **non sono geostazionari**: si muovono rispetto all'osservatore terrestre, richiedendo costellazioni di centinaia o migliaia di satelliti per garantire copertura continua. La bassa altitudine si traduce in **latenza paragonabile alle reti terrestri** (~20-40 ms), rendendoli idonei per applicazioni real-time. Lo svantaggio principale è il costo di lancio e gestione di costellazioni numerose.
+
 ### MEO - Medium Earth Orbit (2.000-35.786 km)
 
 I satelliti MEO offrono un compromesso tra copertura e latenza (~67-150 ms), con periodi orbitali di 2-12 ore. Sono l'orbita elettiva per i sistemi **GNSS**: GPS (USA, 20.200 km), Galileo (EU), GLONASS (RU), BeiDou (CN). Il sistema O3b di SES usa MEO a ~8.000 km per broadband enterprise a bassa latenza.
+
 ### GEO - Geostationary Earth Orbit (35.786 km)
 
 A 35.786 km il satellite ha un periodo orbitale esattamente pari alla rotazione terrestre (24 ore), risultando **fisso rispetto a un osservatore a terra**. Tre soli satelliti GEO coprono quasi tutta la superficie terrestre. La latenza round-trip di ~480-600 ms li esclude da applicazioni real-time (VoIP, gaming), ma restano ideali per broadcasting TV, meteo (Meteosat) e VSAT aziendali.
+
 ## Bande di Frequenza
 
 Al crescere della frequenza aumentano throughput e larghezza di banda disponibile, ma aumentano anche l'attenuazione atmosferica e la sensibilità alla pioggia (_rain fade_):
@@ -70,6 +73,7 @@ Al crescere della frequenza aumentano throughput e larghezza di banda disponibil
 | **Banda E** | 71-86 GHz | ISL Starlink Gen2                      | Quadruplica la capacità per satellite       |
 
 Il trade-off fondamentale delle bande satellitari è sintetizzabile come: **più alta la frequenza -> più banda disponibile, antenna più piccola, ma più attenuazione**.
+
 ### Starlink
 
 Starlink (SpaceX) è attualmente la più grande mega-costellazione LEO operativa con oltre 7.000 satelliti in orbita (su 42.000 pianificati), disposti tra 340 e 570 km di altitudine. Il sistema di frequenze è strutturato su più livelli:
@@ -82,13 +86,13 @@ Starlink (SpaceX) è attualmente la più grande mega-costellazione LEO operativa
 
 Gli **ISL ottici** sono una caratteristica distintiva di Starlink: trasmettono dati direttamente tra satelliti senza passare per stazioni a terra, riducendo la latenza e garantendo connettività in mezzo agli oceani dove non esistono gateway. La velocità dei link laser (~100 Gbps) supera di gran lunga quella dei link RF inter-satellite.
 
- >[!info] Mega-Costellazioni LEO a Confronto
->| Sistema                | Operatore        | Satelliti pianificati | Orbita         | Bit rate       | Latenza  |
->| ---------------------- | ---------------- | --------------------- | -------------- | -------------- | -------- |
->| **Starlink**           | SpaceX (USA)     | 42.000 (7k in orbita) | 340-570 km     | 50-220 Mb/s    | 20-40 ms |
->| **OneWeb**             | Eutelsat/UK Gov. | 648 in orbita         | 1.200 km       | 50-200 Mb/s    | 40-70 ms |
->| **Amazon Kuiper**      | Amazon (USA)     | 3.236 (150 in orbita) | 590-630 km     | 100-1.000 Mb/s | 25-50 ms |
->| **Telesat Lightspeed** | Telesat (CA)     | 198 pianificati       | 1.000-1.350 km | 100+ Mb/s      | 30-50 ms |
+> [!info] Mega-Costellazioni LEO a Confronto
+> | Sistema | Operatore | Satelliti pianificati | Orbita | Bit rate | Latenza |
+> | ---------------------- | ---------------- | --------------------- | -------------- | -------------- | -------- |
+> | **Starlink** | SpaceX (USA) | 42.000 (7k in orbita) | 340-570 km | 50-220 Mb/s | 20-40 ms |
+> | **OneWeb** | Eutelsat/UK Gov. | 648 in orbita | 1.200 km | 50-200 Mb/s | 40-70 ms |
+> | **Amazon Kuiper** | Amazon (USA) | 3.236 (150 in orbita) | 590-630 km | 100-1.000 Mb/s | 25-50 ms |
+> | **Telesat Lightspeed** | Telesat (CA) | 198 pianificati | 1.000-1.350 km | 100+ Mb/s | 30-50 ms |
 
 ## Tecniche Trasmissive e Standard
 
@@ -124,12 +128,14 @@ Più utenti condividono la stessa risorsa satellitare tramite:
 ## Link Budget Satellitare
 
 Il link budget per un sistema satellitare si calcola con l'equazione di Friis estesa, ma le distanze in gioco (35.786 km per GEO) generano **path loss enormi**:
+
 $$
 \text{FSPL (dB)}=20\log10​(f)+20\log10​(d)-147.55
 $$
+
 Per un GEO a 35.786 km nella banda Ku (12 GHz): FSPL $\approx$ **205 dB**. Per compensare queste perdite si usano:
 
-- **Antenne paraboliche ad alto guadagno** a terra (tipicamente 30-50 dBi per VSAT)    
+- **Antenne paraboliche ad alto guadagno** a terra (tipicamente 30-50 dBi per VSAT)
 - **HPA (High Power Amplifier)** a bordo del satellite (10 W - 100 W per transponder)
 - **FEC aggressivo** (turbo codes, LDPC)
 - **ACM (Adaptive Coding and Modulation)**: adatta in tempo reale la modulazione e il FEC alle condizioni del canale (rain fade)
@@ -153,6 +159,7 @@ A partire dal **3GPP Release 17** (2022), le specifiche 5G NR includono ufficial
 3. **Satellite backhaul**: il satellite fornisce il trasporto tra 5G Core e gNB terrestri in aree remote
 
 Nel futuro **6G (IMT-2030)**, la visione ETSI/3GPP prevede una convergenza totale tra reti terrestri e non-terrestri (TN+NTN), con handover trasparente tra celle terrestri 6G e satelliti LEO. L'intelligenza artificiale sarà usata per ottimizzare dinamicamente l'allocazione delle risorse tra i due sistemi.
+
 ## Confronto RF vs Ottico per Link Inter-Satellite
 
 I futuri ISL (Inter-Satellite Links) si baseranno sempre più su tecnologia ottica:
