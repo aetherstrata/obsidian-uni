@@ -4,6 +4,8 @@ tags:
   - segnale
   - physical
   - digitale
+aliases:
+  - TDM
 ---
 
 Nel _Time Division Multiplexing_ (**TDM**) il canale viene concesso per intero, ma diviso in finestre di tempo (slot temporali) di durata $T_s$. Ogni utente trasmette i propri dati a rotazione con un algoritmo round robin all'interno di un intervallo chiamato _Frame_.

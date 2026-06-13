@@ -145,7 +145,7 @@ $$
 
 Un sistema è considerato privo di errori se il suo $\text{BER}$ è minore di $10^{-9}$, che equivale ad avere un argomento di $Q$ maggiore di $6$.
 
-> [!info] Qui è studiato il caso di sistemi bipolari, per quelli unipolari basta cambiare i parametri
+> [!caution] Qui è studiato il caso di sistemi bipolari. Per quelli unipolari basta cambiare i parametri
 
 $$
 \text{BER} = 10^{-9} \quad\longrightarrow\quad Q\left(\sqrt{\frac{2E_B}{N_0}}\right)=6 \quad\longrightarrow\quad \frac{E_b}{N_0}=18

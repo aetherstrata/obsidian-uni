@@ -3,6 +3,8 @@ tags:
   - errori
   - segnale
   - digitale
+aliases:
+  - FEC
 ---
 
 La **FEC** (_Forward Error Correction_) è un meccanismo di correzione degli errori proattivo: aggiunge al pacchetto originario molti più bit di ridondanza, progettati non solo per accorgersi di un errore, ma per calcolare esattamente quali bit si sono invertiti e ripararli _on the fly_.

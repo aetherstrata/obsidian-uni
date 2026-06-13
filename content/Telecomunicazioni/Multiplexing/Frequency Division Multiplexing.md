@@ -4,6 +4,8 @@ tags:
   - segnale
   - physical
   - digitale
+aliases:
+  - FDM
 ---
 
 Nel _Frequency Division Multiplexing_ (**FDM**) tutti gli utenti trasmettono nello stesso momento, ma il canale fisico viene tagliato in più sottobande. Questo è il principio alla base della TV analogica e della radio [[Frequency Modulation|FM]]: ogni stazione trasmette sempre, ma su una frequenza diversa.

@@ -3,6 +3,8 @@ tags:
   - errori
   - segnale
   - digitale
+aliases:
+  - ARQ
 ---
 
 L'**ARQ** è un meccanismo di correzione degli errori _reattivo_: accetta la possibilità che un pacchetto arrivi errato e, anziché cercare di correggerlo, si concentra sulla probabilità di scoperta dell'errore e, in caso di errori, richiede al mittente una nuova trasmissione.

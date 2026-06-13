@@ -85,6 +85,8 @@
     "@types/yargs": "^17.0.35",
     "esbuild": "^0.27.2",
     "prettier": "^3.8.1",
+    "pretty-quick": "^4.2.2",
+    "simple-git-hooks": "^2.13.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
