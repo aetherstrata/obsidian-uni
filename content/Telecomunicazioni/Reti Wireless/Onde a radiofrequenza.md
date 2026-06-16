@@ -141,10 +141,10 @@ Un'antenna isotropica Irradia potenza **uniformemente** in tutte le direzioni co
 
 ### Antenne Omnidirezionali
 
-Il **dipolo hertziano** ($\lambda$/2) e il **monopolo marconiano** ($\lambda$/4) sono le antenne omnidirezionali più comuni:
+Il **dipolo hertziano** ($\lambda/2$) e il **monopolo marconiano** ($\lambda/4$) sono le antenne omnidirezionali più comuni:
 
-- **Dipolo $\lambda$/2 (hertziano)**: due fili da $\lambda$/4 alimentati al centro. Direttività $D = 1.5\sin\theta$, guadagno = **1.76 dBi**. Irradia a toroide, praticamente uniforme nel piano orizzontale, con nulli nelle direzioni assiali.
-- **Monopolo $\lambda$/4 (marconiano)**: mezzo dipolo con piano di massa che funge da specchio. Il tetto di un'automobile fa da piano di massa, da qui l'antenna a stilo delle auto. Guadagno = **5.16 dBi**.
+- **Dipolo hertziano** $\lambda/2$: due fili da $\lambda$/4 alimentati al centro. Direttività $D = 1.5\sin\theta$, guadagno = **1.76 dBi**. Irradia a toroide, praticamente uniforme nel piano orizzontale, con nulli nelle direzioni assiali.
+- **Monopolo marconiano** $\lambda$/4: mezzo dipolo con piano di massa che funge da specchio. Il tetto di un'automobile fa da piano di massa, da qui l'antenna a stilo delle auto. Guadagno = **5.16 dBi**.
 
 Nei dispositivi mobili moderni (smartphone, tablet) non c'è più l'antenna a stilo: sono usate **antenne a microstriscia (patch)** o **PIFA** (_Planar Inverted F Antenna_), ultra-piatte e integrabili nel PCB. Uno smartphone contiene tipicamente antenne separate per LTE (due, con polarizzazione orizzontale e verticale per MIMO), Wi-Fi, Bluetooth, GPS, NFC.
 
@@ -157,7 +157,7 @@ Le **antenne direzionali** concentrano la potenza in una o poche direzioni princ
 
 ### Antenne per Sistemi 4G/5G
 
-Le stazioni base 4G (eNodeB) e 5G (gNodeB) usano principalmente **antenne a pannello settoriale** con le seguenti caratteristiche:
+Le stazioni base [[Sistemi mobile#4G - LTE (Long Term Evolution)|4G]] (eNodeB) e [[Sistemi mobile#5G NR - New Radio|5G]] (gNodeB) usano principalmente **antenne a pannello settoriale** con le seguenti caratteristiche:
 
 - Multibanda (più frequenze nella stessa struttura)
 - Guadagno direzionale **15–18 dBi**
@@ -173,6 +173,8 @@ $$
 $$
 
 dove $\mathbf{H}$ è la matrice del canale di dimensioni $N_R \times N_T$​, ogni coefficiente $h_{ij}$​ descrive il percorso dall'antenna TX $i$ all'antenna RX $j$. Per stimare $\mathbf{H}$ si trasmettono segnali pilota noti, ottenendo il _Channel State Information_ (**CSI**).
+
+![[Pasted image 20260616203105.png]]
 
 ### Modalità Operative
 
