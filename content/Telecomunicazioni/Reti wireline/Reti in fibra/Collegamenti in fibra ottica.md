@@ -168,7 +168,14 @@ La commutazione nel dominio ottico evita costose conversioni O-E-O. Le principal
 
 ### OXC (Optical Cross Connect)
 
-L'**OXC** instrada segnali da una fibra di ingresso a una fibra di uscita senza conversione O-E-O, trasparente al bit rate e al protocollo. Le architetture variano da **Wavelength Blocking** (commuta l'intera fibra WDM, semplice ma non flessibile) a **Wavelength Selective** (demultiplexa, commuta per singola $\lambda$, ri-multiplexa). Le prestazioni tipiche sono: perdite di inserzione < 5 dB, crosstalk < −35 dB, capacità fino a $1000\times1000$ porte. L'OXC utilizza un **backplane ottico integrato**, senza cablaggio esterno, che riduce ingombro e consumi di 2/3 rispetto al ROADM.
+L'**OXC** instrada segnali da una fibra di ingresso a una fibra di uscita senza conversione _O-E-O_, trasparente al bit rate e al protocollo. Le architetture variano da **Wavelength Blocking** (commuta l'intera fibra WDM, semplice ma non flessibile) a **Wavelength Selective** (demultiplexa, commuta per singola $\lambda$, ri-multiplexa).
+
+Le prestazioni tipiche sono:
+
+- perdite di inserzione < 5 dB, crosstalk < −35 dB
+- capacità fino a $1000\times1000$ porte.
+
+L'OXC utilizza un **backplane ottico integrato**, senza cablaggio esterno, che riduce ingombro e consumi di 2/3 rispetto al [[#ROADM (Reconfigurable Optical Add-Drop Multiplexer)|ROADM]].
 
 #### Varianti
 

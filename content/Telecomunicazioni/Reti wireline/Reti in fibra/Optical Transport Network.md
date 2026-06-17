@@ -3,6 +3,7 @@ tags:
   - reti
   - physical
   - fibra
+  - wireline
 ---
 
 Le **OTN** (_Optical Transport Network_) sono lo standard attuale per il trasporto digitale su fibra ottica, nate come evoluzione delle reti [[Gerarchia Digitale#SDH - Synchronous Digital Hierarchy|SDH]] per superarne i limiti intrinseci.
@@ -80,7 +81,7 @@ Effettua la trasmissione affidabile **nodo-nodo**, corrisponde al livello **Sect
 
 1. I **3.824 byte** di ciascuna delle 4 righe vengono suddivisi in **16 sotto-frame** da 239 byte ciascuno
 2. Con RS(255,239) vengono aggiunti **16 byte di parità** per ogni sotto-frame -> totale FEC = 256 byte/riga
-3. I sotto-frame vengono rimultiplexati -> frame finale = \*\*4080 byte/riga
+3. I sotto-frame vengono rimultiplexati -> frame finale = 4080 byte/riga
 4. Infine si applica lo **scrambling** per evitare lunghe sequenze di bit tutti uguali
 
 Il guadagno del FEC si traduce in un miglioramento del **budget ottico di circa 6 dB**, permettendo di estendere la portata dei collegamenti o aumentare la capacità senza rigeneratori aggiuntivi. Il FEC consente di operare **vicino al limite di Shannon** per le reti OTN.
