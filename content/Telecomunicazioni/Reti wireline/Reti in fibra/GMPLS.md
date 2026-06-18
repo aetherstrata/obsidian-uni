@@ -183,3 +183,60 @@ A titolo esemplificativo, il setup di un **lightpath lambda** da nodo S1 a nodo 
 | **Discovery**               | Non presente                | LMP (link fisici)                                 |
 | **Conversione O-E-O**       | Richiesta a ogni nodo       | Non richiesta per LSC/FSC                         |
 | **RFC principali**          | RFC 3031, 3209              | RFC 3945, 3471, 3473, 4203                        |
+
+## WSON - Wavelength Switched Optical Networks
+
+Le **WSON** (Wavelength Switched Optical Networks) sono reti ottiche in cui le connessioni end-to-end, dette **lightpath**, vengono stabilite, mantenute e rilasciate dinamicamente a **granularità di lunghezza d'onda** ($\lambda$) nel dominio fotonico. In pratica, una WSON è l'applicazione concreta di ASON al layer ottico WDM: ogni nodo è un **OXC** o **ROADM** con switching capability **LSC** (Lambda Switch Capable), e il piano di controllo è implementato da **GMPLS**. WSON e GMPLS sono complementari: GMPLS fornisce i protocolli, WSON definisce i modelli di informazione e i vincoli specifici del dominio fotonico.
+
+### Struttura
+
+Una WSON è strutturata su **due piani** distinti:
+
+- **Piano dati**: link in fibra WDM (tipicamente DWDM) che collegano [[Collegamenti in fibra ottica#OXC (Optical Cross Connect)|OXC]]/[[Collegamenti in fibra ottica#ROADM (Reconfigurable Optical Add-Drop Multiplexer)|ROADM]]; le connessioni fisiche trasportano segnali a 10, 40, 100 o 400 Gbit/s per $\lambda$; i lightpath vengono commutati otticamente senza conversioni _O-E-O_
+- **Piano di controllo**: basato su GMPLS (OSPF-TE + RSVP-TE + LMP); un **OCC** (Optical Connection Controller) per ogni nodo del piano dati gestisce routing, segnalazione e discovery
+
+### Routing and Wavelength Assignment (RWA)
+
+Il problema centrale nelle WSON è il **Routing and Wavelength Assignment (RWA)**: dato un insieme di richieste di lightpath, assegnare a ciascuna un percorso fisico e una lunghezza d'onda, rispettando due vincoli fondamentali:
+
+1. **Continuità della lunghezza d'onda** (_wavelength continuity constraint_): se la rete è **trasparente** (senza conversione di $\lambda$ nei nodi intermedi), lo stesso $\lambda$ deve essere disponibile su tutti i link del percorso end-to-end
+2. **Unicità**: due lightpath che condividono lo stesso link fisico non possono usare la stessa $\lambda$
+
+Il vincolo di continuità non esiste nelle reti con **wavelength converter** (reti **translucide** o **opache**), dove un OXC può cambiare la $\lambda$ del segnale, al costo però di una conversione O-E-O.
+
+#### Impairment-Aware RWA (IA-RWA)
+
+Nelle reti ottiche reali, la qualità del segnale si degrada lungo il percorso a causa di effetti fisici accumulati:
+
+- **Attenuazione** e rumore degli amplificatori [[Collegamenti in fibra ottica#EDFA (Erbium Doped Fiber Amplifier)|EDFA]] (OSNR, Optical Signal-to-Noise Ratio)
+- **Dispersione cromatica** (CD) e di polarizzazione (PMD)
+- **Cross-talk** tra canali adiacenti (effetti non lineari: XPM, FWM, SRS)
+- **Interferenza** accumulata in reti con [[Collegamenti in fibra ottica#ROADM (Reconfigurable Optical Add-Drop Multiplexer)|ROADM]] a gradi elevati
+
+Il semplice RWA che considera solo la disponibilità della $\lambda$ non è sufficiente: un percorso che "esiste" topologicamente potrebbe risultare inutilizzabile perché il BER (Bit Error Rate) supera la soglia ammissibile. L'**IA-RWA** (Impairment-Aware RWA) estende il problema includendo i vincoli fisici come ulteriori criteri nel calcolo del percorso, considerando l'OSNR accumulato, la lunghezza dei link, il numero di amplificatori e di ROADM attraversati. Le informazioni sugli impairment vengono distribuite tramite estensioni OSPF-TE (definite in RFC 7446 e RFC 7579) e elaborate dal PCE.
+
+### PCE - Path Computation Element
+
+Nelle WSON complesse, il calcolo del percorso con vincoli ottici diventa computazionalmente oneroso per essere eseguito distribuito su ogni nodo. Il **PCE** (Path Computation Element, RFC 4655) è un server centralizzato (o distribuito per gerarchia) dedicato al calcolo dei percorsi con piena visibilità del TED:
+
+- Il **PCC** (Path Computation Client), tipicamente il nodo ingresso, invia una richiesta al PCE tramite il protocollo **PCEP** (Path Computation Element Communication Protocol)
+- Il PCE riceve la richiesta con i vincoli (sorgente, destinazione, banda, impairment threshold, SRLG da evitare), interroga il proprio TED esteso con le informazioni ottiche e restituisce il percorso calcolato con l'assegnazione della $\lambda$
+- Il nodo ingresso usa il percorso ricevuto per popolare l'**ERO** nel messaggio RSVP-TE PATH e segnalare il lightpath
+
+Il PCE può essere **stateless** (calcola ogni path indipendentemente) o **stateful** (mantiene lo stato di tutti i lightpath attivi per ottimizzare globalmente le risorse).
+
+> [!tip] Estensioni GMPLS per WSON
+>
+> GMPLS originale non modellava i vincoli specifici delle reti WDM ottiche. Sono state definite estensioni standardizzate dall'IETF:
+>
+> - **RFC 6163**: framework generale per il controllo WSON con GMPLS e PCE; definisce i modelli di nodo ottico (fisso vs configurabile), le restrizioni di connettività e i casi d'uso
+> - **RFC 7446/7579/7581**: information model e encoding per RWA; definisce come le informazioni sulla topologia ottica (disponibilità $\lambda$, vincoli di conversione, capacità di switching) vengono codificate e distribuite tramite OSPF-TE
+> - **RFC 8363**: estensioni OSPF-TE per il **Flexible Grid** (Flex-Grid); sostituisce la griglia fissa ITU da 50 GHz con slot variabili multipli di **6,25 GHz** per supportare super-channel e modulazioni adattive
+> - **RFC 6205**: definisce le etichette GMPLS per reti ottiche con switching a $\lambda$ (label = numero del canale ITU-T G.694.1)
+
+---
+
+## Evoluzioni future
+
+- _Spectrum Switched Optical Network_ - **SSON**: Evoluzione del WSON per gestire la Flex-Grid. Label elastiche: Le etichette definiscono un intervallo di frequenze variabile (es. n x 12.5 GHz) per massimizzare l'efficienza spettrale.
+- _Software Defined Networking_ - **SDN**: Spostamento dell'intelligenza dai nodi a un controller centrale, rendendo la rete programmabile e adattiva.
