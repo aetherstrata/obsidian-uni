@@ -4,6 +4,8 @@ tags:
   - physical
   - fibra
   - wireline
+aliases:
+  - OTN
 ---
 
 Le **OTN** (_Optical Transport Network_) sono lo standard attuale per il trasporto digitale su fibra ottica, nate come evoluzione delle reti [[Gerarchia Digitale#SDH - Synchronous Digital Hierarchy|SDH]] per superarne i limiti intrinseci.

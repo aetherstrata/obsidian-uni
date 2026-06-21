@@ -33,15 +33,19 @@ Le sorgenti devono emettere nelle **tre finestre di bassa attenuazione** della s
 
 ![[Pasted image 20260610231636.png]]
 
+### Laser Fabry-Pérot
+
 Il laser **Fabry-Pérot (FP)** è il tipo di laser a semiconduttore più semplice: la cavità risonante è formata dalle **due facce clivate** del cristallo semiconduttore, che fungono da specchi parzialmente riflettenti. Poiché la cavità supporta più modi longitudinali contemporaneamente, lo spettro di emissione risulta relativamente largo (3–10 nm), rendendolo inadatto al DWDM ma sufficiente per i collegamenti a breve distanza dove la dispersione cromatica non è critica.
 
 ![[Pasted image 20260610231705.png]]
+
+### Laser a feedback distribuito
 
 Il laser **DFB** utilizza un reticolo di Bragg integrato nel mezzo attivo che seleziona una sola lunghezza d'onda con feedback distribuito, garantendo emissione a singolo modo longitudinale e alta stabilità in frequenza.
 
 ![[Pasted image 20260610231836.png]]
 
-Il **VCSEL** emette perpendicolarmente al wafer (surface-emitting), ha bassissimo consumo e profilo circolare del fascio, ideale per il test in produzione e le connessioni intra-data-center.
+Il **VCSEL** emette perpendicolarmente al wafer (surface-emitting), ha bassissimo consumo e profilo circolare del fascio, ideale per il test in produzione e le connessioni [[Infrastrutture in fibra ottica#Data Center|intra-datacenter]].
 
 ## Modulazione del Segnale
 

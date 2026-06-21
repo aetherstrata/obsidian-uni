@@ -102,45 +102,6 @@ Rete **dedicata esclusivamente** al trasporto di dati tra server e dispositivi d
 
 ---
 
-## Data Center: Struttura e Classificazione
-
-Un **data center** è una struttura dedicata a ospitare server, storage e apparati di rete per elaborare, conservare e distribuire grandi quantità di dati.
-
-### Classificazione Tier (ANSI/TIA-942)
-
-| Tier         | Configurazione                                       | Affidabilità | Downtime/anno |
-| ------------ | ---------------------------------------------------- | ------------ | ------------- |
-| **Tier I**   | Singola via, nessuna ridondanza                      | 99,671%      | ~28,8 ore     |
-| **Tier II**  | Singola via, componenti critici ridondati (N+1)      | 99,741%      | ~22 ore       |
-| **Tier III** | Molteplici vie, una attiva (N+1)                     | 99,982%      | ~1,6 ore      |
-| **Tier IV**  | Doppia infrastruttura completa (2N), entrambe attive | 99,995%      | <26 minuti    |
-
-### Architettura Spine-Leaf
-
-La topologia moderna nei data center è la **Spine-Leaf**, che ha sostituito il vecchio modello a tre strati (Core/Aggregation/Access):
-
-- **Switch Spine (Core)**: backbone del data center; ogni spine è connesso a **tutti** i leaf ma mai ad altri spine; gestisce routing ad altissima velocità (40G/100G/400G)
-- **Switch Leaf (Access)**: connettono fisicamente i server del rack (**Top of Rack - ToR**); gestiscono VLAN e connessioni verso lo storage
-
-Questa architettura garantisce latenza uniforme tra qualsiasi coppia server-storage (sempre 2 hop) e alta ridondanza. Gli switch usano transceiver ottici pluggabili (SFP, QSFP) su fibre in fibra ottica anziché rame.
-
-### Fibra Ottica nei datacenter
-
-Nei data center si usa prevalentemente [[Fibra ottica#Fibre Multimodo (MMF)|fibra multimodale]] (**MMF**) per i collegamenti intra-datacenter, mentre la [[Fibra ottica#Fibre Monomodo (SMF)|fibra monomodale]] (**SMF**) serve per i collegamenti inter-datacenter:
-
-| Fibra | Standard | Tecnologia sorgente | Distanza a 32GFC | Distanza a 10GbE |
-| ----- | -------- | ------------------- | ---------------- | ---------------- |
-| OM1   | 1989     | LED                 | -                | -                |
-| OM2   | 1998     | LED                 | 300m (2GFC)      | -                |
-| OM3   | 2002     | VCSEL 850nm         | 100m             | 300m             |
-| OM4   | 2009     | VCSEL 850nm         | 100m             | 550m             |
-| OM5   | 2014     | VCSEL + SWDM        | 100m (40G)       | 440m             |
-| SMF   | -        | Laser 1310/1550nm   | 10km             | 10km             |
-
-OM5 supporta la tecnologia **SWDM** (_Shortwave Wavelength Division Multiplexing_): 4 lunghezze d'onda (850, 880, 910, 940 nm) sulla prima finestra ottica sulla stessa fibra multimodale. Oltre il 90% dei link nei data center usa fibra MMF e laser VCSEL su distanze tipiche di 100 m.
-
----
-
 ## Fibre Channel
 
 **Fibre Channel (FC)** è un protocollo di rete ad alta velocità standardizzato dall'**ANSI (X3.230-1994)** per il trasporto di dati a blocchi nelle SAN, combinando le caratteristiche di un **canale hardware** (bassa latenza, alta affidabilità) con quelle di una **rete** (grandi distanze, ampia connettività).
@@ -232,7 +193,7 @@ I BB_Credit sono per-hop: in una fabric multi-switch esistono crediti separati s
 
 Un'operazione di lettura disco, ad esempio, è un Exchange composto da: sequenza SCSI Read Command (host->storage) + sequenza dati (storage->host) + sequenza Status (storage->host).
 
-## Topologie Fibre Channel
+### Topologie
 
 FC supporta tre topologie:
 
@@ -264,7 +225,7 @@ Il processo di login avviene in tre fasi successive prima che un host possa acce
 2. **PLOGI (Port Login)**: dopo FLOGI l'N_Port si registra nel **Name Server** della fabric (indirizzo `0xFFFFFC`), comunicando WWNN, WWPN, FCID, tipo di porta e classi di servizio; poi esegue PLOGI verso le N_Port target per scambiare parametri di servizio e stabilire la comunicazione peer-to-peer
 3. **PRLI (Process Login)**: stabilisce la comunicazione tra i layer FC-4 (es. SCSI) ai due estremi; initiator e target si accordano sul protocollo specifico (FCP per SCSI), abilitando il trasferimento effettivo di comandi I/O
 
-## Classi di Servizio FC
+### Classi di Servizio FC
 
 FC definisce tre classi di servizio principali:
 
@@ -279,22 +240,22 @@ FC definisce tre classi di servizio principali:
 
 **Class F** è riservata alla comunicazione intra-fabric tra switch (scambio di informazioni di controllo).
 
-## Zoning
+### Zoning
 
 Lo **zoning** è la partizione logica della fabric FC in sottoinsiemi per aumentare la sicurezza e semplificare la gestione:
 
 - Un dispositivo in una zona può comunicare **solo con altri dispositivi della stessa zona**; dispositivi in zone diverse sono completamente invisibili l'uno all'altro
 - Una porta può appartenere a più zone contemporaneamente
 
-### WWN Zoning (Soft Zoning)
+#### WWN Zoning (Soft Zoning)
 
 I membri della zona sono identificati dal loro **WWPN** (World Wide Port Name). Vantaggio: se una porta è difettosa si usa un'altra porta senza riconfigurare la fabric. Svantaggio: se l'HBA si guasta e viene sostituito (nuovo WWPN), la zona deve essere riconfigurata. Le best practice raccomandano di usare **WWPN** (non WWNN) per evitare conflitti di multipathing.
 
-### Port Zoning (Hard Zoning)
+#### Port Zoning (Hard Zoning)
 
 I membri sono identificati dalla **porta fisica dello switch** a cui sono connessi. Vantaggio: sicurezza più rigida, nessun accesso da porte non autorizzate. Svantaggio: se il dispositivo viene spostato su una porta diversa, perde l'accesso alla zona.
 
-## Velocità di Trasmissione Fibre Channel
+### Velocità di Trasmissione Fibre Channel
 
 Le generazioni FC si sono evolute raddoppiando la velocità ogni ciclo, cambiando anche la codifica a partire da 16GFC:
 
@@ -310,7 +271,7 @@ Le generazioni FC si sono evolute raddoppiando la velocità ogni ciclo, cambiand
 
 Da 128GFC in poi la singola lane seriale non basta e si usano **4 canali paralleli** in un modulo **QSFP** (Quad Small Form-factor Pluggable), ciascuno a 28 Gb/s, per raggiungere 100 Gb/s aggregati. I connettori MPO (Multi-fiber Push-On) supportano più fibre ottiche in un singolo connettore.
 
-## Servizi della Fabric FC
+### Servizi della Fabric FC
 
 La fabric FC distribuita offre tre servizi fondamentali:
 
