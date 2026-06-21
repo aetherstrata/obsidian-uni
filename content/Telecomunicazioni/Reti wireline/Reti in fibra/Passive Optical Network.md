@@ -290,7 +290,11 @@ Prima che un ONU possa trasmettere dati, deve eseguire un processo di attivazion
 | **Ranging**   | O4    | L'OLT misura il ritardo di propagazione e assegna l’**Equalization<br>Delay** e **ONU-ID**                                                                                                                                                                                                                |
 | **Operative** | O5    | L'ONU è attiva. Inizia lo scambio di dati e la configurazione **OMCI**.<br>L'OLT procede con il provisioning dei T-CONT e delle GEM port<br>tramite il canale **OMCI**.                                                                                                                                   |
 
-**Teqd** (_Equalization Delay_): valore numerico che l'ONU somma al proprio timestamp di trasmissione, garantendo che i burst di ONU a distanze diverse arrivino all'OLT in slot temporali perfettamente non sovrapposti.
+### Attivazione obbligatoria in XGS-PON
+
+In **GPON** l'autenticazione della ONU è opzionale e basata su un meccanismo semplice: durante l'attivazione la ONU può trasmettere una password in chiaro tramite un messaggio **PLOAM**. L'OLT confronta la password ricevuta con quella configurata nel proprio database di provisioning. Molti operatori non attivano questo meccanismo, affidandosi al solo **Serial Number** come identificatore.
+
+In **XGS-PON** l'autenticazione è obbligatoria: la ONU dimostra all'OLT di conoscere la Registration ID senza trasmetterla in chiaro, e il meccanismo previene sia l'accesso di ONU non autorizzate sia gli attacchi di replay. Una ONU che fallisce l'autenticazione viene bloccata con un timer di backoff esponenziale che previene attacchi di forza bruta.
 
 ---
 
