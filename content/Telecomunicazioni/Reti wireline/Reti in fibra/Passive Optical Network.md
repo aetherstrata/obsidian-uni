@@ -125,6 +125,28 @@ Due problemi tecnici critici dell'upstream in PON:
 
 2. **Ricevitore burst-mode**: Gli ONU più lontani trasmettono segnali più attenuati rispetto a quelli vicini. Il ricevitore OLT deve gestire frame con livelli di potenza molto diversi in sequenza rapida. Si usano ricevitori **burst-mode** che adattano automaticamente la soglia di decisione (AGC rapida) frame per frame.
 
+## Lunghezze d'Onda
+
+In una PON TDM classica si usano **due finestre ottiche** per separare i due sensi di trasmissione sulla stessa fibra:
+
+| Direzione                       | λ standard  | Finestra | Attenuazione fibra          |
+| ------------------------------- | ----------- | -------- | --------------------------- |
+| **Downstream** (OLT -> ONU)     | **1490 nm** | Terza    | ~0,24 dB/km                 |
+| **Upstream** (ONU -> OLT)       | **1310 nm** | Seconda  | ~0,34 dB/km                 |
+| **Video broadcast** (opzionale) | **1550 nm** | Terza    | riservato per TV RF overlay |
+
+La finestra a 1310 nm in upstream ha attenuazione leggermente maggiore rispetto a 1490 nm in downstream: ciò significa che il power budget upstream è più vincolante. Si stanno installando fibre **Zero Water Peak (ZWP, ITU G.652.D)** prive di ioni OH- per eliminare il picco di attenuazione intorno a 1383 nm, aprendo l'intera seconda finestra tra 1260 e 1625 nm per future espansioni.
+
+> [!tip] Perché non si Usa il WDM nelle PON Standard?
+>
+> Un concetto fondamentale da affrontare è il perché non assegnare a ogni utente una lunghezza d'onda diversa (WDM-PON puro), invece di condividere il tempo (TDM). La risposta è economica e logistica:
+>
+> - Se ogni utente avesse una $\lambda$ dedicata, l'ONU da installare a casa dovrebbe essere **specifico per quella λ**, richiedendo un catalogo di dispositivi diversi
+> - Se un ONU si guasta, l'operatore dovrebbe sostituirlo con uno che operi **esattamente sulla stessa λ**, complicando la gestione del magazzino
+> - Il TDM invece usa ONU **identici e intercambiabili**: tutti operano alla stessa lunghezza d'onda, semplificando enormemente la logistica e riducendo i costi
+>
+> Il **WDM viene invece usato** solo per separare downstream e upstream sulla stessa fibra (due $\lambda$ fisse) e, in NG-PON2, per aumentare la capacità aggregata dell'OLT con un numero limitato di $\lambda$ (4 o 8) gestite da transceiver sintonizzabili.
+
 ---
 
 ## Stack Protocollare GPON
@@ -296,38 +318,12 @@ In **GPON** l'autenticazione della ONU è opzionale e basata su un meccanismo se
 
 In **XGS-PON** l'autenticazione è obbligatoria: la ONU dimostra all'OLT di conoscere la Registration ID senza trasmetterla in chiaro, e il meccanismo previene sia l'accesso di ONU non autorizzate sia gli attacchi di replay. Una ONU che fallisce l'autenticazione viene bloccata con un timer di backoff esponenziale che previene attacchi di forza bruta.
 
----
-
-## Evoluzione degli Standard PON
-
-### Famiglia ITU-T (usata in Europa e Asia)
-
-| Standard    | ITU-T  | Downstream        | Upstream    | Split | Note                               |
-| ----------- | ------ | ----------------- | ----------- | ----- | ---------------------------------- |
-| **GPON**    | G.984  | 2,5 Gbit/s        | 1,25 Gbit/s | 1:128 | Standard attuale in Europa         |
-| **XG-PON1** | G.987  | 10 Gbit/s         | 2,5 Gbit/s  | 1:128 | Asimmetrico, transizione           |
-| **XGS-PON** | G.9807 | 10 Gbit/s         | 10 Gbit/s   | 1:128 | **Simmetrico**, in deployment 2024 |
-| **NG-PON2** | G.989  | 40 Gbit/s (4×10G) | 10 Gbit/s   | 1:256 | TWDM-PON, 4 λ WDM + TDM            |
-| **50G-PON** | G.9804 | 50 Gbit/s         | 50 Gbit/s   | 1:64  | Standard 2021, deployment ~2025    |
-
-**XGS-PON** (XG-PON Symmetric) è il successore diretto del GPON: opera a **10 Gbit/s simmetrici** su ogni $\lambda$. A differenza di XG-PON1 (asimmetrico 10/2.5G), la simmetria è motivata dall'evoluzione dei pattern di traffico degli utenti (upload di video, cloud, backup).
-
-### NG-PON2 - TWDM-PON
-
-**NG-PON2** (G.989) combina **TDM e WDM** (TWDM - Time and Wavelength Division Multiplexing): utilizza **4 lunghezze d'onda** in downstream (1596-1603 nm) e 4 in upstream (1524-1544 nm), ciascuna a 10 Gbit/s, per una capacità totale di **40 Gbit/s downstream e 10-40 Gbit/s upstream**. Ogni ONU è dotato di un **transceiver sintonizzabile** (tunable transceiver) in grado di selezionare la propria λ di lavoro, permettendo load balancing tra le lunghezze d'onda. Lo split ratio sale a 1:256 e la distanza massima a 40 km.
-
-### 50G-PON - La Prossima Generazione
-
-**50G-PON** (G.9804, standardizzato da ITU-T nel 2021) porta la velocità a **50 Gbit/s simmetrici per λ**. L'IEEE ha parallelamente standardizzato il **50G-EPON** (IEEE 802.3ca) con velocità di 25 e 50 Gbit/s. Le principali sfide tecniche sono la gestione del burst-mode a 50G e il power budget per lo splitter a 1:64.
-
----
-
 ## Power Budget e Range Budget
 
 Il **power budget** definisce la massima attenuazione tollerabile nel link ottico. Il calcolo si fa in dB:
 
 $$
-P*{budget} = P*{TX} - S*RX
+P\cdot{budget} = P\cdot{TX} - S\cdot{RX}
 $$
 
 dove $P*{TX}$​ è la potenza trasmessa (dBm) e $S*{RX}$​ è la sensitività del ricevitore (dBm, cioè la potenza minima per $\text{BER}\le10^{-9}$).
@@ -353,35 +349,77 @@ Il **range budget** determina la distanza massima raggiungibile: dal power budge
 
 ---
 
-## Lunghezze d'Onda nelle PON
+## Evoluzione degli Standard PON
 
-In una PON TDM classica si usano **due finestre ottiche** per separare i due sensi di trasmissione sulla stessa fibra:
+### Famiglia ITU-T (usata in Europa e Asia)
 
-| Direzione                       | λ standard  | Finestra      | Attenuazione fibra          |
-| ------------------------------- | ----------- | ------------- | --------------------------- |
-| **Downstream** (OLT -> ONU)     | **1490 nm** | Seconda/Terza | ~0,24 dB/km                 |
-| **Upstream** (ONU -> OLT)       | **1310 nm** | Seconda       | ~0,34 dB/km                 |
-| **Video broadcast** (opzionale) | **1550 nm** | Terza         | riservato per TV RF overlay |
+| Standard    | ITU-T  | Downstream        | Upstream    | Split | Note                               |
+| ----------- | ------ | ----------------- | ----------- | ----- | ---------------------------------- |
+| **GPON**    | G.984  | 2,5 Gbit/s        | 1,25 Gbit/s | 1:128 | Standard attuale in Europa         |
+| **XG-PON1** | G.987  | 10 Gbit/s         | 2,5 Gbit/s  | 1:128 | Asimmetrico, transizione           |
+| **XGS-PON** | G.9807 | 10 Gbit/s         | 10 Gbit/s   | 1:128 | **Simmetrico**, in deployment 2024 |
+| **NG-PON2** | G.989  | 40 Gbit/s (4×10G) | 10 Gbit/s   | 1:256 | TWDM-PON, 4 λ WDM + TDM            |
+| **50G-PON** | G.9804 | 50 Gbit/s         | 50 Gbit/s   | 1:64  | Standard 2021, deployment ~2025    |
 
-La finestra a 1310 nm in upstream ha attenuazione leggermente maggiore rispetto a 1490 nm in downstream: ciò significa che il power budget upstream è più vincolante. Si stanno installando fibre **Zero Water Peak (ZWP, ITU G.652.D)** prive di ioni OH- per eliminare il picco di attenuazione intorno a 1383 nm, aprendo l'intera seconda finestra tra 1260 e 1625 nm per future espansioni.
+**XGS-PON** (XG-PON Symmetric) è il successore diretto del GPON: opera a **10 Gbit/s simmetrici** su ogni $\lambda$. A differenza di XG-PON1 (asimmetrico 10/2.5G), la simmetria è motivata dall'evoluzione dei pattern di traffico degli utenti (upload di video, cloud, backup).
 
----
+### NG-PON2 - TWDM-PON
 
-## Perché Non si Usa il WDM nelle PON Standard?
+**NG-PON2** (G.989) combina **TDM e WDM** (TWDM - Time and Wavelength Division Multiplexing): utilizza **4 lunghezze d'onda** in downstream (1596-1603 nm) e 4 in upstream (1524-1544 nm), ciascuna a 10 Gbit/s, per una capacità totale di **40 Gbit/s downstream e 10-40 Gbit/s upstream**. Ogni ONU è dotato di un **transceiver sintonizzabile** (tunable transceiver) in grado di selezionare la propria λ di lavoro, permettendo load balancing tra le lunghezze d'onda. Lo split ratio sale a 1:256 e la distanza massima a 40 km.
 
-Una domanda fondamentale affrontata dal corso: perché non assegnare a ogni utente una lunghezza d'onda diversa (WDM-PON puro), invece di condividere il tempo (TDM)? La risposta è economica e logistica:
+### 50G-PON - La Prossima Generazione
 
-- Se ogni utente avesse una λ dedicata, l'ONU da installare a casa dovrebbe essere **specifico per quella λ**, richiedendo un catalogo di dispositivi diversi
-- Se un ONU si guasta, l'operatore dovrebbe sostituirlo con uno che operi **esattamente sulla stessa λ**, complicando la gestione del magazzino
-- Il TDM invece usa ONU **identici e intercambiabili**: tutti operano alla stessa lunghezza d'onda, semplificando enormemente la logistica e riducendo i costi
+**50G-PON** (G.9804, standardizzato da ITU-T nel 2021) porta la velocità a **50 Gbit/s simmetrici per λ**. L'IEEE ha parallelamente standardizzato il **50G-EPON** (IEEE 802.3ca) con velocità di 25 e 50 Gbit/s. Le principali sfide tecniche sono la gestione del burst-mode a 50G e il power budget per lo splitter a 1:64.
 
-Il **WDM viene invece usato** solo per separare downstream e upstream sulla stessa fibra (due λ fisse) e, in NG-PON2, per aumentare la capacità aggregata dell'OLT con un numero limitato di λ (4 o 8) gestite da transceiver sintonizzabili.
+## TWDM-PON
 
----
+**TWDM** (_Time and Wavelength Division Multiplexing_) è la tecnica di accesso al mezzo adottata da **NG-PON2** (ITU-T G.989), che combina la multiplazione temporale (TDM/TDMA), già vista in GPON, con la multiplazione in lunghezza d'onda (WDM), ottenendo un aumento di capacità aggregata di 4 o 8 volte rispetto a XGS-PON.
 
-## Panoramica Standard PON per Distanze e Fibre
+### Principio di Funzionamento
 
-Nelle reti di accesso si lavora principalmente in **seconda finestra ottica** (1260-1625 nm), dove l'attenuazione (0,24-0,34 dB/km) è accettabile per le distanze brevi tipiche dell'accesso (max 20 km). Le reti dorsali invece usano esclusivamente la **terza finestra** (1530-1625 nm) con attenuazione ≤ 0,2 dB/km per minimizzare le perdite sulle centinaia di chilometri.
+L'idea centrale del TWDM è semplice: invece di usare **una sola coppia di lunghezze d'onda** (downstream + upstream), si usano **N coppie di λ** simultaneamente sulla stessa fibra. Su ogni coppia di $\lambda$ si applica il normale TDM/TDMA tra gli ONU assegnati a quella coppia, esattamente come in GPON o XGS-PON.
+
+Il risultato è che la capacità totale della PON scala linearmente con il numero di coppie:
+
+$$
+C_{tot} = N_\lambda \times C_{\lambda}
+$$
+
+Per NG-PON2 con 4 lunghezze d'onda e 10 Gbit/s per λ:
+
+$$
+C_{tot} = 4 \times 10\,\text{Gbit/s} = 40\,\text{Gbit/s downstream},\quad 4 \times 2{,}5 \text{ o } 10\,\text{Gbit/s upstream}
+$$
+
+### Bande di Frequenza NG-PON2
+
+NG-PON2 utilizza la banda **L+** per il downstream e la banda **U** per l'upstream, scelte per garantire la **coesistenza** con le PON legacy (GPON a 1490/1310 nm, video overlay a 1550 nm) sulla stessa fibra senza filtri aggiuntivi:
+
+| Direzione      | Banda | Range λ      | N. canali | Spaziatura         |
+| -------------- | ----- | ------------ | --------- | ------------------ |
+| **Downstream** | L+    | 1596–1602 nm | 4 (o 8)   | ~0,8 nm (~100 GHz) |
+| **Upstream**   | U     | 1524–1544 nm | 4 (o 8)   | ~3,2 nm (~400 GHz) |
+
+La spaziatura in upstream è più ampia per tollerare la deriva termica dei [[Collegamenti in fibra ottica#Laser Fabry-Pérot|laser FP]] nei trasmettitori ONU, meno stabili dei [[Collegamenti in fibra ottica#Laser a feedback distribuito|laser DFB]] dell'OLT.
+
+### OLT in TWDM
+
+L'OLT TWDM contiene **N trasceiver indipendenti**, uno per ogni coppia di $\lambda$. Ciascun trasceiver gestisce la propria sotto-PON (un sottoinsieme degli ONU totali) con il proprio scheduler DBA, la propria BWmap e il proprio ciclo GTC a 125 µs. I N trasceiver sono accoppiati otticamente su un singolo connettore verso la fibra tramite un **MUX/DEMUX WDM** (Array Waveguide Grating, AWG) integrato nell'OLT.
+
+### ONU Sintonizzabile
+
+Il componente critico e distintivo di TWDM è il **transceiver sintonizzabile** nell'ONU. A differenza di GPON/XGS-PON dove ogni ONU ha un laser fisso, in TWDM-PON ogni ONU deve essere in grado di operare su qualsiasi delle N lunghezze d'onda disponibili.
+
+#### Componenti dell'ONU TWDM
+
+- **Laser sintonizzabile in trasmissione** (upstream): tipicamente un laser DS-DBR (Digitally Switched Distributed Bragg Reflector) o EAM-DFB sintonizzabile; cambia λ in pochi ms su comando dell'OLT
+- **Ricevitore a banda larga** (downstream): un fotodiodo con largo range spettrale (1596–1603 nm) abbinato a un filtro ottico sintonizzabile o a un array di fotodiodi
+
+#### Vantaggi dell'ONU sintonizzabile
+
+- **Load balancing**: l'OLT può spostare ONU da una $\lambda$ congestionata a una λ con meno traffico
+- **Protezione**: in caso di guasto a un trasceiver OLT, gli ONU sulla $\lambda$ guasta vengono migrati su un'altra $\lambda$ operativa → **protezione λ**
+- **Efficienza**: gli ONU rimangono fisicamente identici e intercambiabili (vantaggio chiave rispetto al WDM puro, già discusso per GPON)
 
 ---
 

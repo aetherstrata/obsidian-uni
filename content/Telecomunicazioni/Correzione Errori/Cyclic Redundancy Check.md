@@ -3,6 +3,8 @@ tags:
   - segnale
   - digitale
   - errori
+aliases:
+  - CRC
 ---
 
 Il _Cyclic Redundancy Check_ (**CRC**) è il metodo più diffuso ed efficiente al mondo per verificare l'integrità dei dati digitali. Viene impiegato in molti campi: dalle reti Ethernet e Wi-Fi (pacchetti TCP/IP), ai sistemi di archiviazione come hard disk e memorie flash, fino ai file compressi (.zip).
