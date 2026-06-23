@@ -205,14 +205,6 @@ Basandosi su questa informazione, il master decide se trasmettere un nuovo pacch
 - **Sniff**: ascolta ad intervalli fissi. Conserva l’**AM_ADDR**.
 - **Park**: periodicamente ascolta i beacon. Riceve il _Parked Member Address_ (**PAM_ADDR**) (8 bit).
 
-## Stack di Protocolli BT Classic
-
-Il Bluetooth Classic ha uno stack complesso, eredità del processo SIG multi-azienda:
-
-`[ Audio Apps | vCal/vCard | TCP/UDP Apps | Telephony | Management ]     |               |            |              |             |  [ OBEX ]    [ AT cmds ]  [ TCS-BIN ]   [ SDP ]         [ IP ]                    |                                      [ PPP/BNEP ]                    +---> [ RFCOMM (serial line interface) ] <--+                                    |                    [ L2CAP - Logical Link Control & Adaptation ]                                    |                    [ LMP - Link Manager Protocol ]                                    |                    [ HCI - Host Controller Interface ]                                    |                    [ Baseband / Radio ]`
-
-I livelli principali: **Baseband** (PHY + MAC), **LMP** (gestione link), **L2CAP** (multiplexing e segmentazione), **RFCOMM** (emulazione porte seriali), **SDP** (Service Discovery Protocol).
-
 ---
 
 ## Bluetooth Low Energy (BLE)
@@ -242,15 +234,23 @@ Dei 40 canali da 2 MHz ciascuno:
   - Ch. 38 -> 2426 MHz (tra Wi-Fi 6 e 11)
   - Ch. 39 -> 2480 MHz (fine banda ISM)
 
+![[Pasted image 20260623212847.png]]
+
 ### Modulazione BLE
 
 BLE usa **sempre e solo GFSK binaria** (nessuna ambiguità come nel Classic):
 
 - **LE 1M PHY** (1 Mb/s): deviazione frequenza ±185 kHz
 - **LE 2M PHY** (2 Mb/s): deviazione ±370 kHz - introdotto in BLE 5.0
-- **LE Coded PHY**: aggiunge FEC per aumentare il range a discapito del throughput:
+- **LE Coded PHY**: aggiunge [[Forward Error Correction|FEC]] per aumentare il range a discapito del throughput:
   - **S=2** -> 500 kb/s, distanza raddoppiata rispetto LE 1M
   - **S=8** -> 125 kb/s, distanza quadruplicata (fino a ~400 m)
+
+#### Formato Pacchetti BLE
+
+![[Pasted image 20260623215838.png]]
+
+Il preambolo più lungo serve per il sincronismo con il demodulatore [[Forward Error Correction|FEC]] a bassa velocità.
 
 ### Ruoli GAP dei Dispositivi
 
@@ -272,9 +272,11 @@ Il processo di advertising è la principale differenza rispetto al Classic - è 
 
 ### Connessione BLE e Parametri CONNECT_IND
 
-Quando il Central decide di connettersi, attende il successivo pacchetto ADV dalla periferica, poi - dopo esattamente **150 μs (IFS, Inter Frame Spacing)** - invia sullo stesso canale RF un pacchetto **CONNECT_IND** con i parametri di connessione:
+Quando il Central decide di connettersi, attende il successivo pacchetto ADV dalla periferica, poi, dopo esattamente **150 μs** (**IFS**, _Inter Frame Spacing_), invia sullo stesso canale RF un pacchetto **CONNECT_IND** con i parametri di connessione:
 
 **Struttura del payload CONNECT_IND (LLData):**
+
+![[Pasted image 20260623220502.png]]
 
 | Campo               | Dimensione | Descrizione                                                                           |
 | ------------------- | ---------- | ------------------------------------------------------------------------------------- |
@@ -298,27 +300,18 @@ Il grande vantaggio di BLE è il ciclo **trasmetti -> dormi -> svegliati**:
 - Il dispositivo si sveglia ogni **Connection Interval (CI)** per scambiare dati, poi torna in **sleep mode**
 - Se non ci sono dati, invia un **pacchetto vuoto** (10 byte) per confermare la connessione
 - Il **IFS = 150 μs** è fisso e separato tra pacchetto TX e pacchetto RX
-- La frequenza cambia ogni CI secondo l'algoritmo AFH per BLE:
-  $$
-  f_{k+1} = (f_k + h) \bmod 37
-  $$
-  dove $h$ è l'**hop increment**, valore costante negoziato durante il CONNECT_IND. La frequenza può variare da 133 volte/s (CI minimo = 7,5 ms) fino a 1 volta ogni 4 s.
 
-### Formato Pacchetti BLE
+![[Pasted image 20260623214524.png]]
 
-**LE Uncoded PHY (1M o 2M):**
+La frequenza cambia ogni CI secondo l'algoritmo AFH per BLE:
 
-text
+$$
+f_{k+1} = (f_k + h) \bmod 37
+$$
 
-`| Preamble (1-2 byte) | Access Address (4 byte) | PDU (2-258 byte) | CRC (3 byte) |`
+dove $h$ è l'**hop increment**, valore costante negoziato durante il CONNECT_IND. La frequenza può variare da 133 volte/s (CI minimo = 7,5 ms) fino a 1 volta ogni 4 s.
 
-**LE Coded PHY (per range esteso):**
-
-text
-
-`| Preamble (10 byte) | AA (4b) | CI (2b) | Term1 (3b) | PDU | CRC (24b) | Term2 (3b) |`
-
-Il preambolo più lungo serve per il sincronismo con il demodulatore FEC a bassa velocità.
+![[Pasted image 20260623215537.png]]
 
 ### ARQ in BLE - Sequence Number Alternato
 
@@ -327,15 +320,11 @@ Il meccanismo ARQ BLE usa due flag nell'header del PDU:
 - **SN (Sequence Number)**: alterna tra 0 e 1 ad ogni nuovo pacchetto
 - **NESN (Next Expected Sequence Number)**: il ricevitore risponde con NESN = NOT(SN ricevuto) se il pacchetto è OK
 
-Esempio: dispositivo A invia SN=0 -> B risponde NESN=1 (ACK implicito) -> A invia SN=1 -> B risponde NESN=0 -> ...
+![[Pasted image 20260623214742.png]]
 
 ---
 
 ## Stack di Protocolli BLE
-
-L'architettura BLE è molto più snella rispetto al Classic, progettata a strati chiari:
-
-`┌─────────────────────────────────────────┐ │              APPLICATIONS               │ ├─────────────────────────────────────────┤  HOST │       Generic Access Profile (GAP)      │ │      Generic Attribute Profile (GATT)   │ │  Attribute Protocol (ATT) | Sec. Manager│ │   L2CAP (Logical Link Control & Adapt.) │ │     Host Controller Interface (HCI)     │ ├─────────────────────────────────────────┤  CONTROLLER │    Link Layer | Direct Test Mode        │ │          Physical Layer (PHY)           │ └─────────────────────────────────────────┘`
 
 ### Generic Access Profile (GAP)
 
@@ -351,24 +340,29 @@ Il **GAP** è il protocollo che governa come i dispositivi si "trovano" e si con
 
 Il **GATT** definisce come i dati sono organizzati e scambiati tra dispositivi connessi, tramite il protocollo **ATT (Attribute Protocol)**:
 
-**Gerarchia:**
+#### Gerarchia
 
-`PROFILE   └── SERVICE (UUID 16-bit o 128-bit)        └── CHARACTERISTIC (UUID)              ├── Value (i dati veri)              └── Descriptor (metadati)`
+- **Profile**: Raccolta predefinita di servizi, compilata da Bluetooth SIG.
+- **Service**: Set di caratteristiche.
+- **Characteristic**: Rappresenta un singolo punto dati. Viene indicato con uno **UUID** a **16 bit** espresso in esadecimale.
+
+#### Attori
 
 - **GATT Server**: il dispositivo che espone i dati (es. sensore, auricolare) -> Peripheral
 - **GATT Client**: il dispositivo che legge/scrive i dati (es. smartphone) -> Central
 
 **Operazioni GATT**: Read, Write, Notify, Indicate, Write Without Response
 
-**Esempi di servizi standard (UUID assegnati da Bluetooth SIG):**
-
-| Service                       | UUID     | Caratteristica                  | Formato               |
-| ----------------------------- | -------- | ------------------------------- | --------------------- |
-| Environmental Sensing Service | `0x181A` | Temperature `0x2A1C`            | 16 bit, unità 0,01 °C |
-| ESS                           | `0x181A` | Humidity `0x2A6F`               | 16 bit, unità 0,01%   |
-| ESS                           | `0x181A` | Pressure `0x2A6D`               | 32 bit, unità 0,1 Pa  |
-| Heart Rate Service            | `0x180D` | Heart Rate Measurement `0x2A37` | 1-2 byte, BPM         |
-| Battery Service               | `0x180F` | Battery Level `0x2A19`          | 1 byte, % (0-100)     |
+> [!example] Esempi di servizi standard
+> Questo è un elenco di servizi e caratteristiche con UUID assegnati da Bluetooth SIG:
+>
+> | Service                       | UUID     | Caratteristica                  | Formato               |
+> | ----------------------------- | -------- | ------------------------------- | --------------------- |
+> | Environmental Sensing Service | `0x181A` | Temperature `0x2A1C`            | 16 bit, unità 0,01 °C |
+> | ESS                           | `0x181A` | Humidity `0x2A6F`               | 16 bit, unità 0,01%   |
+> | ESS                           | `0x181A` | Pressure `0x2A6D`               | 32 bit, unità 0,1 Pa  |
+> | Heart Rate Service            | `0x180D` | Heart Rate Measurement `0x2A37` | 1-2 byte, BPM         |
+> | Battery Service               | `0x180F` | Battery Level `0x2A19`          | 1 byte, % (0-100)     |
 
 ---
 
