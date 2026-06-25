@@ -3,6 +3,8 @@ tags:
   - modulazione
   - segnale
   - digitale
+aliases:
+  - QAM
 ---
 
 La modulazione di ampiezza in quadratura, anche detta **QAM**, trasmette il segnale in ingresso distribuendolo su due portanti alla stessa frequenza ma sfasate di $90^\circ$, un coseno e un seno, e modulando le loro ampiezze.

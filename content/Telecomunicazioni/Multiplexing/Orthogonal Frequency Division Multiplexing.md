@@ -4,6 +4,8 @@ tags:
   - segnale
   - digitale
   - physical
+aliases:
+  - OFDM
 ---
 
 L'_Orthogonal Frequency Division Multiplexing_ (**OFDM**) ha rivoluzionato il panorama delle telecomunicazioni (è la base di [[Sistemi mobile#4G - LTE (Long Term Evolution)|4G]], [[5G]], Wi-Fi moderno e [[Discrete Multi Tone|ADSL]]) per rimediare all'inefficienza dello spettro del vecchio [[Frequency Division Multiplexing|FDM]].

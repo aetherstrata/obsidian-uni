@@ -182,6 +182,10 @@ dove $\mathbf{H}$ è la matrice del canale di dimensioni $N_R \times N_T$​, og
 
 Il medesimo segnale viene trasmesso da tutte le antenne con sfasamenti calibrati, in modo che i fasci si sommino costruttivamente nella direzione del ricevitore. Risultato: massimizzazione della potenza ricevuta e riduzione del multipath fading. Richiede CSI al trasmettitore.
 
+![[Pasted image 20260625210536.png]]
+
+![[Pasted image 20260625210915.png]]
+
 #### Spatial Multiplexing
 
 Un flusso ad alta velocità viene diviso in $\min(N_T, N_R)$ flussi paralleli, ognuno trasmesso da un'antenna diversa nello **stesso canale in frequenza**. La capacità di canale scala come:
@@ -194,7 +198,7 @@ Il ricevitore separa i flussi se arrivano da direzioni sufficientemente diverse.
 
 #### Diversity Coding
 
-Lo stesso dato viene trasmesso su più antenne in modo ridondante. Non aumenta il throughput, ma riduce drasticamente la probabilità di errore: con ordine di diversità **d**:
+Lo stesso dato viene trasmesso su più antenne in modo ridondante. Non aumenta il throughput, ma riduce drasticamente la probabilità di errore $P_e$ : con ordine di diversità **d**:
 
 $$
 P_e \propto \text{SNR}^{-d}, \quad d_{\max} = N_T \cdot N_R
