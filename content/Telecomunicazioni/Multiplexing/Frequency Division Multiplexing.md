@@ -14,7 +14,19 @@ Nel _Frequency Division Multiplexing_ (**FDM**) tutti gli utenti trasmettono nel
 
 ### Suddivisione dello Spettro
 
-La banda totale disponibile $B$ viene divisa in $N$ canali, ciascuno di larghezza $B_c$: $$ B*c = \frac{B}{N} $$ Ogni sorgente informativa (utente, stazione) viene traslata in frequenza tramite un **modulatore** che sposta il segnale in banda base sulla propria sottobanda assegnata. Il segnale composito trasmesso è la somma di tutti i canali modulati: $$ s(t) = \sum*{i=1}^{N} m_i(t) \cdot \cos(2\pi f_i t) $$ dove $m_i(t)$ è il segnale in banda base dell'utente $i$ e $f_i$ è la frequenza portante del canale $i$. In ricezione, un banco di **filtri passa-banda** seleziona ciascuna sottobanda separatamente, dopodiché il segnale viene demodulato per recuperare il segnale originale in banda base.
+La banda totale disponibile $B$ viene divisa in $N$ canali, ciascuno di larghezza $B_c$:
+
+$$
+B_c = \frac{B}{N}
+$$
+
+Ogni sorgente informativa (utente, stazione) viene traslata in frequenza tramite un **modulatore** che sposta il segnale in banda base sulla propria sottobanda assegnata. Il segnale composito trasmesso è la somma di tutti i canali modulati:
+
+$$
+s(t) = \sum_{i=1}^{N} m_i(t) \cdot \cos(2\pi f_i t)
+$$
+
+dove $m_i(t)$ è il segnale in banda base dell'utente $i$ e $f_i$ è la frequenza portante del canale $i$. In ricezione, un banco di **filtri passa-banda** seleziona ciascuna sottobanda separatamente, dopodiché il segnale viene demodulato per recuperare il segnale originale in banda base.
 
 ### Guard Band
 
@@ -22,7 +34,13 @@ I filtri elettronici reali non tagliano le frequenze in modo netto: la risposta 
 
 Per evitare che il segnale di un canale trabocchi nel canale adiacente (_Inter-Channel Interference_, **ICI**), tra una sottobanda e l'altra vengono inserite delle **bande di guardia** (_guard band_) vuote.
 
-Questo ha un costo diretto in efficienza spettrale: se ogni canale ha larghezza $B_c$ e la guard band ha larghezza $B_g$, la banda effettivamente occupata per $N$ canali è: $$ B\_{tot} = N \cdot B_c + (N-1) \cdot B_g $$ La frazione di spettro sprecata in guard band può arrivare al **25-30%** della banda totale nei sistemi analogici.
+Questo ha un costo diretto in efficienza spettrale: se ogni canale ha larghezza $B_c$ e la guard band ha larghezza $B_g$, la banda effettivamente occupata per $N$ canali è:
+
+$$
+B\_{tot} = N \cdot B_c + (N-1) \cdot B_g
+$$
+
+La frazione di spettro sprecata in guard band può arrivare al **25-30%** della banda totale nei sistemi analogici.
 
 > [!example] Esempio - Radio FM
 > In Europa, le stazioni radio FM occupano la banda 87.5-108 MHz. Ogni stazione ha un canale da 200 kHz, di cui ~150 kHz sono effettivamente utili e i restanti 50 kHz fungono da guard band rispetto alle stazioni adiacenti.
